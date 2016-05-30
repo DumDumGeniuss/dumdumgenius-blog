@@ -1,8 +1,13 @@
-import React from 'react';
-import  ReactDOM from 'react-dom';
-import IndexScss from '../scss/index.scss';
-import Layout from './layout/Layout.js'
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Welcome = require('./pages/Welcome.js');
+var { Router, Route, IndexRoute, hashHistory } = require('react-router');
 
 const app = document.getElementById('app');
 
-ReactDOM.render(<Layout />, app);
+ReactDOM.render(
+	<Router history={hashHistory}>
+	    <Route path="/" component={Welcome}>
+	    </Route>
+	</Router>
+, app);

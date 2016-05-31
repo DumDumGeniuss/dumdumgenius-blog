@@ -10,7 +10,7 @@ var Footer = React.createClass({
             backgroundColor: "black",
             color: "white",
             textAlign: "center",
-            fontFamily: "cursive",
+            fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
             lineHeight: "50px",
             fontSize: "1em"
         }
@@ -18,7 +18,7 @@ var Footer = React.createClass({
 	render: function() {
 		return (
 			<footer style={this.styles.footer}>
-			    Corporate DumDumGenius 2015
+			    Copyright DumDumGenius 2015
 			</footer>
 		);
 	}

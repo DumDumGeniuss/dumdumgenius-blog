@@ -7,13 +7,18 @@ var Footer = React.createClass({
             width: "100%",
             bottom: "0px",
             height: "50px",
-            backgroundColor: "#42ABC4"
+            backgroundColor: "black",
+            color: "white",
+            textAlign: "center",
+            fontFamily: "cursive",
+            lineHeight: "50px",
+            fontSize: "1em"
         }
 	},
 	render: function() {
 		return (
 			<footer style={this.styles.footer}>
-			    It's Footer
+			    Corporate DumDumGenius 2015
 			</footer>
 		);
 	}

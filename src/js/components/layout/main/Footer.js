@@ -3,9 +3,7 @@ var React = require('react');
 var Footer = React.createClass({
 	styles: {
         footer: {
-            position: "fixed",
             width: "100%",
-            bottom: "0px",
             height: "50px",
             backgroundColor: "black",
             color: "white",
@@ -18,7 +16,7 @@ var Footer = React.createClass({
 	render: function() {
 		return (
 			<footer style={this.styles.footer}>
-			    Copyright DumDumGenius 2015
+			    Copyright © DumDumGenius 2016
 			</footer>
 		);
 	}

@@ -67,7 +67,10 @@ var styles = {
     	borderRadius: "10px",
     },
     inlineParagraph: {
-        display: "inline-block"
+        display: "inline-block",
+        backgroundColor: "rgba(128, 128, 128, 0.52)",
+        padding: "10px",
+        borderRadius: "10px"
     },
     middleAlign: {
         verticalAlign: "middle"
@@ -146,11 +149,11 @@ var AboutMe = React.createClass({
                     <div>
 			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Java.png"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
-                            <span style={this.styles.textInParagraph}>Java, 2-years experience</span>
+                            <span style={this.styles.textInParagraph}>Java:</span>
                             <br/>
                             <span style={this.styles.textInParagraph}>Develop web application with Spring , Hibernate</span>
                             <br/>
-                            <span style={this.styles.textInParagraph}>Familiar with Java Design Patter , server side application</span>
+                            <span style={this.styles.textInParagraph}>Familiar with Java Design Patter and server side Java design</span>
                             <br/>
                             <span style={this.styles.textInParagraph}>Data Structure in Java</span>
                         </p>
@@ -158,15 +161,21 @@ var AboutMe = React.createClass({
                     <div>
 			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/javaScript.png"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
-                            <span style={this.styles.textInParagraph}>Java, 2-years experience</span>
+                            <span style={this.styles.textInParagraph}>JavaScript:</span>
                             <br/>
-                            <span style={this.styles.textInParagraph}>Develop web application with Spring , Hibernate</span>
+                            <span style={this.styles.textInParagraph}>React ( on this blog ) , Angular</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Beautiful coding style on JS</span>
                         </p>
                     </div>
                     <div>
 			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Ruby.png"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
-                            <span style={this.styles.textInParagraph}>hello</span>
+                            <span style={this.styles.textInParagraph}>Ruby:</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Well knowledge on Ruby On Rails</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Solved 50+ problems with Ruby on Leetcode</span>
                         </p>
                     </div>
 			    </HideBox>

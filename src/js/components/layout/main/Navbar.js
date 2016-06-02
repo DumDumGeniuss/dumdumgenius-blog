@@ -89,30 +89,53 @@ var Navbar = React.createClass({
 	getInitialState: function() {
 		return {
             scrollTop: 0,
+            navbarClass: this.styles.backgroundArea,
+            backgroundAreaClass: this.styles.backgroundArea
 		};
 	},
 	componentDidMount: function() {
         window.addEventListener('scroll', this.handleScroll);
-        window.addEventListener('resize', this.handleResize);
     },
     
     componentWillUnmount: function() {
         window.addEventListener('scroll', this.handleScroll);
-        window.addEventListener('resize', this.handleResize);
     },
     componentWillUnmount: function() {
         window.removeEventListener('scroll', this.handleScroll);
-        window.removeEventListener('resize', this.handleResize);
     },
     handleScroll: function(event) {
         this.setState({
             scrollTop: event.srcElement.body.scrollTop
         });
+
+        if(this.state.scrollTop<300) {
+            if(this.state.navbarClass !== this.styles.navbar) {
+                this.setState({
+                    navbarClass: this.styles.navbar
+                });
+            }
+            if(this.state.backgroundAreaClass !== this.styles.backgroundArea) {
+                this.setState({
+                    backgroundAreaClass: this.styles.backgroundArea
+                });
+            }
+        }else if(this.state.scrollTop>300) {
+            if(this.state.navbarClass !== this.styles.navbarFixed) {
+                this.setState({
+                    navbarClass: this.styles.navbarFixed
+                });
+            }
+            if(this.state.backgroundAreaClass !== this.styles.backgroundAreaHigh) {
+                this.setState({
+                    backgroundAreaClass: this.styles.backgroundAreaHigh
+                });
+            }
+        }
     },
 	render: function() {
 		return (
 			<div>
-			    <div style={this.state.scrollTop<300?this.styles.backgroundArea:this.styles.backgroundAreaHigh}>
+			    <div style={this.state.backgroundAreaClass}>
 			        <div style={this.styles.mainBackground}>
 			        </div>
 			        <div style={this.styles.textArea}>
@@ -122,7 +145,7 @@ var Navbar = React.createClass({
 			        <div style={this.styles.blockBackground}>
 			        </div>
 			    </div>
-			    <nav style={this.state.scrollTop<300?this.styles.navbar:this.styles.navbarFixed}>
+			    <nav style={this.state.navbarClass}>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Masterpieces</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>

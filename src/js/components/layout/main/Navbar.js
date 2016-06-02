@@ -17,7 +17,7 @@ var styles = {
         width: "100%",
         height: "300px",
         overflow: "hidden",
-        //backgroundImage: "url(./images/welcomeBackground2.png)",
+        backgroundImage: "url(./images/welcomeBackground2.png)",
         position: "absolute",
         zIndex: "0"
 	},

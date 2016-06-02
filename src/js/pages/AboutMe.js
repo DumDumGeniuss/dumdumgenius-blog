@@ -49,6 +49,10 @@ var styles = {
     inlineLogo: {
     	width: "110px",
     	height: "110px",
+        '@media (max-width: 800px)': {
+            display: "block",
+            margin: "0px auto"
+        },
     },
     photoBox: {
     	display: "block",
@@ -61,6 +65,21 @@ var styles = {
     photo: {
     	width: "100%",
     	borderRadius: "10px",
+    },
+    inlineParagraph: {
+        display: "inline-block"
+    },
+    middleAlign: {
+        verticalAlign: "middle"
+    },
+    textInParagraph: {
+        display: "inline-block",
+        color: "white",
+        fontSize: "1em",
+        lineHeight: "20px",
+        '@media (max-width: 800px)': {
+            padding: "10px 0px"
+        },
     }
 }
 
@@ -90,8 +109,8 @@ var AboutMe = React.createClass({
 		return (
 			<div style={this.styles.mainArea}>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Profile</span>
+			    <div style={this.styles.separateLine}></div>
 			    <HideBox width="100%">
-			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>1991/04/15 ( 25y )</span>
 			        <div style={this.styles.photoBox}>
@@ -108,8 +127,8 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Languages</span>
+			    <div style={this.styles.separateLine}></div>
 			    <HideBox width="100%">
-			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Chinese（ 中文 ）</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Fluent English ( TOEIC 835 )</span>
 			        <div style={this.styles.photoBox}>
@@ -121,12 +140,35 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
+			    <div style={this.styles.separateLine}></div>
 			    <HideBox width="60%">
-			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
-			        <img style={this.styles.inlineLogo} src={"./images/java.png"}></img>
-			        <img style={this.styles.inlineLogo} src={"./images/javaScript.png"}></img>
-			        <img style={this.styles.inlineLogo} src={"./images/Ruby.png"}></img>
+                    <div>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Java.png"}></img>
+                        <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
+                            <span style={this.styles.textInParagraph}>Java, 2-years experience</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Develop web application with Spring , Hibernate</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Familiar with Java Design Patter , server side application</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Data Structure in Java</span>
+                        </p>
+                    </div>
+                    <div>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/javaScript.png"}></img>
+                        <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
+                            <span style={this.styles.textInParagraph}>Java, 2-years experience</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Develop web application with Spring , Hibernate</span>
+                        </p>
+                    </div>
+                    <div>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Ruby.png"}></img>
+                        <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
+                            <span style={this.styles.textInParagraph}>hello</span>
+                        </p>
+                    </div>
 			    </HideBox>
 			</div>
 		)

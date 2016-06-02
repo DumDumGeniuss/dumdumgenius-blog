@@ -17,7 +17,7 @@ var styles = {
         width: "100%",
         height: "300px",
         overflow: "hidden",
-        backgroundImage: "url(./images/welcomeBackground2.png)",
+        //backgroundImage: "url(./images/welcomeBackground2.png)",
         position: "absolute",
         zIndex: "0"
 	},
@@ -93,17 +93,20 @@ var Navbar = React.createClass({
 	},
 	componentDidMount: function() {
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
     },
     
     componentWillUnmount: function() {
-        window.removeEventListener('scroll', this.handleScroll);
+        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
     },
-    
+    componentWillUnmount: function() {
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
+    },
     handleScroll: function(event) {
-        var scrollTop = event.srcElement.body.scrollTop;
-    
         this.setState({
-            scrollTop: scrollTop
+            scrollTop: event.srcElement.body.scrollTop
         });
     },
 	render: function() {

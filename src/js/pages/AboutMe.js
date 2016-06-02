@@ -1,65 +1,91 @@
 var React = require('react');
+var Radium = require('radium');
 var HideBox = require('../components/box/HideBox.js');
 
+var styles = {
+    mainArea: {
+    	display: "block",
+        width: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.78)"
+    },
+    titleWordBig: {
+    	display: "block",
+    	color: "white",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+    	fontSize: "3em",
+    	padding: "15px 0px 15px 0px"
+    },
+    centerAlign: {
+    	textAlign: "center"
+    },
+    separateLine: {
+    	display: "block",
+    	width: "60%",
+    	margin: "0px auto",
+    	border: "1px solid white"
+    },
+    contentText: {
+    	display: "block",
+    	padding: "10px 0px 0px 0px",
+    	color: "white",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+    	fontSize: "1.2em"
+    },
+    logoBox: {
+    	display: "block",
+    	margin: "10px auto",
+    	width: "140px",
+    	height: "140px",
+    	padding: "10px",
+    	backgroundColor: "rgba(255, 255, 255, 0.28)",
+        borderRadius: "140px"
+    },
+    logo: {
+    	display: "inline-block",
+    	width: "110px",
+    	height: "110px",
+    	padding: "15px"
+    },
+    inlineLogo: {
+    	width: "110px",
+    	height: "110px",
+    },
+    photoBox: {
+    	display: "block",
+    	margin: "10px auto",
+    	width: "350px",
+    	'@media (max-width: 650px)': {
+    	    width: "90%",
+        },
+    },
+    photo: {
+    	width: "100%",
+    	borderRadius: "10px",
+    }
+}
+
 var AboutMe = React.createClass({
-	styles: {
-        mainArea: {
-        	display: "block",
-            width: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.78)"
-        },
-        titleWordBig: {
-        	display: "block",
-        	color: "white",
-            fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-        	fontSize: "3em",
-        	padding: "15px 0px 15px 0px"
-        },
-        centerAlign: {
-        	textAlign: "center"
-        },
-        separateLine: {
-        	display: "block",
-        	width: "60%",
-        	margin: "0px auto",
-        	border: "1px solid white"
-        },
-        contentText: {
-        	display: "block",
-        	padding: "10px 0px 0px 0px",
-        	color: "white",
-            fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-        	fontSize: "1.2em"
-        },
-        logoBox: {
-        	display: "block",
-        	margin: "10px auto",
-        	width: "140px",
-        	height: "140px",
-        	padding: "10px",
-        	backgroundColor: "rgba(255, 255, 255, 0.28)",
-            borderRadius: "140px"
-        },
-        logo: {
-        	display: "inline-block",
-        	width: "110px",
-        	height: "110px",
-        	padding: "15px"
-        },
-        inlineLogo: {
-        	width: "110px",
-        	height: "110px",
-        },
-        photoBox: {
-        	display: "block",
-        	margin: "10px auto",
-        	width: "350px",
-        },
-        photo: {
-        	width: "100%",
-        	borderRadius: "10px",
-        }
+	styles: styles,
+	getInitialState: function() {
+		return {
+            resizeWidth: 0
+		};
 	},
+	// componentDidMount: function() {
+ //        window.addEventListener('resize', this.handleResize);
+ //    },
+    
+ //    componentWillUnmount: function() {
+ //        window.addEventListener('resize', this.handleResize);
+ //    },
+ //    componentWillUnmount: function() {
+ //        window.removeEventListener('resize', this.handleResize);
+ //    },
+ //    handleResize: function(event) {
+ //        this.setState({
+ //            resizeWidth: event.srcElement.window.innerWidth
+ //        });
+ //    },
 	render: function() {
 		return (
 			<div style={this.styles.mainArea}>
@@ -95,7 +121,7 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
-			    <HideBox width="100%">
+			    <HideBox width="60%">
 			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
 			        <img style={this.styles.inlineLogo} src={"./images/java.png"}></img>
@@ -107,4 +133,4 @@ var AboutMe = React.createClass({
 	}
 });
 
-module.exports = AboutMe;
+module.exports = Radium(AboutMe);

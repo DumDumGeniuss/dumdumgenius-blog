@@ -184,6 +184,16 @@ var AboutMe = React.createClass({
                             <span style={this.styles.textInParagraph}>Solved 50+ problems with Ruby on Leetcode</span>
                         </p>
                     </div>
+                    <div>
+                        <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Css3.png"}></img>
+                        <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
+                            <span style={this.styles.textInParagraph}>CSS3:</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Freakingly awesome UI designer</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>Artist out of engineers</span>
+                        </p>
+                    </div>
 			    </HideBox>
                 <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Contact Me</span>
                 <div style={this.styles.separateLine}></div>

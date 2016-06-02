@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var AboutMe = require('./pages/AboutMe.js');
+var Demo = require('./pages/Demo.js');
 var { Router, Route, IndexRoute, hashHistory } = require('react-router');
 var Layout = require('./components/layout/main/Layout.js');
 
@@ -11,6 +12,8 @@ ReactDOM.render(
 	    <Route path="/" component={Layout}>
 	        <IndexRoute component={AboutMe}>
 	        </IndexRoute>
+	        <Route path="demo" component={Demo}>
+	        </Route>
 	    </Route>
 	</Router>
 , app);

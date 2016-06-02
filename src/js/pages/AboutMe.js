@@ -20,7 +20,7 @@ var AboutMe = React.createClass({
         },
         separateLine: {
         	display: "block",
-        	width: "100%",
+        	width: "60%",
         	margin: "0px auto",
         	border: "1px solid white"
         },
@@ -64,7 +64,7 @@ var AboutMe = React.createClass({
 		return (
 			<div style={this.styles.mainArea}>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Profile</span>
-			    <HideBox width="60%">
+			    <HideBox width="100%">
 			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>1991/04/15 ( 25y )</span>
@@ -82,7 +82,7 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Languages</span>
-			    <HideBox width="60%">
+			    <HideBox width="100%">
 			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Chinese（ 中文 ）</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Fluent English ( TOEIC 835 )</span>
@@ -95,7 +95,7 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
-			    <HideBox width="60%">
+			    <HideBox width="100%">
 			        <div style={this.styles.separateLine}></div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
 			        <img style={this.styles.inlineLogo} src={"./images/java.png"}></img>

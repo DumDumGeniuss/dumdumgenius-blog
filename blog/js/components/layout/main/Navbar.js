@@ -2,6 +2,10 @@ var Radium = require('radium');
 var React = require('react');
 var {Link} = require('react-router');
 var RadiumLink = Radium(Link); //Awesome!!
+var Facebook = require('react-icons/lib/fa/facebook');
+var Github = require('react-icons/lib/fa/github');
+var Twitter = require('react-icons/lib/fa/twitter');
+var Google = require('react-icons/lib/fa/google');
 
 var styles = {
 	backgroundArea: {
@@ -54,6 +58,28 @@ var styles = {
         lineHeight: "300px",
         wordWrap: "break-word"
 	},
+    logoArea: {
+        position: "absolute",
+        top: "240px",
+        right: "30px",
+        display: "block",
+        width: "172px",
+        margin: "0px auto",
+        '@media (max-width: 800px)': {
+            right: "calc(50% - 86px)",
+        },
+    },
+    faIcon: {
+        color: "white",
+        fontSize: "34px",
+        padding: "4px",
+        margin: "4px",
+        display: "inline-block",
+        height: "35px",
+        width: "35px",
+        border: "1px solid white",
+        borderRadius: "35px"
+    },
 	navbar: {
         textAlign: "center",
         left: "0px",
@@ -89,7 +115,7 @@ var Navbar = React.createClass({
 	getInitialState: function() {
 		return {
             scrollTop: 0,
-            navbarClass: this.styles.backgroundArea,
+            navbarClass: this.styles.navbar,
             backgroundAreaClass: this.styles.backgroundArea
 		};
 	},
@@ -141,6 +167,12 @@ var Navbar = React.createClass({
 			        <div style={this.styles.textArea}>
 			            <span style={this.styles.logoText}>DumDumGenius</span>
 			            <span style={this.styles.centerText}>Fullstack Developer</span>
+                        <div style={this.styles.logoArea}>
+                            <Facebook style={this.styles.faIcon}/>
+                            <Github style={this.styles.faIcon}/>
+                            <Twitter style={this.styles.faIcon}/>
+                            <Google style={this.styles.faIcon}/>
+                        </div>
 			        </div>
 			        <div style={this.styles.blockBackground}>
 			        </div>

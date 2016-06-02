@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var HideBox = require('../components/box/HideBox.js');
+var Facebook = require('react-icons/lib/fa/facebook');
 
 var styles = {
     mainArea: {
@@ -42,9 +43,9 @@ var styles = {
     },
     logo: {
     	display: "inline-block",
-    	width: "110px",
-    	height: "110px",
-    	padding: "15px"
+    	width: "120px",
+    	height: "120px",
+        padding: "10px"
     },
     inlineLogo: {
     	width: "110px",
@@ -83,6 +84,9 @@ var styles = {
         '@media (max-width: 800px)': {
             padding: "10px 0px"
         },
+    },
+    faIcon: {
+
     }
 }
 
@@ -153,7 +157,7 @@ var AboutMe = React.createClass({
                             <br/>
                             <span style={this.styles.textInParagraph}>Develop web application with Spring , Hibernate</span>
                             <br/>
-                            <span style={this.styles.textInParagraph}>Familiar with Java Design Patter and server side Java design</span>
+                            <span style={this.styles.textInParagraph}>Familiar with Java Design Pattern and server side Java design</span>
                             <br/>
                             <span style={this.styles.textInParagraph}>Data Structure in Java</span>
                         </p>
@@ -166,6 +170,8 @@ var AboutMe = React.createClass({
                             <span style={this.styles.textInParagraph}>React ( on this blog ) , Angular</span>
                             <br/>
                             <span style={this.styles.textInParagraph}>Beautiful coding style on JS</span>
+                            <br/>
+                            <span style={this.styles.textInParagraph}>It's my favorite language now!</span>
                         </p>
                     </div>
                     <div>
@@ -179,6 +185,14 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
 			    </HideBox>
+                <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Contact Me</span>
+                <div style={this.styles.separateLine}></div>
+                <HideBox width="100%">
+                    <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>dumdumgenius@gmail.com</span>
+                    <br/>
+                    <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>0800-092-0XX</span>
+                    <br/>
+                </HideBox>
 			</div>
 		)
 	}

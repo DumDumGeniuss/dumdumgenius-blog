@@ -55,7 +55,7 @@ var styles = {
     	margin: "10px auto",
     	width: "350px",
     	'@media (max-width: 650px)': {
-    	    width: "90%",
+    	    width: "80%",
         },
     },
     photo: {

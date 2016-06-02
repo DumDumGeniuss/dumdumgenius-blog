@@ -119,7 +119,6 @@ var AboutMe = React.createClass({
 			    <div style={this.styles.separateLine}></div>
 			    <HideBox width="100%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
-			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>1991/04/15 ( 25y )</span>
 			        <div style={this.styles.photoBox}>
 			            <img style={this.styles.photo} src={"./images/selfPhoto.png"}></img>
 			        </div>

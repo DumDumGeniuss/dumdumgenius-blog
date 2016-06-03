@@ -6,6 +6,10 @@ var Facebook = require('react-icons/lib/fa/facebook');
 var Github = require('react-icons/lib/fa/github');
 var Twitter = require('react-icons/lib/fa/twitter');
 var Google = require('react-icons/lib/fa/google');
+var ArrowUp = require('react-icons/lib/fa/arrow-up');
+var RadiumArrowUp = Radium(ArrowUp);
+var ArrowDown = require('react-icons/lib/fa/arrow-down');
+var RadiumArrowDown = Radium(ArrowDown);
 
 var styles = {
 	backgroundArea: {
@@ -78,7 +82,8 @@ var styles = {
         height: "35px",
         width: "35px",
         border: "1px solid white",
-        borderRadius: "35px"
+        borderRadius: "35px",
+        cursor: "pointer"
     },
 	navbar: {
         textAlign: "center",
@@ -86,12 +91,14 @@ var styles = {
         lineHeight: "50px",
         backgroundColor: "black",
         width: "100%",
-        borderTop: "2px solid gray"
+        borderTop: "2px solid gray",
 	},
 	navbarFixed: {
 		position: "fixed",
 		left: "0px",
 		top: "0px",
+        height: "50px",
+        overflow: "auto",
         textAlign: "center",
         lineHeight: "50px",
         backgroundColor: "rgba(0, 0, 0, 0.68)",
@@ -107,7 +114,33 @@ var styles = {
         ':hover': {
             color: "#F1FF5A"
         },
-	}
+	},
+    arrowUp: {
+        display: "none"
+    },
+    arrowUpFixed: {
+        '@media (max-width: 800px)': {
+            right: "calc(50% - 86px)",
+        },
+        position: "fixed",
+        top: "15px",
+        left: "10px",
+        color: "white",
+        fontSize: "20px",
+        display: "initial"
+    },
+    arrowDown: {
+        display: "none"
+    },
+    arrowDownFixed: {
+        position: "fixed",
+        top: "15px",
+        left: "40px",
+        color: "white",
+        fontSize: "20px",
+        display: "initial"
+    }
+
 }
 
 var Navbar = React.createClass({
@@ -116,7 +149,9 @@ var Navbar = React.createClass({
 		return {
             scrollTop: 0,
             navbarClass: this.styles.navbar,
-            backgroundAreaClass: this.styles.backgroundArea
+            backgroundAreaClass: this.styles.backgroundArea,
+            navbarArrowUpClass: this.styles.arrowUp,
+            navbarArrowDownClass: this.styles.arrowDown
 		};
 	},
 	componentDidMount: function() {
@@ -140,6 +175,14 @@ var Navbar = React.createClass({
                     navbarClass: this.styles.navbar
                 });
             }
+            if(this.state.navbarArrowUpClass !== this.styles.arrowUp){
+                this.setState({
+                    navbarArrowUpClass: this.styles.arrowUp
+                });
+                this.setState({
+                    navbarArrowDownClass: this.styles.arrowDown
+                });
+            }
             if(this.state.backgroundAreaClass !== this.styles.backgroundArea) {
                 this.setState({
                     backgroundAreaClass: this.styles.backgroundArea
@@ -149,6 +192,14 @@ var Navbar = React.createClass({
             if(this.state.navbarClass !== this.styles.navbarFixed) {
                 this.setState({
                     navbarClass: this.styles.navbarFixed
+                });
+            }
+            if(this.state.navbarArrowUpClass !== this.styles.arrowUpFixed){
+                this.setState({
+                    navbarArrowUpClass: this.styles.arrowUpFixed
+                });
+                this.setState({
+                    navbarArrowDownClass: this.styles.arrowDownFixed
                 });
             }
             if(this.state.backgroundAreaClass !== this.styles.backgroundAreaHigh) {
@@ -178,8 +229,10 @@ var Navbar = React.createClass({
 			        </div>
 			    </div>
 			    <nav style={this.state.navbarClass}>
+                    <RadiumArrowUp style={this.state.navbarArrowUpClass}/>
+                    <RadiumArrowDown style={this.state.navbarArrowDownClass}/>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
-			        <RadiumLink style={this.styles.navbarItem} to="/">Masterpieces</RadiumLink>
+			        <RadiumLink style={this.styles.navbarItem} to="/works">Works</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Notes</RadiumLink>
 			    </nav>

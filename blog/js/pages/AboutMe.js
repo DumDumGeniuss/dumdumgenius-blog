@@ -1,7 +1,8 @@
 var React = require('react');
 var Radium = require('radium');
 var HideBox = require('../components/box/HideBox.js');
-var Facebook = require('react-icons/lib/fa/facebook');
+var PaintBrush = require('react-icons/lib/fa/paint-brush');
+var YoutubePlay = require('react-icons/lib/fa/youtube-play');
 
 var styles = {
     mainArea: {
@@ -85,8 +86,17 @@ var styles = {
             padding: "10px 0px"
         },
     },
-    faIcon: {
-
+    workShowBox: {
+        display: "inline-block",
+        width: "100px",
+        padding: "10px",
+        margin: "10px",
+        cursor: "pointer"
+    },
+    workIcon: {
+        display: "inline-block",
+        color: "white",
+        fontSize: "80px",
     }
 }
 
@@ -194,6 +204,18 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
 			    </HideBox>
+                <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Works</span>
+                <div style={this.styles.separateLine}></div>
+                <HideBox width="60%">
+                    <div style={this.styles.workShowBox}>
+                        <PaintBrush style={this.styles.workIcon}/> 
+                        <span style={this.styles.contentText}>Paintings</span>
+                    </div>
+                    <div style={this.styles.workShowBox}>
+                        <YoutubePlay style={this.styles.workIcon}/> 
+                        <span style={this.styles.contentText}>Youtube</span>
+                    </div>
+               </HideBox>
                 <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Contact Me</span>
                 <div style={this.styles.separateLine}></div>
                 <HideBox width="100%">

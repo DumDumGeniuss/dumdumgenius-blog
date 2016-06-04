@@ -88,7 +88,7 @@ var styles = {
     },
     workShowBox: {
         display: "inline-block",
-        width: "100px",
+        width: "90px",
         padding: "10px",
         margin: "10px",
         cursor: "pointer"
@@ -96,7 +96,7 @@ var styles = {
     workIcon: {
         display: "inline-block",
         color: "white",
-        fontSize: "80px",
+        fontSize: "70px",
     }
 }
 
@@ -220,8 +220,6 @@ var AboutMe = React.createClass({
                 <div style={this.styles.separateLine}></div>
                 <HideBox width="100%">
                     <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>dumdumgenius@gmail.com</span>
-                    <br/>
-                    <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>0800-092-0XX</span>
                     <br/>
                 </HideBox>
 			</div>

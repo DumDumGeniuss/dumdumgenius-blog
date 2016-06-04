@@ -17,8 +17,8 @@ ReactDOM.render(
 	            </IndexRoute>
 	            <Route path="works" component={Works}>
 	            </Route>
-	            <Route path="demo" component={Demo}>
-	            </Route>
+	        </Route>
+	        <Route path="/demo" component={Demo}>
 	        </Route>
 	    </Router>
 	</StyleRoot>

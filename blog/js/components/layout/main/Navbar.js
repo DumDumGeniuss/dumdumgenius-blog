@@ -232,7 +232,7 @@ var Navbar = React.createClass({
                     <RadiumArrowUp style={this.state.navbarArrowUpClass}/>
                     <RadiumArrowDown style={this.state.navbarArrowDownClass}/>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
-			        <RadiumLink style={this.styles.navbarItem} to="/works">Works</RadiumLink>
+			        <RadiumLink style={this.styles.navbarItem} to="/masterpieces">Masterpieces</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Notes</RadiumLink>
 			    </nav>

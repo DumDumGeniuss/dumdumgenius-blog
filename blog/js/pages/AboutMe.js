@@ -3,6 +3,7 @@ var Radium = require('radium');
 var HideBox = require('../components/box/HideBox.js');
 var PaintBrush = require('react-icons/lib/fa/paint-brush');
 var YoutubePlay = require('react-icons/lib/fa/youtube-play');
+var SeparateLine = require('../components/line/SeparateLine');
 
 var styles = {
     mainArea: {
@@ -19,12 +20,6 @@ var styles = {
     },
     centerAlign: {
     	textAlign: "center"
-    },
-    separateLine: {
-    	display: "block",
-    	width: "60%",
-    	margin: "0px auto",
-    	border: "1px solid white"
     },
     contentText: {
     	display: "block",
@@ -86,18 +81,6 @@ var styles = {
             padding: "10px 0px"
         },
     },
-    workShowBox: {
-        display: "inline-block",
-        width: "90px",
-        padding: "10px",
-        margin: "10px",
-        cursor: "pointer"
-    },
-    workIcon: {
-        display: "inline-block",
-        color: "white",
-        fontSize: "70px",
-    }
 }
 
 var AboutMe = React.createClass({
@@ -126,7 +109,7 @@ var AboutMe = React.createClass({
 		return (
 			<div style={this.styles.mainArea}>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Profile</span>
-			    <div style={this.styles.separateLine}></div>
+			    <SeparateLine />
 			    <HideBox width="100%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
 			        <div style={this.styles.photoBox}>
@@ -143,7 +126,7 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Languages</span>
-			    <div style={this.styles.separateLine}></div>
+                <SeparateLine />
 			    <HideBox width="100%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Chinese（ 中文 ）</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Fluent English ( TOEIC 835 )</span>
@@ -156,7 +139,7 @@ var AboutMe = React.createClass({
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
-			    <div style={this.styles.separateLine}></div>
+                <SeparateLine />
 			    <HideBox width="60%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
                     <div>
@@ -204,19 +187,8 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
 			    </HideBox>
-                <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Works</span>
-                <div style={this.styles.separateLine}></div>
-                <HideBox width="60%">
-                    <div style={this.styles.workShowBox}>
-                        <PaintBrush style={this.styles.workIcon}/> 
-                        <span style={this.styles.contentText}>Paintings</span>
-                    </div>
-                    <div style={this.styles.workShowBox}>
-                        <YoutubePlay style={this.styles.workIcon}/> 
-                        <span style={this.styles.contentText}>Youtube</span>
-                    </div>
-               </HideBox>
                 <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Contact Me</span>
+                <SeparateLine />
                 <div style={this.styles.separateLine}></div>
                 <HideBox width="100%">
                     <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>dumdumgenius@gmail.com</span>

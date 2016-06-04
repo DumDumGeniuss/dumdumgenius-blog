@@ -17,6 +17,38 @@ var paintings = [
         id: 2,
         src: './images/Ruby.png'
 	},
+	{
+        id: 3,
+        src: './images/Java.png'
+	},
+	{
+        id: 4,
+        src: './images/Ruby.png'
+	},
+	{
+        id: 5,
+        src: './images/Java.png'
+	},
+	{
+        id: 6,
+        src: './images/Ruby.png'
+	},
+	{
+        id: 7,
+        src: './images/Java.png'
+	},
+	{
+        id: 8,
+        src: './images/Ruby.png'
+	},
+	{
+        id: 9,
+        src: './images/Java.png'
+	},
+	{
+        id: 10,
+        src: './images/Ruby.png'
+	},
 ]
 
 var Demo = React.createClass({
@@ -51,7 +83,7 @@ var Demo = React.createClass({
 	render: function() {
 		return (
 			<div style={this.styles.mainArea}>
-			    <TinyPhotoBox boxSize={{width: '70%', height: 'none'}} photoSize={{width: '200px', height: 'none'}} paintings={ObjectAssign(this.state.paintings)}/>
+			    <TinyPhotoBox boxSize={{width: '100%', height: 'none'}} photoSize={{width: '150px', height: 'none'}} paintings={ObjectAssign(this.state.paintings)}/>
 			</div>
 		);
 	}

@@ -4,7 +4,49 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
 
 var PaintingStore = assign({}, EventEmitter.prototype, {
     
-    paintings: [],
+    paintings: [
+    	{
+            id: 0,
+            src: './images/paintings/angrybird.jpg'
+    	},
+        {
+            id: 1,
+            src: './images/paintings/bower.jpg'
+        },
+        {
+            id: 2,
+            src: './images/paintings/doggy.jpg'
+        },
+        {
+            id: 3,
+            src: './images/paintings/iMac.jpg'
+        },
+        {
+            id: 4,
+            src: './images/paintings/interstellerShuttler.jpg'
+        },
+        {
+            id: 5,
+            src: './images/paintings/messi.jpg'
+        },
+        {
+            id: 6,
+            src: './images/paintings/mikewazaki.jpg'
+        },
+        {
+            id: 7,
+            src: './images/paintings/storytree.jpg'
+        },
+        {
+            id: 8,
+            src: './images/paintings/styleMouse.jpg'
+        },
+        {
+            id: 9,
+            src: './images/paintings/winniepooh.jpg'
+        },
+
+    ],
     getAll: function() {
     	return this.paintings;
     },
@@ -14,8 +56,8 @@ var PaintingStore = assign({}, EventEmitter.prototype, {
         this.emit('add');
     },
     initialPainting: function(paintings) {
-        this.paintings = paintings;
-        console.log("Finished initial paintings");
+        //this.paintings = paintings;
+        //console.log("Finished initial paintings");
         this.emit('init');
     },
     handleAction: function(action) {

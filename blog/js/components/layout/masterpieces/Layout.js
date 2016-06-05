@@ -13,7 +13,10 @@ var styles = {
 	navbar: {
 		display: "block",
         width: "70%",
-        margin: "0px auto"
+        margin: "0px auto",
+        overflowX: "scroll",
+        overflowY: "hidden",
+        whiteSpace: "nowrap",
 	},
 	pageArea: {
         padding: "20px 0px"

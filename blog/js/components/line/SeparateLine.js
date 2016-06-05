@@ -1,11 +1,11 @@
 var React = require('react');
 var Radium = require('radium');
+var ObjectAssign = require('object-assign');
 
 var SeparateLine = React.createClass({
     styles: {
         separateLine: {
         	display: "block",
-        	width: "60%",
         	margin: "0px auto",
         	border: "1px solid white",
             '@media (max-width: 800px)': {
@@ -15,8 +15,9 @@ var SeparateLine = React.createClass({
         },
     },
     render: function() {
+    	var width = this.props.width;
         return (
-        	<div style={this.styles.separateLine}>
+        	<div style={ObjectAssign(this.styles.separateLine, {width: width?width:"60%"})}>
         	</div>
         );
     }

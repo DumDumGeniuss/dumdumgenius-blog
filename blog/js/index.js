@@ -2,7 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var AboutMe = require('./pages/AboutMe');
 var Demo = require('./pages/Demo');
-var Paintings = require('./pages/masterpieces/Paintings')
+var Paintings = require('./pages/masterpieces/Paintings');
+var Youtubes = require('./pages/youtubes/Youtubes');
 var { Router, Route, IndexRoute, hashHistory } = require('react-router');
 var {StyleRoot} = require('radium');
 var Layout = require('./components/layout/main/Layout');
@@ -17,8 +18,10 @@ ReactDOM.render(
 	            <IndexRoute component={AboutMe}>
 	            </IndexRoute>
 	            <Route path="masterpieces" component={MasterpiecesLayout}>
-	                <IndexRoute path="paintings" component={Paintings}>
+	                <IndexRoute component={Paintings}>
 	                </IndexRoute>
+	                <Route path="youtubes" component={Youtubes}>
+	                </Route>
 	            </Route>
 	        </Route>
 	        <Route path="/demo" component={Demo}>

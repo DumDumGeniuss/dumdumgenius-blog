@@ -1,8 +1,11 @@
-var React = require('react');
-var PaintBrush = require('react-icons/lib/fa/paint-brush');
-var YoutubePlay = require('react-icons/lib/fa/youtube-play');
-var ObjectAssign = require('object-assign');
-var SeparateLine = require('../../line/SeparateLine');
+var React = require('react'),
+    Radium = require('radium'),
+    PaintBrush = require('react-icons/lib/fa/paint-brush'),
+    YoutubePlay = require('react-icons/lib/fa/youtube-play'),
+    ObjectAssign = require('object-assign'),
+    SeparateLine = require('../../line/SeparateLine'),
+    {Link} = require('react-router'),
+    RadiumLink = Radium(Link); //Awesome!!
 
 var styles = {
 	maindArea: {
@@ -38,7 +41,7 @@ var styles = {
         width: "90px",
         padding: "10px",
         margin: "10px",
-        cursor: "pointer"
+        cursor: "pointer",
     },
 };
 
@@ -48,14 +51,14 @@ var Layout = React.createClass({
     	return (
     	    <div style={this.styles.maindArea}>
     	        <div style={this.styles.navbar}>
-                    <div style={this.styles.masterpieceShowBox}>
+                    <RadiumLink style={this.styles.masterpieceShowBox} to="/masterpieces">
                         <PaintBrush style={ObjectAssign(this.styles.masterpieceIcon)}/> 
                         <span style={this.styles.masterpieceIconText}>Paintings</span>
-                    </div>
-                    <div style={this.styles.masterpieceShowBox}>
+                    </RadiumLink>
+                    <RadiumLink style={this.styles.masterpieceShowBox} to="/masterpieces/youtubes">
                         <YoutubePlay style={this.styles.masterpieceIcon}/> 
                         <span style={this.styles.masterpieceIconText}>Youtube</span>
-                    </div>
+                    </RadiumLink>
                 </div>
                 <SeparateLine width="80%"/>
                 <div style={this.styles.pageArea}>
@@ -66,4 +69,4 @@ var Layout = React.createClass({
     }
 });
 
-module.exports = Layout;
+module.exports = Radium(Layout);

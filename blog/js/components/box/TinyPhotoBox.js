@@ -45,6 +45,7 @@ var styles = {
     	display: "block",
     	margin: "0px auto",
     	width: "50%",
+    	border: "3px solid white",
     	'@media (max-width: 800px)': {
     		width: "90%"
     	},
@@ -88,7 +89,7 @@ var TinyPhotoBox = React.createClass({
 			        Pick the one you like!
 			    </span>
 			    <div style={this.styles.displayScreen}>
-			        <img style={Assign(this.styles.displayPhoto)} src={this.state.showPainting?this.state.showPainting.src:''}></img>
+			        <img style={Assign(this.styles.displayPhoto)} src={this.state.showPainting?this.state.showPainting.src:'./images/paintings/defaultImage.png'}></img>
 			    </div>
 			</div>
 		);

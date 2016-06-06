@@ -6,10 +6,11 @@ var Facebook = require('react-icons/lib/fa/facebook');
 var Github = require('react-icons/lib/fa/github');
 var Twitter = require('react-icons/lib/fa/twitter');
 var Google = require('react-icons/lib/fa/google');
-var ArrowUp = require('react-icons/lib/fa/arrow-up');
-var RadiumArrowUp = Radium(ArrowUp);
-var ArrowDown = require('react-icons/lib/fa/arrow-down');
-var RadiumArrowDown = Radium(ArrowDown);
+
+var User = Radium(require('react-icons/lib/fa/user'));
+var Image = Radium(require('react-icons/lib/fa/image'));
+var Book = Radium(require('react-icons/lib/fa/book'));
+var StickyNote = Radium(require('react-icons/lib/fa/sticky-note'));
 
 var styles = {
 	backgroundArea: {
@@ -114,33 +115,26 @@ var styles = {
         ':hover': {
             color: "#F1FF5A"
         },
-	},
-    arrowUp: {
-        display: "none"
-    },
-    arrowUpFixed: {
         '@media (max-width: 800px)': {
-            right: "calc(50% - 86px)",
+            display: "none"
         },
-        position: "fixed",
-        top: "15px",
-        left: "10px",
+	},
+    navbarItemCollapse: {
         color: "white",
-        fontSize: "20px",
-        display: "initial"
-    },
-    arrowDown: {
-        display: "none"
-    },
-    arrowDownFixed: {
-        position: "fixed",
-        top: "15px",
-        left: "40px",
-        color: "white",
-        fontSize: "20px",
-        display: "initial"
+        display: "none",
+        width: "100px",
+        height: "50px",
+        padding: "10px 0px",
+        fontSize: "30px",
+        lineHeight: "50px",
+        cursor: "pointer",
+        ':hover': {
+            color: "#F1FF5A"
+        },
+        '@media (max-width: 800px)': {
+            display: "inline-block",
+        },
     }
-
 }
 
 var Navbar = React.createClass({
@@ -229,12 +223,22 @@ var Navbar = React.createClass({
 			        </div>
 			    </div>
 			    <nav style={this.state.navbarClass}>
-                    <RadiumArrowUp style={this.state.navbarArrowUpClass}/>
-                    <RadiumArrowDown style={this.state.navbarArrowDownClass}/>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/masterpieces">Masterpieces</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Notes</RadiumLink>
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
+                         <User />
+                    </RadiumLink>
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/masterpieces">
+                        <Image  />
+                    </RadiumLink>
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
+                        <Book />
+                    </RadiumLink>
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
+                        <StickyNote />
+                    </RadiumLink>
 			    </nav>
 			</div>
 		);

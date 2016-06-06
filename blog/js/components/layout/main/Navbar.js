@@ -122,7 +122,7 @@ var styles = {
     navbarItemCollapse: {
         color: "white",
         display: "none",
-        width: "100px",
+        width: "80px",
         height: "50px",
         padding: "10px 0px",
         fontSize: "30px",

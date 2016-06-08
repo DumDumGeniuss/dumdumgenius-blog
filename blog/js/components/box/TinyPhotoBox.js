@@ -46,16 +46,17 @@ var styles = {
     	display: "block",
     	margin: "0px auto",
         height: "400px",
+        overflowX: "hidden",
+        overflowY: "hidden",
     	'@media (max-width: 800px)': {
-    		width: "90%",
-            height: "300px",
+            height: "250px",
     	},
     },
     displayPhoto: {
     	height: "100%",
         marginLeft: "50%",
         border: "3px solid white",
-        transform: "translate(-50%, 0%)"
+        transform: "translate(-50%, 0%)",
     },
 };
 

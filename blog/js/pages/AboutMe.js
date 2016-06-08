@@ -65,9 +65,16 @@ var styles = {
     },
     inlineParagraph: {
         display: "inline-block",
+        width: "60%",
         backgroundColor: "rgba(128, 128, 128, 0.52)",
         padding: "10px",
-        borderRadius: "10px"
+        borderRadius: "10px",
+        '@media (max-width: 800px)': {
+            display: "block",
+            width: "90%",
+            margin: "0px auto"
+        },
+
     },
     middleAlign: {
         verticalAlign: "middle"

@@ -104,6 +104,7 @@ var styles = {
         lineHeight: "50px",
         backgroundColor: "rgba(0, 0, 0, 0.68)",
         width: "100%",
+        zIndex: "2"
 	},
 	navbarItem: {
 		color: "white",
@@ -132,7 +133,7 @@ var styles = {
             color: "#F1FF5A"
         },
         '@media (max-width: 800px)': {
-            display: "inline-block",
+            display: "inline-block"
         },
     }
 }

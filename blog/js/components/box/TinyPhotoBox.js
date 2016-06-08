@@ -4,6 +4,7 @@ var Radium = require('radium');
 var AngleDoubleLeft = require('react-icons/lib/fa/angle-double-left');
 var AngleDoubleRight = require('react-icons/lib/fa/angle-double-right');
 
+
 var styles = {
     photoBox: {
     	margin: "0px auto",
@@ -44,27 +45,33 @@ var styles = {
     displayScreen: {
     	display: "block",
     	margin: "0px auto",
-    	width: "50%",
-    	border: "3px solid white",
+        height: "400px",
     	'@media (max-width: 800px)': {
-    		width: "90%"
+    		width: "90%",
+            height: "300px",
     	},
     },
     displayPhoto: {
-    	width: "100%"
-    }
+    	height: "100%",
+        marginLeft: "50%",
+        border: "3px solid white",
+        transform: "translate(-50%, 0%)"
+    },
 };
+
 
 var TinyPhotoBox = React.createClass({
 	styles: styles,
 	getInitialState: function() {
         return {
             currentShowIndex: 0,
-            showPainting: null
+            showPainting: null,
         };
 	},
 	componentDidMount: function() {
 	},
+    componentWillMount: function() {
+    },
 	setShowPainting: function(key, paintings) {
         this.setState({
         	showPainting: paintings[key]
@@ -89,7 +96,7 @@ var TinyPhotoBox = React.createClass({
 			        Pick the one you like!
 			    </span>
 			    <div style={this.styles.displayScreen}>
-			        <img style={Assign(this.styles.displayPhoto)} src={this.state.showPainting?this.state.showPainting.src:'./images/paintings/defaultImage.png'}></img>
+                    <img style={this.styles.displayPhoto} src={this.state.showPainting?this.state.showPainting.src:'./images/paintings/defaultImage.png'}></img>
 			    </div>
 			</div>
 		);

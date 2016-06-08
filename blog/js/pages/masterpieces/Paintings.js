@@ -45,7 +45,7 @@ var Paintings = React.createClass({
         return (
         	<div style={this.styles.mainArea}>
                 <div>
-			       <TinyPhotoBox boxSize={{width: '100%', height: 'none'}} photoSize={{width: '70px', height: 'none'}} paintings={ObjectAssign(this.state.paintings)}/>
+			       <TinyPhotoBox boxSize={{width: '100%', height: 'none'}} photoSize={{width: '100px', height: 'none'}} photoListSize={{width: '65%'}} paintings={ObjectAssign(this.state.paintings)}/>
 			    </div>
         	</div>
         );

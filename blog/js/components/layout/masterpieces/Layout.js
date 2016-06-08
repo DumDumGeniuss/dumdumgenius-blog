@@ -60,7 +60,7 @@ var Layout = React.createClass({
                         <span style={this.styles.masterpieceIconText}>Youtube</span>
                     </RadiumLink>
                 </div>
-                <SeparateLine width="80%"/>
+                <SeparateLine width="75%"/>
                 <div style={this.styles.pageArea}>
                     {this.props.children}
                 </div>

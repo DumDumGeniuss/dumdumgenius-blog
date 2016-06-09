@@ -120,7 +120,7 @@ var AboutMe = React.createClass({
 			    <HideBox width="100%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
 			        <div style={this.styles.photoBox}>
-			            <img style={this.styles.photo} src={"./images/selfPhoto.png"}></img>
+			            <img style={this.styles.photo} src={"./images/selfPhoto.jpg"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Taichung First Senior High School ( 2006 - 2009 )</span>
 			        <div style={this.styles.logoBox}>

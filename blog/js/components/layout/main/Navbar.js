@@ -26,7 +26,7 @@ var styles = {
         width: "100%",
         height: "300px",
         overflow: "hidden",
-        backgroundImage: "url(./images/welcomeBackground2.png)",
+        backgroundImage: "url(./images/welcomeBackground2.jpg)",
         position: "absolute",
         zIndex: "0"
 	},
@@ -226,7 +226,7 @@ var Navbar = React.createClass({
 			    <nav style={this.state.navbarClass}>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/masterpieces">Masterpieces</RadiumLink>
-			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>
+			        <RadiumLink style={this.styles.navbarItem} to="/demo">Tutorials</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/">Notes</RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/">
                          <User />
@@ -234,7 +234,7 @@ var Navbar = React.createClass({
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/masterpieces">
                         <Image  />
                     </RadiumLink>
-                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/demo">
                         <Book />
                     </RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/">

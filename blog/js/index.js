@@ -8,8 +8,17 @@ var { Router, Route, IndexRoute, hashHistory } = require('react-router');
 var {StyleRoot} = require('radium');
 var Layout = require('./components/layout/main/Layout');
 var MasterpiecesLayout = require('./components/layout/masterpieces/Layout');
+var firebase = require('firebase');
 
-const app = document.getElementById('app');
+var app = document.getElementById('app');
+
+var config = {
+  apiKey: "AIzaSyBYZBZb122fhJLq_Pd-yoKOTA4ql4qf1tM",
+  authDomain: "myblog-1decf.firebaseapp.com",
+  databaseURL: "https://myblog-1decf.firebaseio.com",
+  storageBucket: "myblog-1decf.appspot.com",
+};
+firebase.initializeApp(config);
 
 ReactDOM.render(
 	<StyleRoot>
@@ -29,3 +38,5 @@ ReactDOM.render(
 	    </Router>
 	</StyleRoot>
 , app);
+
+

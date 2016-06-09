@@ -1,8 +1,8 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher'),
     EventEmitter = require('events').EventEmitter,
-    assign = require('object-assign');
+    Assign = require('object-assign');
 
-var PaintingStore = assign({}, EventEmitter.prototype, {
+var PaintingStore = Assign({}, EventEmitter.prototype, {
     
     paintings: [
     	{

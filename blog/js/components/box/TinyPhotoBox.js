@@ -73,6 +73,7 @@ var TinyPhotoBox = React.createClass({
             currentShowIndex: 0,
             showPainting: null,
             paintingTitle: 'Pick the one you like !',
+            defaultImageUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/paintings%2FdefaultImage.png?alt=media'
         };
 	},
 	componentDidMount: function() {
@@ -105,7 +106,7 @@ var TinyPhotoBox = React.createClass({
 			        {this.state.paintingTitle}
 			    </span>
 			    <div style={this.styles.displayScreen}>
-                    <img style={this.styles.displayPhoto} src={this.state.showPainting?this.state.showPainting.src:'./images/paintings/defaultImage.png'}></img>
+                    <img style={this.styles.displayPhoto} src={this.state.showPainting?this.state.showPainting.src:this.state.defaultImageUrl}></img>
 			    </div>
 			</div>
 		);

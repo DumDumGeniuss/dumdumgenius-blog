@@ -227,18 +227,18 @@ var Navbar = React.createClass({
 			    <nav style={this.state.navbarClass}>
 			        <RadiumLink style={this.styles.navbarItem} to="/">About me</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/masterpieces">Masterpieces</RadiumLink>
-			        <RadiumLink style={this.styles.navbarItem} to="/demo">Tutorials</RadiumLink>
-			        <RadiumLink style={this.styles.navbarItem} to="/">Notes</RadiumLink>
+			        <RadiumLink style={this.styles.navbarItem} to="/">Tutorials</RadiumLink>
+			        <RadiumLink style={this.styles.navbarItem} to="/demo">Notes</RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/">
                          <User />
                     </RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/masterpieces">
                         <Image  />
                     </RadiumLink>
-                    <RadiumLink style={this.styles.navbarItemCollapse} to="/demo">
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
                         <Book />
                     </RadiumLink>
-                    <RadiumLink style={this.styles.navbarItemCollapse} to="/">
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/demo">
                         <StickyNote />
                     </RadiumLink>
 			    </nav>

@@ -54,9 +54,9 @@ var styles = {
     photoBox: {
     	display: "block",
     	margin: "10px auto",
-    	width: "350px",
+    	width: "250px",
     	'@media (max-width: 650px)': {
-    	    width: "80%",
+    	    width: "70%",
         },
     },
     photo: {

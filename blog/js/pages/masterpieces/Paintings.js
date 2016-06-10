@@ -23,24 +23,24 @@ var Paintings = React.createClass({
         };
 	},
 	componentWillMount: function() {
-		var self = this;
-		PaintingStore.on('add', function() {
-            self.setState({
-            	paintings: PaintingStore.getAll()
-            });
-		});
-		PaintingStore.on('init', function() {
-            self.setState({
-            	paintings: PaintingStore.getAll()
-            });
-        });
+		PaintingStore.on('add', this.getPaintings);
+		PaintingStore.on('init', this.getPaintings);
 	},
 	componentDidMount: function() {
         this.initPainting();
 	},
+    componentWillUnmount: function() {
+        PaintingStore.removeListener('add', this.getPaintings);
+        PaintingStore.removeListener('init', this.getPaintings);
+    },
 	initPainting: function() {
         PaintingActions.initPainting();
 	},
+    getPaintings: function() {
+        this.setState({
+            paintings: PaintingStore.getAll()
+        });
+    },
     render: function() {
         return (
         	<div style={this.styles.mainArea}>

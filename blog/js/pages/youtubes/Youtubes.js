@@ -1,37 +1,50 @@
 var React = require('react');
 var Radium = require('radium');
 
-var pulseKeyframes = Radium.keyframes({
-  '0%': {color: 'yellow'},
-  '50%': {color: 'black'},
-  '100%': {color: 'red'},
-}, 'pulse');
+var TinyYoutubeBox = require('../../components/box/TinyYoutubeBox');
+var YoutubeStore = require('../../stores/YoutubeStore');
+var YoutubeActions = require('../../actions/YoutubeActions');
+var ObjectAssign = require('object-assign');
+
+var SeparateLine = require('../../components/line/SeparateLine');
 
 var styles = {
     mainArea: {
-    	animation: 'x 3s ease 0s infinite',
-    	display: "block",
+        display: "block",
         width: "100%",
-        animationName: pulseKeyframes
     }
 };
 
 var Youtubes = React.createClass({
     styles: styles,
-	getInitialState: function() {
+    getInitialState: function() {
         return {
+            Youtubes: []
         };
-	},
-	componentWillMount: function() {
-	},
-	componentDidMount: function() {
-	},
-	initPainting: function() {
-	},
+    },
+    componentWillMount: function() {
+        YoutubeStore.on('add', this.getYoutubes);
+        YoutubeStore.on('init', this.getYoutubes);
+    },
+    componentDidMount: function() {
+        this.initYoutube();
+    },
+    componentWillUnmount: function() {
+        YoutubeStore.removeListener('add', this.getYoutubes);
+        YoutubeStore.removeListener('init', this.getYoutubes);
+    },
+    initYoutube: function() {
+        YoutubeActions.initYoutubes();
+    },
+    getYoutubes: function() {
+        this.setState({
+            Youtubes: YoutubeStore.getAll()
+        });
+    },
     render: function() {
         return (
         	<div style={this.styles.mainArea}>
-        	    youtubes
+                <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} youtubeSize={{width: '150px', height: 'none'}} youtubePhotoListSize={{width: '65%'}} youtubes={this.state.Youtubes}/>
         	</div>
         );
     }

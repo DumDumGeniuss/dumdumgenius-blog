@@ -15,17 +15,22 @@ var Demo = React.createClass({
 		};
 	},
 	componentWillMount: function() {
-		this.firebaseRef = firebase.database().ref('test').set({
-			id: 2,
-			name: 'hell'
-		});
+        var self = this;
+        firebase.storage().ref('logos').child("TCFSHLogo.png").getDownloadURL()
+        .then(function(url) {
+            console.log(url);
+        });
+        console.log(firebase.storage().ref('paintings').fullPath);
 	},
 	componentDidMount: function() {
-		firebase.database().ref('test').once('value')
-		.then(function(snapshot) {
-            console.log(snapshot.val());
-		});
-		console.log(firebase.storage().ref().child('welcomeBackground2.png').getDownloadURL());
+		// firebase.database().ref('test').once('value')
+		// .then(function(snapshot) {
+  //           console.log(snapshot.val());
+		// });
+		// firebase.storage().ref().child('welcomeBackground2.jpg').getDownloadURL()
+		// .then(function(url) {
+  //           console.log(url);
+		// });
 	},
 	render: function() {
 		return (

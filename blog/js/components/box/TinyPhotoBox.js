@@ -72,6 +72,7 @@ var TinyPhotoBox = React.createClass({
         return {
             currentShowIndex: 0,
             showPainting: null,
+            paintingTitle: 'Pick the one you like !',
         };
 	},
 	componentDidMount: function() {
@@ -80,7 +81,8 @@ var TinyPhotoBox = React.createClass({
     },
 	setShowPainting: function(key, paintings) {
         this.setState({
-        	showPainting: paintings[key]
+        	showPainting: paintings[key],
+            paintingTitle: paintings[key].title
         });
 	},
 	render: function() {
@@ -100,7 +102,7 @@ var TinyPhotoBox = React.createClass({
                     <AngleDoubleRight style={this.styles.navbarArrowRight}/>
 			    </div>
 			    <span style={this.styles.photoNav}>
-			        Pick the one you like!
+			        {this.state.paintingTitle}
 			    </span>
 			    <div style={this.styles.displayScreen}>
                     <img style={this.styles.displayPhoto} src={this.state.showPainting?this.state.showPainting.src:'./images/paintings/defaultImage.png'}></img>

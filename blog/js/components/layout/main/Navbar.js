@@ -12,6 +12,8 @@ var Image = Radium(require('react-icons/lib/fa/image'));
 var Book = Radium(require('react-icons/lib/fa/book'));
 var StickyNote = Radium(require('react-icons/lib/fa/sticky-note'));
 
+var ObjectAssign = require('object-assign');
+
 var styles = {
 	backgroundArea: {
         width: "100%",
@@ -26,7 +28,6 @@ var styles = {
         width: "100%",
         height: "300px",
         overflow: "hidden",
-        backgroundImage: "url(./images/welcomeBackground2.jpg)",
         position: "absolute",
         zIndex: "0"
 	},
@@ -146,13 +147,12 @@ var Navbar = React.createClass({
             navbarClass: this.styles.navbar,
             backgroundAreaClass: this.styles.backgroundArea,
             navbarArrowUpClass: this.styles.arrowUp,
-            navbarArrowDownClass: this.styles.arrowDown
+            navbarArrowDownClass: this.styles.arrowDown,
 		};
 	},
 	componentDidMount: function() {
         window.addEventListener('scroll', this.handleScroll);
     },
-    
     componentWillUnmount: function() {
         window.addEventListener('scroll', this.handleScroll);
     },
@@ -209,6 +209,7 @@ var Navbar = React.createClass({
 			<div>
 			    <div style={this.state.backgroundAreaClass}>
 			        <div style={this.styles.mainBackground}>
+                        <img src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomeBackground2.jpg?alt=media"}></img>
 			        </div>
 			        <div style={this.styles.textArea}>
 			            <span style={this.styles.logoText}>DumDumGenius</span>

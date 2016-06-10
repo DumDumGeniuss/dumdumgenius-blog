@@ -94,16 +94,15 @@ var AboutMe = React.createClass({
 	styles: styles,
 	getInitialState: function() {
 		return {
-            resizeWidth: 0
+            resizeWidth: 0,
 		};
 	},
-	// componentDidMount: function() {
- //        window.addEventListener('resize', this.handleResize);
- //    },
+	componentDidMount: function() {
+    },
     
- //    componentWillUnmount: function() {
- //        window.addEventListener('resize', this.handleResize);
- //    },
+    // componentWillUnmount: function() {
+
+    // },
  //    componentWillUnmount: function() {
  //        window.removeEventListener('resize', this.handleResize);
  //    },
@@ -119,17 +118,17 @@ var AboutMe = React.createClass({
 			    <SeparateLine />
 			    <HideBox width="100%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
-			        <div style={this.styles.photoBox}>
-			            <img style={this.styles.photo} src={"./images/selfPhoto.jpg"}></img>
+			        // <div style={this.styles.photoBox}>
+			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto.jpg?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Taichung First Senior High School ( 2006 - 2009 )</span>
 			        <div style={this.styles.logoBox}>
-			            <img style={this.styles.logo} src={"./images/TCFSHLogo.png"}></img>
+			            <img style={this.styles.logo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FTCFSHLogo.png?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>National Chiao Tung University ( 2009 - 2013 )</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Electronical Engineering</span>
 			        <div style={this.styles.logoBox}>
-			            <img style={this.styles.logo} src={"./images/NCTU_emblem.png"}></img>
+			            <img style={this.styles.logo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FNCTU_emblem.png?alt=media"}></img>
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Languages</span>
@@ -138,11 +137,11 @@ var AboutMe = React.createClass({
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Chinese（ 中文 ）</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Fluent English ( TOEIC 835 )</span>
 			        <div style={this.styles.photoBox}>
-			            <img style={this.styles.photo} src={"./images/TOEIC.png"}></img>
+			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/TOEIC.png?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Japanese Communication ( JLPT N2 )</span>
 			        <div style={this.styles.photoBox}>
-			            <img style={this.styles.photo} src={"./images/JLPT.png"}></img>
+			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/JLPT.png?alt=media"}></img>
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
@@ -150,7 +149,7 @@ var AboutMe = React.createClass({
 			    <HideBox width="60%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
                     <div>
-			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Java.png"}></img>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FJava.png?alt=media"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
                             <span style={this.styles.textInParagraph}>Java:</span>
                             <br/>
@@ -162,7 +161,7 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
                     <div>
-			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/javaScript.png"}></img>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FjavaScript.png?alt=media"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
                             <span style={this.styles.textInParagraph}>JavaScript:</span>
                             <br/>
@@ -174,7 +173,7 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
                     <div>
-			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Ruby.png"}></img>
+			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FRuby.png?alt=media"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
                             <span style={this.styles.textInParagraph}>Ruby:</span>
                             <br/>

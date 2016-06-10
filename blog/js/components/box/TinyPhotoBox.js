@@ -3,6 +3,7 @@ var Assign = require('object-assign');
 var Radium = require('radium');
 var AngleDoubleLeft = require('react-icons/lib/fa/angle-double-left');
 var AngleDoubleRight = require('react-icons/lib/fa/angle-double-right');
+var SeparateLine = require('../line/SeparateLine');
 
 
 var styles = {
@@ -28,7 +29,7 @@ var styles = {
         height: "60px",
         lineHeight: "60px",
         fontSize: "1.5em",
-        color: "white",
+        color: "black",
         textAlign: "center"
     },
     navbarArrowLeft: {
@@ -37,7 +38,7 @@ var styles = {
     	marginTop: "70px",
     	left: "10px",
         fontSize: "40px",
-        color: "white"
+        color: "#CCCCCC"
     },
     navbarArrowRight: {
     	display: "inline-block",
@@ -45,7 +46,7 @@ var styles = {
     	marginTop: "70px",
     	right: "10px",
         fontSize: "40px",
-        color: "white",
+        color: "#CCCCCC",
     },
     displayScreen: {
     	display: "block",
@@ -60,7 +61,8 @@ var styles = {
     displayPhoto: {
     	height: "100%",
         marginLeft: "50%",
-        border: "3px solid white",
+        border: "1px solid black",
+        backgroundColor: "#CCCCCC",
         transform: "translate(-50%, 0%)",
     },
 };
@@ -95,6 +97,7 @@ var TinyPhotoBox = React.createClass({
 		    photoListScreenHeigth = photoSize.height;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
+                <SeparateLine width="70%"/>
 			    <div style={Assign(this.styles.photoListScreen, {width: photoListSize.width})}>
                     <AngleDoubleLeft style={this.styles.navbarArrowLeft}/>
 			        {paintings.map(function(result) {
@@ -102,6 +105,7 @@ var TinyPhotoBox = React.createClass({
 			        })}
                     <AngleDoubleRight style={this.styles.navbarArrowRight}/>
 			    </div>
+                <SeparateLine width="70%"/>
 			    <span style={this.styles.photoNav}>
 			        {this.state.paintingTitle}
 			    </span>

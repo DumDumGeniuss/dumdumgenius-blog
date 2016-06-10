@@ -3,6 +3,7 @@ var Assign = require('object-assign');
 var Radium = require('radium');
 var AngleDoubleLeft = require('react-icons/lib/fa/angle-double-left');
 var AngleDoubleRight = require('react-icons/lib/fa/angle-double-right');
+var SeparateLine = require('../line/SeparateLine');
 
 
 var styles = {
@@ -28,7 +29,7 @@ var styles = {
         height: "60px",
         lineHeight: "60px",
         fontSize: "1.5em",
-        color: "white",
+        color: "black",
         textAlign: "center"
     },
     navbarArrowLeft: {
@@ -37,7 +38,7 @@ var styles = {
     	marginTop: "70px",
     	left: "10px",
         fontSize: "40px",
-        color: "white"
+        color: "#CCCCCC"
     },
     navbarArrowRight: {
     	display: "inline-block",
@@ -45,12 +46,13 @@ var styles = {
     	marginTop: "70px",
     	right: "10px",
         fontSize: "40px",
-        color: "white",
+        color: "#CCCCCC",
     },
     displayVideoScreen: {
     	display: "block",
     	margin: "0px auto",
         width: "336",
+        backgroundColor: "#CCCCCC",
         overflowX: "hidden",
         overflowY: "hidden",
     	'@media (max-width: 800px)': {
@@ -88,6 +90,7 @@ var TinyYoutubeBox = React.createClass({
 		    photoListScreenHeigth = youtubeSize.height;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
+                <SeparateLine width="70%"/>
 			    <div style={Assign(this.styles.photoListScreen, {width: youtubePhotoListSize.width})}>
                     <AngleDoubleLeft style={this.styles.navbarArrowLeft}/>
 			        {youtubes.map(function(result) {
@@ -95,6 +98,7 @@ var TinyYoutubeBox = React.createClass({
 			        })}
                     <AngleDoubleRight style={this.styles.navbarArrowRight}/>
 			    </div>
+                <SeparateLine width="70%"/>
 			    <span style={this.styles.photoNav}>
 			        {this.state.youtubeTitle}
 			    </span>

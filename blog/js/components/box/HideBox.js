@@ -1,4 +1,5 @@
 var React = require('react');
+var Radium = require('radium');
 
 var HideBox = React.createClass({
     getInitialState: function() {
@@ -12,7 +13,14 @@ var HideBox = React.createClass({
 	styles: {
         box: {
             display: "block",
-            margin: "0px auto"
+            padding: "10px 0px",
+            margin: "0px auto",
+            backgroundColor: "#CCCCCC",
+            border: "1px solid black",
+            '@media (max-width: 800px)': {
+                display: "block",
+                width: "90%",
+            },
         },
         boxHidden: {
 
@@ -30,4 +38,4 @@ var HideBox = React.createClass({
 	}
 });
 
-module.exports = HideBox;
+module.exports = Radium(HideBox);

@@ -6,8 +6,8 @@ var SeparateLine = React.createClass({
     styles: {
         separateLine: {
         	display: "block",
-        	margin: "0px auto",
-        	border: "1px solid white",
+        	margin: "10px auto",
+        	border: "1px solid #AAAAAA",
             '@media (max-width: 800px)': {
                 display: "block",
         	    width: "90%",

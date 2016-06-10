@@ -3,7 +3,6 @@ var React = require('react'),
     PaintBrush = require('react-icons/lib/fa/paint-brush'),
     YoutubePlay = require('react-icons/lib/fa/youtube-play'),
     ObjectAssign = require('object-assign'),
-    SeparateLine = require('../../line/SeparateLine'),
     {Link} = require('react-router'),
     RadiumLink = Radium(Link); //Awesome!!
 
@@ -11,7 +10,7 @@ var styles = {
 	maindArea: {
     	display: "block",
         width: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.78)"
+        backgroundColor: "#E9EBEE"
 	},
 	navbar: {
 		display: "block",
@@ -22,17 +21,17 @@ var styles = {
         whiteSpace: "nowrap",
 	},
 	pageArea: {
-        padding: "20px 0px"
+        padding: "10px 0px",
 	},
     masterpieceIcon: {
         display: "inline-block",
-        color: "white",
+        color: "#777777",
         fontSize: "50px",
     },
     masterpieceIconText: {
     	display: "block",
     	padding: "10px 0px 0px 0px",
-    	color: "white",
+    	color: "black",
         fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
     	fontSize: "1em"
     },
@@ -60,7 +59,6 @@ var Layout = React.createClass({
                         <span style={this.styles.masterpieceIconText}>Youtube</span>
                     </RadiumLink>
                 </div>
-                <SeparateLine width="75%"/>
                 <div style={this.styles.pageArea}>
                     {this.props.children}
                 </div>

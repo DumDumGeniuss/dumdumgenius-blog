@@ -9,11 +9,12 @@ var styles = {
     mainArea: {
     	display: "block",
         width: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.78)"
+        backgroundColor: "#E9EBEE",
+        padding: "15px 0px"
     },
     titleWordBig: {
     	display: "block",
-    	color: "white",
+    	color: "black",
         fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
     	fontSize: "3em",
     	padding: "15px 0px 15px 0px"
@@ -24,7 +25,7 @@ var styles = {
     contentText: {
     	display: "block",
     	padding: "10px 0px 0px 0px",
-    	color: "white",
+    	color: "black",
         fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
     	fontSize: "1.2em"
     },
@@ -66,7 +67,7 @@ var styles = {
     inlineParagraph: {
         display: "inline-block",
         width: "60%",
-        backgroundColor: "rgba(128, 128, 128, 0.52)",
+        backgroundColor: "#DDDDDD",
         padding: "10px",
         borderRadius: "10px",
         '@media (max-width: 800px)': {
@@ -81,7 +82,7 @@ var styles = {
     },
     textInParagraph: {
         display: "inline-block",
-        color: "white",
+        color: "black",
         fontSize: "1em",
         lineHeight: "20px",
         '@media (max-width: 800px)': {
@@ -115,39 +116,45 @@ var AboutMe = React.createClass({
 		return (
 			<div style={this.styles.mainArea}>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Profile</span>
-			    <SeparateLine />
-			    <HideBox width="100%">
+			    <HideBox width="75%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
-			        // <div style={this.styles.photoBox}>
+                    <SeparateLine width="50%"/>
+			        <div style={this.styles.photoBox}>
 			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto.jpg?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Taichung First Senior High School ( 2006 - 2009 )</span>
+                    <SeparateLine width="50%"/>
 			        <div style={this.styles.logoBox}>
 			            <img style={this.styles.logo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FTCFSHLogo.png?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>National Chiao Tung University ( 2009 - 2013 )</span>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Electronical Engineering</span>
+                    <SeparateLine width="50%"/>
 			        <div style={this.styles.logoBox}>
 			            <img style={this.styles.logo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FNCTU_emblem.png?alt=media"}></img>
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Languages</span>
-                <SeparateLine />
-			    <HideBox width="100%">
+			    <HideBox width="75%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Chinese（ 中文 ）</span>
+                    <SeparateLine width="50%"/>
+                    <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Of course, I can speak it !</span>
+                    <br/>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Fluent English ( TOEIC 835 )</span>
+                    <SeparateLine width="50%"/>
 			        <div style={this.styles.photoBox}>
 			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/TOEIC.png?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Japanese Communication ( JLPT N2 )</span>
+                    <SeparateLine width="50%"/>
 			        <div style={this.styles.photoBox}>
 			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/JLPT.png?alt=media"}></img>
 			        </div>
 			    </HideBox>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Skills</span>
-                <SeparateLine />
-			    <HideBox width="60%">
+			    <HideBox width="75%">
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Java , Ruby , JavaScript</span>
+                    <SeparateLine width="50%"/>
                     <div>
 			            <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FJava.png?alt=media"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
@@ -194,9 +201,8 @@ var AboutMe = React.createClass({
                     </div>
 			    </HideBox>
                 <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Contact Me</span>
-                <SeparateLine />
                 <div style={this.styles.separateLine}></div>
-                <HideBox width="100%">
+                <HideBox width="75%">
                     <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>dumdumgenius@gmail.com</span>
                     <br/>
                 </HideBox>

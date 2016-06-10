@@ -183,7 +183,7 @@ var AboutMe = React.createClass({
                         </p>
                     </div>
                     <div>
-                        <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"./images/Css3.png"}></img>
+                        <img style={Object.assign(this.styles.inlineLogo, this.styles.middleAlign)} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FCss3.png?alt=media"}></img>
                         <p style={Object.assign(this.styles.inlineParagraph, this.styles.middleAlign)}>
                             <span style={this.styles.textInParagraph}>CSS3:</span>
                             <br/>

@@ -90,7 +90,7 @@ var TinyYoutubeBox = React.createClass({
 		    photoListScreenHeigth = youtubeSize.height;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
-                <SeparateLine width="70%"/>
+                <SeparateLine width="100%"/>
 			    <div style={Assign(this.styles.photoListScreen, {width: youtubePhotoListSize.width})}>
                     <AngleDoubleLeft style={this.styles.navbarArrowLeft}/>
 			        {youtubes.map(function(result) {
@@ -98,7 +98,7 @@ var TinyYoutubeBox = React.createClass({
 			        })}
                     <AngleDoubleRight style={this.styles.navbarArrowRight}/>
 			    </div>
-                <SeparateLine width="70%"/>
+                <SeparateLine width="100%"/>
 			    <span style={this.styles.photoNav}>
 			        {this.state.youtubeTitle}
 			    </span>

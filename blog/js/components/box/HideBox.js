@@ -15,7 +15,7 @@ var HideBox = React.createClass({
             display: "block",
             padding: "10px 0px",
             margin: "0px auto",
-            backgroundColor: "#CCCCCC",
+            backgroundColor: "white",
             border: "1px solid black",
             '@media (max-width: 800px)': {
                 display: "block",

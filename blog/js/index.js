@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var AboutMe = require('./pages/AboutMe');
+var Diaries = require('./pages/Diaries');
+var Facebook = require('./pages/Facebook');
 var Demo = require('./pages/Demo');
 var Paintings = require('./pages/masterpieces/Paintings');
 var Youtubes = require('./pages/youtubes/Youtubes');
@@ -32,8 +34,12 @@ ReactDOM.render(
 	                <Route path="youtubes" component={Youtubes}>
 	                </Route>
 	            </Route>
+	            <Route path="diaries" component={Diaries}>
+	            </Route>
 	        </Route>
 	        <Route path="/demo" component={Demo}>
+	        </Route>
+	        <Route path="/facebook" component={Facebook}>
 	        </Route>
 	    </Router>
 	</StyleRoot>

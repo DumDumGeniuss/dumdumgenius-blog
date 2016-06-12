@@ -62,7 +62,7 @@ var styles = {
     	height: "100%",
         marginLeft: "50%",
         border: "1px solid black",
-        backgroundColor: "#CCCCCC",
+        backgroundColor: "#EFEFEF",
         transform: "translate(-50%, 0%)",
     },
 };
@@ -97,7 +97,7 @@ var TinyPhotoBox = React.createClass({
 		    photoListScreenHeigth = photoSize.height;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
-                <SeparateLine width="70%"/>
+                <SeparateLine width="100%"/>
 			    <div style={Assign(this.styles.photoListScreen, {width: photoListSize.width})}>
                     <AngleDoubleLeft style={this.styles.navbarArrowLeft}/>
 			        {paintings.map(function(result) {
@@ -105,7 +105,7 @@ var TinyPhotoBox = React.createClass({
 			        })}
                     <AngleDoubleRight style={this.styles.navbarArrowRight}/>
 			    </div>
-                <SeparateLine width="70%"/>
+                <SeparateLine width="100%"/>
 			    <span style={this.styles.photoNav}>
 			        {this.state.paintingTitle}
 			    </span>

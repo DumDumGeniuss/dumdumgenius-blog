@@ -67,9 +67,10 @@ var styles = {
     inlineParagraph: {
         display: "inline-block",
         width: "60%",
-        backgroundColor: "#DDDDDD",
+        backgroundColor: "#EFEFEF",
+        border: "1px solid black",
         padding: "10px",
-        borderRadius: "10px",
+        borderRadius: "5px",
         '@media (max-width: 800px)': {
             display: "block",
             width: "90%",

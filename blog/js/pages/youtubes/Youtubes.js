@@ -44,7 +44,7 @@ var Youtubes = React.createClass({
     render: function() {
         return (
         	<div style={this.styles.mainArea}>
-                <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} youtubeSize={{width: '150px', height: 'none'}} youtubePhotoListSize={{width: '65%'}} youtubes={this.state.Youtubes}/>
+                <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} youtubeSize={{width: '150px', height: 'none'}} youtubePhotoListSize={{width: '100%'}} youtubes={this.state.Youtubes}/>
         	</div>
         );
     }

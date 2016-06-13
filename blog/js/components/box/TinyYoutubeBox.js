@@ -51,7 +51,7 @@ var styles = {
     displayVideoScreen: {
     	display: "block",
     	margin: "0px auto",
-        width: "336",
+        width: "320",
         backgroundColor: "#CCCCCC",
         overflowX: "hidden",
         overflowY: "hidden",
@@ -103,7 +103,7 @@ var TinyYoutubeBox = React.createClass({
 			        {this.state.youtubeTitle}
 			    </span>
 			    <div style={this.styles.displayVideoScreen}>
-                    <iframe src={this.state.playYoutubeUrl} width="336" height="252"> </iframe>
+                    <iframe src={this.state.playYoutubeUrl} width="320" height="240"> </iframe>
 			    </div>
 			</div>
 		);

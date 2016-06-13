@@ -15,12 +15,12 @@ var Demo = React.createClass({
 		};
 	},
 	componentWillMount: function() {
-        var self = this;
-        firebase.storage().ref('logos').child("TCFSHLogo.png").getDownloadURL()
-        .then(function(url) {
-            console.log(url);
-        });
-        console.log(firebase.storage().ref('paintings').fullPath);
+        // var self = this;
+        // firebase.storage().ref('logos').child("TCFSHLogo.png").getDownloadURL()
+        // .then(function(url) {
+        //     console.log(url);
+        // });
+        // console.log(firebase.storage().ref('paintings').fullPath);
 	},
 	componentDidMount: function() {
 		// firebase.database().ref('test').once('value')

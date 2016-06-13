@@ -1,7 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var AboutMe = require('./pages/AboutMe');
-var Diaries = require('./pages/Diaries');
+var Diaries = require('./pages/diaries/Diaries');
+var CreaetDiaries = require('./pages/diaries/Create');
 var Facebook = require('./pages/Facebook');
 var Demo = require('./pages/Demo');
 var Paintings = require('./pages/masterpieces/Paintings');
@@ -10,6 +11,7 @@ var { Router, Route, IndexRoute, hashHistory } = require('react-router');
 var {StyleRoot} = require('radium');
 var Layout = require('./components/layout/main/Layout');
 var MasterpiecesLayout = require('./components/layout/masterpieces/Layout');
+var DiariesLayout = require('./components/layout/diaries/Layout');
 var firebase = require('firebase');
 
 var app = document.getElementById('app');
@@ -34,7 +36,11 @@ ReactDOM.render(
 	                <Route path="youtubes" component={Youtubes}>
 	                </Route>
 	            </Route>
-	            <Route path="diaries" component={Diaries}>
+	            <Route path="diaries" component={DiariesLayout}>
+	                <IndexRoute component={Diaries}>
+	                </IndexRoute>
+	                <Route path="create" component={CreaetDiaries}>
+	                </Route>
 	            </Route>
 	        </Route>
 	        <Route path="/demo" component={Demo}>

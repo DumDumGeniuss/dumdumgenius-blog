@@ -35,7 +35,7 @@ var Demo = React.createClass({
 	render: function() {
 		return (
 			<div style={this.styles.mainArea}>
-			    Test it!!!
+			    生日快樂。
 			</div>
 		);
 	}

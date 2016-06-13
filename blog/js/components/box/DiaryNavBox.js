@@ -27,10 +27,10 @@ styles = {
     diaryType: {
     	position: "absolute",
     	left: "20px",
-    	top: "-10px",
+    	top: "-15px",
     	backgroundColor: "#ff5694",
     	borderRadius: "10px",
-    	padding: "10px",
+    	padding: "8px",
     	fontSize: "1em",
     	color: "white"
     },

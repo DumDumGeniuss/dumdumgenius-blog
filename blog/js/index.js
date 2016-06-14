@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var AboutMe = require('./pages/AboutMe');
 var Diaries = require('./pages/diaries/Diaries');
 var CreaetDiaries = require('./pages/diaries/Create');
+var Diary = require('./pages/diaries/Diary');
 var Facebook = require('./pages/Facebook');
 var Demo = require('./pages/Demo');
 var Paintings = require('./pages/masterpieces/Paintings');
@@ -40,6 +41,8 @@ ReactDOM.render(
 	                <IndexRoute component={Diaries}>
 	                </IndexRoute>
 	                <Route path="create" component={CreaetDiaries}>
+	                </Route>
+	                <Route path=":id" component={Diary}>
 	                </Route>
 	            </Route>
 	        </Route>

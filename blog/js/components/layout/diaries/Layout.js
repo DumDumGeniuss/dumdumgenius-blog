@@ -18,6 +18,7 @@ var styles = {
 	diariesBox: {
         width: "90%",
         margin: "0px auto",
+        minHeight: "70%"
         //backgroundColor: "white",
         //border: "1px solid black"
 

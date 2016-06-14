@@ -5,6 +5,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
 var DiaryStore = Assign({}, EventEmitter.prototype, {
     
     diaries: [],
+    diary: null,
     diariesInfo: null,
     isArticleExitst: null,
     getDiaries: function() {
@@ -15,6 +16,9 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
     },
     getIsArticleExitst: function() {
         return this.isArticleExitst;
+    },
+    getDiary: function() {
+        return this.diary;
     },
     queryDiaries: function() {
     	var self = this;
@@ -56,6 +60,15 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
         );
         this.diariesInfo.amount += 1;
     },
+    queryDiary: function(id) {
+        var self = this;
+        firebase.database().ref('diaries/' + id).once('value')
+        .then(function(result) {
+            self.diary = result.val();
+            console.log(self.diary);
+            self.emit("finishQueryDiary");
+        });
+    },
     handleAction: function(action) {
         switch(action.type) {
         	case 'QUERY_DIARIES_INFO': {
@@ -70,10 +83,14 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
         		this.addDiary(action.data);
         		break;
         	}
-        	case 'QUERY_DIARY': {
+        	case 'QUERY_DIARIES': {
         		this.queryDiaries();
         		break;
         	}
+            case 'QUERY_DIARY': {
+                this.queryDiary(action.id);
+                break;
+            }
         }
     }
 

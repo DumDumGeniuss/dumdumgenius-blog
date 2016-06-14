@@ -17,11 +17,18 @@ var DiaryActions = {
             data: params
         });
     },
-    queryDiary: function() {
+    queryDiaries: function() {
         AppDispatcher.dispatch({
-            type: "QUERY_DIARY"
+            type: "QUERY_DIARIES"
+        });
+    },
+    queryDiary: function(id) {
+        AppDispatcher.dispatch({
+            type: "QUERY_DIARY",
+            id: id
         });
     }
+
 }
 
 module.exports = DiaryActions;

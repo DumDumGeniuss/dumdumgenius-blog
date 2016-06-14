@@ -2,6 +2,7 @@ var React = require('react'),
     Radium = require('radium'),
     ObjectAssign = require('object-assign'),
     Calendar = require('react-icons/lib/fa/calendar'),
+    {Link} = require('react-router'),
     styles;
 
 styles = {
@@ -49,12 +50,26 @@ styles = {
     	fontSIze: "1em",
     	lineHeight: "40px",
     	color: "gray",
-    },contentBox: {
+    },
+    contentBox: {
     	padding: "20px 0px",
     	borderTop: "1px solid #DDDDDD",
     	borderBottom: "1px solid #DDDDDD",
     	fontSize: "1.2em",
     	lineHeight: "25px"
+    },
+    readMoreLink: {
+        cursor: "pointer"
+    },
+    readMoreButton: {
+        backgroundColor: "#ff6b6b",
+        backgroundImage: "-webkit-linear-gradient(#ff6b6b, #bf2828)",
+        backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
+        borderColor: "#4a993e",
+        borderRadius: "5px",
+        padding: "5px",
+        fontSize: "0.8em",
+        color: "white"
     }
 };
 
@@ -84,6 +99,9 @@ var DiaryNavBox = React.createClass({
     		    </span>
     		    <div style={this.styles.contentBox}>
     		        {diary.content.substring(0,50)}...
+    		        <Link style={this.styles.readMoreLink} to={"/diaries/" + diary.id}>
+    		            <span style={this.styles.readMoreButton}>Read More</span>
+    		        </Link>
     		    </div>
     		</div>
     	)

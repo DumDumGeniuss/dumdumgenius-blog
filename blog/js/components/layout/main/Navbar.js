@@ -238,7 +238,7 @@ var Navbar = React.createClass({
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/">
                         <Book />
                     </RadiumLink>
-                    <RadiumLink style={this.styles.navbarItemCollapse} to="/demo">
+                    <RadiumLink style={this.styles.navbarItemCollapse} to="/diaries">
                         <StickyNote />
                     </RadiumLink>
 			    </nav>

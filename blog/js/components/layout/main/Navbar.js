@@ -209,7 +209,7 @@ var Navbar = React.createClass({
 			<div>
 			    <div style={this.state.backgroundAreaClass}>
 			        <div style={this.styles.mainBackground}>
-                        <img src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomeBackground2.jpg?alt=media"}></img>
+                        <img src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomBackground3.jpg?alt=media"}></img>
 			        </div>
 			        <div style={this.styles.textArea}>
 			            <span style={this.styles.logoText}>DumDumGenius</span>

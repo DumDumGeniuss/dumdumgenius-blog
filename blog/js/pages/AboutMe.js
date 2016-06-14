@@ -121,7 +121,7 @@ var AboutMe = React.createClass({
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Messi Yang ( DumDumGenius )</span>
                     <SeparateLine width="50%"/>
 			        <div style={this.styles.photoBox}>
-			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto.jpg?alt=media"}></img>
+			            <img style={this.styles.photo} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media"}></img>
 			        </div>
 			        <span style={Object.assign(this.styles.contentText, this.styles.centerAlign)}>Taichung First Senior High School ( 2006 - 2009 )</span>
                     <SeparateLine width="50%"/>

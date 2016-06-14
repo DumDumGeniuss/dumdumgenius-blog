@@ -98,7 +98,7 @@ var DiaryNavBox = React.createClass({
     		        <b>{diary.title}</b>
     		    </span>
     		    <div style={this.styles.contentBox}>
-    		        {diary.content.substring(0,50)}...
+    		        {diary.content.substring(0,150)}...
     		        <Link style={this.styles.readMoreLink} to={"/diaries/" + diary.id}>
     		            <span style={this.styles.readMoreButton}>Read More</span>
     		        </Link>

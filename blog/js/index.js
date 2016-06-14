@@ -4,6 +4,7 @@ var AboutMe = require('./pages/AboutMe');
 var Diaries = require('./pages/diaries/Diaries');
 var CreaetDiaries = require('./pages/diaries/Create');
 var Diary = require('./pages/diaries/Diary');
+var UnderConstruct = require('./pages/UnderConstruct');
 var Facebook = require('./pages/Facebook');
 var Demo = require('./pages/Demo');
 var Paintings = require('./pages/masterpieces/Paintings');
@@ -44,6 +45,8 @@ ReactDOM.render(
 	                </Route>
 	                <Route path=":id" component={Diary}>
 	                </Route>
+	            </Route>
+	            <Route path="underConstruct" component={UnderConstruct}>
 	            </Route>
 	        </Route>
 	        <Route path="/demo" component={Demo}>

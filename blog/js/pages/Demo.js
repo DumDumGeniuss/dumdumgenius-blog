@@ -35,7 +35,7 @@ var Demo = React.createClass({
 	render: function() {
 		return (
 			<div style={this.styles.mainArea}>
-			    生日快樂。
+                <a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://dumdumgeniuss.github.io/blog/#/diaries?_k=ofzxcg'))));">生日快樂！</a>
 			</div>
 		);
 	}

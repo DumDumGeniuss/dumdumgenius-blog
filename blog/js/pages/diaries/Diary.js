@@ -30,7 +30,7 @@ styles = {
     	position: "absolute",
     	display: "block",
     	top: "20px",
-    	left: "70px",
+    	left: "100px",
     },
     typeLabel: {
     	position: "absolute",

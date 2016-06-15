@@ -94,7 +94,7 @@ var DiaryNavBox = React.createClass({
     		    </span>
     		    <div style={this.styles.dateBox}>
     		        <Calendar style={this.styles.calendar}/>
-    		        <span style={this.styles.dateText}>{date.getFullYear()+"-"}{date.getMonth()+"-"}{date.getDate()+" "}{date.getHours()+":"}{this.incrementZero(date.getMinutes())}</span>
+    		        <span style={this.styles.dateText}>{date.getFullYear()+"-"}{(date.getMonth()+1)+"-"}{date.getDate()+" "}{date.getHours()+":"}{this.incrementZero(date.getMinutes())}</span>
     		    </div>
     		    <span style={this.styles.title}>
     		        <b>{diary.title}</b>

@@ -89,7 +89,7 @@ var Diaries = React.createClass({
 		var diary = this.state.diary,
 		    date = new Date(diary.date),
 		    typeLabelElem = diary?<span style={this.styles.typeLabel}>{diary.category}</span>:null,
-		    completeDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
+		    completeDate = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
 		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null;
         return (
             <div style={this.styles.mainArea}>

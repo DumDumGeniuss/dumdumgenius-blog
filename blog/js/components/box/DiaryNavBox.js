@@ -56,7 +56,9 @@ styles = {
     	borderTop: "1px solid #DDDDDD",
     	borderBottom: "1px solid #DDDDDD",
     	fontSize: "1.2em",
-    	lineHeight: "25px"
+    	lineHeight: "25px",
+    	fontFamily: "Helvetica,arial,freesans,clean,sans-serif",
+    	color: "#444444"
     },
     readMoreLink: {
         cursor: "pointer"

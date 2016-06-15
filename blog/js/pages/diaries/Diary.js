@@ -24,7 +24,7 @@ styles = {
     	display: "block",
         margin: "0px auto",
         lineHeight: "30px",
-        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+    	fontFamily: "Helvetica,arial,freesans,clean,sans-serif",
     },
     dateBox: {
     	position: "absolute",

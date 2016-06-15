@@ -51,12 +51,12 @@ var styles = {
     displayVideoScreen: {
     	display: "block",
     	margin: "0px auto",
-        width: "320",
+        width: "640",
         backgroundColor: "#CCCCCC",
         overflowX: "hidden",
         overflowY: "hidden",
     	'@media (max-width: 800px)': {
-            width: "315px",
+            width: "300px",
     	},
     },
 };
@@ -68,12 +68,27 @@ var TinyYoutubeBox = React.createClass({
         return {
             currentShowIndex: 0,
             youtubeTitle: 'Pick the one you like !',
-            playYoutubeUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/youtubes%2FdefaultImage.png?alt=media'
+            playYoutubeUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/youtubes%2FdefaultImage.png?alt=media',
+            youtubePlayWidth: 640,
+            youtubePlayHeight: 480
         };
 	},
 	componentDidMount: function() {
 	},
     componentWillMount: function() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    componentWillUnmount: function() {
+        window.removeEventListener('resize', this.handleResize);
+    },
+    handleResize: function(event) {
+        var windowWidth = event.srcElement.window.innerWidth;
+        if(windowWidth < 800 && youtubePlayWidth == 640) {
+            this.setState({
+                youtubePlayWidth: 300,
+                youtubePlayHeight: 225
+            });
+        }
     },
 	setShowYoutube: function(key, youtubes) {
         this.setState({
@@ -103,7 +118,7 @@ var TinyYoutubeBox = React.createClass({
 			        {this.state.youtubeTitle}
 			    </span>
 			    <div style={this.styles.displayVideoScreen}>
-                    <iframe src={this.state.playYoutubeUrl} width="320" height="240"> </iframe>
+                    <iframe src={this.state.playYoutubeUrl} width={this.state.youtubePlayWidth} height={this.state.youtubePlayHeight}> </iframe>
 			    </div>
 			</div>
 		);

@@ -22,7 +22,7 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
     },
     queryDiaries: function() {
     	var self = this;
-        firebase.database().ref('diaries').once('value')
+        firebase.database().ref('diaries').orderByChild('date').startAt().once('value')
         .then(function(result) {
         	var res = result.val();
             self.diaries = res;

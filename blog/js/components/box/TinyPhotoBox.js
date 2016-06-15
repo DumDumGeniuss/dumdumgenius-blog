@@ -20,6 +20,7 @@ var styles = {
         overflowX: "scroll",
         overflowY: "hidden",
         whiteSpace: "nowrap",
+        minHeight: "100px",
         '@media (max-width: 800px)': {
             width: "80%",
         },
@@ -61,6 +62,7 @@ var styles = {
     displayPhoto: {
     	height: "100%",
         marginLeft: "50%",
+        minWidth: "300px",
         border: "1px solid black",
         backgroundColor: "#EFEFEF",
         transform: "translate(-50%, 0%)",

@@ -20,6 +20,7 @@ var styles = {
         overflowX: "scroll",
         overflowY: "hidden",
         whiteSpace: "nowrap",
+        minHeight: "100px",
         '@media (max-width: 800px)': {
             width: "80%",
         },

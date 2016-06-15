@@ -83,10 +83,15 @@ var TinyYoutubeBox = React.createClass({
     },
     handleResize: function(event) {
         var windowWidth = event.srcElement.window.innerWidth;
-        if(windowWidth < 800 && youtubePlayWidth == 640) {
+        if(windowWidth < 800 && this.state.youtubePlayWidth == 640) {
             this.setState({
                 youtubePlayWidth: 300,
                 youtubePlayHeight: 225
+            });
+        } else if(windowWidth > 800 && this.state.youtubePlayWidth == 300) {
+            this.setState({
+                youtubePlayWidth: 640,
+                youtubePlayHeight: 480
             });
         }
     },

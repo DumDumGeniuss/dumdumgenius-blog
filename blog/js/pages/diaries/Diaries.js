@@ -29,12 +29,12 @@ styles = {
         }
     },
     diariesBox: {
-
+        position: "relative",
     },
     addDiaryZone: {
         position: "absolute",
-        top: "100%",
-        right: "5%"
+        top: "-70px",
+        right: "-10px"
     }
 }
 
@@ -92,14 +92,14 @@ var Diaries = React.createClass({
                             </DiaryNavBox>
                         );
                     })}
-                </div>
-                <div style={this.styles.addDiaryZone}>
-                    <RadiumLink style={this.styles.linkStyle} to="/diaries/create">
-                        {loginButton}
-                    </RadiumLink>
-                    <RadiumLink style={this.styles.linkStyle} to="/facebook">
-                        <Facebook style={this.styles.addArticleButton}></Facebook>
-                    </RadiumLink>
+                    <div style={this.styles.addDiaryZone}>
+                        <RadiumLink style={this.styles.linkStyle} to="/diaries/create">
+                            {loginButton}
+                        </RadiumLink>
+                        <RadiumLink style={this.styles.linkStyle} to="/facebook">
+                            <Facebook style={this.styles.addArticleButton}></Facebook>
+                        </RadiumLink>
+                    </div>
                 </div>
             </div>
         );

@@ -5,7 +5,7 @@ var styles = {
     mainArea: {
     	display: "block",
         width: "100%",
-        height: "500px",
+        minHeight: "500px",
         lineHeight: "500px",
         backgroundColor: "#E9EBEE",
         padding: "15px 0px",

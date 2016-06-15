@@ -87,15 +87,16 @@ var Diaries = React.createClass({
     },
 	render: function() {
 		var diary = this.state.diary,
-		    date = new Date(diary.date);
+		    date = new Date(diary.date),
+		    typeLabelElem = diary?<span style={this.styles.typeLabel}>{diary.category}</span>:null,
+		    completeDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
+		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null;
         return (
             <div style={this.styles.mainArea}>
-                <span style={this.styles.typeLabel}>
-                    {diary.category}
-                </span>
+                {typeLabelElem}
                 <div style={this.styles.dateBox}>
                     <Calendar style={this.styles.calendar}/>
-                    <span  style={this.styles.dateText}>{date.getFullYear()+"-"}{date.getMonth()+"-"}{date.getDate()+" "}{date.getHours()+":"}{this.incrementZero(date.getMinutes())}</span>
+                    {dateTextElem}
                 </div>
                 <div style={this.styles.diaryContent}>
                     <Markdown source={diary.content}/>

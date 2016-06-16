@@ -52,7 +52,7 @@ var styles = {
     displayScreen: {
     	display: "block",
     	margin: "0px auto",
-        height: "400px",
+        height: "600px",
         overflowX: "hidden",
         overflowY: "hidden",
     	'@media (max-width: 800px)': {

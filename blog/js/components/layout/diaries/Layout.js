@@ -30,7 +30,6 @@ var Layout = React.createClass({
     render: function() {
     	return (
     	    <div style={this.styles.maindArea}>
-                <span style={this.styles.titleFont}>Diaries</span>
                 <div style={this.styles.diariesBox}>
                     {this.props.children}
                 </div>

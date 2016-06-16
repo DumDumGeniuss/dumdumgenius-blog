@@ -19,6 +19,22 @@ styles = {
         backgroundColor: "#E9EBEE",
         padding: "15px 0px"
     },
+    categoriesNav: {
+        display: "block",
+        width: "60%",
+        height: "50px",
+        margin: "0px auto"
+    },
+    categoryLabel: {
+        display: "inline-block",
+        backgroundColor: "#ff6b6b",
+        backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
+        color: "white",
+        padding: "10px",
+        margin: "0px 10px",
+        borderRadius: "5px",
+        cursor: "pointer"
+    },
     addArticleButton: {
     	fontSize: "2em"
     },
@@ -43,7 +59,8 @@ var Diaries = React.createClass({
 	getInitialState: function() {
         return {
             loginButton: false,
-            diaries: []
+            diaries: [],
+            diariesInfo: null
         };
 	},
 	componentWillMount: function() {
@@ -59,23 +76,36 @@ var Diaries = React.createClass({
             });
         }
 
-        DiaryStore.on('finishQueryDiaries', this.getDiaries);
+        DiaryStore.on('finishGetDiariesInfo', this.getDiariesInfo);
+        DiaryStore.on('finishQueryDiariesByCategory', this.getDiaries);
 	},
     componentDidMount: function() {
-        DiaryActions.queryDiaries();
+        DiaryActions.queryDiariesInfo();
     },
     componentWillUnmount: function() {
-        DiaryStore.removeListener('finishQueryDiaries', this.getDiaries);
+        DiaryStore.removeListener('finishQueryDiariesByCategory', this.getDiaries);
+        DiaryStore.removeListener('finishGetDiariesInfo', this.getDiariesInfo);
+    },
+    queryDiariesByCategory: function(category) {
+        DiaryActions.queryDiariesByCategory(category);
+    },
+    getDiariesInfo: function() {
+        this.setState({
+            diariesInfo: DiaryStore.getDiariesInfo()
+        });
+        this.queryDiariesByCategory(DiaryStore.getDiariesInfo().categories[1]);
     },
     getDiaries: function() {
         this.setState({
             diaries: DiaryStore.getDiaries()
         });
-        console.log(DiaryStore.getDiaries());
     },
 	render: function() {
         var loginButton,
-            diaries = this.state.diaries;
+            diaries = this.state.diaries?this.state.diaries:[],
+            diariesInfo = this.state.diariesInfo,
+            diaryCategories = diariesInfo?diariesInfo.categories:[],
+            self = this;
 
         if(this.state.isLogin) {
             loginButton = <Plus style={this.styles.addArticleButton}></Plus>;
@@ -86,6 +116,15 @@ var Diaries = React.createClass({
         return (
             <div>
                 <div style={this.styles.diariesBox}>
+                    <div style={this.styles.categoriesNav}>
+                        {diaryCategories.map(function(result) {
+                            return (
+                                <span key={result} style={self.styles.categoryLabel} onClick={self.queryDiariesByCategory.bind(self, result)}>
+                                    {result}
+                                </span>
+                            );
+                        })}
+                    </div>
                     {diaries.map(function(result) {
                         return (
                             <DiaryNavBox key={result.id} width="60%" diary={result}>

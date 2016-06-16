@@ -75,7 +75,8 @@ var Diaries = React.createClass({
         DiaryStore.on('finishQueryDiary', this.setDiary);
 	},
     componentDidMount: function() {
-        DiaryActions.queryDiary(this.props.params.id);
+    	var category = this.props.location.query.category;
+        DiaryActions.queryDiary(this.props.params.id, category);
     },
     componentWillUnmount: function() {
         DiaryStore.removeListener('finishQueryDiary', this.setDiary);

@@ -62,7 +62,7 @@ var styles = {
     displayPhoto: {
     	height: "100%",
         marginLeft: "50%",
-        minWidth: "300px",
+        minWidth: "50px",
         border: "1px solid black",
         backgroundColor: "#EFEFEF",
         transform: "translate(-50%, 0%)",

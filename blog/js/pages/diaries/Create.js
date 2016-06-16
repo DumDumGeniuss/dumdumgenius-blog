@@ -41,41 +41,34 @@ var Create = React.createClass({
         	title: null,
         	content: null,
         	date: (new Date()).getTime(),
-           	isArticleExist: true
+            categories: null
         }
     },
     componentWillMount: function() {
     	var self = this;
-		DiaryStore.on('finishGetDiariesInfo', this.checkArticleExist);
-		DiaryStore.on('finishCheckArticle', this.setIsArticleExist);
+		DiaryStore.on('finishGetDiariesInfo', this.setDiaryCategories);
     },
     componentDidMount: function() {
 		DiaryActions.queryDiariesInfo();
     },
     componentWillUnmount: function() {
-        DiaryStore.removeListener('finishGetDiaries', this.checkArticleExist);
-        DiaryStore.removeListener('finishCheckArticle', this.setIsArticleExist);
+        DiaryStore.removeListener('finishGetDiariesInfo', this.setDiaryCategories);
     },
-    setIsArticleExist: function() {
+    setDiaryCategories: function() {
 	    this.setState({
-            isArticleExist: DiaryStore.getIsArticleExitst()
+            categories: DiaryStore.getDiariesInfo().categories
 	    });
-    },
-    checkArticleExist: function() {
-        DiaryActions.checkArticleExist();
     },
     createArticle: function() {
         var self = this,
-            id = DiaryStore.getDiariesInfo().amount,
             params = {
-            	id: id,
                 category: self.state.category,
                 title: self.state.title,
                 content: self.state.content,
                 date: self.state.date,
             };
 
-        DiaryActions.addDiary(params);
+        DiaryActions.addDiary(params, self.state.category);
 
     },
     handleCategoryChange: function(event) {
@@ -110,7 +103,7 @@ var Create = React.createClass({
                         <textarea style={this.styles.textInput} onChange={this.handleContentChange}></textarea>
                     </div>
                     <div>
-                        <button style={this.styles.submitButton} onClick={this.createArticle} disabled={this.state.isArticleExist}>submit</button>
+                        <button style={this.styles.submitButton} onClick={this.createArticle}>submit</button>
                     </div>
     		    </div>
     		</div>

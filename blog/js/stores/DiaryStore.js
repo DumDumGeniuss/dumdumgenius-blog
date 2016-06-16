@@ -7,26 +7,42 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
     diaries: [],
     diary: null,
     diariesInfo: null,
-    isArticleExitst: null,
+    toArray: function(map) {
+        var array = [];
+        for(var key in map) {
+            var item = map[key];
+            item.id = key;
+            array.push(item);
+        }
+        return array;
+    },
     getDiaries: function() {
     	return this.diaries;
     },
     getDiariesInfo: function() {
         return this.diariesInfo;
     },
-    getIsArticleExitst: function() {
-        return this.isArticleExitst;
-    },
     getDiary: function() {
         return this.diary;
     },
-    queryDiaries: function() {
-    	var self = this;
-        firebase.database().ref('diaries').orderByChild('date').startAt().once('value')
+    getPushKey: function(category) {
+        return firebase.database().ref('diaries').child(category).push({hi:'hi'});
+    },
+    // queryDiaries: function() {
+    // 	var self = this;
+    //     firebase.database().ref('diaries').child('datas').once('value')
+    //     .then(function(result) {
+    //     	var res = result.val();
+    //         self.diaries = res;
+    //         self.emit('finishQueryDiaries');
+    //     });
+    // },
+    queryDiariesByCategory: function(category) {
+        var self = this;
+        firebase.database().ref('diaries').child(category+'/datas').orderByChild('date').once('value')
         .then(function(result) {
-        	var res = result.val();
-            self.diaries = res;
-            self.emit('finishQueryDiaries');
+            self.diaries = self.toArray(result.val());
+            self.emit('finishQueryDiariesByCategory');
         });
     },
     queryDiariesInfo: function() {
@@ -40,29 +56,12 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
             self.emit('finishGetDiariesInfo');
         });
     },
-    checkArticleExist: function() {
-    	var self = this;
-        firebase.database().ref('diaries/'+this.diariesInfo.amount).once('value')
-        .then(function(result) {
-        	var res = result.val();
-        	if(res) {
-                self.isArticleExitst = true;
-        	} else {
-                self.isArticleExitst = false;
-        	}
-            self.emit('finishCheckArticle');
-        });
+    addDiary: function(params, category) {
+        firebase.database().ref('diaries/' + category + "/datas").push(params);
     },
-    addDiary: function(params) {
-        firebase.database().ref('diaries/'+params.id).set(params);
-        firebase.database().ref('diariesInfo').child('amount').set(
-            this.diariesInfo.amount + 1
-        );
-        this.diariesInfo.amount += 1;
-    },
-    queryDiary: function(id) {
+    queryDiary: function(id, category) {
         var self = this;
-        firebase.database().ref('diaries/' + id).once('value')
+        firebase.database().ref('diaries/' + category + '/datas/' + id).once('value')
         .then(function(result) {
             self.diary = result.val();
             console.log(self.diary);
@@ -75,20 +74,20 @@ var DiaryStore = Assign({}, EventEmitter.prototype, {
         		this.queryDiariesInfo();
         		break;
         	}
-        	case 'CHECK_ARTICLE_EXIST': {
-        		this.checkArticleExist();
-        		break;
-        	}
         	case 'ADD_DIARY': {
-        		this.addDiary(action.data);
+        		this.addDiary(action.data, action.category);
         		break;
         	}
-        	case 'QUERY_DIARIES': {
-        		this.queryDiaries();
-        		break;
-        	}
+        	// case 'QUERY_DIARIES': {
+        	// 	this.queryDiaries();
+        	// 	break;
+        	// }
+            case 'QUERY_DIARIES_BY_CATEGORY': {
+                this.queryDiariesByCategory(action.category);
+                break;
+            }
             case 'QUERY_DIARY': {
-                this.queryDiary(action.id);
+                this.queryDiary(action.id, action.category);
                 break;
             }
         }

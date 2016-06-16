@@ -6,26 +6,29 @@ var DiaryActions = {
         	type: "QUERY_DIARIES_INFO"
         });
     },
-    checkArticleExist: function() {
-        AppDispatcher.dispatch({
-            type: "CHECK_ARTICLE_EXIST"
-        });
-    },
-    addDiary: function(params) {
+    addDiary: function(params, category) {
         AppDispatcher.dispatch({
             type: "ADD_DIARY",
-            data: params
+            data: params,
+            category: category
         });
     },
-    queryDiaries: function() {
+    // queryDiaries: function() {
+    //     AppDispatcher.dispatch({
+    //         type: "QUERY_DIARIES"
+    //     });
+    // },
+    queryDiariesByCategory: function(category) {
         AppDispatcher.dispatch({
-            type: "QUERY_DIARIES"
+            type: "QUERY_DIARIES_BY_CATEGORY",
+            category: category
         });
     },
-    queryDiary: function(id) {
+    queryDiary: function(id, category) {
         AppDispatcher.dispatch({
             type: "QUERY_DIARY",
-            id: id
+            id: id,
+            category: category
         });
     }
 

@@ -22,8 +22,11 @@ styles = {
     categoriesNav: {
         display: "block",
         width: "60%",
-        height: "50px",
-        margin: "0px auto"
+        margin: "0px auto",
+        padding: "20px",
+        '@media (max-width: 800px)': {
+            width: "90%"
+        }
     },
     categoryLabel: {
         display: "inline-block",
@@ -31,7 +34,7 @@ styles = {
         backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
         color: "white",
         padding: "10px",
-        margin: "0px 10px",
+        margin: "10px 10px",
         borderRadius: "5px",
         cursor: "pointer"
     },

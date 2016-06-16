@@ -25,7 +25,7 @@ styles = {
         margin: "0px auto",
         padding: "20px",
         '@media (max-width: 800px)': {
-            width: "90%"
+            width: "100%"
         }
     },
     categoryLabel: {
@@ -34,7 +34,7 @@ styles = {
         backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
         color: "white",
         padding: "10px",
-        margin: "10px 10px",
+        margin: "5px 5px",
         borderRadius: "5px",
         cursor: "pointer"
     },

@@ -100,7 +100,9 @@ var Diaries = React.createClass({
                     {dateTextElem}
                 </div>
                 <div style={this.styles.diaryContent}>
-                    <Markdown source={diary.content}/>
+                    <Markdown>
+                        {diary.content}
+                    </Markdown>
                 </div>
             </div>
         );

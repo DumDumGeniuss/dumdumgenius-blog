@@ -1,88 +1,32 @@
-var React = require('react');
-var Assign = require('object-assign');
-var Radium = require('radium');
-var AngleDoubleLeft = require('react-icons/lib/fa/angle-double-left');
-var AngleDoubleRight = require('react-icons/lib/fa/angle-double-right');
-var SeparateLine = require('../line/SeparateLine');
+import React from 'react';
+import Assign from 'object-assign';
+import Radium from 'radium';
+import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
+import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right';
+import SeparateLine from '../line/SeparateLine';
 
-
-var styles = {
-    photoBox: {
-    	margin: "0px auto",
-    },
-    photo: {
-    	display: "inline-block",
-    	cursor: "pointer"
-    },
-    photoListScreen: {
-        display: "block",
-        margin: "0px auto",
-        overflowX: "scroll",
-        overflowY: "hidden",
-        whiteSpace: "nowrap",
-        minHeight: "100px",
-        '@media (max-width: 800px)': {
-            width: "80%",
-        },
-    },
-    photoNav: {
-    	display: "block",
-        height: "60px",
-        lineHeight: "60px",
-        fontSize: "1.5em",
-        color: "black",
-        textAlign: "center"
-    },
-    navbarArrowLeft: {
-    	display: "inline-block",
-    	position: "absolute",
-    	marginTop: "70px",
-    	left: "10px",
-        fontSize: "40px",
-        color: "#CCCCCC"
-    },
-    navbarArrowRight: {
-    	display: "inline-block",
-    	position: "absolute",
-    	marginTop: "70px",
-    	right: "10px",
-        fontSize: "40px",
-        color: "#CCCCCC",
-    },
-    displayVideoScreen: {
-    	display: "block",
-    	margin: "0px auto",
-        width: "640",
-        backgroundColor: "#CCCCCC",
-        overflowX: "hidden",
-        overflowY: "hidden",
-    	'@media (max-width: 800px)': {
-            width: "300px",
-    	},
-    },
-};
-
-
-var TinyYoutubeBox = React.createClass({
-	styles: styles,
-	getInitialState: function() {
-        return {
+class TinyYoutubeBox extends React.Component{
+	constructor(props) {
+        super(props);
+        this.styles = styles;
+        this.state = {
             currentShowIndex: 0,
             youtubeTitle: 'Pick the one you like !',
             playYoutubeUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/youtubes%2FdefaultImage.png?alt=media',
             youtubePlayWidth: 640,
             youtubePlayHeight: 480
         };
-	},
-	componentDidMount: function() {
-	},
-    componentWillMount: function() {
+        this.handleResize = this.handleResize.bind(this);
+    }
+	componentDidMount() {
+	}
+    componentWillMount() {
         window.addEventListener('resize', this.handleResize);
-    },
-    componentWillUnmount: function() {
+    }
+    componentWillUnmount() {
         window.removeEventListener('resize', this.handleResize);
-    },
-    handleResize: function(event) {
+    }
+    handleResize(event) {
         var windowWidth = event.srcElement.window.innerWidth;
         if(windowWidth < 800 && this.state.youtubePlayWidth == 640) {
             this.setState({
@@ -95,20 +39,20 @@ var TinyYoutubeBox = React.createClass({
                 youtubePlayHeight: 480
             });
         }
-    },
-	setShowYoutube: function(key, youtubes) {
+    }
+	setShowYoutube(key, youtubes) {
         this.setState({
         	playYoutubeUrl: youtubes[key].url,
             youtubeTitle: youtubes[key].title
         });
-	},
-	render: function() {
-		var self = this,
-		    youtubeSize = this.props.youtubeSize,
-		    boxSize = this.props.boxSize,
-		    youtubes = this.props.youtubes,
-            youtubePhotoListSize = this.props.youtubePhotoListSize,
-		    photoListScreenHeigth = youtubeSize.height;
+	}
+	render() {
+		const self = this;
+		let youtubeSize = this.props.youtubeSize;
+		let boxSize = this.props.boxSize;
+		let youtubes = this.props.youtubes;
+        let youtubePhotoListSize = this.props.youtubePhotoListSize;
+		let photoListScreenHeigth = youtubeSize.height;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
                 <SeparateLine width="100%"/>
@@ -129,6 +73,62 @@ var TinyYoutubeBox = React.createClass({
 			</div>
 		);
 	}
-});
+};
+
+let styles = {
+    photoBox: {
+        margin: "0px auto",
+    },
+    photo: {
+        display: "inline-block",
+        cursor: "pointer"
+    },
+    photoListScreen: {
+        display: "block",
+        margin: "0px auto",
+        overflowX: "scroll",
+        overflowY: "hidden",
+        whiteSpace: "nowrap",
+        minHeight: "100px",
+        '@media (max-width: 800px)': {
+            width: "80%",
+        },
+    },
+    photoNav: {
+        display: "block",
+        height: "60px",
+        lineHeight: "60px",
+        fontSize: "1.5em",
+        color: "black",
+        textAlign: "center"
+    },
+    navbarArrowLeft: {
+        display: "inline-block",
+        position: "absolute",
+        marginTop: "70px",
+        left: "10px",
+        fontSize: "40px",
+        color: "#CCCCCC"
+    },
+    navbarArrowRight: {
+        display: "inline-block",
+        position: "absolute",
+        marginTop: "70px",
+        right: "10px",
+        fontSize: "40px",
+        color: "#CCCCCC",
+    },
+    displayVideoScreen: {
+        display: "block",
+        margin: "0px auto",
+        width: "640",
+        backgroundColor: "#CCCCCC",
+        overflowX: "hidden",
+        overflowY: "hidden",
+        '@media (max-width: 800px)': {
+            width: "300px",
+        },
+    },
+};
 
 module.exports = Radium(TinyYoutubeBox);

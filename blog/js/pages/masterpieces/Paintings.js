@@ -1,47 +1,41 @@
-var React = require('react');
+import React from 'react';
 
-var TinyPhotoBox = require('../../components/box/TinyPhotoBox');
-var PaintingStore = require('../../stores/PaintingStore');
-var PaintingActions = require('../../actions/PaintingActions');
-var ObjectAssign = require('object-assign');
+import TinyPhotoBox from '../../components/box/TinyPhotoBox';
+import PaintingStore from '../../stores/PaintingStore';
+import PaintingActions from '../../actions/PaintingActions';
+import ObjectAssign from 'object-assign';
 
-var SeparateLine = require('../../components/line/SeparateLine');
+import SeparateLine from '../../components/line/SeparateLine';
 
-
-var styles = {
-    mainArea: {
-    	display: "block",
-        width: "100%",
+class Paintings extends React.Component {
+    constructor(props) {
+        super(props);
+        this.styles = styles;
+        this.state = {
+            paintings: []
+        }
+        this.getPaintings = this.getPaintings.bind(this);
     }
-};
-
-var Paintings = React.createClass({
-    styles: styles,
-	getInitialState: function() {
-        return {
-        	paintings: []
-        };
-	},
-	componentWillMount: function() {
+	componentWillMount() {
 		PaintingStore.on('add', this.getPaintings);
 		PaintingStore.on('init', this.getPaintings);
-	},
-	componentDidMount: function() {
+	}
+	componentDidMount() {
         this.initPainting();
-	},
-    componentWillUnmount: function() {
+	}
+    componentWillUnmount() {
         PaintingStore.removeListener('add', this.getPaintings);
         PaintingStore.removeListener('init', this.getPaintings);
-    },
-	initPainting: function() {
+    }
+	initPainting() {
         PaintingActions.initPainting();
-	},
-    getPaintings: function() {
+	}
+    getPaintings() {
         this.setState({
             paintings: PaintingStore.getAll()
         });
-    },
-    render: function() {
+    }
+    render() {
         return (
         	<div style={this.styles.mainArea}>
                 <div>
@@ -50,6 +44,13 @@ var Paintings = React.createClass({
         	</div>
         );
     }
-});
+};
+
+let styles = {
+    mainArea: {
+        display: "block",
+        width: "100%",
+    }
+};
 
 module.exports = Paintings;

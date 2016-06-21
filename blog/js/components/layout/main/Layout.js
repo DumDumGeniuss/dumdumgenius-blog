@@ -1,23 +1,22 @@
-var React = require('react');
-var Navbar = require('./Navbar.js');
-var Footer = require('./footer.js');
+import React from 'react';
+import Navbar from './Navbar.js';
+import Footer from './footer.js';
 
-var Layout = React.createClass({
-	styles: {
-        mainDiv: {
-        }
-	},
-	render: function() {
+export default class Layout extends React.Component {
+	render() {
+        let styles = {
+            mainDiv: {
+            }
+        };
 		return (
             <div>
                 <Navbar />
-                <div style={this.styles.mainDiv}>
+                <div style={styles.mainDiv}>
                     {this.props.children}
                 </div>
                 <Footer />
             </div>
    		);
 	}
-});
+}
 
-module.exports = Layout;

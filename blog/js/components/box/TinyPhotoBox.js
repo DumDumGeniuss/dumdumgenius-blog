@@ -1,102 +1,37 @@
-var React = require('react');
-var Assign = require('object-assign');
-var Radium = require('radium');
-var AngleDoubleLeft = require('react-icons/lib/fa/angle-double-left');
-var AngleDoubleRight = require('react-icons/lib/fa/angle-double-right');
-var SeparateLine = require('../line/SeparateLine');
+import React from 'react';
+import Assign from 'object-assign';
+import Radium from 'radium';
+import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
+import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right';
+import SeparateLine from '../line/SeparateLine';
 
-
-var styles = {
-    photoBox: {
-    	margin: "0px auto",
-    },
-    photo: {
-    	display: "inline-block",
-    	cursor: "pointer"
-    },
-    photoListScreen: {
-        display: "block",
-        margin: "0px auto",
-        overflowX: "scroll",
-        overflowY: "hidden",
-        whiteSpace: "nowrap",
-        minHeight: "100px",
-        '@media (max-width: 800px)': {
-            width: "80%",
-        },
-    },
-    photoNav: {
-    	display: "block",
-        height: "60px",
-        lineHeight: "60px",
-        fontSize: "1.5em",
-        color: "black",
-        textAlign: "center"
-    },
-    navbarArrowLeft: {
-    	display: "inline-block",
-    	position: "absolute",
-    	marginTop: "70px",
-    	left: "10px",
-        fontSize: "40px",
-        color: "#CCCCCC"
-    },
-    navbarArrowRight: {
-    	display: "inline-block",
-    	position: "absolute",
-    	marginTop: "70px",
-    	right: "10px",
-        fontSize: "40px",
-        color: "#CCCCCC",
-    },
-    displayScreen: {
-    	display: "block",
-    	margin: "0px auto",
-        height: "600px",
-        overflowX: "hidden",
-        overflowY: "hidden",
-    	'@media (max-width: 800px)': {
-            height: "250px",
-    	},
-    },
-    displayPhoto: {
-    	height: "100%",
-        marginLeft: "50%",
-        minWidth: "50px",
-        border: "1px solid black",
-        backgroundColor: "#EFEFEF",
-        transform: "translate(-50%, 0%)",
-    },
-};
-
-
-var TinyPhotoBox = React.createClass({
-	styles: styles,
-	getInitialState: function() {
-        return {
+class TinyPhotoBox extends React.Component {
+	constructor(props) {
+        super(props);
+        this.styles = styles;
+        this.state = {
             currentShowIndex: 0,
             showPainting: null,
             paintingTitle: 'Pick the one you like !',
             defaultImageUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/paintings%2FdefaultImage.png?alt=media'
         };
-	},
-	componentDidMount: function() {
-	},
-    componentWillMount: function() {
-    },
-	setShowPainting: function(key, paintings) {
+    }
+	componentDidMount() {
+	}
+    componentWillMount() {
+    }
+	setShowPainting(key, paintings) {
         this.setState({
         	showPainting: paintings[key],
             paintingTitle: paintings[key].title
         });
-	},
-	render: function() {
-		var self = this,
-		    photoSize = this.props.photoSize,
-		    boxSize = this.props.boxSize,
-		    paintings = this.props.paintings,
-            photoListSize = this.props.photoListSize,
-		    photoListScreenHeigth = photoSize.height;
+	}
+	render() {
+		const self = this;
+		let photoSize = this.props.photoSize;
+		let boxSize = this.props.boxSize;
+		let paintings = this.props.paintings;
+        let photoListSize = this.props.photoListSize;
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
                 <SeparateLine width="100%"/>
@@ -117,6 +52,69 @@ var TinyPhotoBox = React.createClass({
 			</div>
 		);
 	}
-});
+};
+
+let styles = {
+    photoBox: {
+        margin: "0px auto",
+    },
+    photo: {
+        display: "inline-block",
+        cursor: "pointer"
+    },
+    photoListScreen: {
+        display: "block",
+        margin: "0px auto",
+        overflowX: "scroll",
+        overflowY: "hidden",
+        whiteSpace: "nowrap",
+        minHeight: "100px",
+        '@media (max-width: 800px)': {
+            width: "80%",
+        },
+    },
+    photoNav: {
+        display: "block",
+        height: "60px",
+        lineHeight: "60px",
+        fontSize: "1.5em",
+        color: "black",
+        textAlign: "center"
+    },
+    navbarArrowLeft: {
+        display: "inline-block",
+        position: "absolute",
+        marginTop: "70px",
+        left: "10px",
+        fontSize: "40px",
+        color: "#CCCCCC"
+    },
+    navbarArrowRight: {
+        display: "inline-block",
+        position: "absolute",
+        marginTop: "70px",
+        right: "10px",
+        fontSize: "40px",
+        color: "#CCCCCC",
+    },
+    displayScreen: {
+        display: "block",
+        margin: "0px auto",
+        height: "600px",
+        overflowX: "hidden",
+        overflowY: "hidden",
+        '@media (max-width: 800px)': {
+            height: "250px",
+        },
+    },
+    displayPhoto: {
+        height: "100%",
+        marginLeft: "50%",
+        minWidth: "50px",
+        border: "1px solid black",
+        backgroundColor: "#EFEFEF",
+        transform: "translate(-50%, 0%)",
+    },
+};
 
 module.exports = Radium(TinyPhotoBox);

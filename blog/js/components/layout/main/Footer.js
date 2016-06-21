@@ -1,25 +1,23 @@
-var React = require('react');
+import React from 'react';
 
-var Footer = React.createClass({
-	styles: {
-        footer: {
-            width: "100%",
-            height: "50px",
-            backgroundColor: "black",
-            color: "white",
-            textAlign: "center",
-            fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-            lineHeight: "50px",
-            fontSize: "1em"
-        }
-	},
-	render: function() {
+export default class Footer extends React.Component {
+	render() {
+        const styles = {
+            footer: {
+                width: "100%",
+                height: "50px",
+                backgroundColor: "black",
+                color: "white",
+                textAlign: "center",
+                fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+                lineHeight: "50px",
+                fontSize: "1em"
+            }
+        };
 		return (
-			<footer style={this.styles.footer}>
+			<footer style={styles.footer}>
 			    Copyright © DumDumGenius 2016
 			</footer>
 		);
 	}
-});
-
-module.exports = Footer;
+}

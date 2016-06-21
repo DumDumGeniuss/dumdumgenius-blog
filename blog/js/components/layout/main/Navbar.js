@@ -1,165 +1,47 @@
-var Radium = require('radium');
-var React = require('react');
-var {Link} = require('react-router');
-var RadiumLink = Radium(Link); //Awesome!!
-var Facebook = require('react-icons/lib/fa/facebook');
-var Github = require('react-icons/lib/fa/github');
-var Twitter = require('react-icons/lib/fa/twitter');
-var Google = require('react-icons/lib/fa/google');
+import Radium from 'radium';
+import React from 'react';
+import {Link} from 'react-router';
+import Facebook from 'react-icons/lib/fa/facebook';
+import Github from 'react-icons/lib/fa/github';
+import Twitter from 'react-icons/lib/fa/twitter';
+import Google from 'react-icons/lib/fa/google';
+import ObjectAssign from 'object-assign';
 
-var User = Radium(require('react-icons/lib/fa/user'));
-var Image = Radium(require('react-icons/lib/fa/image'));
-var Book = Radium(require('react-icons/lib/fa/book'));
-var StickyNote = Radium(require('react-icons/lib/fa/sticky-note'));
+import User from 'react-icons/lib/fa/user';
+import Image from 'react-icons/lib/fa/image';
+import Book from 'react-icons/lib/fa/book';
+import StickyNote from 'react-icons/lib/fa/sticky-note';
 
-var ObjectAssign = require('object-assign');
+const RadiumLink = Radium(Link); //Awesome!!
+const RadiumUser = Radium(User);
+const RadiumImage = Radium(Image);
+const RadiumBook = Radium(Book);
+const RadiumStickyNote = Radium(StickyNote);
 
-var styles = {
-	backgroundArea: {
-        width: "100%",
-        height: "300px"
-	},
-	backgroundAreaHigh: {
-        width: "100%",
-        height: "350px",
-        backgroundColor: "black",
-	},
-	mainBackground: {
-        width: "100%",
-        height: "300px",
-        overflow: "hidden",
-        position: "absolute",
-        zIndex: "0"
-	},
-	blockBackground: {
-        width: "100%",
-        height: "300px",
-        backgroundColor: "black",
-        opacity: "0.7",
-        position: "absolute",
-        zIndex: "1"
-	},
-	textArea: {
-		display: "block",
-		width: "100%",
-        position: "absolute",
-        zIndex: "2"
-	},
-	logoText: {
-        position: "absolute",
-		display: "inline-block",
-		padding: "10px",
-        fontSize: "2em",
-        fontFamily: "cursive",
-        color: "white",
-	},
-	centerText: {
-        position: "absolute",
-		display: "inline-block",
-		width: "100%",
-        fontSize: "1.8em",
-        color: "white",
-        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-        textAlign: "center",
-        lineHeight: "300px",
-        wordWrap: "break-word"
-	},
-    logoArea: {
-        position: "absolute",
-        top: "240px",
-        right: "30px",
-        display: "block",
-        width: "172px",
-        margin: "0px auto",
-        '@media (max-width: 800px)': {
-            right: "calc(50% - 86px)",
-        },
-    },
-    faIcon: {
-        color: "white",
-        fontSize: "34px",
-        padding: "4px",
-        margin: "4px",
-        display: "inline-block",
-        height: "35px",
-        width: "35px",
-        border: "1px solid white",
-        borderRadius: "35px",
-        cursor: "pointer"
-    },
-	navbar: {
-        textAlign: "center",
-        left: "0px",
-        lineHeight: "50px",
-        backgroundColor: "black",
-        width: "100%",
-        borderTop: "2px solid gray",
-	},
-	navbarFixed: {
-		position: "fixed",
-		left: "0px",
-		top: "0px",
-        height: "50px",
-        overflow: "auto",
-        textAlign: "center",
-        lineHeight: "50px",
-        backgroundColor: "rgba(0, 0, 0, 0.68)",
-        width: "100%",
-        zIndex: "2"
-	},
-	navbarItem: {
-		color: "white",
-		display: "inline-block",
-        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-        fontSize: "1.2em",
-		width: "200px",
-		cursor: "pointer",
-        ':hover': {
-            color: "#F1FF5A"
-        },
-        '@media (max-width: 800px)': {
-            display: "none"
-        },
-	},
-    navbarItemCollapse: {
-        color: "white",
-        display: "none",
-        width: "80px",
-        height: "50px",
-        padding: "10px 0px",
-        fontSize: "30px",
-        lineHeight: "50px",
-        cursor: "pointer",
-        ':hover': {
-            color: "#F1FF5A"
-        },
-        '@media (max-width: 800px)': {
-            display: "inline-block"
-        },
-    }
-}
+class Navbar extends React.Component {
 
-var Navbar = React.createClass({
-	styles: styles,
-	getInitialState: function() {
-		return {
+    constructor() {
+        super();
+        this.styles = styles;
+        this.state = {
             scrollTop: 0,
             navbarClass: this.styles.navbar,
             backgroundAreaClass: this.styles.backgroundArea,
             navbarArrowUpClass: this.styles.arrowUp,
             navbarArrowDownClass: this.styles.arrowDown,
-		};
-	},
-	componentDidMount: function() {
+        };
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+	componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
-    },
-    componentWillUnmount: function() {
+    }
+    componentWillUnmount() {
         window.addEventListener('scroll', this.handleScroll);
-    },
-    componentWillUnmount: function() {
+    }
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
-    },
-    handleScroll: function(event) {
+    }
+    handleScroll(event) {
         this.setState({
             scrollTop: event.srcElement.body.scrollTop
         });
@@ -203,8 +85,8 @@ var Navbar = React.createClass({
                 });
             }
         }
-    },
-	render: function() {
+    }
+	render() {
 		return (
 			<div>
 			    <div style={this.state.backgroundAreaClass}>
@@ -230,22 +112,148 @@ var Navbar = React.createClass({
                     <RadiumLink style={this.styles.navbarItem} to="/diaries">Diaries</RadiumLink>
 			        <RadiumLink style={this.styles.navbarItem} to="/underConstruct">Tutorials</RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/">
-                         <User />
+                         <RadiumUser />
                     </RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/masterpieces">
-                        <Image  />
+                        <RadiumImage  />
                     </RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/diaries">
-                        <Book />
+                        <RadiumBook />
                     </RadiumLink>
                     <RadiumLink style={this.styles.navbarItemCollapse} to="/underConstruct">
-                        <StickyNote />
+                        <RadiumStickyNote />
                     </RadiumLink>
 			    </nav>
 			</div>
 		);
 	}
-});
+};
+
+let styles = {
+    backgroundArea: {
+        width: "100%",
+        height: "300px"
+    },
+    backgroundAreaHigh: {
+        width: "100%",
+        height: "350px",
+        backgroundColor: "black",
+    },
+    mainBackground: {
+        width: "100%",
+        height: "300px",
+        overflow: "hidden",
+        position: "absolute",
+        zIndex: "0"
+    },
+    blockBackground: {
+        width: "100%",
+        height: "300px",
+        backgroundColor: "black",
+        opacity: "0.7",
+        position: "absolute",
+        zIndex: "1"
+    },
+    textArea: {
+        display: "block",
+        width: "100%",
+        position: "absolute",
+        zIndex: "2"
+    },
+    logoText: {
+        position: "absolute",
+        display: "inline-block",
+        padding: "10px",
+        fontSize: "2em",
+        fontFamily: "cursive",
+        color: "white",
+    },
+    centerText: {
+        position: "absolute",
+        display: "inline-block",
+        width: "100%",
+        fontSize: "1.8em",
+        color: "white",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+        textAlign: "center",
+        lineHeight: "300px",
+        wordWrap: "break-word"
+    },
+    logoArea: {
+        position: "absolute",
+        top: "240px",
+        right: "30px",
+        display: "block",
+        width: "172px",
+        margin: "0px auto",
+        '@media (max-width: 800px)': {
+            right: "calc(50% - 86px)",
+        },
+    },
+    faIcon: {
+        color: "white",
+        fontSize: "34px",
+        padding: "4px",
+        margin: "4px",
+        display: "inline-block",
+        height: "35px",
+        width: "35px",
+        border: "1px solid white",
+        borderRadius: "35px",
+        cursor: "pointer"
+    },
+    navbar: {
+        textAlign: "center",
+        left: "0px",
+        lineHeight: "50px",
+        backgroundColor: "black",
+        width: "100%",
+        borderTop: "2px solid gray",
+    },
+    navbarFixed: {
+        position: "fixed",
+        left: "0px",
+        top: "0px",
+        height: "50px",
+        overflow: "auto",
+        textAlign: "center",
+        lineHeight: "50px",
+        backgroundColor: "rgba(0, 0, 0, 0.68)",
+        width: "100%",
+        zIndex: "2"
+    },
+    navbarItem: {
+        color: "white",
+        display: "inline-block",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+        fontSize: "1.2em",
+        width: "200px",
+        cursor: "pointer",
+        ':hover': {
+            color: "#F1FF5A"
+        },
+        '@media (max-width: 800px)': {
+            display: "none"
+        },
+    },
+    navbarItemCollapse: {
+        color: "white",
+        display: "none",
+        width: "80px",
+        height: "50px",
+        padding: "10px 0px",
+        fontSize: "30px",
+        lineHeight: "50px",
+        cursor: "pointer",
+        ':hover': {
+            color: "#F1FF5A"
+        },
+        '@media (max-width: 800px)': {
+            display: "inline-block"
+        },
+    }
+};
 
 
-module.exports = Radium(Navbar);
+
+module.exports = Radium(Navbar); 

@@ -1,53 +1,55 @@
-var React = require('react');
-var Radium = require('radium');
+import React from 'react';
+import Radium from 'radium';
 
-var TinyYoutubeBox = require('../../components/box/TinyYoutubeBox');
-var YoutubeStore = require('../../stores/YoutubeStore');
-var YoutubeActions = require('../../actions/YoutubeActions');
-var ObjectAssign = require('object-assign');
+import TinyYoutubeBox from '../../components/box/TinyYoutubeBox';
+import YoutubeStore from '../../stores/YoutubeStore';
+import YoutubeActions from '../../actions/YoutubeActions';
+import ObjectAssign from 'object-assign';
 
-var SeparateLine = require('../../components/line/SeparateLine');
+import SeparateLine from '../../components/line/SeparateLine';
 
-var styles = {
-    mainArea: {
-        display: "block",
-        width: "100%",
-    }
-};
-
-var Youtubes = React.createClass({
-    styles: styles,
-    getInitialState: function() {
-        return {
+class Youtubes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             Youtubes: []
         };
-    },
-    componentWillMount: function() {
+        this.styles = styles;
+        this.getYoutubes = this.getYoutubes.bind(this);
+    }
+    componentWillMount() {
         YoutubeStore.on('add', this.getYoutubes);
         YoutubeStore.on('init', this.getYoutubes);
-    },
-    componentDidMount: function() {
+    }
+    componentDidMount() {
         this.initYoutube();
-    },
-    componentWillUnmount: function() {
+    }
+    componentWillUnmount() {
         YoutubeStore.removeListener('add', this.getYoutubes);
         YoutubeStore.removeListener('init', this.getYoutubes);
-    },
-    initYoutube: function() {
+    }
+    initYoutube() {
         YoutubeActions.initYoutubes();
-    },
-    getYoutubes: function() {
+    }
+    getYoutubes() {
         this.setState({
             Youtubes: YoutubeStore.getAll()
         });
-    },
-    render: function() {
+    }
+    render() {
         return (
         	<div style={this.styles.mainArea}>
                 <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} youtubeSize={{width: '150px', height: 'none'}} youtubePhotoListSize={{width: '100%'}} youtubes={this.state.Youtubes}/>
         	</div>
         );
     }
-});
+};
+
+let styles = {
+    mainArea: {
+        display: "block",
+        width: "100%",
+    }
+};
 
 module.exports = Radium(Youtubes);

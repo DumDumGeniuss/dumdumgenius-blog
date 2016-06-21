@@ -1,72 +1,28 @@
-var React = require('react'),
-    Radium = require('radium'),
-    {Link} = require('react-router'),
-    RadiumLink = Radium(Link), //Awesome!!
-    Plus = require('react-icons/lib/fa/plus'),
-    Facebook = require('react-icons/lib/fa/facebook'),
-    SeparateLine = require('../../components/line/SeparateLine'),
-    DiaryNavBox = require('../../components/box/DiaryNavBox'),
-    DiaryStore = require('../../stores/DiaryStore'),
-    DiaryActions = require('../../actions/DiaryActions'),
-    styles;
+import React from 'react';
+import Radium from 'radium';
+import {Link} from 'react-router';
+import Plus from 'react-icons/lib/fa/plus';
+import Facebook from 'react-icons/lib/fa/facebook';
+import SeparateLine from '../../components/line/SeparateLine';
+import DiaryNavBox from '../../components/box/DiaryNavBox';
+import DiaryStore from '../../stores/DiaryStore';
+import DiaryActions from '../../actions/DiaryActions';
 
+let RadiumLink = Radium(Link); //Awesome!!
 
-
-styles = {
-    mainArea: {
-    	display: "block",
-        width: "100%",
-        backgroundColor: "#E9EBEE",
-        padding: "15px 0px"
-    },
-    categoriesNav: {
-        display: "block",
-        width: "60%",
-        margin: "0px auto",
-        padding: "20px",
-        '@media (max-width: 800px)': {
-            width: "100%"
-        }
-    },
-    categoryLabel: {
-        display: "inline-block",
-        backgroundColor: "#ff6b6b",
-        backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
-        color: "white",
-        padding: "10px",
-        margin: "5px 5px",
-        borderRadius: "5px",
-        cursor: "pointer"
-    },
-    addArticleButton: {
-    	fontSize: "2em"
-    },
-    linkStyle: {
-        cursor: "pointer",
-        ':hover': {
-            color: "yellow"
-        }
-    },
-    diariesBox: {
-        position: "relative",
-    },
-    addDiaryZone: {
-        position: "absolute",
-        top: "-70px",
-        right: "-10px"
-    }
-}
-
-var Diaries = React.createClass({
-	styles: styles,
-	getInitialState: function() {
-        return {
+class Diaries extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
             loginButton: false,
             diaries: [],
             diariesInfo: null
-        };
-	},
-	componentWillMount: function() {
+        }
+        this.styles = styles;
+        this.getDiariesInfo = this.getDiariesInfo.bind(this);
+        this.getDiaries = this.getDiaries.bind(this);
+    }
+	componentWillMount() {
         var user = firebase.auth().currentUser;
         console.log("User status", user);
         if(user) {
@@ -81,30 +37,30 @@ var Diaries = React.createClass({
 
         DiaryStore.on('finishGetDiariesInfo', this.getDiariesInfo);
         DiaryStore.on('finishQueryDiariesByCategory', this.getDiaries);
-	},
-    componentDidMount: function() {
+	}
+    componentDidMount() {
         DiaryActions.queryDiariesInfo();
-    },
-    componentWillUnmount: function() {
+    }
+    componentWillUnmount() {
         DiaryStore.removeListener('finishQueryDiariesByCategory', this.getDiaries);
         DiaryStore.removeListener('finishGetDiariesInfo', this.getDiariesInfo);
-    },
-    queryDiariesByCategory: function(category) {
+    }
+    queryDiariesByCategory(category) {
         DiaryActions.queryDiariesByCategory(category);
-    },
-    getDiariesInfo: function() {
+    }
+    getDiariesInfo() {
         this.setState({
             diariesInfo: DiaryStore.getDiariesInfo()
         });
         this.queryDiariesByCategory(DiaryStore.getDiariesInfo().categories[1]);
-    },
-    getDiaries: function() {
+    }
+    getDiaries() {
         this.setState({
             diaries: DiaryStore.getDiaries()
         });
-    },
-	render: function() {
-        var loginButton,
+    }
+	render() {
+        let loginButton,
             diaries = this.state.diaries?this.state.diaries:[],
             diariesInfo = this.state.diariesInfo,
             diaryCategories = diariesInfo?diariesInfo.categories:[],
@@ -114,7 +70,7 @@ var Diaries = React.createClass({
             loginButton = <Plus style={this.styles.addArticleButton}></Plus>;
         } else {
         	loginButton = null;
-        }
+        };
 
         return (
             <div>
@@ -146,6 +102,51 @@ var Diaries = React.createClass({
             </div>
         );
 	}
-});
+};
+
+let styles = {
+    mainArea: {
+        display: "block",
+        width: "100%",
+        backgroundColor: "#E9EBEE",
+        padding: "15px 0px"
+    },
+    categoriesNav: {
+        display: "block",
+        width: "60%",
+        margin: "0px auto",
+        padding: "20px",
+        '@media (max-width: 800px)': {
+            width: "100%"
+        }
+    },
+    categoryLabel: {
+        display: "inline-block",
+        backgroundColor: "#ff6b6b",
+        backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
+        color: "white",
+        padding: "10px",
+        margin: "5px 5px",
+        borderRadius: "5px",
+        cursor: "pointer"
+    },
+    addArticleButton: {
+        fontSize: "2em"
+    },
+    linkStyle: {
+        cursor: "pointer",
+        ':hover': {
+            color: "yellow"
+        }
+    },
+    diariesBox: {
+        position: "relative",
+    },
+    addDiaryZone: {
+        position: "absolute",
+        top: "-70px",
+        right: "-10px"
+    }
+};
 
 module.exports = Radium(Diaries);

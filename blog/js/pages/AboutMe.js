@@ -1,119 +1,22 @@
-var React = require('react');
-var Radium = require('radium');
-var HideBox = require('../components/box/HideBox.js');
-var PaintBrush = require('react-icons/lib/fa/paint-brush');
-var YoutubePlay = require('react-icons/lib/fa/youtube-play');
-var SeparateLine = require('../components/line/SeparateLine');
+import React from 'react';
+import Radium from 'radium';
+import HideBox from '../components/box/HideBox.js';
+import PaintBrush from 'react-icons/lib/fa/paint-brush';
+import YoutubePlay from 'react-icons/lib/fa/youtube-play';
+import SeparateLine from '../components/line/SeparateLine';
 
-var styles = {
-    mainArea: {
-    	display: "block",
-        width: "100%",
-        backgroundColor: "#E9EBEE",
-        padding: "15px 0px"
-    },
-    titleWordBig: {
-    	display: "block",
-    	color: "black",
-        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-    	fontSize: "3em",
-    	padding: "15px 0px 15px 0px"
-    },
-    centerAlign: {
-    	textAlign: "center"
-    },
-    contentText: {
-    	display: "block",
-    	padding: "10px 0px 0px 0px",
-    	color: "black",
-        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
-    	fontSize: "1.2em"
-    },
-    logoBox: {
-    	display: "block",
-    	margin: "10px auto",
-    	width: "140px",
-    	height: "140px",
-    	padding: "10px",
-    	backgroundColor: "rgba(255, 255, 255, 0.28)",
-        borderRadius: "140px"
-    },
-    logo: {
-    	display: "inline-block",
-    	width: "120px",
-    	height: "120px",
-        padding: "10px"
-    },
-    inlineLogo: {
-    	width: "110px",
-    	height: "110px",
-        '@media (max-width: 800px)': {
-            display: "block",
-            margin: "0px auto"
-        },
-    },
-    photoBox: {
-    	display: "block",
-    	margin: "10px auto",
-    	width: "250px",
-    	'@media (max-width: 650px)': {
-    	    width: "70%",
-        },
-    },
-    photo: {
-    	width: "100%",
-    	borderRadius: "10px",
-    },
-    inlineParagraph: {
-        display: "inline-block",
-        width: "60%",
-        backgroundColor: "#EFEFEF",
-        border: "1px solid black",
-        padding: "10px",
-        borderRadius: "5px",
-        '@media (max-width: 800px)': {
-            display: "block",
-            width: "90%",
-            margin: "0px auto"
-        },
 
-    },
-    middleAlign: {
-        verticalAlign: "middle"
-    },
-    textInParagraph: {
-        display: "inline-block",
-        color: "black",
-        fontSize: "1em",
-        lineHeight: "20px",
-        '@media (max-width: 800px)': {
-            padding: "10px 0px"
-        },
-    },
-}
-
-var AboutMe = React.createClass({
-	styles: styles,
-	getInitialState: function() {
-		return {
-            resizeWidth: 0,
-		};
-	},
-	componentDidMount: function() {
-    },
-    
-    // componentWillUnmount: function() {
-
-    // },
- //    componentWillUnmount: function() {
- //        window.removeEventListener('resize', this.handleResize);
- //    },
- //    handleResize: function(event) {
- //        this.setState({
- //            resizeWidth: event.srcElement.window.innerWidth
- //        });
- //    },
-	render: function() {
+class AboutMe extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            resizeWidth: 0
+        };
+        this.styles = styles;
+    }
+	componentDidMount() {
+    }
+	render() {
 		return (
 			<div style={this.styles.mainArea}>
 			    <span style={Object.assign(this.styles.titleWordBig, this.styles.centerAlign)}>Profile</span>
@@ -210,6 +113,93 @@ var AboutMe = React.createClass({
 			</div>
 		)
 	}
-});
+};
+
+let styles = {
+    mainArea: {
+        display: "block",
+        width: "100%",
+        backgroundColor: "#E9EBEE",
+        padding: "15px 0px"
+    },
+    titleWordBig: {
+        display: "block",
+        color: "black",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+        fontSize: "3em",
+        padding: "15px 0px 15px 0px"
+    },
+    centerAlign: {
+        textAlign: "center"
+    },
+    contentText: {
+        display: "block",
+        padding: "10px 0px 0px 0px",
+        color: "black",
+        fontFamily: "'Helvetica Neue',Helvetica,Arial,sans-serif",
+        fontSize: "1.2em"
+    },
+    logoBox: {
+        display: "block",
+        margin: "10px auto",
+        width: "140px",
+        height: "140px",
+        padding: "10px",
+        backgroundColor: "rgba(255, 255, 255, 0.28)",
+        borderRadius: "140px"
+    },
+    logo: {
+        display: "inline-block",
+        width: "120px",
+        height: "120px",
+        padding: "10px"
+    },
+    inlineLogo: {
+        width: "110px",
+        height: "110px",
+        '@media (max-width: 800px)': {
+            display: "block",
+            margin: "0px auto"
+        },
+    },
+    photoBox: {
+        display: "block",
+        margin: "10px auto",
+        width: "250px",
+        '@media (max-width: 650px)': {
+            width: "70%",
+        },
+    },
+    photo: {
+        width: "100%",
+        borderRadius: "10px",
+    },
+    inlineParagraph: {
+        display: "inline-block",
+        width: "60%",
+        backgroundColor: "#EFEFEF",
+        border: "1px solid black",
+        padding: "10px",
+        borderRadius: "5px",
+        '@media (max-width: 800px)': {
+            display: "block",
+            width: "90%",
+            margin: "0px auto"
+        },
+
+    },
+    middleAlign: {
+        verticalAlign: "middle"
+    },
+    textInParagraph: {
+        display: "inline-block",
+        color: "black",
+        fontSize: "1em",
+        lineHeight: "20px",
+        '@media (max-width: 800px)': {
+            padding: "10px 0px"
+        },
+    },
+};
 
 module.exports = Radium(AboutMe);

@@ -1,9 +1,26 @@
 var React = require('react'),
     Radium = require('radium');
 
-var styles = {
+class UnderConstruct extends React.Component {
+    constructor(props) {
+          super(props);
+          this.state = {
+              test: null
+          };
+          this.styles = styles;
+    }
+    render() {
+    	return (
+            <div style={this.styles.mainArea}>
+                Oops, it's not ready .
+            </div>
+    	);
+    }
+};
+
+let styles = {
     mainArea: {
-    	display: "block",
+        display: "block",
         width: "100%",
         minHeight: "500px",
         lineHeight: "500px",
@@ -13,16 +30,5 @@ var styles = {
         textAlign: "center"
     },
 };
-
-var UnderConstruct = React.createClass({
-    styles: styles,
-    render: function() {
-    	return (
-            <div style={this.styles.mainArea}>
-                Oops, it's not ready .
-            </div>
-    	);
-    }
-});
 
 module.exports = UnderConstruct;

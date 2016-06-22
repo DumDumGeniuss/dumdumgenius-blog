@@ -12,22 +12,8 @@ class Demo extends React.Component {
         this.styles = styles;
     }
 	componentWillMount() {
-        // var self = this;
-        // firebase.storage().ref('logos').child("TCFSHLogo.png").getDownloadURL()
-        // .then(function(url) {
-        //     console.log(url);
-        // });
-        // console.log(firebase.storage().ref('paintings').fullPath);
 	}
 	componentDidMount() {
-		// firebase.database().ref('test').once('value')
-		// .then(function(snapshot) {
-  //           console.log(snapshot.val());
-		// });
-		// firebase.storage().ref().child('welcomeBackground2.jpg').getDownloadURL()
-		// .then(function(url) {
-  //           console.log(url);
-		// });
 	}
 	render() {
 		return (

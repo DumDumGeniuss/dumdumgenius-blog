@@ -12,7 +12,7 @@ class UnderConstruct extends React.Component {
     render() {
     	return (
             <div style={this.styles.mainArea}>
-                Oops, it's not ready .
+                Oops, it's not ready ！
             </div>
     	);
     }

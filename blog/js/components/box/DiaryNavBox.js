@@ -10,11 +10,7 @@ class DiaryNavBox extends React.Component {
         this.styles = styles;
     }
     incrementZero(minutes) {
-        if(minutes<10) {
-        	return "0" + minutes;
-        } else {
-        	return minutes;
-        };
+        return minutes<10?("0" + minutes):minutes;
     }
     render() {
     	let diary = this.props.diary,

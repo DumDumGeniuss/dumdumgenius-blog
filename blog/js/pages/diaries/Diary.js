@@ -15,11 +15,7 @@ class Diaries extends React.Component {
         this.setDiary = this.setDiary.bind(this);
     }
     incrementZero(minutes) {
-        if(minutes<10) {
-        	return "0" + minutes;
-        } else {
-        	return minutes;
-        }
+        return minutes < 10?("0" + minutes):minutes;
     }
 	componentWillMount() {
         DiaryStore.on('finishQueryDiary', this.setDiary);
@@ -40,7 +36,7 @@ class Diaries extends React.Component {
 		let diary = this.state.diary,
 		    date = new Date(diary.date),
 		    typeLabelElem = diary?<span style={this.styles.typeLabel}>{diary.category}</span>:null,
-		    completeDate = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
+		    completeDate = date.getFullYear() + "-" + this.incrementZero(date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
 		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null;
         return (
             <div style={this.styles.mainArea}>

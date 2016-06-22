@@ -1,6 +1,6 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher'),
-    EventEmitter = require('events').EventEmitter,
-    Assign = require('object-assign');
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { EventEmitter } from 'events';
+import Assign from 'object-assign';
 
 var YoutubeStore = Assign({}, EventEmitter.prototype, {
     
@@ -17,13 +17,9 @@ var YoutubeStore = Assign({}, EventEmitter.prototype, {
         var self = this;
         firebase.database().ref('youtubes').once('value')
         .then(function(snapshot) {
-            console.log(snapshot.val());
             self.youtubes = snapshot.val();
-            console.log(self.youtubes[0]);
             self.emit('init');
         });
-        //this.Youtubes = Youtubes;
-        //console.log("Finished initial Youtubes");
     },
     handleAction: function(action) {
         switch(action.type) {

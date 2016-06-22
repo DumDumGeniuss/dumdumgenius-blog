@@ -39,7 +39,10 @@ class Paintings extends React.Component {
         return (
         	<div style={this.styles.mainArea}>
                 <div>
-			       <TinyPhotoBox boxSize={{width: '100%', height: 'none'}} photoSize={{width: '100px', height: 'none'}} photoListSize={{width: '100%'}} paintings={this.state.paintings}/>
+			       <TinyPhotoBox boxSize={{width: '100%', height: 'none'}} 
+                                photoSize={{width: '100px', height: 'none'}} 
+                                photoListSize={{width: '100%'}} 
+                                paintings={this.state.paintings} />
 			    </div>
         	</div>
         );

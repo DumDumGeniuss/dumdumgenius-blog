@@ -1,31 +1,29 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher'),
-    EventEmitter = require('events').EventEmitter,
-    Assign = require('object-assign');
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { EventEmitter } from 'events';
+import Assign from 'object-assign';
 
-var PaintingStore = Assign({}, EventEmitter.prototype, {
+class PaintingStore extends EventEmitter {
     
-    paintings: [],
-    getAll: function() {
+    constructor() {
+        super();
+        this.paintings = [];
+    }
+    getAll() {
     	return this.paintings;
-    },
-    addPainting: function(painting) {
+    }
+    addPainting(painting) {
         this.paintings.push(painting);
-        console.log("Finish add painting");
         this.emit('add');
-    },
-    initialPainting: function(paintings) {
+    }
+    initialPainting(paintings) {
         var self = this;
         firebase.database().ref('paintings').once('value')
         .then(function(snapshot) {
-            console.log(snapshot.val());
             self.paintings = snapshot.val();
-            console.log(self.paintings[0]);
             self.emit('init');
         });
-        //this.paintings = paintings;
-        //console.log("Finished initial paintings");
-    },
-    handleAction: function(action) {
+    }
+    handleAction(action) {
         switch(action.type) {
         	case 'ADD_PAINTING': {
         		this.addPainting(action.data);
@@ -38,8 +36,10 @@ var PaintingStore = Assign({}, EventEmitter.prototype, {
         }
     }
 
-});
+};
 
-AppDispatcher.register(PaintingStore.handleAction.bind(PaintingStore));
+let paintingStore = new PaintingStore;
 
-module.exports = PaintingStore;
+AppDispatcher.register(paintingStore.handleAction.bind(paintingStore));
+
+export default paintingStore;

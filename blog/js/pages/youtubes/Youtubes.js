@@ -1,9 +1,10 @@
 import React from 'react';
 import Radium from 'radium';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import  * as youtubeActions from '../../actions/youtubeActionss'
 
 import TinyYoutubeBox from '../../components/box/TinyYoutubeBox';
-import YoutubeStore from '../../stores/YoutubeStore';
-import YoutubeActions from '../../actions/YoutubeActions';
 import ObjectAssign from 'object-assign';
 
 import SeparateLine from '../../components/line/SeparateLine';
@@ -15,31 +16,27 @@ class Youtubes extends React.Component {
             Youtubes: []
         };
         this.styles = styles;
-        this.getYoutubes = this.getYoutubes.bind(this);
-    }
-    componentWillMount() {
-        YoutubeStore.on('add', this.getYoutubes);
-        YoutubeStore.on('init', this.getYoutubes);
     }
     componentDidMount() {
-        this.initYoutube();
+        this.initYoutubes()
     }
-    componentWillUnmount() {
-        YoutubeStore.removeListener('add', this.getYoutubes);
-        YoutubeStore.removeListener('init', this.getYoutubes);
-    }
-    initYoutube() {
-        YoutubeActions.initYoutubes();
-    }
-    getYoutubes() {
-        this.setState({
-            Youtubes: YoutubeStore.getAll()
+    initYoutubes() {
+        const { actions } = this.props
+        firebase.database().ref('youtubes').once('value')
+        .then(function(snapshot) {
+            let youtubes = snapshot.val();
+            actions.initYoutubes(youtubes)
         });
     }
     render() {
+        const { state } = this.props
+        let youtubes = state.youtubes
         return (
         	<div style={this.styles.mainArea}>
-                <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} youtubeSize={{width: '150px', height: 'none'}} youtubePhotoListSize={{width: '100%'}} youtubes={this.state.Youtubes}/>
+                <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} 
+                                youtubeSize={{width: '150px', height: 'none'}} 
+                                youtubePhotoListSize={{width: '100%'}} 
+                                youtubes={youtubes}/>
         	</div>
         );
     }
@@ -52,4 +49,18 @@ let styles = {
     }
 };
 
-module.exports = Radium(Youtubes);
+function mapStateToProps(state) {
+  return {
+    state: state.youtubes
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(youtubeActions, dispatch)
+  };
+}
+
+Youtubes = Radium(Youtubes);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Youtubes)

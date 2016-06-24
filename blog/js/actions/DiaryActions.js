@@ -1,6 +1,6 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+let AppDispatcher = require('../dispatcher/AppDispatcher');
 
-var DiaryActions = {
+let DiaryActions = {
     queryDiariesInfo: function() {
         AppDispatcher.dispatch({
         	type: "QUERY_DIARIES_INFO"

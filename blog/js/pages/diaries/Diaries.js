@@ -1,76 +1,75 @@
-import React from 'react';
-import Radium from 'radium';
-import {Link} from 'react-router';
-import Plus from 'react-icons/lib/fa/plus';
-import Facebook from 'react-icons/lib/fa/facebook';
-import SeparateLine from '../../components/line/SeparateLine';
-import DiaryNavBox from '../../components/box/DiaryNavBox';
-import DiaryStore from '../../stores/DiaryStore';
-import DiaryActions from '../../actions/DiaryActions';
+import React from 'react'
+import Radium from 'radium'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import  * as diaryActions from '../../actions/diaryActionss'
+import {Link} from 'react-router'
+import Plus from 'react-icons/lib/fa/plus'
+import Facebook from 'react-icons/lib/fa/facebook'
+import SeparateLine from '../../components/line/SeparateLine'
+import DiaryNavBox from '../../components/box/DiaryNavBox'
 
-let RadiumLink = Radium(Link); //Awesome!!
+let RadiumLink = Radium(Link) //Awesome!!
 
 class Diaries extends React.Component {
 	constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            loginButton: false,
-            diaries: [],
-            diariesInfo: null
+            loginButton: false
         }
-        this.styles = styles;
-        this.getDiariesInfo = this.getDiariesInfo.bind(this);
-        this.getDiaries = this.getDiaries.bind(this);
+        this.styles = styles
+        this.queryDiariesByCategory = this.queryDiariesByCategory.bind(this)
     }
 	componentWillMount() {
-        var user = firebase.auth().currentUser;
-        console.log("User status", user);
+        var user = firebase.auth().currentUser
+        console.log("User status", user)
         if(user) {
             this.setState({
                 isLogin: true
-            });
+            })
         } else {
             this.setState({
                 isLogin: false
-            });
+            })
         }
-
-        DiaryStore.on('finishGetDiariesInfo', this.getDiariesInfo);
-        DiaryStore.on('finishQueryDiariesByCategory', this.getDiaries);
 	}
     componentDidMount() {
-        DiaryActions.queryDiariesInfo();
-    }
-    componentWillUnmount() {
-        DiaryStore.removeListener('finishQueryDiariesByCategory', this.getDiaries);
-        DiaryStore.removeListener('finishGetDiariesInfo', this.getDiariesInfo);
+        this.getDiariesInfo()
     }
     queryDiariesByCategory(category) {
-        DiaryActions.queryDiariesByCategory(category);
+        const { actions } = this.props
+            self = this
+
+        firebase.database().ref('diaries').child(category+'/datas').orderByChild('date').once('value')
+        .then(function(result) {
+            let diaries = toArray(result.val())
+            actions.getDiariesByCategory(diaries)
+        })
     }
     getDiariesInfo() {
-        this.setState({
-            diariesInfo: DiaryStore.getDiariesInfo()
-        });
-        this.queryDiariesByCategory(DiaryStore.getDiariesInfo().categories[1]);
-    }
-    getDiaries() {
-        this.setState({
-            diaries: DiaryStore.getDiaries()
-        });
+        const { actions } = this.props,
+            self = this
+
+        firebase.database().ref('diariesInfo').once('value')
+        .then(function(result) {
+            let diariesInfo = result.val()
+            actions.getDiariesInfo(diariesInfo)
+            self.queryDiariesByCategory(diariesInfo.categories[1])
+        })
     }
 	render() {
-        let loginButton,
-            diaries = this.state.diaries?this.state.diaries:[],
-            diariesInfo = this.state.diariesInfo,
+        let { state } = this.props,
+            diariesInfo = state.diariesInfo,
             diaryCategories = diariesInfo?diariesInfo.categories:[],
-            self = this;
+            diaries = state.diaries
+        let loginButton,
+            self = this
 
         if(this.state.isLogin) {
-            loginButton = <Plus style={this.styles.addArticleButton}></Plus>;
+            loginButton = <Plus style={this.styles.addArticleButton}></Plus>
         } else {
-        	loginButton = null;
-        };
+        	loginButton = null
+        }
 
         return (
             <div>
@@ -81,14 +80,14 @@ class Diaries extends React.Component {
                                 <span key={result} style={self.styles.categoryLabel} onClick={self.queryDiariesByCategory.bind(self, result)}>
                                     {result}
                                 </span>
-                            );
+                            )
                         })}
                     </div>
                     {diaries.map(function(result) {
                         return (
                             <DiaryNavBox key={result.id} width="60%" diary={result}>
                             </DiaryNavBox>
-                        );
+                        )
                     })}
                     <div style={this.styles.addDiaryZone}>
                         <RadiumLink style={this.styles.linkStyle} to="/diaries/create">
@@ -100,9 +99,19 @@ class Diaries extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        )
 	}
-};
+}
+
+function toArray(map) {
+    let array = []
+    for(let key in map) {
+        let item = map[key]
+        item.id = key
+        array.push(item)
+    }
+    return array
+}
 
 let styles = {
     mainArea: {
@@ -147,6 +156,20 @@ let styles = {
         top: "-70px",
         right: "-10px"
     }
-};
+}
 
-module.exports = Radium(Diaries);
+Diaries = Radium(Diaries)
+
+function mapStateToProps(state) {
+  return {
+    state: state.diaries
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(diaryActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Diaries)

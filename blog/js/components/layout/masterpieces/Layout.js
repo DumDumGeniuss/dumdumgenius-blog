@@ -1,16 +1,16 @@
-import React from 'react';
-import Radium from 'radium';
-import PaintBrush from 'react-icons/lib/fa/paint-brush';
-import YoutubePlay from 'react-icons/lib/fa/youtube-play';
-import ObjectAssign from 'object-assign';
-import {Link} from 'react-router';
+import React from 'react'
+import Radium from 'radium'
+import PaintBrush from 'react-icons/lib/fa/paint-brush'
+import YoutubePlay from 'react-icons/lib/fa/youtube-play'
+import ObjectAssign from 'object-assign'
+import {Link} from 'react-router'
 
-const RadiumLink = Radium(Link); //Awesome!!
+const RadiumLink = Radium(Link) //Awesome!!
 
 class Layout extends React.Component {
     constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
     }
     render() {
     	return (
@@ -32,7 +32,7 @@ class Layout extends React.Component {
                     </div>
                 </div>
     	    </div>
-    	);
+    	)
     }
 }
 
@@ -87,6 +87,6 @@ let styles = {
         margin: "10px",
         cursor: "pointer",
     },
-};
+}
 
-module.exports = Radium(Layout);
+export default Radium(Layout)

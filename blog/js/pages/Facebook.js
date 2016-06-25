@@ -1,25 +1,25 @@
-var React = require('react');
-var ObjectAssign = require('object-assign');
+import React from 'react'
+import ObjectAssign from 'object-assign'
 
 class Facebook extends React.Component {
     constructor(props) {
-          super(props);
+          super(props)
           this.state = {
               test: null
-          };
-          this.styles = styles;
+          }
+          this.styles = styles
     }
 	componentWillMount() {
 	}
 	componentDidMount() {
-		let provider = new firebase.auth.FacebookAuthProvider();
+		let provider = new firebase.auth.FacebookAuthProvider()
         firebase.auth().signInWithRedirect(provider).then(function(result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             let token = result.credential.accessToken,
             // The signed-in user info.
-                user = result.user;
+                user = result.user
             // ...
-            console.log(result);
+            console.log(result)
         }).catch(function(error) {
             // Handle Errors here.
             let errorCode = error.code,
@@ -27,22 +27,22 @@ class Facebook extends React.Component {
             // The email of the user's account used.
                 email = error.email,
             // The firebase.auth.AuthCredential type that was used.
-                credential = error.credential;
+                credential = error.credential
             // ...
-        });
+        })
 	}
 	render() {
 		return (
 			<div style={this.styles.mainArea}>
 			    Facebook!!!
 			</div>
-		);
+		)
 	}
-};
+}
 
 let styles = {
     mainArea: {
     }
-};
+}
 
-module.exports = Facebook;
+module.exports = Facebook

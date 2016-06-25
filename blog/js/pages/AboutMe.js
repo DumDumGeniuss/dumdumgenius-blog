@@ -1,18 +1,18 @@
-import React from 'react';
-import Radium from 'radium';
-import HideBox from '../components/box/HideBox.js';
-import PaintBrush from 'react-icons/lib/fa/paint-brush';
-import YoutubePlay from 'react-icons/lib/fa/youtube-play';
-import SeparateLine from '../components/line/SeparateLine';
+import React from 'react'
+import Radium from 'radium'
+import HideBox from '../components/box/HideBox.js'
+import PaintBrush from 'react-icons/lib/fa/paint-brush'
+import YoutubePlay from 'react-icons/lib/fa/youtube-play'
+import SeparateLine from '../components/line/SeparateLine'
 
 
 class AboutMe extends React.Component {
 	constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             resizeWidth: 0
-        };
-        this.styles = styles;
+        }
+        this.styles = styles
     }
 	componentDidMount() {
     }
@@ -113,7 +113,7 @@ class AboutMe extends React.Component {
 			</div>
 		)
 	}
-};
+}
 
 let styles = {
     mainArea: {
@@ -200,6 +200,6 @@ let styles = {
             padding: "10px 0px"
         },
     },
-};
+}
 
-module.exports = Radium(AboutMe);
+export default Radium(AboutMe)

@@ -1,43 +1,42 @@
-import React from 'react';
-import DiaryStore from '../../stores/DiaryStore';
-import DiaryActions from '../../actions/DiaryActions';
-import Radium from 'radium';
-import Markdown from 'react-remarkable';
-import Calendar from 'react-icons/lib/fa/calendar';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import  * as diaryActions from '../../actions/diaryActionss'
+import Radium from 'radium'
+import Markdown from 'react-remarkable'
+import Calendar from 'react-icons/lib/fa/calendar'
 
-class Diaries extends React.Component {
+class Diary extends React.Component {
 	constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             diary: ''
-        };
-        this.styles = styles;
-        this.setDiary = this.setDiary.bind(this);
+        }
+        this.styles = styles
+        this.getDiary = this.getDiary.bind(this)
     }
-    incrementZero(minutes) {
-        return minutes < 10?("0" + minutes):minutes;
-    }
-	componentWillMount() {
-        DiaryStore.on('finishQueryDiary', this.setDiary);
-	}
     componentDidMount() {
-    	let category = this.props.location.query.category;
-        DiaryActions.queryDiary(this.props.params.id, category);
+        let { query } = this.props.location,
+            { params } = this.props
+
+        this.getDiary(query.category, params.id)
     }
-    componentWillUnmount() {
-        DiaryStore.removeListener('finishQueryDiary', this.setDiary);
-    }
-    setDiary() {
-        this.setState({
-            diary: DiaryStore.getDiary()
-        });
+    getDiary(category, id) {
+        const { actions } = this.props
+
+        firebase.database().ref('diaries/' + category + '/datas/' + id).once('value')
+        .then(function(result) {
+            let diary = result.val()
+            actions.getDiary(diary)
+        })
     }
 	render() {
-		let diary = this.state.diary,
-		    date = new Date(diary.date),
+        let { state } = this.props,
+            diary = state.diary,
+		    date = diary?new Date(diary.date):null,
 		    typeLabelElem = diary?<span style={this.styles.typeLabel}>{diary.category}</span>:null,
-		    completeDate = date.getFullYear() + "-" + this.incrementZero(date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + this.incrementZero(date.getMinutes()),
-		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null;
+		    completeDate = getCompleteDate(date),
+		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null
         return (
             <div style={this.styles.mainArea}>
                 {typeLabelElem}
@@ -47,13 +46,21 @@ class Diaries extends React.Component {
                 </div>
                 <div style={this.styles.diaryContent}>
                     <Markdown>
-                        {diary.content}
+                        {diary?diary.content:null}
                     </Markdown>
                 </div>
             </div>
-        );
+        )
 	}
-};
+}
+
+function incrementZero(minutes) {
+    return minutes < 10?("0" + minutes):minutes
+}
+
+function getCompleteDate(date) {
+    return date?(date.getFullYear() + "-" + incrementZero(date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + incrementZero(date.getMinutes())):null
+}
 
 let styles = {
     mainArea: {
@@ -102,6 +109,20 @@ let styles = {
         verticalAlign: "middle",
         marginLeft: "10px"
     }
-};
+}
 
-module.exports = Radium(Diaries);
+Diary = Radium(Diary)
+
+function mapStateToProps(state) {
+  return {
+    state: state.diaries
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(diaryActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Diary)

@@ -1,13 +1,13 @@
-import React from 'react';
-import Navbar from './Navbar.js';
-import Footer from './footer.js';
+import React from 'react'
+import Navbar from './Navbar.js'
+import Footer from './footer.js'
 
 export default class Layout extends React.Component {
 	render() {
         let styles = {
             mainDiv: {
             }
-        };
+        }
 		return (
             <div>
                 <Navbar />
@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
                 </div>
                 <Footer />
             </div>
-   		);
+   		)
 	}
 }
 

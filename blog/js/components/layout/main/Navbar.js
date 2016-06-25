@@ -1,88 +1,88 @@
-import Radium from 'radium';
-import React from 'react';
-import {Link} from 'react-router';
-import Facebook from 'react-icons/lib/fa/facebook';
-import Github from 'react-icons/lib/fa/github';
-import Twitter from 'react-icons/lib/fa/twitter';
-import Google from 'react-icons/lib/fa/google';
-import ObjectAssign from 'object-assign';
+import Radium from 'radium'
+import React from 'react'
+import {Link} from 'react-router'
+import Facebook from 'react-icons/lib/fa/facebook'
+import Github from 'react-icons/lib/fa/github'
+import Twitter from 'react-icons/lib/fa/twitter'
+import Google from 'react-icons/lib/fa/google'
+import ObjectAssign from 'object-assign'
 
-import User from 'react-icons/lib/fa/user';
-import Image from 'react-icons/lib/fa/image';
-import Book from 'react-icons/lib/fa/book';
-import StickyNote from 'react-icons/lib/fa/sticky-note';
+import User from 'react-icons/lib/fa/user'
+import Image from 'react-icons/lib/fa/image'
+import Book from 'react-icons/lib/fa/book'
+import StickyNote from 'react-icons/lib/fa/sticky-note'
 
-const RadiumLink = Radium(Link); //Awesome!!
-const RadiumUser = Radium(User);
-const RadiumImage = Radium(Image);
-const RadiumBook = Radium(Book);
-const RadiumStickyNote = Radium(StickyNote);
+const RadiumLink = Radium(Link) //Awesome!!
+const RadiumUser = Radium(User)
+const RadiumImage = Radium(Image)
+const RadiumBook = Radium(Book)
+const RadiumStickyNote = Radium(StickyNote)
 
 class Navbar extends React.Component {
 
     constructor() {
-        super();
-        this.styles = styles;
+        super()
+        this.styles = styles
         this.state = {
             scrollTop: 0,
             navbarClass: this.styles.navbar,
             backgroundAreaClass: this.styles.backgroundArea,
             navbarArrowUpClass: this.styles.arrowUp,
             navbarArrowDownClass: this.styles.arrowDown,
-        };
-        this.handleScroll = this.handleScroll.bind(this);
+        }
+        this.handleScroll = this.handleScroll.bind(this)
     }
 	componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('scroll', this.handleScroll)
     }
     componentWillUnmount() {
-        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('scroll', this.handleScroll)
     }
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('scroll', this.handleScroll)
     }
     handleScroll(event) {
         this.setState({
             scrollTop: event.srcElement.body.scrollTop
-        });
+        })
 
         if(this.state.scrollTop<300) {
             if(this.state.navbarClass !== this.styles.navbar) {
                 this.setState({
                     navbarClass: this.styles.navbar
-                });
+                })
             }
             if(this.state.navbarArrowUpClass !== this.styles.arrowUp){
                 this.setState({
                     navbarArrowUpClass: this.styles.arrowUp
-                });
+                })
                 this.setState({
                     navbarArrowDownClass: this.styles.arrowDown
-                });
+                })
             }
             if(this.state.backgroundAreaClass !== this.styles.backgroundArea) {
                 this.setState({
                     backgroundAreaClass: this.styles.backgroundArea
-                });
+                })
             }
         }else if(this.state.scrollTop>300) {
             if(this.state.navbarClass !== this.styles.navbarFixed) {
                 this.setState({
                     navbarClass: this.styles.navbarFixed
-                });
+                })
             }
             if(this.state.navbarArrowUpClass !== this.styles.arrowUpFixed){
                 this.setState({
                     navbarArrowUpClass: this.styles.arrowUpFixed
-                });
+                })
                 this.setState({
                     navbarArrowDownClass: this.styles.arrowDownFixed
-                });
+                })
             }
             if(this.state.backgroundAreaClass !== this.styles.backgroundAreaHigh) {
                 this.setState({
                     backgroundAreaClass: this.styles.backgroundAreaHigh
-                });
+                })
             }
         }
     }
@@ -125,9 +125,9 @@ class Navbar extends React.Component {
                     </RadiumLink>
 			    </nav>
 			</div>
-		);
+		)
 	}
-};
+}
 
 let styles = {
     backgroundArea: {
@@ -252,8 +252,8 @@ let styles = {
             display: "inline-block"
         },
     }
-};
+}
 
 
 
-module.exports = Radium(Navbar); 
+export default Radium(Navbar) 

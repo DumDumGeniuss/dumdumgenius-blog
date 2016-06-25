@@ -1,20 +1,20 @@
-import React from 'react';
-import Assign from 'object-assign';
-import Radium from 'radium';
-import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
-import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right';
-import SeparateLine from '../line/SeparateLine';
+import React from 'react'
+import Assign from 'object-assign'
+import Radium from 'radium'
+import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left'
+import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right'
+import SeparateLine from '../line/SeparateLine'
 
 class TinyPhotoBox extends React.Component {
 	constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
         this.state = {
             currentShowIndex: 0,
             showPainting: null,
             paintingTitle: 'Pick the one you like !',
             defaultImageUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/paintings%2FdefaultImage.png?alt=media'
-        };
+        }
     }
 	componentDidMount() {
 	}
@@ -24,14 +24,14 @@ class TinyPhotoBox extends React.Component {
         this.setState({
         	showPainting: paintings[key],
             paintingTitle: paintings[key].title
-        });
+        })
 	}
 	render() {
-		const self = this;
-		let photoSize = this.props.photoSize;
-		let boxSize = this.props.boxSize;
-		let paintings = this.props.paintings;
-        let photoListSize = this.props.photoListSize;
+		const self = this
+		let photoSize = this.props.photoSize
+		let boxSize = this.props.boxSize
+		let paintings = this.props.paintings
+        let photoListSize = this.props.photoListSize
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
                 <SeparateLine width="100%"/>
@@ -50,9 +50,9 @@ class TinyPhotoBox extends React.Component {
                     <img style={this.styles.displayPhoto} src={this.state.showPainting?this.state.showPainting.src:this.state.defaultImageUrl}></img>
 			    </div>
 			</div>
-		);
+		)
 	}
-};
+}
 
 let styles = {
     photoBox: {
@@ -115,6 +115,6 @@ let styles = {
         backgroundColor: "#EFEFEF",
         transform: "translate(-50%, 0%)",
     },
-};
+}
 
-module.exports = Radium(TinyPhotoBox);
+export default Radium(TinyPhotoBox)

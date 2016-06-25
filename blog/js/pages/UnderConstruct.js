@@ -1,5 +1,5 @@
-var React = require('react'),
-    Radium = require('radium');
+import React from 'react'
+import Radium from 'radium'
 
 class UnderConstruct extends React.Component {
     constructor(props) {
@@ -14,9 +14,9 @@ class UnderConstruct extends React.Component {
             <div style={this.styles.mainArea}>
                 Oops, it's not ready ！
             </div>
-    	);
+    	)
     }
-};
+}
 
 let styles = {
     mainArea: {
@@ -29,6 +29,6 @@ let styles = {
         fontSize: "5em",
         textAlign: "center"
     },
-};
+}
 
-module.exports = UnderConstruct;
+export default UnderConstruct

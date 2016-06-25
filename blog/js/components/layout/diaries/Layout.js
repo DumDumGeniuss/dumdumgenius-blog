@@ -1,10 +1,10 @@
-import React from 'react';
-import Radium from 'radium';
+import React from 'react'
+import Radium from 'radium'
 
 class Layout extends React.Component {
     constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
     }
     render() {
     	return (
@@ -14,7 +14,7 @@ class Layout extends React.Component {
                     {this.props.children}
                 </div>
     	    </div>
-    	);
+    	)
     }
 }
 
@@ -40,6 +40,6 @@ let styles = {
         //border: "1px solid black"
 
     }
-};
+}
 
-module.exports = Radium(Layout);
+export default Radium(Layout)

@@ -1,58 +1,58 @@
-import React from 'react';
-import Assign from 'object-assign';
-import Radium from 'radium';
-import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
-import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right';
-import SeparateLine from '../line/SeparateLine';
+import React from 'react'
+import Assign from 'object-assign'
+import Radium from 'radium'
+import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left'
+import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right'
+import SeparateLine from '../line/SeparateLine'
 
 class TinyYoutubeBox extends React.Component{
 	constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
         this.state = {
             currentShowIndex: 0,
             youtubeTitle: 'Pick the one you like !',
             playYoutubeUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/youtubes%2FdefaultImage.png?alt=media',
             youtubePlayWidth: 640,
             youtubePlayHeight: 480
-        };
-        this.handleResize = this.handleResize.bind(this);
+        }
+        this.handleResize = this.handleResize.bind(this)
     }
 	componentDidMount() {
 	}
     componentWillMount() {
-        window.addEventListener('resize', this.handleResize);
+        window.addEventListener('resize', this.handleResize)
     }
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('resize', this.handleResize)
     }
     handleResize(event) {
-        var windowWidth = event.srcElement.window.innerWidth;
+        var windowWidth = event.srcElement.window.innerWidth
         if(windowWidth < 800 && this.state.youtubePlayWidth == 640) {
             this.setState({
                 youtubePlayWidth: 300,
                 youtubePlayHeight: 225
-            });
+            })
         } else if(windowWidth > 800 && this.state.youtubePlayWidth == 300) {
             this.setState({
                 youtubePlayWidth: 640,
                 youtubePlayHeight: 480
-            });
+            })
         }
     }
 	setShowYoutube(key, youtubes) {
         this.setState({
         	playYoutubeUrl: youtubes[key].url,
             youtubeTitle: youtubes[key].title
-        });
+        })
 	}
 	render() {
-		const self = this;
-		let youtubeSize = this.props.youtubeSize;
-		let boxSize = this.props.boxSize;
-		let youtubes = this.props.youtubes;
-        let youtubePhotoListSize = this.props.youtubePhotoListSize;
-		let photoListScreenHeigth = youtubeSize.height;
+		const self = this
+		let youtubeSize = this.props.youtubeSize
+		let boxSize = this.props.boxSize
+		let youtubes = this.props.youtubes
+        let youtubePhotoListSize = this.props.youtubePhotoListSize
+		let photoListScreenHeigth = youtubeSize.height
 		return (
 			<div style={Assign(this.styles.photoBox, {width: boxSize.width, height: boxSize.height})}>
                 <SeparateLine width="100%"/>
@@ -71,9 +71,9 @@ class TinyYoutubeBox extends React.Component{
                     <iframe src={this.state.playYoutubeUrl} width={this.state.youtubePlayWidth} height={this.state.youtubePlayHeight}> </iframe>
 			    </div>
 			</div>
-		);
+		)
 	}
-};
+}
 
 let styles = {
     photoBox: {
@@ -129,6 +129,6 @@ let styles = {
             width: "300px",
         },
     },
-};
+}
 
-module.exports = Radium(TinyYoutubeBox);
+export default Radium(TinyYoutubeBox)

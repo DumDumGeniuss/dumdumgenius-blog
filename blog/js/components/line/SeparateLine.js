@@ -1,20 +1,20 @@
-import React from 'react';
-import Radium from 'radium';
-import ObjectAssign from 'object-assign';
+import React from 'react'
+import Radium from 'radium'
+import ObjectAssign from 'object-assign'
 
 class SeparateLine extends React.Component {
     constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
     }
     render() {
-    	let width = this.props.width;
+    	let width = this.props.width
         return (
         	<div style={ObjectAssign(this.styles.separateLine, {width: width?width:"60%"})}>
         	</div>
-        );
+        )
     }
-};
+}
 
 let styles = {
     separateLine: {
@@ -26,6 +26,6 @@ let styles = {
             width: "90%",
         },
     },
-};
+}
 
-module.exports = Radium(SeparateLine);
+export default Radium(SeparateLine)

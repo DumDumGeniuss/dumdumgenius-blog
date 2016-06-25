@@ -1,0 +1,29 @@
+import { diaryActionTypes } from '../constants/ActionTypes'
+
+export function getDiariesInfo(diariesInfo) {
+	return {
+		type: diaryActionTypes.GET_DIARIES_INFO,
+		diariesInfo
+	}
+}
+
+export function addDiary(result) {
+	return {
+		type: diaryActionTypes.ADD_DIARY,
+		result
+	}
+}
+
+export function getDiariesByCategory(diaries) {
+	return {
+		type: diaryActionTypes.GET_DIARIES_BY_CATEGORY,
+		diaries
+	}
+}
+
+export function getDiary(diary) {
+	return {
+		type: diaryActionTypes.GET_DIARY,
+		diary
+	}
+}

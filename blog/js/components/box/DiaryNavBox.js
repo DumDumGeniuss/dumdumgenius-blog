@@ -1,20 +1,20 @@
-import React from 'react';
-import Radium from 'radium';
-import ObjectAssign from 'object-assign';
-import Calendar from 'react-icons/lib/fa/calendar';
-import {Link} from 'react-router';
+import React from 'react'
+import Radium from 'radium'
+import ObjectAssign from 'object-assign'
+import Calendar from 'react-icons/lib/fa/calendar'
+import {Link} from 'react-router'
 
 class DiaryNavBox extends React.Component {
     constructor(props) {
-        super(props);
-        this.styles = styles;
+        super(props)
+        this.styles = styles
     }
     incrementZero(minutes) {
-        return minutes<10?("0" + minutes):minutes;
+        return minutes<10?("0" + minutes):minutes
     }
     render() {
     	let diary = this.props.diary,
-    	   date = new Date(diary.date);
+    	   date = new Date(diary.date)
     	return (
     		<div style={ObjectAssign(this.styles.mainArea, {width: this.props.width})}>
     		    <span style={this.styles.diaryType}>
@@ -36,7 +36,7 @@ class DiaryNavBox extends React.Component {
     		</div>
     	)
     }
-};
+}
 
 let styles = {
     mainArea: {
@@ -102,10 +102,11 @@ let styles = {
         backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
         borderColor: "#4a993e",
         borderRadius: "5px",
-        padding: "5px",
-        fontSize: "0.8em",
-        color: "white"
+        padding: "3px",
+        fontSize: "0.6em",
+        color: "white",
+        display: "inline-block"
     }
-};
+}
 
-module.exports = Radium(DiaryNavBox);
+export default Radium(DiaryNavBox)

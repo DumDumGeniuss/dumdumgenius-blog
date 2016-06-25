@@ -1,22 +1,22 @@
-import React from 'react';
-import Radium from 'radium';
+import React from 'react'
+import Radium from 'radium'
 
 class HideBox extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
 
-        };
-        this.styles = styles;
+        }
+        this.styles = styles
     }
 	render() {
 		return (
 			<div style={Object.assign(this.styles.box , {width: this.props.width?this.props.width:"100%"})}>
                 {this.props.children}
 			</div>
-		);
+		)
 	}
-};
+}
 
 let styles = {
     box: {
@@ -36,6 +36,6 @@ let styles = {
     hideButton: {
 
     }
-};
+}
 
-module.exports = Radium(HideBox);
+export default Radium(HideBox)

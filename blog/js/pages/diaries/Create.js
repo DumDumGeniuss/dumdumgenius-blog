@@ -1,61 +1,51 @@
-import React from 'react';
-import DiaryStore from '../../stores/DiaryStore';
-import DiaryActions from '../../actions/DiaryActions';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import  * as diaryActions from '../../actions/diaryActionss'
 
 class Create extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             category: null,
             title: null,
             content: null,
             date: (new Date()).getTime(),
             categories: null
-        };
-        this.styles = styles;
-        this.setDiaryCategories = this.setDiaryCategories.bind(this);
-    }
-    componentWillMount() {
-    	let self = this;
-    }
-    componentDidMount() {
-        DiaryStore.on('finishGetDiariesInfo', this.setDiaryCategories);
-		DiaryActions.queryDiariesInfo();
-    }
-    componentWillUnmount() {
-        DiaryStore.removeListener('finishGetDiariesInfo', this.setDiaryCategories);
-    }
-    setDiaryCategories() {
-	    this.setState({
-            categories: DiaryStore.getDiariesInfo().categories
-	    });
+        }
+        this.styles = styles
     }
     createArticle() {
-        let self = this,
+        let { actions } = this.props,
+            self = this,
             params = {
                 category: self.state.category,
                 title: self.state.title,
                 content: self.state.content,
                 date: self.state.date,
-            };
+            }
+        firebase.database().ref('diaries/' + self.state.category + "/datas").push(params)
+            .then(function(result) {
+                actions.addDiary(true)
+            })
 
-        DiaryActions.addDiary(params, self.state.category);
+        //DiaryActions.addDiary(params, self.state.category)
 
     }
     handleCategoryChange(event) {
     	this.setState({
             category: event.target.value
-    	});
+    	})
     }
     handleTitleChange(event) {
     	this.setState({
             title: event.target.value
-    	});
+    	})
     }
     handleContentChange(event) {
     	this.setState({
             content: event.target.value
-    	});
+    	})
     }
     render() {
     	return (
@@ -78,10 +68,10 @@ class Create extends React.Component {
                     </div>
     		    </div>
     		</div>
-    	);
+    	)
     }
 
-};
+}
 
 let styles = {
     inputLabel: {
@@ -111,6 +101,18 @@ let styles = {
         margin: "5px auto",
         border: "1px solid black"
     }
-};
+}
 
-module.exports = Create;
+function mapStateToProps(state) {
+  return {
+    state: state.diaries
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(diaryActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Create)

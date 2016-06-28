@@ -1,5 +1,4 @@
 import React from 'react'
-import ObjectAssign from 'object-assign'
 
 class Facebook extends React.Component {
     constructor(props) {
@@ -7,7 +6,6 @@ class Facebook extends React.Component {
           this.state = {
               test: null
           }
-          this.styles = styles
     }
 	componentWillMount() {
 	}
@@ -33,16 +31,11 @@ class Facebook extends React.Component {
 	}
 	render() {
 		return (
-			<div style={this.styles.mainArea}>
+			<div>
 			    Facebook!!!
 			</div>
 		)
 	}
-}
-
-let styles = {
-    mainArea: {
-    }
 }
 
 module.exports = Facebook

@@ -1,0 +1,54 @@
+.Diaries-mainArea {
+    display: block;
+    width: 100%;
+    background-color: #E9EBEE;
+    padding: 15px 0px;
+}
+
+.Diaries-categoriesNav {
+    display: block;
+    width: 60%;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.Diaries-categoryLabel {
+    display: inline-block;
+    background-color: #ff6b6b;
+    background-image: linear-gradient(#ff6b6b, #bf2828);
+    color: white;
+    padding: 10px;
+    margin: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Diaries-addArticleButton {
+    font-size: 2em
+}
+
+.Diaries-linkStyle {
+    cursor: pointer;
+}
+
+.Diaries-linkStyle:hover {
+    color: yellow;
+}
+
+.Diaries-diariesBox {
+    position: relative;
+}
+
+.Diaries-addDiaryZone {
+    position: absolute;
+    top: -70px;
+    right: -10px;
+}
+
+@media screen (max-width: 800px) {
+
+.Diaries-categoriesNav {
+    width: 100%;
+}
+
+}

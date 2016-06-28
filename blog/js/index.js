@@ -3,19 +3,27 @@ import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import {StyleRoot} from 'radium'
-import firebase from 'firebase'
 
+import firebase from 'firebase'
 import blogStore from './store/blogStore'
 
-import AboutMe from './pages/AboutMe'
-import Diaries from './pages/diaries/Diaries'
-import CreaetDiaries from './pages/diaries/Create'
-import Diary from './pages/diaries/Diary'
-import UnderConstruct from './pages/UnderConstruct'
-import Facebook from './pages/Facebook'
-import Demo from './pages/Demo'
-import Paintings from './pages/masterpieces/Paintings'
-import Youtubes from './pages/youtubes/Youtubes'
+/* About me */
+import AboutMe from './pages/aboutMe/AboutMe'
+
+/* Diaries */
+import Diaries from './pages/diaries/diaries/Diaries'
+import CreaetDiaries from './pages/diaries/create/Create'
+import Diary from './pages/diaries/diary/Diary'
+
+import UnderConstruct from './pages/underConstruct/UnderConstruct'
+import Facebook from './pages/facebook/Facebook'
+import Demo from './pages/demo/Demo'
+
+/* MasterPieces */
+import Paintings from './pages/masterpieces/paintings/Paintings'
+import Youtubes from './pages/masterpieces/youtubes/Youtubes'
+
+/* Layout */
 import Layout from './components/layout/main/Layout'
 import MasterpiecesLayout from './components/layout/masterpieces/Layout'
 import DiariesLayout from './components/layout/diaries/Layout'

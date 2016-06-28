@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import  * as diaryActions from '../../actions/diaryActionss'
+import  * as diaryActions from '../../../actions/diaryActionss'
+
+import './Create.css'
 
 class Create extends React.Component {
     constructor(props) {
@@ -13,7 +15,6 @@ class Create extends React.Component {
             date: (new Date()).getTime(),
             categories: null
         }
-        this.styles = styles
     }
     createArticle() {
         let { actions } = this.props,
@@ -28,9 +29,6 @@ class Create extends React.Component {
             .then(function(result) {
                 actions.addDiary(true)
             })
-
-        //DiaryActions.addDiary(params, self.state.category)
-
     }
     handleCategoryChange(event) {
     	this.setState({
@@ -52,55 +50,25 @@ class Create extends React.Component {
     		<div>
     		    <div>
     		        <div>
-    		            <label style={this.styles.inputLabel}>category</label>
-    		            <input style={this.styles.input} onChange={this.handleCategoryChange.bind(this)}></input>
+    		            <label className="Create-inputLabel">category</label>
+    		            <input className="Create-input" onChange={this.handleCategoryChange.bind(this)}></input>
     		        </div>
     		        <div>
-    		            <label style={this.styles.inputLabel}>title</label>
-    		            <input style={this.styles.input} onChange={this.handleTitleChange.bind(this)}></input>
+    		            <label className="Create-inputLabel">title</label>
+    		            <input className="Create-input" onChange={this.handleTitleChange.bind(this)}></input>
     		        </div>
     		        <div>
-    		            <label style={this.styles.inputLabel}>content</label>
-                        <textarea style={this.styles.textInput} onChange={this.handleContentChange.bind(this)}></textarea>
+    		            <label className="Create-inputLabel">content</label>
+                        <textarea className="Create-textInput" onChange={this.handleContentChange.bind(this)}></textarea>
                     </div>
                     <div>
-                        <button style={this.styles.submitButton} onClick={this.createArticle.bind(this)}>submit</button>
+                        <button className="Create-submitButton" onClick={this.createArticle.bind(this)}>submit</button>
                     </div>
     		    </div>
     		</div>
     	)
     }
 
-}
-
-let styles = {
-    inputLabel: {
-        display: "block",
-        fontSize: "2em",
-        textAlign: "center"
-    },
-    input: {
-        display: "block",
-        width: "300px",
-        height: "30px",
-        margin: "5px auto",
-        border: "1px solid black"
-    },
-    textInput: {
-        display: "block",
-        width: "80%",
-        height: "350px",
-        margin: "5px auto",
-        border: "1px solid black",
-        overflow: "scroll"
-    },
-    submitButton: {
-        display: "block",
-        width: "100px",
-        height: "40px",
-        margin: "5px auto",
-        border: "1px solid black"
-    }
 }
 
 function mapStateToProps(state) {

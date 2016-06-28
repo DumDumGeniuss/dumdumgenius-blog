@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import  * as diaryActions from '../../actions/diaryActionss'
-import Radium from 'radium'
+import  * as diaryActions from '../../../actions/diaryActionss'
 import Markdown from 'react-remarkable'
 import Calendar from 'react-icons/lib/fa/calendar'
+
+import './Diary.css'
 
 class Diary extends React.Component {
 	constructor(props) {
@@ -12,7 +13,6 @@ class Diary extends React.Component {
         this.state = {
             diary: ''
         }
-        this.styles = styles
         this.getDiary = this.getDiary.bind(this)
     }
     componentDidMount() {
@@ -34,17 +34,17 @@ class Diary extends React.Component {
         let { state } = this.props,
             diary = state.diary,
 		    date = diary?new Date(diary.date):null,
-		    typeLabelElem = diary?<span style={this.styles.typeLabel}>{diary.category}</span>:null,
+		    typeLabelElem = diary?<span className="Diary-typeLabel">{diary.category}</span>:null,
 		    completeDate = getCompleteDate(date),
-		    dateTextElem = diary?<span style={this.styles.dateText}>{completeDate}</span>:null
+		    dateTextElem = diary?<span className="Diary-dateText">{completeDate}</span>:null
         return (
-            <div style={this.styles.mainArea}>
+            <div className="Diary-mainArea">
                 {typeLabelElem}
-                <div style={this.styles.dateBox}>
-                    <Calendar style={this.styles.calendar}/>
+                <div className="Diary-dateBox">
+                    <Calendar className="Diary-calendar"/>
                     {dateTextElem}
                 </div>
-                <div style={this.styles.diaryContent}>
+                <div className="Diary-diaryContent">
                     <Markdown>
                         {diary?diary.content:null}
                     </Markdown>
@@ -61,57 +61,6 @@ function incrementZero(minutes) {
 function getCompleteDate(date) {
     return date?(date.getFullYear() + "-" + incrementZero(date.getMonth()+1) + "-" + date.getDate() + " " + date.getHours() + ":" + incrementZero(date.getMinutes())):null
 }
-
-let styles = {
-    mainArea: {
-        position: "relative",
-        display: "block",
-        width: "60%",
-        margin: "0px auto",
-        backgroundColor: "white",
-        border: "1px solid black",
-        padding: "30px",
-        '@media (max-width: 800px)': {
-            width: "90%"
-        }
-    },
-    diaryContent: {
-        display: "block",
-        margin: "0px auto",
-        lineHeight: "30px",
-        fontFamily: "Helvetica,arial,freesans,clean,sans-serif",
-    },
-    dateBox: {
-        position: "absolute",
-        display: "block",
-        top: "20px",
-        left: "100px",
-    },
-    typeLabel: {
-        position: "absolute",
-        display: "inline-block",
-        top: "10px",
-        left: "-20px",
-        padding: "10px",
-        backgroundColor: "ff5694",
-        color: "white",
-        borderRadius: "10px"
-    },
-    calendar: {
-        position: "relative",
-        top: "-2px",
-        display: "inline-block",
-        verticalAlign: "middle",
-        fontSize: "20px"
-    },
-    dateText: {
-        display: "inline-block",
-        verticalAlign: "middle",
-        marginLeft: "10px"
-    }
-}
-
-Diary = Radium(Diary)
 
 function mapStateToProps(state) {
   return {

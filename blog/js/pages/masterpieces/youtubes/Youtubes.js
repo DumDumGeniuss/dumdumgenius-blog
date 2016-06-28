@@ -1,21 +1,18 @@
 import React from 'react';
-import Radium from 'radium';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import  * as youtubeActions from '../../actions/youtubeActionss'
+import  * as youtubeActions from '../../../actions/youtubeActionss'
 
-import TinyYoutubeBox from '../../components/box/TinyYoutubeBox';
-import ObjectAssign from 'object-assign';
+import TinyYoutubeBox from '../../../components/box/tinyYoutubeBox/TinyYoutubeBox';
 
-import SeparateLine from '../../components/line/SeparateLine';
+import "./Youtubes.css"
 
 class Youtubes extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             Youtubes: []
-        };
-        this.styles = styles;
+        }
     }
     componentDidMount() {
         this.initYoutubes()
@@ -24,15 +21,15 @@ class Youtubes extends React.Component {
         const { actions } = this.props
         firebase.database().ref('youtubes').once('value')
         .then(function(snapshot) {
-            let youtubes = snapshot.val();
+            let youtubes = snapshot.val()
             actions.initYoutubes(youtubes)
-        });
+        })
     }
     render() {
         const { state } = this.props
         let youtubes = state.youtubes
         return (
-        	<div style={this.styles.mainArea}>
+        	<div className="Youtubes-mainArea">
                 <TinyYoutubeBox boxSize={{width: '100%', height: 'none'}} 
                                 youtubeSize={{width: '150px', height: 'none'}} 
                                 youtubePhotoListSize={{width: '100%'}} 
@@ -42,25 +39,16 @@ class Youtubes extends React.Component {
     }
 };
 
-let styles = {
-    mainArea: {
-        display: "block",
-        width: "100%",
-    }
-};
-
 function mapStateToProps(state) {
   return {
     state: state.youtubes
-  };
+  }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(youtubeActions, dispatch)
-  };
+  }
 }
-
-Youtubes = Radium(Youtubes);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Youtubes)

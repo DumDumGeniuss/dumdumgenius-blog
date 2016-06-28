@@ -1,5 +1,6 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     context: __dirname + '/blog',
@@ -18,6 +19,10 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 }
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css!postcss-loader'
             }
 
         ],
@@ -27,4 +32,7 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     ],
+    postcss: function() {
+        return [autoprefixer];
+    }
 };

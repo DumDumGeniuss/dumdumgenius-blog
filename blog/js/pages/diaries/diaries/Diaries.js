@@ -1,15 +1,14 @@
 import React from 'react'
-import Radium from 'radium'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import  * as diaryActions from '../../actions/diaryActionss'
+import  * as diaryActions from '../../../actions/diaryActionss'
 import {Link} from 'react-router'
 import Plus from 'react-icons/lib/fa/plus'
 import Facebook from 'react-icons/lib/fa/facebook'
-import SeparateLine from '../../components/line/SeparateLine'
-import DiaryNavBox from '../../components/box/DiaryNavBox'
+import SeparateLine from '../../../components/line/SeparateLine'
+import DiaryNavBox from '../../../components/box/diaryNavBox/DiaryNavBox'
 
-let RadiumLink = Radium(Link) //Awesome!!
+import './Diaries.css'
 
 class Diaries extends React.Component {
 	constructor(props) {
@@ -17,7 +16,6 @@ class Diaries extends React.Component {
         this.state = {
             loginButton: false
         }
-        this.styles = styles
         this.queryDiariesByCategory = this.queryDiariesByCategory.bind(this)
     }
 	componentWillMount() {
@@ -66,18 +64,18 @@ class Diaries extends React.Component {
             self = this
 
         if(this.state.isLogin) {
-            loginButton = <Plus style={this.styles.addArticleButton}></Plus>
+            loginButton = <Plus className="Diaries-addArticleButton"></Plus>
         } else {
         	loginButton = null
         }
 
         return (
             <div>
-                <div style={this.styles.diariesBox}>
-                    <div style={this.styles.categoriesNav}>
+                <div className="Diaries-diariesBox">
+                    <div className="Diaries-categoriesNav">
                         {diaryCategories.map(function(result) {
                             return (
-                                <span key={result} style={self.styles.categoryLabel} onClick={self.queryDiariesByCategory.bind(self, result)}>
+                                <span key={result} className="Diaries-categoryLabel" onClick={self.queryDiariesByCategory.bind(self, result)}>
                                     {result}
                                 </span>
                             )
@@ -85,17 +83,17 @@ class Diaries extends React.Component {
                     </div>
                     {diaries.map(function(result) {
                         return (
-                            <DiaryNavBox key={result.id} width="60%" diary={result}>
+                            <DiaryNavBox key={result.id} diary={result}>
                             </DiaryNavBox>
                         )
                     })}
-                    <div style={this.styles.addDiaryZone}>
-                        <RadiumLink style={this.styles.linkStyle} to="/diaries/create">
+                    <div className="Diaries-addDiaryZone">
+                        <Link className="Diaries-linkStyle" to="/diaries/create">
                             {loginButton}
-                        </RadiumLink>
-                        <RadiumLink style={this.styles.linkStyle} to="/facebook">
-                            <Facebook style={this.styles.addArticleButton}></Facebook>
-                        </RadiumLink>
+                        </Link>
+                        <Link className="Diaries-linkStyle" to="/facebook">
+                            <Facebook className="Diaries-addArticleButton"></Facebook>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -112,53 +110,6 @@ function toArray(map) {
     }
     return array
 }
-
-let styles = {
-    mainArea: {
-        display: "block",
-        width: "100%",
-        backgroundColor: "#E9EBEE",
-        padding: "15px 0px"
-    },
-    categoriesNav: {
-        display: "block",
-        width: "60%",
-        margin: "0px auto",
-        padding: "20px",
-        '@media (max-width: 800px)': {
-            width: "100%"
-        }
-    },
-    categoryLabel: {
-        display: "inline-block",
-        backgroundColor: "#ff6b6b",
-        backgroundImage: "linear-gradient(#ff6b6b, #bf2828)",
-        color: "white",
-        padding: "10px",
-        margin: "5px 5px",
-        borderRadius: "5px",
-        cursor: "pointer"
-    },
-    addArticleButton: {
-        fontSize: "2em"
-    },
-    linkStyle: {
-        cursor: "pointer",
-        ':hover': {
-            color: "yellow"
-        }
-    },
-    diariesBox: {
-        position: "relative",
-    },
-    addDiaryZone: {
-        position: "absolute",
-        top: "-70px",
-        right: "-10px"
-    }
-}
-
-Diaries = Radium(Diaries)
 
 function mapStateToProps(state) {
   return {

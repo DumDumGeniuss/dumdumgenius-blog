@@ -2,16 +2,14 @@ import React from 'react'
 import Navbar from './Navbar.js'
 import Footer from './footer.js'
 
+import './Layout.css'
+
 export default class Layout extends React.Component {
 	render() {
-        let styles = {
-            mainDiv: {
-            }
-        }
 		return (
             <div>
                 <Navbar />
-                <div style={styles.mainDiv}>
+                <div>
                     {this.props.children}
                 </div>
                 <Footer />

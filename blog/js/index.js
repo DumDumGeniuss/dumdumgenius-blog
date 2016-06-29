@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
-import {StyleRoot} from 'radium'
 
 import firebase from 'firebase'
 import blogStore from './store/blogStore'
@@ -42,34 +41,32 @@ firebase.initializeApp(config)
 
 ReactDOM.render(
 	<Provider store={store}>
-		<StyleRoot>
-		    <Router history={hashHistory}>
-		        <Route path="/" component={Layout}>
-		            <IndexRoute component={AboutMe}>
+		<Router history={hashHistory}>
+		    <Route path="/" component={Layout}>
+		        <IndexRoute component={AboutMe}>
+		        </IndexRoute>
+		        <Route path="masterpieces" component={MasterpiecesLayout}>
+		            <IndexRoute component={Paintings}>
 		            </IndexRoute>
-		            <Route path="masterpieces" component={MasterpiecesLayout}>
-		                <IndexRoute component={Paintings}>
-		                </IndexRoute>
-		                <Route path="youtubes" component={Youtubes}>
-		                </Route>
-		            </Route>
-		            <Route path="diaries" component={DiariesLayout}>
-		                <IndexRoute component={Diaries}>
-		                </IndexRoute>
-		                <Route path="create" component={CreaetDiaries}>
-		                </Route>
-		                <Route path=":id" component={Diary}>
-		                </Route>
-		            </Route>
-		            <Route path="underConstruct" component={UnderConstruct}>
+		            <Route path="youtubes" component={Youtubes}>
 		            </Route>
 		        </Route>
-		        <Route path="/demo" component={Demo}>
+		        <Route path="diaries" component={DiariesLayout}>
+		            <IndexRoute component={Diaries}>
+		            </IndexRoute>
+		            <Route path="create" component={CreaetDiaries}>
+		            </Route>
+		            <Route path=":id" component={Diary}>
+		            </Route>
 		        </Route>
-		        <Route path="/facebook" component={Facebook}>
+		        <Route path="underConstruct" component={UnderConstruct}>
 		        </Route>
-		    </Router>
-	    </StyleRoot>
+		    </Route>
+		    <Route path="/demo" component={Demo}>
+		    </Route>
+		    <Route path="/facebook" component={Facebook}>
+		    </Route>
+		</Router>
 	</Provider>
 
 , app)

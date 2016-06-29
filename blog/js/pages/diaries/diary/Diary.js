@@ -15,7 +15,7 @@ class Diary extends React.Component {
         }
         this.getDiary = this.getDiary.bind(this)
     }
-    componentDidMount() {
+    componentWillMount() {
         let { query } = this.props.location,
             { params } = this.props
 
@@ -25,10 +25,10 @@ class Diary extends React.Component {
         const { actions } = this.props
 
         firebase.database().ref('diaries/' + category + '/datas/' + id).once('value')
-        .then(function(result) {
-            let diary = result.val()
-            actions.getDiary(diary)
-        })
+            .then(function(result) {
+                let diary = result.val()
+                actions.getDiary(diary)
+            })
     }
 	render() {
         let { state } = this.props,

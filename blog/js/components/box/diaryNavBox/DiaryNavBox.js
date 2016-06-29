@@ -9,9 +9,6 @@ class DiaryNavBox extends React.Component {
     constructor(props) {
         super(props)
     }
-    incrementZero(minutes) {
-        return minutes<10?("0" + minutes):minutes
-    }
     render() {
     	let diary = this.props.diary,
     	   date = new Date(diary.date)
@@ -22,7 +19,7 @@ class DiaryNavBox extends React.Component {
     		    </span>
     		    <div className='DiaryNavBox-dateBox'>
     		        <Calendar className='DiaryNavBox-calendar'/>
-    		        <span className='DiaryNavBox-dateText'>{date.getFullYear()+"-"}{(date.getMonth()+1)+"-"}{date.getDate()+" "}{date.getHours()+":"}{this.incrementZero(date.getMinutes())}</span>
+    		        <span className='DiaryNavBox-dateText'>{getCompleteDate(date)}</span>
     		    </div>
     		    <span className='DiaryNavBox-title'>
     		        <b>{diary.title}</b>
@@ -36,6 +33,18 @@ class DiaryNavBox extends React.Component {
     		</div>
     	)
     }
+}
+
+function getCompleteDate(date) {
+    return date.getFullYear() 
+            + "-" + (date.getMonth()+1) 
+            + "-" + date.getDate() 
+            + " " + date.getHours() 
+            + ":" + incrementZero(date.getMinutes())
+}
+
+function incrementZero(minutes) {
+    return minutes<10?("0" + minutes):minutes
 }
 
 export default DiaryNavBox

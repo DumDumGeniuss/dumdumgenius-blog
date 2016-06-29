@@ -31,7 +31,7 @@ class Diaries extends React.Component {
             })
         }
 	}
-    componentDidMount() {
+    componentWillMount() {
         this.getDiariesInfo()
     }
     queryDiariesByCategory(category) {

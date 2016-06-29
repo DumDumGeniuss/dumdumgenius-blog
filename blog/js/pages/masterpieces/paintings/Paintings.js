@@ -9,7 +9,7 @@ class Paintings extends React.Component {
     constructor(props) {
         super(props)
     }
-	componentDidMount() {
+	componentWillMount() {
         this.initPaintings()
 	}
     initPaintings() {

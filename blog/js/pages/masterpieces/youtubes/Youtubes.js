@@ -14,7 +14,7 @@ class Youtubes extends React.Component {
             Youtubes: []
         }
     }
-    componentDidMount() {
+    componentWillMount() {
         this.initYoutubes()
     }
     initYoutubes() {

@@ -25,14 +25,14 @@ class TinyPhotoBox extends React.Component {
         self.setState({
         	showPainting: paintings[key],
             paintingTitle: paintings[key].title,
+            displayPhotoClass: "TinyPhotoBox-displayPhoto"
+        })
+	}
+    photoOnLoad() {
+        this.setState({
             displayPhotoClass: "TinyPhotoBox-displayPhoto TinyPhotoBox-showIn"
         })
-        window.setTimeout(function() {
-            self.setState({
-                displayPhotoClass: "TinyPhotoBox-displayPhoto"
-            })
-        }, 800)
-	}
+    }
 	render() {
 		const self = this
 		let photoSize = this.props.photoSize,
@@ -60,7 +60,8 @@ class TinyPhotoBox extends React.Component {
 			        {this.state.paintingTitle}
 			    </span>
 			    <div className="TinyPhotoBox-displayScreen">
-                    <img className={displayPhotoClass} 
+                    <img className={displayPhotoClass}
+                        onLoad={self.photoOnLoad.bind(self)} 
                         src={this.state.showPainting?this.state.showPainting.src:this.state.defaultImageUrl}>
                     </img>
 			    </div>

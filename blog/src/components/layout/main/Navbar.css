@@ -1,0 +1,143 @@
+.MainNavbar-backgroundArea {
+    width: 100%;
+    height: 300px;
+}
+
+.MainNavbar-backgroundAreaHigh {
+    width: 100%;
+    height: 350px;
+    background-color: black;
+}
+
+.MainNavbar-mainBackground {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+}
+
+.MainNavbar-blockBackground {
+    width: 100%;
+    height: 300px;
+    background-color: black;
+    opacity: 0.7;
+    position: absolute;
+    z-index: 1;
+}
+
+.MainNavbar-textArea {
+    display: block;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+.MainNavbar-logoText {
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    font-size: 2em;
+    font-family: cursive;
+    color: white;
+}
+
+.MainNavbar-centerText {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    text-align: center;
+    line-height: 300px;
+    word-wrap: break-word;
+}
+
+.MainNavbar-logoArea {
+    position: absolute;
+    top: 240px;
+    right: 30px;
+    display: block;
+    width: 172px;
+    margin: 0px auto;
+}
+
+.MainNavbar-faIcon {
+    color: white;
+    font-size: 34px;
+    padding: 4px;
+    margin: 4px;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    border: 1px solid white;
+    border-radius: 35px;
+    cursor: pointer
+}
+
+.MainNavbar-navbar {
+    text-align: center;
+    left: 0px;
+    line-height: 50px;
+    background-color: black;
+    width: 100%;
+    border-top: 2px solid gray;
+}
+
+.MainNavbar-navbarFixed {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    overflow: auto;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgba(0, 0, 0, 0.68);
+    width: 100%;
+    z-index: 2;
+}
+
+.MainNavbar-navbarItem {
+    color: white;
+    display: inline-block;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 1.2em;
+    width: 200px;
+    cursor: pointer;
+}
+
+.MainNavbar-navbarItem:hover {
+    color: #F1FF5A;
+}
+
+.MainNavbar-navbarItemCollapse {
+    color: white;
+    display: none;
+    width: 80px;
+    height: 50px;
+    padding: 10px 0px;
+    font-size: 30px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.MainNavbar-navbarItemCollapse:hover {
+    color: #F1FF5A;
+}
+
+@media screen and (max-width: 800px) {
+
+.MainNavbar-logoArea {
+    right: calc(50% - 86px);
+}
+
+.MainNavbar-navbarItem {
+    display: none;
+}
+
+.MainNavbar-navbarItemCollapse {
+    display: inline-block;
+}
+
+}

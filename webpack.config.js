@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
     context: __dirname + '/blog',
     devtool: debug ? "inline-sourcemap" : null,
-    entry: __dirname + "/blog/js/index.js",
+    entry: __dirname + "/blog/src/index.js",
     output: {
         path: __dirname + "/blog",
         filename: "main.min.js"
@@ -13,7 +13,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test:/\.js?$/,
+                test:/\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
                 query: {

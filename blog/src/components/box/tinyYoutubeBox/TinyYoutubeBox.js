@@ -29,8 +29,8 @@ class TinyYoutubeBox extends React.Component{
         var windowWidth = event.srcElement.window.innerWidth
         if(windowWidth < 800 && this.state.youtubePlayWidth == 640) {
             this.setState({
-                youtubePlayWidth: 300,
-                youtubePlayHeight: 225
+                youtubePlayWidth: 280,
+                youtubePlayHeight: 210
             })
         } else if(windowWidth > 800 && this.state.youtubePlayWidth == 300) {
             this.setState({
@@ -47,11 +47,11 @@ class TinyYoutubeBox extends React.Component{
 	}
 	render() {
 		const self = this
-		let youtubeSize = this.props.youtubeSize
-		let boxSize = this.props.boxSize
-		let youtubes = this.props.youtubes
-        let youtubePhotoListSize = this.props.youtubePhotoListSize
-		let photoListScreenHeigth = youtubeSize.height
+		let youtubeSize = this.props.youtubeSize,
+		    boxSize = this.props.boxSize,
+		    youtubes = this.props.youtubes,
+            youtubePhotoListSize = this.props.youtubePhotoListSize,
+		    photoListScreenHeigth = youtubeSize.height
 		return (
 			<div style={Object.assign({width: boxSize.width, height: boxSize.height})} className="TinyYoutubeBox-photoBox">
                 <SeparateLine width="100%"/>

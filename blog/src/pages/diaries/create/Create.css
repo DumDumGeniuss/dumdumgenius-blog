@@ -1,0 +1,30 @@
+.Create-inputLabel {
+    display: block;
+    font-size: 2em;
+    text-align: center;
+}
+
+.Create-input {
+    display: block;
+    width: 300px;
+    height: 30px;
+    margin: 5px auto;
+    border: 1px solid black;
+}
+
+.Create-textInput {
+    display: block;
+    width: 80%;
+    height: 350px;
+    margin: 5px auto;
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+.Create-submitButton {
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 5px auto;
+    border: 1px solid black;
+}

@@ -1,0 +1,14 @@
+.SeparateLine-separateLine {
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #AAAAAA;
+}
+
+@media screen and (max-width: 800px) {
+
+.separateLine {
+    display: block;
+    width: 90%;
+}
+
+}

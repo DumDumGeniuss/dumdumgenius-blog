@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import  * as paintingActions from '../../../actions/paintingActions'
 import TinyPhotoBox from '../../../components/box/tinyPhotoBox/TinyPhotoBox'
+import firebase from '../../../services/firebase'
 
 
 class Paintings extends React.Component {

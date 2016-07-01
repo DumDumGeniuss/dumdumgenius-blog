@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import  * as diaryActions from '../../../actions/diaryActionss'
+import firebase from '../../../services/firebase'
 
 if (process.env.BROWSER) {
     require('./Create.css')

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router'
 import routes from './routes.jsx'
 
 export default class AllRoutes extends React.Component {
@@ -12,7 +12,7 @@ export default class AllRoutes extends React.Component {
     }
 	render() {
 		return (
-			<Router history={hashHistory}>
+			<Router history={browserHistory}>
 			    {routes}
 			</Router>
 		)

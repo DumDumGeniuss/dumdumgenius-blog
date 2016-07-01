@@ -7,6 +7,7 @@ import Plus from 'react-icons/lib/fa/plus'
 import Facebook from 'react-icons/lib/fa/facebook'
 import SeparateLine from '../../../components/line/SeparateLine'
 import DiaryNavBox from '../../../components/box/diaryNavBox/DiaryNavBox'
+import firebase from '../../../services/firebase'
 
 if (process.env.BROWSER) {
     require('./Diaries.css')

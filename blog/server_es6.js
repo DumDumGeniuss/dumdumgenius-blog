@@ -11,10 +11,11 @@ import createLocation from 'history/lib/createLocation'
 import rootReducer from './dist/reducers'
 import AboutMe from './dist/pages/aboutMe/AboutMe'
 import routes from './dist/route/routes'
+import IndexLayout from './dist/IndexLayout'
 
 const app = Express()
 const port = 4000
-// console.log(__dirname + '/main.min.js')
+console.log(__dirname + '/main.min.js')
 app.use(Express.static(__dirname))
 app.use(handleRender)
 
@@ -37,8 +38,14 @@ function handleRender(req, res) {
     			<RouterContext {...renderProps} />
   			</Provider>
     	)
+
+        // const html = React.renderToStaticMarkup(
+        //     <IndexLayout content={content} />
+        // )
 	
   		const initialState = store.getState()
+
+        //res.send(html)
 	
   		res.send(renderFullPage(html, initialState))
 	})
@@ -50,9 +57,26 @@ function renderFullPage(html, initialState) {
   	  	<html>
   	  	  	<head>
   	  	  	 	<title>DumDumGenius' blog</title>
+                <style>
+                    body {
+                        margin: 0px;
+                    }
+        
+                    * {
+                        box-sizing: border-box;
+                    }
+                    
+                    a {
+                        text-decoration: none;
+                        cursor: none;
+                    } 
+        
+                    a:hover {
+                    }
+                </style>  
   	  	  	</head>
   	  	  	<body>
-  	  	  	  	<div id="root">${html}</div>
+  	  	  	  	<div id="app">${html}</div>
   	  	  	  	<script>
   	  	  	    	window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
   	  	  	  	</script>

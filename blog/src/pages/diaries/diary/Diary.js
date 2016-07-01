@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import  * as diaryActions from '../../../actions/diaryActionss'
 import Markdown from 'react-remarkable'
 import Calendar from 'react-icons/lib/fa/calendar'
+import firebase from '../../../services/firebase'
 
 if (process.env.BROWSER) {
     require('./Diary.css')

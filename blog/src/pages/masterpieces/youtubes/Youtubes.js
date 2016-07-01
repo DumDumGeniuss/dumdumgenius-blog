@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import  * as youtubeActions from '../../../actions/youtubeActionss'
 
-import TinyYoutubeBox from '../../../components/box/tinyYoutubeBox/TinyYoutubeBox';
+import TinyYoutubeBox from '../../../components/box/tinyYoutubeBox/TinyYoutubeBox'
+import firebase from '../../../services/firebase'
 
 if (process.env.BROWSER) {
     require('./Youtubes.css')

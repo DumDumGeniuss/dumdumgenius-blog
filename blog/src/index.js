@@ -22,6 +22,6 @@ firebase.initializeApp(config)
 
 ReactDOM.render(
 	<Provider store={store}>
-		<AllRoutes />
+		<allRoutes />
 	</Provider>
 , app)

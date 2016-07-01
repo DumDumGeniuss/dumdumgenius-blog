@@ -12,7 +12,9 @@ import Image from 'react-icons/lib/fa/image'
 import Book from 'react-icons/lib/fa/book'
 import StickyNote from 'react-icons/lib/fa/sticky-note'
 
-import './Navbar.css'
+if (process.env.BROWSER) {
+    require('./Navbar.css')
+}
 
 class Navbar extends React.Component {
 

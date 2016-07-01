@@ -1,7 +1,8 @@
 import React from 'react'
 import ObjectAssign from 'object-assign'
-
-import './SeparateLine.css'
+if (process.env.BROWSER) {
+    require('./SeparateLine.css')
+}
 
 class SeparateLine extends React.Component {
     constructor(props) {

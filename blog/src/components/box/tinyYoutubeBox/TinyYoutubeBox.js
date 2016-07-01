@@ -3,7 +3,9 @@ import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left'
 import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right'
 import SeparateLine from '../../line/SeparateLine'
 
-import './TinyYoutubeBox.css'
+if (process.env.BROWSER) {
+    require('./TinyYoutubeBox.css')
+}
 
 class TinyYoutubeBox extends React.Component{
 	constructor(props) {

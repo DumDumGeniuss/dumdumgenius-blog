@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import  * as diaryActions from '../../../actions/diaryActionss'
 
-import './Create.css'
+if (process.env.BROWSER) {
+    require('./Create.css')
+}
 
 class Create extends React.Component {
     constructor(props) {

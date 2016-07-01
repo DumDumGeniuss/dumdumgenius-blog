@@ -2,8 +2,10 @@ import React from 'react'
 import SeparateLine from '../../components/line/SeparateLine'
 import PaintBrush from 'react-icons/lib/fa/paint-brush'
 import YoutubePlay from 'react-icons/lib/fa/youtube-play'
-import './AboutMe.css'
 
+if (process.env.BROWSER) {
+    require('./AboutMe.css')
+}
 
 class AboutMe extends React.Component {
 	constructor(props) {

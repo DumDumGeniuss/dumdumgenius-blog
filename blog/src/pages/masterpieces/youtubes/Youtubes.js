@@ -5,7 +5,9 @@ import  * as youtubeActions from '../../../actions/youtubeActionss'
 
 import TinyYoutubeBox from '../../../components/box/tinyYoutubeBox/TinyYoutubeBox';
 
-import "./Youtubes.css"
+if (process.env.BROWSER) {
+    require('./Youtubes.css')
+}
 
 class Youtubes extends React.Component {
     constructor(props) {

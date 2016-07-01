@@ -5,7 +5,9 @@ import  * as diaryActions from '../../../actions/diaryActionss'
 import Markdown from 'react-remarkable'
 import Calendar from 'react-icons/lib/fa/calendar'
 
-import './Diary.css'
+if (process.env.BROWSER) {
+    require('./Diary.css')
+}
 
 class Diary extends React.Component {
 	constructor(props) {

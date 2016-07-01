@@ -3,7 +3,9 @@ import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left'
 import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right'
 import SeparateLine from '../../line/SeparateLine'
 
-import './TinyPhotoBox.css'
+if (process.env.BROWSER) {
+    require('./TinyPhotoBox.css')
+}
 
 class TinyPhotoBox extends React.Component {
 	constructor(props) {

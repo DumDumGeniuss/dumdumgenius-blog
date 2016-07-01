@@ -1,6 +1,9 @@
 import React from 'react'
 
-import './Layout.css'
+if (process.env.BROWSER) {
+    require('./Layout.css')
+}
+
 
 class Layout extends React.Component {
     constructor(props) {

@@ -1,6 +1,8 @@
 import React from 'react'
 
-import './Footer.css'
+if (process.env.BROWSER) {
+    require('./Footer.css')
+}
 
 export default class Footer extends React.Component {
 	render() {

@@ -1,59 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-
-/* About me */
-import AboutMe from '../pages/aboutMe/AboutMe'
-
-/* Diaries */
-import Diaries from '../pages/diaries/diaries/Diaries'
-import CreaetDiaries from '../pages/diaries/create/Create'
-import Diary from '../pages/diaries/diary/Diary'
-
-import UnderConstruct from '../pages/underConstruct/UnderConstruct'
-import Facebook from '../pages/facebook/Facebook'
-import Demo from '../pages/demo/Demo'
-
-/* MasterPieces */
-import Paintings from '../pages/masterpieces/paintings/Paintings'
-import Youtubes from '../pages/masterpieces/youtubes/Youtubes'
-
-/* Layout */
-import Layout from '../components/layout/main/Layout'
-import MasterpiecesLayout from '../components/layout/masterpieces/Layout'
-import DiariesLayout from '../components/layout/diaries/Layout'
+import routes from './routes.jsx'
 
 export default class AllRoutes extends React.Component {
 	constructor(props) {
         super(props)
+  //       match({ routes, location: '/' }, function(error, redirectLocation, renderProps) {
+		// 	console.log('hey',routes)
+		// })
     }
 	render() {
 		return (
 			<Router history={hashHistory}>
-			    <Route path="/" component={Layout}>
-			        <IndexRoute component={AboutMe}>
-			        </IndexRoute>
-			        <Route path="masterpieces" component={MasterpiecesLayout}>
-			            <IndexRoute component={Paintings}>
-			            </IndexRoute>
-			            <Route path="youtubes" component={Youtubes}>
-			            </Route>
-			        </Route>
-			        <Route path="diaries" component={DiariesLayout}>
-			            <IndexRoute component={Diaries}>
-			            </IndexRoute>
-			            <Route path="create" component={CreaetDiaries}>
-			            </Route>
-			            <Route path=":id" component={Diary}>
-			            </Route>
-			        </Route>
-			        <Route path="underConstruct" component={UnderConstruct}>
-			        </Route>
-			    </Route>
-			    <Route path="/demo" component={Demo}>
-			    </Route>
-			    <Route path="/facebook" component={Facebook}>
-			    </Route>
+			    {routes}
 			</Router>
 		)
 	}

@@ -1,5 +1,8 @@
 import React from 'react'
-import './UnderConstruct.css'
+
+if (process.env.BROWSER) {
+    require('./UnderConstruct.css')
+}
 
 class UnderConstruct extends React.Component {
     constructor(props) {

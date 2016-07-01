@@ -2,7 +2,9 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './footer'
 
-import './Layout.css'
+if (process.env.BROWSER) {
+    require('./Layout.css')
+}
 
 export default class Layout extends React.Component {
 	render() {

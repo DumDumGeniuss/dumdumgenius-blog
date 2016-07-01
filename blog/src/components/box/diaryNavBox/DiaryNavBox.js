@@ -3,7 +3,9 @@ import ObjectAssign from 'object-assign'
 import Calendar from 'react-icons/lib/fa/calendar'
 import {Link} from 'react-router'
 
-import './DiaryNavBox.css'
+if (process.env.BROWSER) {
+    require('./DiaryNavBox.css')
+}
 
 class DiaryNavBox extends React.Component {
     constructor(props) {

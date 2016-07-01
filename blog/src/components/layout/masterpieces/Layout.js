@@ -4,7 +4,9 @@ import YoutubePlay from 'react-icons/lib/fa/youtube-play'
 import ObjectAssign from 'object-assign'
 import {Link} from 'react-router'
 
-import './Layout.css'
+if (process.env.BROWSER) {
+    require('./Layout.css')
+}
 
 class Layout extends React.Component {
     constructor(props) {

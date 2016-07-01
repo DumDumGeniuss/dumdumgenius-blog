@@ -8,7 +8,9 @@ import Facebook from 'react-icons/lib/fa/facebook'
 import SeparateLine from '../../../components/line/SeparateLine'
 import DiaryNavBox from '../../../components/box/diaryNavBox/DiaryNavBox'
 
-import './Diaries.css'
+if (process.env.BROWSER) {
+    require('./Diaries.css')
+}
 
 class Diaries extends React.Component {
 	constructor(props) {

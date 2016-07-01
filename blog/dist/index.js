@@ -12,9 +12,9 @@ var _reactRouter = require('react-router');
 
 var _reactRedux = require('react-redux');
 
-var _AllRoutes = require('./route/AllRoutes');
+var _allRoutes = require('./route/allRoutes');
 
-var _AllRoutes2 = _interopRequireDefault(_AllRoutes);
+var _allRoutes2 = _interopRequireDefault(_allRoutes);
 
 var _firebase = require('firebase');
 
@@ -40,5 +40,5 @@ _firebase2.default.initializeApp(config);
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
-  _react2.default.createElement(_AllRoutes2.default, null)
+  _react2.default.createElement(AllRoutes, null)
 ), app);

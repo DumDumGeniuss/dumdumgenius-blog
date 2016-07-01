@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
 npm-debug.log
-./blog/server.js
-./blog/dist/**/*
-./blog/main.min.js
+server_build.js
+dist
+main.min.js

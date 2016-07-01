@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base blog --inline --hot",
-    "start": "node ./blog/server.js",
-    "build": "NODE_ENV=production webpack && babel ./blog/src -d ./blog/dist && babel ./blog/server_es6.js -o ./blog/server.js",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base . --inline --hot",
+    "start": "node server_build.js",
+    "build": "NODE_ENV=production webpack && babel ./src -d ./dist && babel server.js -o server_build.js",
     "build:client": "NODE_ENV=production webpack",
-    "build:server": "babel ./blog/src -d ./blog/dist && babel ./blog/server_es6.js -o ./blog/server.js",
+    "build:server": "babel ./src -d ./dist && babel server.js -o server_build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

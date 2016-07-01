@@ -3,11 +3,11 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    context: __dirname + '/blog',
+    context: __dirname,
     devtool: debug ? "inline-sourcemap" : null,
-    entry: __dirname + "/blog/src/index.js",
+    entry: __dirname + "/src/index.js",
     output: {
-        path: __dirname + "/blog",
+        path: __dirname,
         filename: "main.min.js"
     },
     module: {

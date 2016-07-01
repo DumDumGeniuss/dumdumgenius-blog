@@ -14,7 +14,7 @@ import routes from './dist/route/routes'
 import IndexLayout from './dist/IndexLayout'
 
 const app = Express()
-const port = 4000
+const port = 8080
 console.log(__dirname + '/main.min.js')
 app.use(Express.static(__dirname))
 app.use(handleRender)

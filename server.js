@@ -56,6 +56,14 @@ function renderFullPage(html, initialState) {
   	  	<!doctype html>
   	  	<html>
   	  	  	<head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta property="og:url" content="http://dumdumgenius.com" />
+                <meta property="og:type" content="blog" />
+                <meta property="og:title" content="DumDumGenius' Blog" />
+                <meta property="og:description" content="This is DumDumGenius' (Messi Yang) blog, which contains my profile , masterpieces, also my tutorials and diaries." />
+                <meta property="og:image" content="http://i.imgur.com/N9BT1Ab.jpg" />
+                <meta property="og:image:width" content="500" />
+                <meta property="og:image:height" content="250" />
   	  	  	 	<title>DumDumGenius' blog</title>
                 <style>
                     body {

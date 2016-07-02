@@ -46,7 +46,7 @@
 .TinyYoutubeBox-displayVideoScreen {
     display: block;
     margin: 0px auto;
-    width: 640;
+    width: 640px;
     background-color: #CCCCCC;
     overflow-x: hidden;
     overflow-y: hidden;

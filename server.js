@@ -87,7 +87,7 @@ function renderFullPage(html, initialState) {
   	  	  	  	<script>
   	  	  	    	window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
   	  	  	  	</script>
-  	  	  	  	<script src="main.min.js" charset="utf-8"></script>
+  	  	  	  	<script src="/main.min.js" charset="utf-8"></script>
   	  	  	</body>
   	  	</html>
   	  	`

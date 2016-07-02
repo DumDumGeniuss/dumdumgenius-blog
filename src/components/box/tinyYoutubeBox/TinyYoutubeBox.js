@@ -38,7 +38,7 @@ class TinyYoutubeBox extends React.Component{
                 youtubePlayWidth: 280,
                 youtubePlayHeight: 210
             })
-        } else if(windowWidth > 800 && this.state.youtubePlayWidth == 300) {
+        } else if(windowWidth > 800 && this.state.youtubePlayWidth == 280) {
             this.setState({
                 youtubePlayWidth: 640,
                 youtubePlayHeight: 480

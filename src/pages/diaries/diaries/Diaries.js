@@ -21,9 +21,8 @@ class Diaries extends React.Component {
         }
         this.queryDiariesByCategory = this.queryDiariesByCategory.bind(this)
     }
-	componentWillMount() {
+    componentWillMount() {
         var user = firebase.auth().currentUser
-        console.log("User status", user)
         if(user) {
             this.setState({
                 isLogin: true
@@ -33,8 +32,6 @@ class Diaries extends React.Component {
                 isLogin: false
             })
         }
-	}
-    componentWillMount() {
         this.getDiariesInfo()
     }
     queryDiariesByCategory(category) {

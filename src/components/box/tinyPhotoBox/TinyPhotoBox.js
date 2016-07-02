@@ -31,9 +31,12 @@ class TinyPhotoBox extends React.Component {
         })
 	}
     photoOnLoad() {
-        this.setState({
-            displayPhotoClass: "TinyPhotoBox-displayPhoto TinyPhotoBox-showIn"
-        })
+        const self = this
+        window.setTimeout(function() {
+            self.setState({
+                displayPhotoClass: "TinyPhotoBox-displayPhoto TinyPhotoBox-showIn"
+            })
+        },40)
     }
 	render() {
 		const self = this

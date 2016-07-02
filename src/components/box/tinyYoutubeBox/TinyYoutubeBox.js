@@ -22,10 +22,14 @@ class TinyYoutubeBox extends React.Component{
 	componentDidMount() {
 	}
     componentWillMount() {
-        window.addEventListener('resize', this.handleResize)
+        if (process.env.BROWSER) {
+            window.addEventListener('resize', this.handleResize)
+        }
     }
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize)
+        if (process.env.BROWSER) {
+            window.removeEventListener('resize', this.handleResize)
+        }
     }
     handleResize(event) {
         var windowWidth = event.srcElement.window.innerWidth

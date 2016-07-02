@@ -4,3 +4,4 @@ npm-debug.log
 server_build.js
 dist
 main.min.js
+.env

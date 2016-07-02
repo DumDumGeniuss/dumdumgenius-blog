@@ -15,7 +15,6 @@ import IndexLayout from './dist/IndexLayout'
 
 const app = Express()
 const port = 3000
-console.log(__dirname + '/main.min.js')
 app.use(Express.static(__dirname))
 app.use(handleRender)
 
@@ -61,8 +60,8 @@ function renderFullPage(html, initialState) {
                 <meta property="og:type" content="blog" />
                 <meta property="og:title" content="DumDumGenius' Blog" />
                 <meta property="og:description" content="This is DumDumGenius' (Messi Yang) blog, which contains my profile , masterpieces, also my tutorials and diaries." />
-                <meta property="og:image" content="http://i.imgur.com/N9BT1Ab.jpg" />
-                <meta property="og:image:width" content="500" />
+                <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media" />
+                <meta property="og:image:width" content="200" />
                 <meta property="og:image:height" content="250" />
   	  	  	 	<title>DumDumGenius' blog</title>
                 <style>

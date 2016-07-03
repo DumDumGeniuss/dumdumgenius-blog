@@ -19,6 +19,7 @@ app.use(Express.static(__dirname))
 app.use(handleRender)
 
 function handleRender(req, res) {
+    console.log(req.url)
   	// Create a new Redux store instance
   	const store = createStore(rootReducer),
   	    location = createLocation(req.url)

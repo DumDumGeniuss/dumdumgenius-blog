@@ -48,7 +48,6 @@ class TinyPhotoBox extends React.Component {
 		return (
 			<div style={Object.assign({width: boxSize.width, height: boxSize.height})}
                 className="TinyPhotoBox-photoBox">
-                <SeparateLine width="100%"/>
 			    <div style={Object.assign({width: photoListSize.width})}
                     className="TinyPhotoBox-photoListScreen">
                     <AngleDoubleLeft className="TinyPhotoBox-navbarArrowLeft"/>
@@ -60,7 +59,6 @@ class TinyPhotoBox extends React.Component {
 			        })}
                     <AngleDoubleRight className="TinyPhotoBox-navbarArrowRight"/>
 			    </div>
-                <SeparateLine width="100%"/>
 			    <span className="TinyPhotoBox-photoNav">
 			        {this.state.paintingTitle}
 			    </span>

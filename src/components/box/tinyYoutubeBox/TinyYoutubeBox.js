@@ -60,7 +60,6 @@ class TinyYoutubeBox extends React.Component{
 		    photoListScreenHeigth = youtubeSize.height
 		return (
 			<div style={Object.assign({width: boxSize.width, height: boxSize.height})} className="TinyYoutubeBox-photoBox">
-                <SeparateLine width="100%"/>
 			    <div className="TinyYoutubeBox-photoListScreen" style={Object.assign({width: youtubePhotoListSize.width})} >
                     <AngleDoubleLeft className="TinyYoutubeBox-navbarArrowLeft"/>
 			        {youtubes.map(function(result) {
@@ -73,7 +72,6 @@ class TinyYoutubeBox extends React.Component{
 			        })}
                     <AngleDoubleRight className="TinyYoutubeBox-navbarArrowRight"/>
 			    </div>
-                <SeparateLine width="100%"/>
 			    <span className="TinyYoutubeBox-photoNav">
 			        {this.state.youtubeTitle}
 			    </span>

@@ -8,7 +8,7 @@ class UnderConstruct extends React.Component {
     constructor(props) {
           super(props);
           this.state = {
-              test: null
+              test: 'fuckyou'
           };
     }
     render() {

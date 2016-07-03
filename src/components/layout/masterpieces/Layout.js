@@ -20,11 +20,9 @@ class Layout extends React.Component {
     	            <div className="MasterLayout-navbar">
                         <Link className="MasterLayout-masterpieceShowBox" to="/masterpieces">
                             <PaintBrush className="MasterLayout-masterpieceIcon"/> 
-                            <span className="MasterLayout-masterpieceIconText">Paintings</span>
                         </Link>
                         <Link className="MasterLayout-masterpieceShowBox" to="/masterpieces/youtubes">
                             <YoutubePlay className="MasterLayout-masterpieceIcon"/> 
-                            <span className="MasterLayout-masterpieceIconText">Youtube</span>
                         </Link>
                     </div>
                     <div className="MasterLayout-pageArea">

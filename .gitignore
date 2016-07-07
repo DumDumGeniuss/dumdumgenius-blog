@@ -5,3 +5,4 @@ server_build.js
 dist
 main.min.js
 .env
+server/config/production.js

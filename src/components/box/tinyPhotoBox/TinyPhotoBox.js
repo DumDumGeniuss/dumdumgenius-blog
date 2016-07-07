@@ -1,6 +1,7 @@
 import React from 'react'
 import AngleDoubleLeft from 'react-icons/lib/fa/angle-double-left'
 import AngleDoubleRight from 'react-icons/lib/fa/angle-double-right'
+import ArrowRight from 'react-icons/lib/fa/arrow-right'
 import SeparateLine from '../../line/SeparateLine'
 
 if (process.env.BROWSER) {
@@ -13,9 +14,10 @@ class TinyPhotoBox extends React.Component {
         this.state = {
             currentShowIndex: 0,
             showPainting: null,
-            paintingTitle: 'Pick the one you like !',
             defaultImageUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/paintings%2FdefaultImage.png?alt=media',
-            displayPhotoClass: "TinyPhotoBox-displayPhoto"
+            displayPhotoClass: "TinyPhotoBox-displayPhoto",
+            paintingTitle: 'Select One Picture',
+            currentPaintingKey: '0'
         }
     }
 	componentDidMount() {
@@ -27,9 +29,29 @@ class TinyPhotoBox extends React.Component {
         self.setState({
         	showPainting: paintings[key],
             paintingTitle: paintings[key].title,
-            displayPhotoClass: "TinyPhotoBox-displayPhoto"
+            displayPhotoClass: "TinyPhotoBox-displayPhoto",
+            currentPaintingKey: key
         })
 	}
+    slidePhoto(direction, paintings) {
+        if(direction == 'left') {
+            let key = parseInt(this.state.currentPaintingKey)-1
+            if(paintings[key + '']) {
+                this.setShowPainting(key+'', paintings)
+                this.setStaet({
+                    currentPaintingKey: key + ''
+                })
+            }
+        } else {
+            let key = parseInt(this.state.currentPaintingKey)+1
+            if(paintings[key + '']) {
+                this.setShowPainting(key+'', paintings)
+                this.setStaet({
+                    currentPaintingKey: key + ''
+                })
+            }
+        }
+    }
     photoOnLoad() {
         const self = this
         window.setTimeout(function() {
@@ -50,24 +72,29 @@ class TinyPhotoBox extends React.Component {
                 className="TinyPhotoBox-photoBox">
 			    <div style={Object.assign({width: photoListSize.width})}
                     className="TinyPhotoBox-photoListScreen">
-                    <AngleDoubleLeft className="TinyPhotoBox-navbarArrowLeft"/>
 			        {paintings.map(function(result) {
                         return <img onClick={self.setShowPainting.bind(self, result.id, paintings)} 
                                     key={result.id} src={result.src} 
                                     style={Object.assign({width: photoSize.width, height: photoSize.height})}
                                     className="TinyPhotoBox-photo"></img>
 			        })}
-                    <AngleDoubleRight className="TinyPhotoBox-navbarArrowRight"/>
 			    </div>
-			    <span className="TinyPhotoBox-photoNav">
-			        {this.state.paintingTitle}
-			    </span>
-			    <div className="TinyPhotoBox-displayScreen">
-                    <img className={displayPhotoClass}
-                        onLoad={self.photoOnLoad.bind(self)} 
-                        src={this.state.showPainting?this.state.showPainting.src:this.state.defaultImageUrl}>
-                    </img>
+			    <div className="TinyPhotoBox-slideMessage">
+			        <ArrowRight className="TinyPhotoBox-fingerSlide"/>
 			    </div>
+                <span className="TinyPhotoBox-titleContext">
+                    {this.state.paintingTitle}
+                </span>
+                <div className="TinyPhotoBox-displayBox">
+                    <AngleDoubleLeft onClick={this.slidePhoto.bind(this, "left", paintings)} className="TinyPhotoBox-navbarArrowLeft"/>
+			        <div className="TinyPhotoBox-displayScreen">
+                        <img className={displayPhotoClass}
+                            onLoad={self.photoOnLoad.bind(self)} 
+                            src={this.state.showPainting?this.state.showPainting.src:this.state.defaultImageUrl}>
+                        </img>
+			        </div>
+                    <AngleDoubleRight onClick={this.slidePhoto.bind(this, "right", paintings)} className="TinyPhotoBox-navbarArrowRight"/>
+                </div>
 			</div>
 		)
 	}

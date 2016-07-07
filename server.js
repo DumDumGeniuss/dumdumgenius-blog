@@ -14,14 +14,16 @@ import routes from './dist/route/routes'
 import IndexLayout from './dist/IndexLayout'
 
 const app = Express()
-const port = 3000
-app.use(Express.static(__dirname))
+const port = 4000
+app.use(Express.static(__dirname + '/public'))
 app.use(handleRender)
 
 function handleRender(req, res) {
     console.log(req.url)
   	// Create a new Redux store instance
-  	const store = createStore(rootReducer),
+    let initialState = {}
+
+  	const store = createStore(rootReducer, initialState),
   	    location = createLocation(req.url)
 
   	match({ routes, location }, function(error, redirectLocation, renderProps) {
@@ -39,13 +41,9 @@ function handleRender(req, res) {
   			</Provider>
     	)
 
-        // const html = React.renderToStaticMarkup(
-        //     <IndexLayout content={content} />
-        // )
 	
   		const initialState = store.getState()
 
-        //res.send(html)
 	
   		res.send(renderFullPage(html, initialState))
 	})
@@ -64,7 +62,7 @@ function renderFullPage(html, initialState) {
                 <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media" />
                 <meta property="og:image:width" content="200" />
                 <meta property="og:image:height" content="250" />
-  	  	  	 	<title>DumDumGenius' blog</title>
+  	  	  	 	  <title>DumDumGenius' blog</title>
                 <style>
                     body {
                         margin: 0px;

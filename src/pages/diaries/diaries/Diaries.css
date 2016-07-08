@@ -1,7 +1,7 @@
 .Diaries-mainArea {
     display: block;
     width: 100%;
-    background-color: #E9EBEE;
+    min-height: 700px;
     padding: 15px 0px;
 }
 

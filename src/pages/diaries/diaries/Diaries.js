@@ -70,7 +70,7 @@ class Diaries extends React.Component {
         }
 
         return (
-            <div>
+            <div className="Diaries-mainArea">
                 <div className="Diaries-diariesBox">
                     <div className="Diaries-categoriesNav">
                         {diaryCategories.map(function(result) {

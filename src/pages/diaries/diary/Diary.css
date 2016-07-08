@@ -1,6 +1,7 @@
 .Diary-mainArea {
     position: relative;
     display: block;
+    min-height: 700px;
     width: 60%;
     margin: 0px auto;
     background-color: white;

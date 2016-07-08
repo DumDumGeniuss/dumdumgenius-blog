@@ -15,7 +15,8 @@ class AboutMe extends React.Component {
         this.state = {
             scrollTop: 0,
             backgroundImgClass: 'AbouteMe-backgroundImg',
-            backgroundImgTop: 0
+            backgroundImgTop: 0,
+            boxClass: 'AboutMe-box'
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -29,19 +30,21 @@ class AboutMe extends React.Component {
         scrollTop= event.srcElement.body.scrollTop
 
         this.setState({
-            backgroundImgTop: -(scrollTop - 300)/3
+            backgroundImgTop: -(scrollTop - 300)/10
         })
 
         if(scrollTop<300) {
             if(this.state.contentClass !== 'AbouteMe-contentArea'){
                 this.setState({
-                    backgroundImgClass: 'AbouteMe-backgroundImg'
+                    backgroundImgClass: 'AbouteMe-backgroundImg',
+                    boxClass: 'AboutMe-box'
                 })
             }
         } else if(scrollTop>300) {
             if(this.state.contentClass !== 'AbouteMe-contentArea AboutMe-scrollAuto'){
                 this.setState({
-                    backgroundImgClass: 'AbouteMe-backgroundImgFadeIn'
+                    backgroundImgClass: 'AbouteMe-backgroundImgFadeIn',
+                    boxClass: 'AboutMe-boxFadeOut'
                 })
             }
         }
@@ -54,8 +57,8 @@ class AboutMe extends React.Component {
                     </img>
                 </div>
                 <div className="AbouteMe-contentArea">
-			        <span className="AboutMe-titleWordBig AboutMe-centerAlign">Profile</span>
-			        <div className="AboutMe-box">
+			        <span className="AboutMe-titleWordBig">Profile</span>
+			        <div className={this.state.boxClass}>
 			            <span className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</span>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
@@ -73,8 +76,8 @@ class AboutMe extends React.Component {
 			                <img className="AboutMe-logo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FNCTU_emblem.png?alt=media"}></img>
 			            </div>
 			        </div>
-			        <span className="AboutMe-titleWordBig AboutMe-centerAlign">Languages</span>
-			        <div className="AboutMe-box">
+			        <span className="AboutMe-titleWordBig">Languages</span>
+                    <div className={this.state.boxClass}>
 			            <span className="AboutMe-contentText AboutMe-centerAlign">Chinese（ 中文 ）</span>
                             <SeparateLine width="50%"/>
                             <span className="AboutMe-contentText AboutMe-centerAlign">Of course, I can speak it !</span>
@@ -90,8 +93,8 @@ class AboutMe extends React.Component {
 			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/JLPT.png?alt=media"}></img>
 			            </div>
 			        </div>
-			        <span className="AboutMe-titleWordBig AboutMe-centerAlign">Skills</span>
-			        <div className="AboutMe-box">
+			        <span className="AboutMe-titleWordBig">Skills</span>
+                    <div className={this.state.boxClass}>
 			            <span className="AboutMe-contentText AboutMe-centerAlign">Java , Ruby , JavaScript</span>
                         <SeparateLine width="50%"/>
                         <div>
@@ -139,9 +142,9 @@ class AboutMe extends React.Component {
                             </p>
                         </div>
 			        </div>
-                    <span className="AboutMe-titleWordBig AboutMe-centerAlign">Contact Me</span>
+                    <span className="AboutMe-titleWordBig">Contact Me</span>
                     <div className="AboutMe-separateLine"></div>
-                    <div className="AboutMe-box">
+                    <div className={this.state.boxClass}>
                         <span className="AboutMe-contentText AboutMe-centerAlign">dumdumgenius@gmail.com</span>
                         <br/>
                     </div>

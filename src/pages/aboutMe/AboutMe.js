@@ -49,7 +49,7 @@ class AboutMe extends React.Component {
     }
 	render() {
 		return (
-			<div className="AboutMe-mainArea">
+			<div className={this.state.mainAreaClass}>
                 <div className="AboutMe-backgroundArea">
                     <img className={this.state.backgroundImgClass} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/taipei101.jpg?alt=media"}>
                     </img>

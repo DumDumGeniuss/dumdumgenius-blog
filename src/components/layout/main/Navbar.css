@@ -77,12 +77,14 @@
 }
 
 .MainNavbar-navbar {
+    position: relative;
     text-align: center;
     left: 0px;
     line-height: 50px;
     background-color: black;
     width: 100%;
     border-top: 2px solid gray;
+    z-index: 3;
 }
 
 .MainNavbar-navbarFixed {

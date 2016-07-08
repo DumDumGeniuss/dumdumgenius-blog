@@ -2,32 +2,29 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 120vh;
     background-color: #E9EBEE;
     padding: 0px 0px;
 }
 
 .AboutMe-backgroundArea {
-    position: absolute;
+    position: fixed;
     display: block;
+    top: 0px;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     overflow-y: hidden;
 }
 
-.AboutMe-scrollAuto {
-    overflow-y: auto;
-}
 
 .AbouteMe-backgroundImg {
-    position: absolute;
+    position: relative;
     width: 100%;
     opacity: 0;
 }
 
 .AbouteMe-backgroundImgFadeIn {
-    position: absolute;
+    position: relative;
     width: 100%;
     opacity: 0.5;
     animation: fadeIn 1s;
@@ -41,8 +38,8 @@
 .AbouteMe-contentArea {
     position: relative;
     display: block;
+    padding: 10px 0px;
     width: 100%;
-    height: 100%;
     z-index: 2;
 }
 

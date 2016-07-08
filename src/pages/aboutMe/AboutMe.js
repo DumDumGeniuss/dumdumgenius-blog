@@ -14,9 +14,8 @@ class AboutMe extends React.Component {
         super(props)
         this.state = {
             scrollTop: 0,
-            contentClass: 'AbouteMe-contentArea',
-            mainAreaClass: 'AboutMe-mainArea',
-            backgroundImgClass: 'AbouteMe-backgroundImg'
+            backgroundImgClass: 'AbouteMe-backgroundImg',
+            backgroundImgTop: 0
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -27,21 +26,21 @@ class AboutMe extends React.Component {
         window.removeEventListener('scroll', this.handleScroll)
     }
     handleScroll(event) {
-            scrollTop= event.srcElement.body.scrollTop
+        scrollTop= event.srcElement.body.scrollTop
+
+        this.setState({
+            backgroundImgTop: -(scrollTop - 300)/3
+        })
 
         if(scrollTop<300) {
             if(this.state.contentClass !== 'AbouteMe-contentArea'){
                 this.setState({
-                    contentClass: 'AbouteMe-contentArea',
-                    mainAreaClass: 'AboutMe-mainArea',
                     backgroundImgClass: 'AbouteMe-backgroundImg'
                 })
             }
         } else if(scrollTop>300) {
             if(this.state.contentClass !== 'AbouteMe-contentArea AboutMe-scrollAuto'){
                 this.setState({
-                    contentClass: 'AbouteMe-contentArea AboutMe-scrollAuto',
-                    mainAreaClass: 'AboutMe-mainArea AboutMe-scrollAuto',
                     backgroundImgClass: 'AbouteMe-backgroundImgFadeIn'
                 })
             }
@@ -49,12 +48,12 @@ class AboutMe extends React.Component {
     }
 	render() {
 		return (
-			<div className={this.state.mainAreaClass}>
+			<div className="AboutMe-mainArea">
                 <div className="AboutMe-backgroundArea">
-                    <img className={this.state.backgroundImgClass} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/taipei101.jpg?alt=media"}>
+                    <img className={this.state.backgroundImgClass} style={{top: this.state.backgroundImgTop + 'px'}} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/taipei101.jpg?alt=media"}>
                     </img>
                 </div>
-                <div className={this.state.contentClass}>
+                <div className="AbouteMe-contentArea">
 			        <span className="AboutMe-titleWordBig AboutMe-centerAlign">Profile</span>
 			        <div className="AboutMe-box">
 			            <span className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</span>

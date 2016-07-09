@@ -26,13 +26,13 @@
 .AbouteMe-backgroundImgFadeIn {
     position: relative;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.7;
     animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
     0% {opacity: 0;}
-    100% {opacity: 0.5;}
+    100% {opacity: 0.7;}
 }
 
 .AbouteMe-contentArea {

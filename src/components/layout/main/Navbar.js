@@ -15,7 +15,7 @@ import StickyNote from 'react-icons/lib/fa/sticky-note'
 if (process.env.BROWSER) {
     require('./Navbar.css')
 }
-const scrollThreshold = 600
+const scrollThreshold = 400
 
 class Navbar extends React.Component {
 

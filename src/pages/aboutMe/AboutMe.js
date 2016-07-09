@@ -8,7 +8,7 @@ if (process.env.BROWSER) {
 }
 
 let scrollTop = 0
-const scrollThreshold = 600
+const scrollThreshold = 400
 
 class AboutMe extends React.Component {
 	constructor(props) {

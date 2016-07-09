@@ -2,6 +2,7 @@ delete process.env.BROWSER
 
 import Express from 'express'
 import React from 'react'
+import _ from 'lodash'
 import { match, RouterContext } from 'react-router'
 import { createStore } from 'redux'
 import ReactDomServer from 'react-dom/server'
@@ -22,11 +23,10 @@ const port = config.port
 app.use(Express.static(__dirname + '/public'))
 
 app.use('/diaries/:id', function(req, res) {
-    const query = req.query,
-        params = req.params,
+    const params = req.params,
         completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
 
-    firebase.database().ref('diaries/' + query.category + '/datas/' + params.id).once('value')
+    firebase.database().ref('diaries/' + params.id).once('value')
         .then(function(result) {
             const diary = result.val(),
                 initialState = {
@@ -39,6 +39,28 @@ app.use('/diaries/:id', function(req, res) {
                     type: 'diary',
                     title: diary.title,
                     description: diary.content
+                }
+            handleRender(req, res, initialState, ogTagParams)
+        })
+})
+
+app.use('/diaries', function(req, res) {
+    const completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
+
+    firebase.database().ref('diaries').once('value')
+        .then(function(result) {
+            const diary = result.val(),
+                initialState = {
+                    diaries: {
+                        diaries: toArray(result.val())
+                    }
+                },
+                ogTagParams = {
+                    url: completeUrl,
+                    type: 'diaries',
+                    title: "dumdumgenius' diaries board",
+                    description: "Here are various diaries about my life, like movies, journals and of course"
+                      + " my technical shares, hope you will enjoy it, thank you for your visit."
                 }
             handleRender(req, res, initialState, ogTagParams)
         })
@@ -79,6 +101,16 @@ app.use('*', function(req, res) {
         }
     handleRender(req, res, initialState, ogTagParams)
 })
+
+function toArray(map) {
+    let array = []
+    for(let key in map) {
+        let item = map[key]
+        item.id = key
+        array.push(item)
+    }
+    return array
+}
 
 function handleRender(req, res, initialState, ogTagParams) {
 

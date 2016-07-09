@@ -21,6 +21,13 @@ export function getDiariesByCategory(diaries) {
 	}
 }
 
+export function getDiaries(diaries) {
+	return {
+		type: diaryActionTypes.GET_DIARIES,
+		diaries
+	}
+}
+
 export function getDiary(diary) {
 	return {
 		type: diaryActionTypes.GET_DIARY,

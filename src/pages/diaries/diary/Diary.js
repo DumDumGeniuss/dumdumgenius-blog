@@ -22,12 +22,12 @@ class Diary extends React.Component {
         let { query } = this.props.location,
             { params } = this.props
 
-        this.getDiary(query.category, params.id)
+        this.getDiary(params.id)
     }
-    getDiary(category, id) {
+    getDiary(id) {
         const { actions } = this.props
 
-        firebase.database().ref('diaries/' + category + '/datas/' + id).once('value')
+        firebase.database().ref('diaries/' + id).once('value')
             .then(function(result) {
                 let diary = result.val()
                 actions.getDiary(diary)

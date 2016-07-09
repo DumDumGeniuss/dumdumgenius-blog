@@ -28,7 +28,7 @@ class DiaryNavBox extends React.Component {
     		    </span>
     		    <div className='DiaryNavBox-contentBox'>
     		        {diary.content.substring(0,100)}...
-    		        <Link className='DiaryNavBox-readMoreLink' to={"/diaries/"+diary.id+"?category="+diary.category}>
+    		        <Link className='DiaryNavBox-readMoreLink' to={"/diaries/"+diary.id}>
     		            <span className='DiaryNavBox-readMoreButton'>Read More</span>
     		        </Link>
     		    </div>

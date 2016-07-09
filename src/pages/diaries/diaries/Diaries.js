@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import  * as diaryActions from '../../../actions/diaryActionss'
@@ -33,12 +34,21 @@ class Diaries extends React.Component {
             })
         }
         this.getDiariesInfo()
+        this.queryDiaries()
+    }
+    queryDiaries() {
+        const { actions } = this.props
+        firebase.database().ref('diaries').once('value')
+        .then(function(result) {
+            let diaries = toArray(result.val())
+            actions.getDiaries(diaries)
+        })
     }
     queryDiariesByCategory(category) {
         const { actions } = this.props
             self = this
 
-        firebase.database().ref('diaries').child(category+'/datas').orderByChild('date').once('value')
+        firebase.database().ref('diaries').orderByChild('category').equalTo(category).once('value')
         .then(function(result) {
             let diaries = toArray(result.val())
             actions.getDiariesByCategory(diaries)
@@ -52,7 +62,6 @@ class Diaries extends React.Component {
         .then(function(result) {
             let diariesInfo = result.val()
             actions.getDiariesInfo(diariesInfo)
-            self.queryDiariesByCategory(diariesInfo.categories[1])
         })
     }
 	render() {

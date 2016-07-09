@@ -28,7 +28,7 @@ class Create extends React.Component {
                 content: self.state.content,
                 date: self.state.date,
             }
-        firebase.database().ref('diaries/' + self.state.category + "/datas").push(params)
+        firebase.database().ref('diaries').push(params)
             .then(function(result) {
                 actions.addDiary(true)
             })

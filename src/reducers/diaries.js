@@ -13,6 +13,8 @@ export default function counter(state = initState, action) {
 			return Object.assign({}, state, {diariesInfo: action.diariesInfo})
 		case diaryActionTypes.GET_DIARIES_BY_CATEGORY:
 			return Object.assign({}, state, {diaries: action.diaries})
+		case diaryActionTypes.GET_DIARIES:
+			return Object.assign({}, state, {diaries: action.diaries})
 		case diaryActionTypes.GET_DIARY:
 			return Object.assign({}, state, {diary: action.diary})
 		case diaryActionTypes.ADD_DIARY:

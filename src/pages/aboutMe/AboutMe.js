@@ -8,6 +8,7 @@ if (process.env.BROWSER) {
 }
 
 let scrollTop = 0
+const scrollThreshold = 600
 
 class AboutMe extends React.Component {
 	constructor(props) {
@@ -30,17 +31,17 @@ class AboutMe extends React.Component {
         scrollTop= event.srcElement.body.scrollTop
 
         this.setState({
-            backgroundImgTop: -(scrollTop - 300)/10
+            backgroundImgTop: -(scrollTop - scrollThreshold)/10
         })
 
-        if(scrollTop<300) {
+        if(scrollTop<scrollThreshold) {
             if(this.state.contentClass !== 'AbouteMe-contentArea'){
                 this.setState({
                     backgroundImgClass: 'AbouteMe-backgroundImg',
                     boxClass: 'AboutMe-box'
                 })
             }
-        } else if(scrollTop>300) {
+        } else if(scrollTop>scrollThreshold) {
             if(this.state.contentClass !== 'AbouteMe-contentArea AboutMe-scrollAuto'){
                 this.setState({
                     backgroundImgClass: 'AbouteMe-backgroundImgFadeIn',
@@ -95,50 +96,74 @@ class AboutMe extends React.Component {
 			        </div>
 			        <span className="AboutMe-titleWordBig">Skills</span>
                     <div className={this.state.boxClass}>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Java , Ruby , JavaScript</span>
+			            <span className="AboutMe-contentText AboutMe-centerAlign">Java , NodeJs,  Ruby , JavaScript</span>
                         <SeparateLine width="50%"/>
                         <div>
 			                <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FJava.png?alt=media"}></img>
                             <p className="AboutMe-inlineParagraph AboutMe-middleAlign">
-                                <span className="AboutMe-textInParagraph">Java:</span>
+                                <span className="AboutMe-contentText">Java:</span>
                                 <br/>
                                 <span className="AboutMe-textInParagraph">Develop web application with Spring , Hibernate</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Familiar with Java Design Pattern and server side Java design</span>
+                                <span className="AboutMe-textInParagraph">Actually I started my career with Java, and had about 2-years experience</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Data Structure in Java</span>
+                                <span className="AboutMe-textInParagraph">I think Java is powerful when it's applied with Design Pattern</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">and large System, because it's more strict that makes it stable and reliable</span>
                             </p>
                         </div>
                         <div>
 			                <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FjavaScript.png?alt=media"}></img>
                             <p className="AboutMe-inlineParagraph AboutMe-middleAlign">
-                                <span className="AboutMe-textInParagraph">JavaScript:</span>
+                                <span className="AboutMe-contentText">JavaScript:</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">React ( on this blog ) , Angular</span>
+                                <span className="AboutMe-textInParagraph">I have experiences on web-develop-tool like gulp, webpack, </span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Beautiful coding style on JS</span>
+                                <span className="AboutMe-textInParagraph">and of course writing ES6 by babel(It's used on this website)</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">It's my favorite language now!</span>
+                                <span className="AboutMe-textInParagraph">JavaScript is an amazing functional language,</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">which is simple and extremely flexible!</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">So it's my favorite choice now</span>
+                            </p>
+                        </div>
+                        <div>
+                            <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2Fnodejs.png?alt=media"}></img>
+                            <p className="AboutMe-inlineParagraph AboutMe-middleAlign">
+                                <span className="AboutMe-contentText">NodeJS:</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">Can use both ES5, ES6 in coding NodeJS</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">Popular tools like npm, express</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">Continue...</span>
                             </p>
                         </div>
                         <div>
 			                <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FRuby.png?alt=media"}></img>
                             <p className="AboutMe-inlineParagraph AboutMe-middleAlign">
-                                <span className="AboutMe-textInParagraph">Ruby:</span>
+                                <span className="AboutMe-contentText">Ruby:</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Well knowledge on Ruby On Rails</span>
+                                <span className="AboutMe-textInParagraph"><b><i>Ruby On Rails</i></b> is fantastic web-framwork,</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Solved 50+ problems with Ruby on Leetcode</span>
+                                <span className="AboutMe-textInParagraph">and that's why I fell in love with Ruby in a period of time</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">I Solved 50+ problems with Ruby on Leetcode, </span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">in that I found the power of Ruby, and how elegant it is </span>
                             </p>
                         </div>
                         <div>
                             <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FCss3.png?alt=media"}></img>
                             <p className="AboutMe-inlineParagraph AboutMe-middleAlign">
-                                <span className="AboutMe-textInParagraph">CSS3:</span>
+                                <span className="AboutMe-contentText">CSS3:</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Freakingly awesome UI designer</span>
+                                <span className="AboutMe-textInParagraph">I think it's necessary for frontend developer to be proficient in CSS,</span>
                                 <br/>
-                                <span className="AboutMe-textInParagraph">Artist out of engineers</span>
+                                <span className="AboutMe-textInParagraph">Cause' you must be able to transform everything you see into HTML plus CSS</span>
+                                <br/>
+                                <span className="AboutMe-textInParagraph">I'm still on my way to reveal the power of CSS3~</span>
                             </p>
                         </div>
 			        </div>

@@ -28,7 +28,6 @@ class Layout extends React.Component {
         const iconsColor = this.state.iconsColor
     	return (
     	    <div className="MasterLayout-maindArea">
-                <span className="MasterLayout-titleFont">Masterpieces !</span>
                 <div className="MasterLayout-contentArea">
     	            <div className="MasterLayout-navbar">
                         <Link className={iconsColor[0]} onClick={this.focusIcon.bind(this, 0)} to="/masterpieces">

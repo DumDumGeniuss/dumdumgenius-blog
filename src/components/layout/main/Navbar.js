@@ -15,6 +15,7 @@ import StickyNote from 'react-icons/lib/fa/sticky-note'
 if (process.env.BROWSER) {
     require('./Navbar.css')
 }
+const scrollThreshold = 600
 
 class Navbar extends React.Component {
 
@@ -38,7 +39,7 @@ class Navbar extends React.Component {
             scrollTop: event.srcElement.body.scrollTop
         })
 
-        if(this.state.scrollTop<300) {
+        if(this.state.scrollTop<scrollThreshold) {
             if(this.state.navbarClass !== 'MainNavbar-navbar') {
                 this.setState({
                     navbarClass: 'MainNavbar-navbar'
@@ -49,7 +50,7 @@ class Navbar extends React.Component {
                     backgroundAreaClass: 'MainNavbar-backgroundArea'
                 })
             }
-        }else if(this.state.scrollTop>300) {
+        }else if(this.state.scrollTop>scrollThreshold) {
             if(this.state.navbarClass !== 'MainNavbar-navbarFixed') {
                 this.setState({
                     navbarClass: 'MainNavbar-navbarFixed'
@@ -69,7 +70,7 @@ class Navbar extends React.Component {
 			<div>
 			    <div className={backgroundAreaClass}>
 			        <div className="MainNavbar-mainBackground">
-                        <img src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomBackground3.jpg?alt=media"}></img>
+                        <img className="MainNavbar-backgroundImg" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomeBackground4.jpg?alt=media"}></img>
 			        </div>
 			        <div className="MainNavbar-textArea">
 			            <span className="MainNavbar-logoText">DumDumGenius</span>

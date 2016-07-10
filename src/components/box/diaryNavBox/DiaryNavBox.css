@@ -51,6 +51,7 @@
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
     font-size: 1.2em;
+    word-break: break-all;
     line-height: 25px;
     font-family: Helvetica,arial,freesans,clean,sans-serif;
     color: #444444

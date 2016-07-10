@@ -36,11 +36,11 @@
 .Diaries-movie {
     position: fixed;
     display: inline-block;
-    left: calc(50%);
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
     font-size: 500px;
     opacity: 0.3;
+    transform: rotate(0deg);
 }
 
 .Diaries-bicycle {

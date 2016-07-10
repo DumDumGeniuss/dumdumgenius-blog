@@ -133,4 +133,11 @@
     width: 100%;
 }
 
+.Diaries-flighterJet, .Diaries-coffee, .Diaries-movie, .Diaries-bicycle, .Diaries-book, .Diaries-cogs {
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+    font-size: 200px;
+
+}
+
 }

@@ -35,14 +35,14 @@ class AboutMe extends React.Component {
         })
 
         if(scrollTop<scrollThreshold) {
-            if(this.state.contentClass !== 'AbouteMe-contentArea'){
+            if(this.state.backgroundImgClass !== 'AbouteMe-backgroundImgFadeOut' && this.state.backgroundImgClass !== 'AbouteMe-backgroundImg'){
                 this.setState({
-                    backgroundImgClass: 'AbouteMe-backgroundImg',
+                    backgroundImgClass: 'AbouteMe-backgroundImgFadeOut',
                     boxClass: 'AboutMe-box'
                 })
             }
         } else if(scrollTop>scrollThreshold) {
-            if(this.state.contentClass !== 'AbouteMe-contentArea AboutMe-scrollAuto'){
+            if(this.state.backgroundImgClass !== 'AbouteMe-backgroundImgFadeIn'){
                 this.setState({
                     backgroundImgClass: 'AbouteMe-backgroundImgFadeIn',
                     boxClass: 'AboutMe-boxFadeOut'

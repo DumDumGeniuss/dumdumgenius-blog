@@ -4,11 +4,14 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import  * as diaryActions from '../../../actions/diaryActionss'
 import {Link} from 'react-router'
-import Plus from 'react-icons/lib/fa/plus'
-import Facebook from 'react-icons/lib/fa/facebook'
+import firebase from '../../../services/firebase'
+
 import SeparateLine from '../../../components/line/SeparateLine'
 import DiaryNavBox from '../../../components/box/diaryNavBox/DiaryNavBox'
-import firebase from '../../../services/firebase'
+
+import Plus from 'react-icons/lib/fa/plus'
+import Facebook from 'react-icons/lib/fa/facebook'
+import FlighterJet from 'react-icons/lib/fa/fighter-jet'
 
 if (process.env.BROWSER) {
     require('./Diaries.css')
@@ -80,8 +83,14 @@ class Diaries extends React.Component {
 
         return (
             <div className="Diaries-mainArea">
+                <div className="Diaries-backgroundArea">
+                    <FlighterJet className="Diaries-backgroundImg"/>
+                </div>
                 <div className="Diaries-diariesBox">
                     <div className="Diaries-categoriesNav">
+                        <span className="Diaries-categoryLabel" onClick={self.queryDiaries.bind(self)}>
+                            All
+                        </span>
                         {diaryCategories.map(function(result) {
                             return (
                                 <span key={result} className="Diaries-categoryLabel" onClick={self.queryDiariesByCategory.bind(self, result)}>
@@ -96,14 +105,14 @@ class Diaries extends React.Component {
                             </DiaryNavBox>
                         )
                     })}
-                    <div className="Diaries-addDiaryZone">
-                        <Link className="Diaries-linkStyle" to="/diaries/create">
-                            {loginButton}
-                        </Link>
-                        <Link className="Diaries-linkStyle" to="/facebook">
-                            <Facebook className="Diaries-addArticleButton"></Facebook>
-                        </Link>
-                    </div>
+                </div>
+                <div className="Diaries-addDiaryZone">
+                    <Link className="Diaries-linkStyle" to="/diaries/create">
+                        {loginButton}
+                    </Link>
+                    <Link className="Diaries-linkStyle" to="/facebook">
+                        <Facebook className="Diaries-addArticleButton"></Facebook>
+                    </Link>
                 </div>
             </div>
         )

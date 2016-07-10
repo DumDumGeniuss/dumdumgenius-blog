@@ -12,7 +12,6 @@ class Layout extends React.Component {
     render() {
     	return (
     	    <div className="DiariesLayout-maindArea">
-                <span className="DiariesLayout-titleFont">Diaries</span>
                 <div className="DiariesLayout-diariesBox">
                     {this.props.children}
                 </div>

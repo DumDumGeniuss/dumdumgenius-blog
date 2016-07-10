@@ -1,8 +1,6 @@
 .DiariesLayout-maindArea {
     display: block;
-    padding: 10px 0px;
     width: 100%;
-    background-color: #E9EBEE;
 }
 
 .DiariesLayout-titleFont {
@@ -11,10 +9,4 @@
     text-align: center;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 3em;
-}
-
-.DiariesLayout-diariesBox {
-    width: 90%;
-    margin: 0px auto;
-    min-height: 70%;
 }

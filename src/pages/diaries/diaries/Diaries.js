@@ -12,6 +12,11 @@ import DiaryNavBox from '../../../components/box/diaryNavBox/DiaryNavBox'
 import Plus from 'react-icons/lib/fa/plus'
 import Facebook from 'react-icons/lib/fa/facebook'
 import FlighterJet from 'react-icons/lib/fa/fighter-jet'
+import VideoCamera from 'react-icons/lib/fa/video-camera'
+import Bicycle from 'react-icons/lib/fa/bicycle'
+import Coffee from 'react-icons/lib/fa/coffee'
+import Cogs from 'react-icons/lib/fa/cogs'
+import Book from 'react-icons/lib/fa/book'
 
 if (process.env.BROWSER) {
     require('./Diaries.css')
@@ -21,7 +26,16 @@ class Diaries extends React.Component {
 	constructor(props) {
         super(props)
         this.state = {
-            loginButton: false
+            loginButton: false,
+            categoryPick: null,
+            categoryLabelClasses: {
+                all: "Diaries-categoryLabel",
+                journal: "Diaries-categoryLabel",
+                movie: "Diaries-categoryLabel",
+                life: "Diaries-categoryLabel",
+                military: "Diaries-categoryLabel",
+                technique: "Diaries-categoryLabel"
+            }
         }
         this.queryDiariesByCategory = this.queryDiariesByCategory.bind(this)
     }
@@ -40,7 +54,17 @@ class Diaries extends React.Component {
         this.queryDiaries()
     }
     queryDiaries() {
-        const { actions } = this.props
+        const { actions } = this.props,
+            categoryLabelClasses = this.state.categoryLabelClasses
+
+        categoryLabelClasses[this.state.categoryPick] = "Diaries-categoryLabel"
+        categoryLabelClasses['all'] = "Diaries-categoryLabel Diaries-categoryLabelOn"
+
+        this.setState({
+            categoryPick: 'all',
+            categoryLabelClasses: categoryLabelClasses
+        })
+
         firebase.database().ref('diaries').once('value')
         .then(function(result) {
             let diaries = toArray(result.val())
@@ -48,8 +72,16 @@ class Diaries extends React.Component {
         })
     }
     queryDiariesByCategory(category) {
-        const { actions } = this.props
-            self = this
+        const { actions } = this.props,
+            categoryLabelClasses = this.state.categoryLabelClasses
+
+        categoryLabelClasses[this.state.categoryPick] = "Diaries-categoryLabel"
+        categoryLabelClasses[category] = "Diaries-categoryLabel Diaries-categoryLabelOn"
+
+        this.setState({
+            categoryPick: category,
+            categoryLabelClasses: categoryLabelClasses
+        })
 
         firebase.database().ref('diaries').orderByChild('category').equalTo(category).once('value')
         .then(function(result) {
@@ -71,9 +103,34 @@ class Diaries extends React.Component {
         let { state } = this.props,
             diariesInfo = state.diariesInfo,
             diaryCategories = diariesInfo?diariesInfo.categories:[],
-            diaries = state.diaries
-        let loginButton,
-            self = this
+            diaries = state.diaries,
+            categoryLabelClasses = this.state.categoryLabelClasses,
+            loginButton,
+            self = this,
+            categoryPick = this.state.categoryPick,
+            backgroundImageElem
+
+        switch(categoryPick) {
+            case 'all':
+                backgroundImageElem = <Book className="Diaries-book"/>
+                break
+            case 'technique':
+                backgroundImageElem = <Cogs className="Diaries-cogs"/>
+                break
+            case 'life':
+                backgroundImageElem = <Coffee className="Diaries-coffee"/>
+                break
+            case 'journal':
+                backgroundImageElem = <Bicycle className="Diaries-bicycle"/>
+                break
+            case 'military':
+                backgroundImageElem = <FlighterJet className="Diaries-flighterJet"/>
+                break
+            case 'movie':
+                backgroundImageElem = <VideoCamera className="Diaries-movie"/>
+                break
+        }
+
 
         if(this.state.isLogin) {
             loginButton = <Plus className="Diaries-addArticleButton"></Plus>
@@ -84,16 +141,16 @@ class Diaries extends React.Component {
         return (
             <div className="Diaries-mainArea">
                 <div className="Diaries-backgroundArea">
-                    <FlighterJet className="Diaries-backgroundImg"/>
+                    {backgroundImageElem}
                 </div>
                 <div className="Diaries-diariesBox">
                     <div className="Diaries-categoriesNav">
-                        <span className="Diaries-categoryLabel" onClick={self.queryDiaries.bind(self)}>
+                        <span className={categoryLabelClasses['all']} onClick={self.queryDiaries.bind(self)}>
                             All
                         </span>
                         {diaryCategories.map(function(result) {
                             return (
-                                <span key={result} className="Diaries-categoryLabel" onClick={self.queryDiariesByCategory.bind(self, result)}>
+                                <span key={result} className={categoryLabelClasses[result]} onClick={self.queryDiariesByCategory.bind(self, result)}>
                                     {result}
                                 </span>
                             )

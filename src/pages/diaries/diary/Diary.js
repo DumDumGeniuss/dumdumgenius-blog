@@ -14,7 +14,14 @@ class Diary extends React.Component {
 	constructor(props) {
         super(props)
         this.state = {
-            diary: ''
+            diary: '',
+            categoryLabelColors: {
+                journal: "#0aa700",
+                movie: "#ff5c2b",
+                life: "#FFB6CC",
+                military: "#ff0000",
+                technique: "#00b8ff"
+            }
         }
         this.getDiary = this.getDiary.bind(this)
     }
@@ -35,9 +42,10 @@ class Diary extends React.Component {
     }
 	render() {
         let { state } = this.props,
+            categoryLabelColors = this.state.categoryLabelColors,
             diary = state.diary,
 		    date = diary?new Date(diary.date):null,
-		    typeLabelElem = diary?<span className="Diary-typeLabel">{diary.category}</span>:null,
+		    typeLabelElem = diary?<span className="Diary-typeLabel" style={{backgroundColor: categoryLabelColors[diary.category]}}>{diary.category}</span>:null,
 		    completeDate = getCompleteDate(date),
 		    dateTextElem = diary?<span className="Diary-dateText">{completeDate}</span>:null
         return (

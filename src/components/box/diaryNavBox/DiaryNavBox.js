@@ -10,13 +10,23 @@ if (process.env.BROWSER) {
 class DiaryNavBox extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            categoryLabelColors: {
+                journal: "#0aa700",
+                movie: "#ff5c2b",
+                life: "#FFB6CC",
+                military: "#ff0000",
+                technique: "#00b8ff"
+            }
+        }
     }
     render() {
     	let diary = this.props.diary,
-    	   date = new Date(diary.date)
+    	   date = new Date(diary.date),
+           categoryLabelColors = this.state.categoryLabelColors
     	return (
     		<div className='DiaryNavBox-mainArea'>
-    		    <span className='DiaryNavBox-diaryType'>
+    		    <span className='DiaryNavBox-diaryType' style={{backgroundColor: categoryLabelColors[diary.category]}}>
     		        {diary.category}
     		    </span>
     		    <div className='DiaryNavBox-dateBox'>

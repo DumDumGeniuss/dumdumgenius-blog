@@ -18,7 +18,7 @@ class TinyPhotoBox extends React.Component {
             showPainting: null,
             defaultImageUrl: 'https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/paintings%2FdefaultImage.png?alt=media',
             displayPhotoClass: "TinyPhotoBox-displayPhoto",
-            spinnerClass: "TinyPhotoBox-spinner",
+            spinnerClass: "TinyPhotoBox-displayNone",
             paintingTitle: 'Select One Picture',
             currentPaintingKey: '0'
         }

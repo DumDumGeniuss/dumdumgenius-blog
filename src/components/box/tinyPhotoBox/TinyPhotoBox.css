@@ -108,7 +108,7 @@
     position: absolute;
     display: inline-block;
     font-size: 80px;
-    transform: translate(-50%, 0%);
+    left: -40px;
     top: 150px;
     opacity: 0.5;
     animation: spin infinite 10s;
@@ -141,6 +141,11 @@
 
 .TinyPhotoBox-displayScreen {
     height: 250px;
+}
+
+.TinyPhotoBox-spinner {
+    top: 50px;
+    left: -40px;
 }
 
 .TinyPhotoBox-displayBox {

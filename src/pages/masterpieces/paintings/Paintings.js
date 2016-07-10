@@ -6,6 +6,7 @@ import TinyPhotoBox from '../../../components/box/tinyPhotoBox/TinyPhotoBox'
 import firebase from '../../../services/firebase'
 
 
+
 class Paintings extends React.Component {
     constructor(props) {
         super(props)

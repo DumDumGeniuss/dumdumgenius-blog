@@ -93,12 +93,30 @@
     height: 100%;
     margin-left: 50%;
     min-width: 50px;
-    background-color: #EFEFEF;
     transform: translate(-50%, 0%);
+}
+
+.TinyPhotoBox-displayNone {
+    display: none;
 }
 
 .TinyPhotoBox-showIn {
     animation: showIn 1s;
+}
+
+.TinyPhotoBox-spinner {
+    position: absolute;
+    display: inline-block;
+    font-size: 80px;
+    transform: translate(-50%, 0%);
+    top: 150px;
+    opacity: 0.5;
+    animation: spin infinite 10s;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(3600deg);}
 }
 
 .TinyPhotoBox-titleContext {

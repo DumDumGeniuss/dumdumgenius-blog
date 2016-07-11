@@ -103,7 +103,7 @@ class Diaries extends React.Component {
         let { state } = this.props,
             diariesInfo = state.diariesInfo,
             diaryCategories = diariesInfo?diariesInfo.categories:[],
-            diaries = state.diaries,
+            diaries = state.diaries?state.diaries:[],
             categoryLabelClasses = this.state.categoryLabelClasses,
             loginButton,
             self = this,

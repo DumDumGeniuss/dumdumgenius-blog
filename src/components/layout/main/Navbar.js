@@ -87,17 +87,17 @@ class Navbar extends React.Component {
 			    </div>
 			    <nav className={navbarClass}>
 			        <Link className="MainNavbar-navbarItem" to="/">About me</Link>
-			        <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
                     <Link className="MainNavbar-navbarItem" to="/diaries">Diaries</Link>
+			        <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
 			        <Link className="MainNavbar-navbarItem" to="/underConstruct">Tutorials</Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/">
                          <User />
                     </Link>
-                    <Link className="MainNavbar-navbarItemCollapse" to="/masterpieces">
-                        <Image  />
-                    </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/diaries">
                         <Book />
+                    </Link>
+                    <Link className="MainNavbar-navbarItemCollapse" to="/masterpieces">
+                        <Image  />
                     </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/underConstruct">
                         <StickyNote />

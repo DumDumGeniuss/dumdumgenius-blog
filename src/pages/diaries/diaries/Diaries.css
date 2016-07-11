@@ -23,6 +23,16 @@
     transform: rotate(-45deg);
 }
 
+.Diaries-language {
+    position: fixed;
+    display: inline-block;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
+    font-size: 500px;
+    opacity: 0.3;
+    transform: rotate(-10deg);
+}
+
 .Diaries-coffee {
     position: fixed;
     display: inline-block;
@@ -133,7 +143,7 @@
     width: 100%;
 }
 
-.Diaries-flighterJet, .Diaries-coffee, .Diaries-movie, .Diaries-bicycle, .Diaries-book, .Diaries-cogs {
+.Diaries-flighterJet, .Diaries-coffee, .Diaries-movie, .Diaries-bicycle, .Diaries-book, .Diaries-cogs, .Diaries-language {
     left: calc(50% - 100px);
     top: calc(50% - 100px);
     font-size: 200px;

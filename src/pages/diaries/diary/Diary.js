@@ -20,7 +20,8 @@ class Diary extends React.Component {
                 movie: "#ff5c2b",
                 life: "#FFB6CC",
                 military: "#ff0000",
-                technique: "#00b8ff"
+                technique: "#00b8ff",
+                technique: "#ffc0dd"
             }
         }
         this.getDiary = this.getDiary.bind(this)

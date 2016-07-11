@@ -17,6 +17,7 @@ import Bicycle from 'react-icons/lib/fa/bicycle'
 import Coffee from 'react-icons/lib/fa/coffee'
 import Cogs from 'react-icons/lib/fa/cogs'
 import Book from 'react-icons/lib/fa/book'
+import Language from 'react-icons/lib/fa/language'
 
 if (process.env.BROWSER) {
     require('./Diaries.css')
@@ -34,7 +35,8 @@ class Diaries extends React.Component {
                 movie: "Diaries-categoryLabel",
                 life: "Diaries-categoryLabel",
                 military: "Diaries-categoryLabel",
-                technique: "Diaries-categoryLabel"
+                technique: "Diaries-categoryLabel",
+                language: "Diaries-categoryLabel"
             }
         }
         this.queryDiariesByCategory = this.queryDiariesByCategory.bind(this)
@@ -111,6 +113,9 @@ class Diaries extends React.Component {
             backgroundImageElem
 
         switch(categoryPick) {
+            case 'language':
+                backgroundImageElem = <Language className="Diaries-language"/>
+                break
             case 'all':
                 backgroundImageElem = <Book className="Diaries-book"/>
                 break

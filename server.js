@@ -147,6 +147,7 @@ function renderFullPage(html, initialState, ogTagParams) {
   	  	<html>
   	  	  	<head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="google-site-verification" content="mU8vb5Hbce4m1TA7OFv5zsdvntNy-sHQ_6PZfFUsbeM" />
                 <meta property="og:url" content="${ogTagParams.url}" />
                 <meta property="og:type" content="${ogTagParams.type}" />
                 <meta property="og:title" content="${ogTagParams.title}" />

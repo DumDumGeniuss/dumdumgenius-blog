@@ -10,7 +10,6 @@ let currentHref = null;
 
 if (process.env.BROWSER) {
     require('./Diary.css')
-    currentHref = window.location.href
 }
 
 
@@ -58,6 +57,7 @@ class Diary extends React.Component {
     }
     componentDidUpdate() {
         if(FB) {
+            currentHref = window.location.href
             FB.XFBML.parse()
         }
     }

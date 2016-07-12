@@ -173,6 +173,9 @@ function renderFullPage(html, initialState, ogTagParams) {
                 </style>  
   	  	  	</head>
   	  	  	<body>
+                <!-- For Facebook Comments -->
+                <div id="fb-root"></div>
+
   	  	  	  	<div id="app">${html}</div>
   	  	  	  	<script>
   	  	  	    	window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}

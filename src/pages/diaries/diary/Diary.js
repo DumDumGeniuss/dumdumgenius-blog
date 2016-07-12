@@ -57,7 +57,9 @@ class Diary extends React.Component {
         }
     }
     componentDidUpdate() {
-        FB.XFBML.parse()
+        if(FB) {
+            FB.XFBML.parse()
+        }
     }
     getDiary(id) {
         const { actions } = this.props

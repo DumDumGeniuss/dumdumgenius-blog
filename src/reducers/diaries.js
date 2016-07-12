@@ -4,7 +4,8 @@ let initState = {
 	diariesInfo: null,
 	diaries: [],
 	diary: null,
-	createDiaryComplete: false
+	createDiaryComplete: false,
+	diaryUrl: null
 }
 
 export default function counter(state = initState, action) {
@@ -19,6 +20,8 @@ export default function counter(state = initState, action) {
 			return Object.assign({}, state, {diary: action.diary})
 		case diaryActionTypes.ADD_DIARY:
 			return Object.assign({}, state, {createDiaryComplete: action.result})
+		case diaryActionTypes.SET_DIARY_URL:
+			return Object.assign({}, state, {diaryUrl: action.diaryUrl})
 
 		default:
 			return state

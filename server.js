@@ -31,7 +31,8 @@ app.use('/diaries/:id', function(req, res) {
             const diary = result.val(),
                 initialState = {
                     diaries: {
-                        diary: diary
+                        diary: diary,
+                        diaryUrl: completeUrl
                     }
                 },
                 ogTagParams = {

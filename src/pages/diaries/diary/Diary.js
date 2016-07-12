@@ -6,7 +6,6 @@ import Markdown from 'react-remarkable'
 import Calendar from 'react-icons/lib/fa/calendar'
 import firebase from '../../../services/firebase'
 
-let currentHref = null;
 
 if (process.env.BROWSER) {
     require('./Diary.css')
@@ -35,6 +34,8 @@ class Diary extends React.Component {
         this.getDiary(params.id)
     }
     componentDidMount() {
+        const { actions } = this.props
+
         if (process.env.BROWSER) {
             window.fbAsyncInit = function() {
                 FB.init({
@@ -53,11 +54,12 @@ class Diary extends React.Component {
                 js.src = "//connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
+            actions.setDiaryUrl(window.location.href)
         }
     }
     componentDidUpdate() {
         if(FB) {
-            currentHref = window.location.href
             FB.XFBML.parse()
         }
     }
@@ -74,11 +76,15 @@ class Diary extends React.Component {
         let reduxState = this.props.state,
             categoryLabelColors = this.state.categoryLabelColors,
             diary = reduxState.diary,
+            diaryUrl = reduxState.diaryUrl,
+            completeUrl = reduxState.completeUrl,
 		    date = diary?new Date(diary.date):null,
 		    typeLabelElem = diary?<span className="Diary-typeLabel" style={{backgroundColor: categoryLabelColors[diary.category]}}>{diary.category}</span>:null,
 		    completeDate = getCompleteDate(date),
 		    dateTextElem = diary?<span className="Diary-dateText">{completeDate}</span>:null,
-            fbCommentsElem = currentHref?<div className="fb-comments" data-href={currentHref} data-width="100%" data-numposts="5"></div>:null
+            fbCommentsElem = diaryUrl?<div className="fb-comments" data-href={diaryUrl} data-width="100%" data-numposts="5"></div>:null
+
+            console.log(diaryUrl)
 
         return (
             <div className="Diary-mainArea">

@@ -34,3 +34,10 @@ export function getDiary(diary) {
 		diary
 	}
 }
+
+export function setDiaryUrl(diaryUrl) {
+	return {
+		type: diaryActionTypes.SET_DIARY_URL,
+		diaryUrl
+	}
+}

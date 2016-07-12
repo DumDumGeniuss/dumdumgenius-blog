@@ -6,15 +6,17 @@ import Markdown from 'react-remarkable'
 import Calendar from 'react-icons/lib/fa/calendar'
 import firebase from '../../../services/firebase'
 
+let currentHref = null;
+
 if (process.env.BROWSER) {
     require('./Diary.css')
+    currentHref = window.location.href
 }
 
 
 class Diary extends React.Component {
 	constructor(props) {
         super(props)
-        this.currentHref = window.location.href
         this.state = {
             diary: '',
             categoryLabelColors: {
@@ -34,23 +36,25 @@ class Diary extends React.Component {
         this.getDiary(params.id)
     }
     componentDidMount() {
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '256265008062534',
-                cookie     : true,  // enable cookies to allow the server to access the session
-                xfbml      : true,  // parse social plugins on this page
-                version    : 'v2.5' // use version 2.1
-            });
-        }.bind(this);
-
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        if (process.env.BROWSER) {
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '256265008062534',
+                    cookie     : true,  // enable cookies to allow the server to access the session
+                    xfbml      : true,  // parse social plugins on this page
+                    version    : 'v2.5' // use version 2.1
+                });
+            }.bind(this);
+    
+            // Load the SDK asynchronously
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        }
     }
     componentDidUpdate() {
         FB.XFBML.parse()
@@ -66,13 +70,14 @@ class Diary extends React.Component {
     }
 	render() {
         let reduxState = this.props.state,
-            currentHref = this.currentHref,
             categoryLabelColors = this.state.categoryLabelColors,
             diary = reduxState.diary,
 		    date = diary?new Date(diary.date):null,
 		    typeLabelElem = diary?<span className="Diary-typeLabel" style={{backgroundColor: categoryLabelColors[diary.category]}}>{diary.category}</span>:null,
 		    completeDate = getCompleteDate(date),
-		    dateTextElem = diary?<span className="Diary-dateText">{completeDate}</span>:null
+		    dateTextElem = diary?<span className="Diary-dateText">{completeDate}</span>:null,
+            fbCommentsElem = currentHref?<div className="fb-comments" data-href={currentHref} data-width="100%" data-numposts="5"></div>:null
+
         return (
             <div className="Diary-mainArea">
                 {typeLabelElem}
@@ -85,7 +90,7 @@ class Diary extends React.Component {
                         {diary?diary.content:null}
                     </Markdown>
                 </div>
-                <div className="fb-comments" data-href={currentHref} data-width="100%" data-numposts="5"></div>
+                {fbCommentsElem}
             </div>
         )
 	}

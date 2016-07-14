@@ -9,6 +9,16 @@
     padding: 30px;
 }
 
+.Diary-diaryContent img {
+    max-width: 90vw;
+}
+
+.Diary-diaryContent pre {
+    background-color: #dddddd;
+    border: 1px solid black;
+    overflow-x: auto; 
+}
+
 .Diary-diaryContent {
     display: block;
     margin: 0px auto;

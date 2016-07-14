@@ -39,7 +39,7 @@ app.use('/diaries/:id', function(req, res) {
                     url: completeUrl,
                     type: 'diary',
                     title: diary.title,
-                    description: diary.content
+                    description: diary.content.substring(0,200)
                 }
             handleRender(req, res, initialState, ogTagParams)
         })

@@ -5,21 +5,22 @@ import React from 'react'
 import _ from 'lodash'
 import { match, RouterContext } from 'react-router'
 import { createStore } from 'redux'
-import ReactDomServer from 'react-dom/server'
-import blogStore from './dist/store/blogStore'
 import { Provider } from 'react-redux'
-import createLocation from 'history/lib/createLocation'
-import rootReducer from './dist/reducers'
-import AboutMe from './dist/pages/aboutMe/AboutMe'
-import routes from './dist/route/routes'
-import IndexLayout from './dist/IndexLayout'
-import firebase from './dist/services/firebase'
+import ReactDomServer from 'react-dom/server'
 
-import config from './server/config/production'
+import blogStore from '../src/store/blogStore'
+import createLocation from 'history/lib/createLocation'
+import rootReducer from '../src/reducers'
+import AboutMe from '../src/pages/aboutMe/AboutMe'
+import routes from '../src/route/routes.jsx'
+import firebase from '../src/services/firebase'
+
+import config from '../server/config/production'
 
 
 const app = Express()
 const port = config.port
+console.log(__dirname + '/public')
 app.use(Express.static(__dirname + '/public'))
 
 app.use('/diaries/:id', function(req, res) {
@@ -156,6 +157,7 @@ function renderFullPage(html, initialState, ogTagParams) {
                 <meta property="og:image:width" content="200" />
                 <meta property="og:image:height" content="250" />
   	  	  	 	<title>${ogTagParams.title}</title>
+                <link rel="stylesheet" type="text/css" href="/styles.css">
                 <style>
                     body {
                         margin: 0px;

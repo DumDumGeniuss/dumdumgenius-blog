@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --content-base . --inline --hot",
-    "start": "NODE_ENV=production node server_build.js",
-    "build": "NODE_ENV=production webpack && babel ./src -d ./dist && babel server.js -o server_build.js",
+    "start": "NODE_ENV=production node server.main.js",
+    "build": "NODE_ENV=production webpack && babel ./src -d ./dist && webpack --config webpack.server.config.js",
     "build:client": "NODE_ENV=production webpack",
-    "build:server": "babel ./src -d ./dist && babel server.js -o server_build.js",
+    "build:server": "webpack --config webpack.server.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -45,6 +45,7 @@
     "babel-register": "^6.9.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "isomorphic-style-loader": "^1.0.0",
     "postcss-loader": "^0.9.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",

@@ -1,8 +1,9 @@
 .DS_Store
 node_modules
 npm-debug.log
-server_build.js
 dist
 main.min.js
+server.main.js
 .env
 server/config/production.js
+public/styles.css

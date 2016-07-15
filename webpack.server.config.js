@@ -52,7 +52,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("../public/styles.css")
+        new ExtractTextPlugin("./public/styles.css")
     ]
 
 };

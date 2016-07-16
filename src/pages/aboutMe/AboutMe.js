@@ -60,18 +60,18 @@ class AboutMe extends React.Component {
                 <div className="AbouteMe-contentArea">
 			        <span className="AboutMe-titleWordBig">Profile</span>
 			        <div className={this.state.boxClass}>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</h1>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
 			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media"}></img>
 			            </div>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Taichung First Senior High School ( 2006 - 2009 )</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Taichung First Senior High School ( 2006 - 2009 )</h1>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-logoBox">
 			                <img className="AboutMe-logo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FTCFSHLogo.png?alt=media"}></img>
 			            </div>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">National Chiao Tung University ( 2009 - 2013 )</span>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Electronical Engineering</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">National Chiao Tung University ( 2009 - 2013 )</h1>
+			            <h3 className="AboutMe-contentText AboutMe-centerAlign">Electronical Engineering</h3>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-logoBox">
 			                <img className="AboutMe-logo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FNCTU_emblem.png?alt=media"}></img>
@@ -79,16 +79,16 @@ class AboutMe extends React.Component {
 			        </div>
 			        <span className="AboutMe-titleWordBig">Languages</span>
                     <div className={this.state.boxClass}>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Chinese（ 中文 ）</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Chinese（ 中文 ）</h1>
                             <SeparateLine width="50%"/>
                             <span className="AboutMe-contentText AboutMe-centerAlign">Of course, I can speak it !</span>
                             <br/>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Fluent English ( TOEIC 835 )</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Fluent English ( TOEIC 835 )</h1>
                             <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
 			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/TOEIC.png?alt=media"}></img>
 			            </div>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Japanese Communication ( JLPT N2 )</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Japanese Communication ( JLPT N2 )</h1>
                             <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
 			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/JLPT.png?alt=media"}></img>
@@ -96,7 +96,7 @@ class AboutMe extends React.Component {
 			        </div>
 			        <span className="AboutMe-titleWordBig">Skills</span>
                     <div className={this.state.boxClass}>
-			            <span className="AboutMe-contentText AboutMe-centerAlign">Java , NodeJs,  Ruby , JavaScript</span>
+			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Java , NodeJs,  Ruby , JavaScript</h1>
                         <SeparateLine width="50%"/>
                         <div>
 			                <img className="AboutMe-inlineLogo AboutMe-middleAlign" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/logos%2FJava.png?alt=media"}></img>

@@ -23,7 +23,7 @@ class Diary extends React.Component {
                 life: "#FFB6CC",
                 military: "#ff0000",
                 technique: "#00b8ff",
-                technique: "#ffc0dd"
+                language: "#43ad8f"
             }
         }
         this.getDiary = this.getDiary.bind(this)

@@ -73,8 +73,7 @@ class Navbar extends React.Component {
                         <img className="MainNavbar-backgroundImg" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomeBackground4.jpg?alt=media"}></img>
 			        </div>
 			        <div className="MainNavbar-textArea">
-			            <span className="MainNavbar-logoText">DumDumGenius</span>
-			            <span className="MainNavbar-centerText">Fullstack Developer</span>
+			            <span className="MainNavbar-centerText">DumDumGenius' Blog</span>
                         <div className="MainNavbar-logoArea">
                             <Facebook className="MainNavbar-faIcon"/>
                             <Github className="MainNavbar-faIcon"/>

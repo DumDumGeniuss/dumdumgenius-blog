@@ -61,7 +61,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     color: white;
-    background-color: #444444;
+    background-color: #7db1ff;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 1.5em;
     padding: 5px 30px 5px 30px;
@@ -138,7 +138,7 @@
     padding: 10px 0px;
     margin: 0px auto 20px auto;
     background-color: rgba(256, 256, 256, 1);
-    border: 1px solid black;
+    border: 1px solid #3f69ff;
     width: 75%;
 }
 

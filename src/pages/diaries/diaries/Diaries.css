@@ -21,6 +21,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(-45deg);
+    color: #ff0000;
 }
 
 .Diaries-language {
@@ -31,6 +32,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(-10deg);
+    color: #43ad8f;
 }
 
 .Diaries-coffee {
@@ -41,6 +43,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(20deg);
+    color: #FFB6CC;
 }
 
 .Diaries-movie {
@@ -51,6 +54,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(0deg);
+    color: #ff5c2b;
 }
 
 .Diaries-bicycle {
@@ -61,6 +65,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(10deg);
+    color: #0aa700;
 }
 
 .Diaries-book {
@@ -71,6 +76,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(0deg);
+    color: purple;
 }
 
 .Diaries-cogs {
@@ -81,6 +87,7 @@
     font-size: 500px;
     opacity: 0.3;
     transform: rotate(0deg);
+    color: #00b8ff;
 }
 
 .Diaries-categoriesNav {
@@ -94,7 +101,7 @@
     display: inline-block;
     position: relative;
     margin: 10px 5px 5px 0px;
-    border: 3px solid black;
+    border: 3px solid #3a89ff;
     color: black;
     height: 50px;
     width: 70px;
@@ -110,8 +117,8 @@
 }
 
 .Diaries-categoryLabelOn {
-    background-color: #383838;
-    background-image: linear-gradient(#949494, #383838);
+    background-color: #3a64ff;
+    background-image: linear-gradient(#7db1ff, #3a64ff);
     color: white;
 }
 

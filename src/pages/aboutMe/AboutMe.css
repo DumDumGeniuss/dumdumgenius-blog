@@ -62,7 +62,6 @@
     transform: translate(-50%, 0%);
     color: white;
     background-color: #7db1ff;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 1.5em;
     padding: 5px 30px 5px 30px;
     border-top-left-radius: 10px;
@@ -77,8 +76,7 @@
     display: block;
     padding: 10px 0px 0px 0px;
     color: black;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .AboutMe-logoBox {

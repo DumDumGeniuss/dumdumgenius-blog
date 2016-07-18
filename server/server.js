@@ -165,6 +165,7 @@ function renderFullPage(html, initialState, ogTagParams) {
         
                     * {
                         box-sizing: border-box;
+                        font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
                     }
                     
                     a {

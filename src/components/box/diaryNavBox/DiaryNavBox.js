@@ -34,7 +34,7 @@ class DiaryNavBox extends React.Component {
     		        <span className='DiaryNavBox-dateText'>{getCompleteDate(date)}</span>
     		    </div>
     		    <span className='DiaryNavBox-title'>
-    		        <b>{diary.title}</b>
+    		        {diary.title}
     		    </span>
     		    <div className='DiaryNavBox-contentBox'>
     		        {diary.content.substring(0,100)}...

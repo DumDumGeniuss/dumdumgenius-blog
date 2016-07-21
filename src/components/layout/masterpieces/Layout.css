@@ -2,7 +2,7 @@
     display: block;
     padding: 30px 0px;
     width: 100%;
-    background-color: #E9EBEE;
+    background-color: white;
 }
 
 .MasterLayout-contentArea {
@@ -22,7 +22,7 @@
     padding: 0px 0px 10px 0px;
     margin: 0px auto;
     background-color: white;
-    border: 3px solid black;
+    border: 3px solid #436eff;
 }
 
 .MasterLayout-masterpieceIcon {
@@ -34,11 +34,11 @@
 }
 
 .MasterLayout-onBackground {
-    background-color: black;
+    background-color: #436eff;
 }
 
 .MasterLayout-offBackground {
-    background-color: #888888;
+    background-color: #77aaff;
 }
 
 .MasterLayout-masterpieceIconText {

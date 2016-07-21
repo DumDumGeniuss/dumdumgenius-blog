@@ -24,8 +24,8 @@
     font-size: 1.5em;
     color: black;
     text-align: center;
-    border-top:3px solid black;
-    border-bottom:3px solid black;
+    border-top:3px solid #436eff;
+    border-bottom:3px solid #436eff;
 }
 
 .TinyPhotoBox-fingerSlide {
@@ -41,7 +41,7 @@
     display: inline-block;
     position: absolute;
     font-size: 60px;
-    color: black;
+    color: #436eff;
     top: 50%;
     transform: translate(0%, -50%);
     z-index: 2;
@@ -58,7 +58,7 @@
     display: inline-block;
     position: absolute;
     font-size: 60px;
-    color: black;
+    color: #436eff;
     top: 50%;
     right: 0px;
     transform: translate(0%, -50%);

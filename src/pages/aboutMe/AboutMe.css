@@ -2,7 +2,7 @@
     position: relative;
     display: block;
     width: 100%;
-    background-color: #E9EBEE;
+    background-color: white;
     padding: 0px 0px 0px 0px;
 }
 
@@ -144,7 +144,7 @@
     display: block;
     padding: 10px 0px;
     margin: 0px auto 20px auto;
-    background-color: rgba(256, 256, 256, 0.85);
+    background-color: rgba(256, 256, 256, 0.95);
     border: 1px solid black;
     width: 75%;
     animation: backgroundFadeOut 1s;
@@ -152,7 +152,7 @@
 
 @keyframes backgroundFadeOut {
     0% {background-color: rgba(256, 256, 256, 1);}
-    100% {background-color: rgba(256, 256, 256, 0.85);}
+    100% {background-color: rgba(256, 256, 256, 095);}
 }
 
 @media screen and (max-width: 800px) {

@@ -1,88 +1,14 @@
-.MainNavbar-backgroundArea {
-    width: 100%;
-    height: 400px;
-}
-
-.MainNavbar-backgroundImg {
-    position: relative;
-    top: -150px;
-    width: 100%;
-}
-
-.MainNavbar-backgroundAreaHigh {
-    width: 100%;
-    height: 450px;
-    background-color: black;
-}
-
-.MainNavbar-mainBackground {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-}
-
-.MainNavbar-blockBackground {
-    width: 100%;
-    height: 400px;
-    background-color: blue;
-    opacity: 0.2;
-    position: absolute;
-    z-index: 1;
-}
-
-.MainNavbar-textArea {
-    display: block;
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-}
-
-.MainNavbar-centerText {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    font-size: 2.5em;
-    color: white;
-    font-family: cursive;
-    text-align: center;
-    line-height: 400px;
-    word-wrap: break-word;
-}
-
-.MainNavbar-logoArea {
-    position: absolute;
-    top: 340px;
-    right: 30px;
-    display: block;
-    width: 172px;
-    margin: 0px auto;
-}
-
-.MainNavbar-faIcon {
-    color: white;
-    font-size: 34px;
-    padding: 4px;
-    margin: 4px;
-    display: inline-block;
-    height: 35px;
-    width: 35px;
-    border: 1px solid white;
-    border-radius: 35px;
-    cursor: pointer
-}
-
 .MainNavbar-navbar {
-    position: relative;
-    text-align: center;
+    position: fixed;
     left: 0px;
+    top: 0px;
+    height: 50px;
+    overflow: auto;
+    text-align: center;
     line-height: 50px;
-    background-color: #3a64ff;
-    background-image: linear-gradient(#7db1ff, #3a64ff);
+    background-color: black;
     width: 100%;
-    border-top: 2px solid gray;
-    z-index: 3;
+    z-index: 1;
 }
 
 .MainNavbar-navbarFixed {
@@ -93,9 +19,9 @@
     overflow: auto;
     text-align: center;
     line-height: 50px;
-    background-color: rgba(125, 177, 255, 0.68);
+    background-color: rgba(0, 0, 0, 0.68);
     width: 100%;
-    z-index: 3;
+    z-index: 1;
 }
 
 .MainNavbar-navbarItem {
@@ -125,36 +51,12 @@
 
 @media screen and (max-width: 800px) {
 
-.MainNavbar-backgroundImg {
-    top: 0px;
-    left: -30%;
-    width: 160%;
-}
-
-.MainNavbar-logoArea {
-    right: calc(50% - 86px);
-}
-
 .MainNavbar-navbarItem {
     display: none;
 }
 
 .MainNavbar-navbarItemCollapse {
     display: inline-block;
-}
-
-}
-
-@media screen and (max-width: 600px) {
-
-.MainNavbar-backgroundImg {
-    top: 0px;
-    left: -40%;
-    width: 180%;
-}
-
-.MainNavbar-centerText {
-    font-size: 1.8em;
 }
 
 }

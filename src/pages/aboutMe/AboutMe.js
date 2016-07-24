@@ -3,11 +3,20 @@ import SeparateLine from '../../components/line/SeparateLine'
 import PaintBrush from 'react-icons/lib/fa/paint-brush'
 import YoutubePlay from 'react-icons/lib/fa/youtube-play'
 
+import Facebook from 'react-icons/lib/fa/facebook'
+import Github from 'react-icons/lib/fa/github'
+import Twitter from 'react-icons/lib/fa/twitter'
+import Google from 'react-icons/lib/fa/google'
+
+import MoonO from 'react-icons/lib/fa/moon-o'
+import SunO from 'react-icons/lib/fa/sun-o'
+
 if (process.env.BROWSER) {
     require('./AboutMe.css')
 }
 
 let scrollTop = 0
+let windowHeight = window.innerHeight
 const scrollThreshold = 400
 
 class AboutMe extends React.Component {
@@ -15,7 +24,8 @@ class AboutMe extends React.Component {
         super(props)
         this.state = {
             scrollTop: 0,
-            backgroundImgClass: 'AbouteMe-backgroundImg',
+            backgroundImgClass: 'AboutMe-backgroundImg',
+            contentAreaClass: 'AboutMe-contentArea',
             backgroundImgTop: 0,
             boxClass: 'AboutMe-box'
         }
@@ -29,23 +39,26 @@ class AboutMe extends React.Component {
     }
     handleScroll(event) {
         scrollTop= event.srcElement.body.scrollTop
+        windowHeight = window.innerHeight
 
         this.setState({
-            backgroundImgTop: -(scrollTop - scrollThreshold)/10
+            backgroundImgTop: -(scrollTop - windowHeight)/10
         })
 
-        if(scrollTop<scrollThreshold) {
-            if(this.state.backgroundImgClass !== 'AbouteMe-backgroundImgFadeOut' && this.state.backgroundImgClass !== 'AbouteMe-backgroundImg'){
+        if(scrollTop<windowHeight) {
+            if(this.state.backgroundImgClass !== 'AboutMe-backgroundImgFadeOut' && this.state.backgroundImgClass !== 'AboutMe-backgroundImg'){
                 this.setState({
-                    backgroundImgClass: 'AbouteMe-backgroundImgFadeOut',
-                    boxClass: 'AboutMe-box'
+                    backgroundImgClass: 'AboutMe-backgroundImg',
+                    boxClass: 'AboutMe-box',
+                    contentAreaClass: 'AboutMe-contentArea'
                 })
             }
-        } else if(scrollTop>scrollThreshold) {
-            if(this.state.backgroundImgClass !== 'AbouteMe-backgroundImgFadeIn'){
+        } else if(scrollTop>windowHeight) {
+            if(this.state.backgroundImgClass !== 'AboutMe-backgroundImgFadeIn'){
                 this.setState({
-                    backgroundImgClass: 'AbouteMe-backgroundImgFadeIn',
-                    boxClass: 'AboutMe-boxFadeOut'
+                    backgroundImgClass: 'AboutMe-backgroundImgFadeIn',
+                    boxClass: 'AboutMe-boxFadeOut',
+                    contentAreaClass: 'AboutMe-contentAreaNoBack'
                 })
             }
         }
@@ -53,11 +66,26 @@ class AboutMe extends React.Component {
 	render() {
 		return (
 			<div className="AboutMe-mainArea">
+                <div className='AboutMe-universeBackgroundArea'>
+                    <div className="AboutMe-textArea">
+                        <span className="AboutMe-centerText">DumDumGenius' Blog</span>
+                        <div className="AboutMe-logoArea">
+                            <Facebook className="AboutMe-faIcon"/>
+                            <Github className="AboutMe-faIcon"/>
+                            <Twitter className="AboutMe-faIcon"/>
+                            <Google className="AboutMe-faIcon"/>
+                        </div>
+                    </div>
+                    <div className="AboutMe-SunAndMoon">
+                        <MoonO className="AboutMe-MoonO"/>
+                        <SunO className="AboutMe-SunO"/>
+                    </div>
+                </div>
                 <div className="AboutMe-backgroundArea">
-                    <img className={this.state.backgroundImgClass} style={{top: this.state.backgroundImgTop + 'px'}} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/taipei101.jpg?alt=media"}>
+                    <img className={this.state.backgroundImgClass} style={{top: this.state.backgroundImgTop + 'px'}} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/_taipei101.jpg?alt=media"}>
                     </img>
                 </div>
-                <div className="AbouteMe-contentArea">
+                <div className={this.state.contentAreaClass}>
 			        <span className="AboutMe-titleWordBig">Profile</span>
 			        <div className={this.state.boxClass}>
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</h1>

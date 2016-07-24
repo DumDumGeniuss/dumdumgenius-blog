@@ -1,10 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-import Facebook from 'react-icons/lib/fa/facebook'
-import Github from 'react-icons/lib/fa/github'
-import Twitter from 'react-icons/lib/fa/twitter'
-import Google from 'react-icons/lib/fa/google'
 import ObjectAssign from 'object-assign'
 
 import User from 'react-icons/lib/fa/user'
@@ -23,8 +19,7 @@ class Navbar extends React.Component {
         super()
         this.state = {
             scrollTop: 0,
-            navbarClass: 'MainNavbar-navbar',
-            backgroundAreaClass: 'MainNavbar-backgroundArea'
+            navbarClass: 'MainNavbar-navbar'
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -39,56 +34,27 @@ class Navbar extends React.Component {
             scrollTop: event.srcElement.body.scrollTop
         })
 
-        if(this.state.scrollTop<scrollThreshold) {
-            if(this.state.navbarClass !== 'MainNavbar-navbar') {
-                this.setState({
-                    navbarClass: 'MainNavbar-navbar'
-                })
-            }
-            if(this.state.backgroundAreaClass !== 'MainNavbar-backgroundArea') {
-                this.setState({
-                    backgroundAreaClass: 'MainNavbar-backgroundArea'
-                })
-            }
-        }else if(this.state.scrollTop>scrollThreshold) {
-            if(this.state.navbarClass !== 'MainNavbar-navbarFixed') {
-                this.setState({
-                    navbarClass: 'MainNavbar-navbarFixed'
-                })
-            }
-            if(this.state.backgroundAreaClass !== 'MainNavbar-backgroundAreaHigh') {
-                this.setState({
-                    backgroundAreaClass: 'MainNavbar-backgroundAreaHigh'
-                })
-            }
+        if(this.state.scrollTop > 0 && this.state.navbarClass !== 'MainNavbar-navbarFixed') {
+            this.setState({
+                navbarClass: 'MainNavbar-navbarFixed'
+            })
+        }
+        if(this.state.scrollTop === 0 && this.state.navbarClass !== 'MainNavbar-navbar') {
+            this.setState({
+                navbarClass: 'MainNavbar-navbar'
+            })
         }
     }
 	render() {
-        let navbarClass = this.state.navbarClass,
-            backgroundAreaClass = this.state.backgroundAreaClass
+        let navbarClass = this.state.navbarClass;
+
 		return (
 			<div>
-			    <div className={backgroundAreaClass}>
-			        <div className="MainNavbar-mainBackground">
-                        <img className="MainNavbar-backgroundImg" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/welcomeBackground4.jpg?alt=media"}></img>
-			        </div>
-			        <div className="MainNavbar-textArea">
-			            <span className="MainNavbar-centerText">DumDumGenius' Blog</span>
-                        <div className="MainNavbar-logoArea">
-                            <Facebook className="MainNavbar-faIcon"/>
-                            <Github className="MainNavbar-faIcon"/>
-                            <Twitter className="MainNavbar-faIcon"/>
-                            <Google className="MainNavbar-faIcon"/>
-                        </div>
-			        </div>
-			        <div className="MainNavbar-blockBackground">
-			        </div>
-			    </div>
-			    <nav className={navbarClass}>
-			        <Link className="MainNavbar-navbarItem" to="/">About me</Link>
+                <nav className={navbarClass}>
+                    <Link className="MainNavbar-navbarItem" to="/">About me</Link>
                     <Link className="MainNavbar-navbarItem" to="/diaries">Diaries</Link>
-			        <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
-			        <Link className="MainNavbar-navbarItem" to="/underConstruct">Tutorials</Link>
+                    <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
+                    <Link className="MainNavbar-navbarItem" to="/underConstruct">Tutorials</Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/">
                          <User />
                     </Link>
@@ -101,7 +67,7 @@ class Navbar extends React.Component {
                     <Link className="MainNavbar-navbarItemCollapse" to="/underConstruct">
                         <StickyNote />
                     </Link>
-			    </nav>
+                </nav>
 			</div>
 		)
 	}

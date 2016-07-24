@@ -11,13 +11,14 @@ import Google from 'react-icons/lib/fa/google'
 import MoonO from 'react-icons/lib/fa/moon-o'
 import SunO from 'react-icons/lib/fa/sun-o'
 
+let scrollTop = 0
+const scrollThreshold = 400
+let windowHeight
+
 if (process.env.BROWSER) {
     require('./AboutMe.css')
+    windowHeight = window.innerHeight
 }
-
-let scrollTop = 0
-let windowHeight = window.innerHeight
-const scrollThreshold = 400
 
 class AboutMe extends React.Component {
 	constructor(props) {

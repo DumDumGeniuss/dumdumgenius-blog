@@ -49,7 +49,7 @@ class AboutMe extends React.Component {
         if(scrollTop<windowHeight) {
             if(this.state.backgroundImgClass !== 'AboutMe-backgroundImgFadeOut' && this.state.backgroundImgClass !== 'AboutMe-backgroundImg'){
                 this.setState({
-                    backgroundImgClass: 'AboutMe-backgroundImg',
+                    backgroundImgClass: 'AboutMe-backgroundImgFadeOut',
                     boxClass: 'AboutMe-box',
                     contentAreaClass: 'AboutMe-contentArea'
                 })

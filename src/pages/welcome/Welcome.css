@@ -40,6 +40,19 @@
     }
 }
 
+.Welcome-Earth {
+    position: absolute;
+    top: calc(100vh - 150px);
+    left: calc(50% - 200px);
+    height: 400px;
+    width: 400px;
+    color: blue;
+    border-radius: 400px;
+    background-color: green;
+    z-index: 2;
+    animation: selfRotation 20s infinite linear;
+}
+
 .Welcome-SunAndMoon {
     position: absolute;
     top: calc(100vh - 35px);

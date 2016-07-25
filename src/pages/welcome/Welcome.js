@@ -8,6 +8,7 @@ import Google from 'react-icons/lib/fa/google'
 
 import MoonO from 'react-icons/lib/fa/moon-o'
 import SunO from 'react-icons/lib/fa/sun-o'
+import Globe from 'react-icons/lib/fa/globe'
 import Cloud from 'react-icons/lib/fa/cloud'
 import Home from 'react-icons/lib/fa/home'
 
@@ -32,6 +33,7 @@ class Welcome extends React.Component {
                             <Google className="Welcome-faIcon"/>
                         </div>
                     </div>
+                    <Globe className="Welcome-Earth"/>
                     <div className="Welcome-SunAndMoon">
                         <MoonO className="Welcome-MoonO"/>
                         <SunO className="Welcome-SunO"/>

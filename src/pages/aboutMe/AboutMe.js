@@ -1,7 +1,5 @@
 import React from 'react'
 import SeparateLine from '../../components/line/SeparateLine'
-import PaintBrush from 'react-icons/lib/fa/paint-brush'
-import YoutubePlay from 'react-icons/lib/fa/youtube-play'
 
 import Facebook from 'react-icons/lib/fa/facebook'
 import Github from 'react-icons/lib/fa/github'
@@ -12,12 +10,9 @@ import MoonO from 'react-icons/lib/fa/moon-o'
 import SunO from 'react-icons/lib/fa/sun-o'
 
 let scrollTop = 0
-const scrollThreshold = 400
-let windowHeight
 
 if (process.env.BROWSER) {
     require('./AboutMe.css')
-    windowHeight = window.innerHeight
 }
 
 class AboutMe extends React.Component {
@@ -25,10 +20,7 @@ class AboutMe extends React.Component {
         super(props)
         this.state = {
             scrollTop: 0,
-            backgroundImgClass: 'AboutMe-backgroundImg',
-            contentAreaClass: 'AboutMe-contentArea',
-            backgroundImgTop: 0,
-            boxClass: 'AboutMe-box'
+            backgroundImgTop: 0
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -40,55 +32,21 @@ class AboutMe extends React.Component {
     }
     handleScroll(event) {
         scrollTop= event.srcElement.body.scrollTop
-        windowHeight = window.innerHeight
 
         this.setState({
-            backgroundImgTop: -(scrollTop - windowHeight)/10
+            backgroundImgTop: -(scrollTop - 0)/10
         })
-
-        if(scrollTop<windowHeight) {
-            if(this.state.backgroundImgClass !== 'AboutMe-backgroundImgFadeOut' && this.state.backgroundImgClass !== 'AboutMe-backgroundImg'){
-                this.setState({
-                    backgroundImgClass: 'AboutMe-backgroundImgFadeOut',
-                    boxClass: 'AboutMe-box',
-                    contentAreaClass: 'AboutMe-contentArea'
-                })
-            }
-        } else if(scrollTop>windowHeight) {
-            if(this.state.backgroundImgClass !== 'AboutMe-backgroundImgFadeIn'){
-                this.setState({
-                    backgroundImgClass: 'AboutMe-backgroundImgFadeIn',
-                    boxClass: 'AboutMe-boxFadeOut',
-                    contentAreaClass: 'AboutMe-contentAreaNoBack'
-                })
-            }
-        }
     }
 	render() {
 		return (
 			<div className="AboutMe-mainArea">
-                <div className='AboutMe-universeBackgroundArea'>
-                    <div className="AboutMe-textArea">
-                        <span className="AboutMe-centerText">DumDumGenius' Blog</span>
-                        <div className="AboutMe-logoArea">
-                            <Facebook className="AboutMe-faIcon"/>
-                            <Github className="AboutMe-faIcon"/>
-                            <Twitter className="AboutMe-faIcon"/>
-                            <Google className="AboutMe-faIcon"/>
-                        </div>
-                    </div>
-                    <div className="AboutMe-SunAndMoon">
-                        <MoonO className="AboutMe-MoonO"/>
-                        <SunO className="AboutMe-SunO"/>
-                    </div>
-                </div>
-                <div className="AboutMe-backgroundArea">
-                    <img className={this.state.backgroundImgClass} style={{top: this.state.backgroundImgTop + 'px'}} src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/_taipei101.jpg?alt=media"}>
+                <div className="AboutMe-backgroundArea" style={{top: this.state.backgroundImgTop + 'px'}}>
+                    <img className="AboutMe-backgroundImg" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/_taipei101.jpg?alt=media"}>
                     </img>
                 </div>
-                <div className={this.state.contentAreaClass}>
+                <div className="AboutMe-contentArea">
 			        <span className="AboutMe-titleWordBig">Profile</span>
-			        <div className={this.state.boxClass}>
+			        <div className="AboutMe-box">
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</h1>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
@@ -107,7 +65,7 @@ class AboutMe extends React.Component {
 			            </div>
 			        </div>
 			        <span className="AboutMe-titleWordBig">Languages</span>
-                    <div className={this.state.boxClass}>
+                    <div className="AboutMe-box">
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Chinese（ 中文 ）</h1>
                             <SeparateLine width="50%"/>
                             <span className="AboutMe-contentText AboutMe-centerAlign">Of course, I can speak it !</span>
@@ -124,7 +82,7 @@ class AboutMe extends React.Component {
 			            </div>
 			        </div>
 			        <span className="AboutMe-titleWordBig">Skills</span>
-                    <div className={this.state.boxClass}>
+                    <div className="AboutMe-box">
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Java , NodeJs,  Ruby , JavaScript</h1>
                         <SeparateLine width="50%"/>
                         <div>
@@ -198,7 +156,7 @@ class AboutMe extends React.Component {
 			        </div>
                     <span className="AboutMe-titleWordBig">Contact Me</span>
                     <div className="AboutMe-separateLine"></div>
-                    <div className={this.state.boxClass}>
+                    <div className="AboutMe-box">
                         <span className="AboutMe-contentText AboutMe-centerAlign">dumdumgenius@gmail.com</span>
                         <br/>
                     </div>

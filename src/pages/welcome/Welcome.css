@@ -1,0 +1,154 @@
+.Welcome-universeBackgroundArea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    animation: dayAndNight 20s infinite linear;
+    overflow: hidden;
+}
+
+.Welcome-homeButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-size: 50px;
+    border-radius: 50px;
+    border: 1px solid white;
+    z-index: 2;
+}
+
+.Welcome-homeButton:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+@keyframes dayAndNight {
+    0% {
+        background-color: #1a38ce;
+    }
+    25% {
+        background-color: black;
+    }
+    50% {
+        background-color: #1a38ce;
+    }
+    75% {
+        background-color: #0296ff;
+    }
+    100% {
+        background-color: #1a38ce;
+    }
+}
+
+.Welcome-SunAndMoon {
+    position: absolute;
+    top: calc(100vh - 35px);
+    height: 70px;
+    width: 100%;
+    animation: SunMoonRotate 20s infinite linear;
+}
+
+@keyframes SunMoonRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.Welcome-MoonO {
+    position: absolute;
+    right:10px;
+    width: 70px;
+    height: 70px;
+    color: yellow;
+    animation: selfRotation 20s infinite linear;
+}
+
+.Welcome-SunO {
+    position: absolute;
+    left:10px;
+    width: 70px;
+    height: 70px;
+    color: yellow;
+    animation: selfRotation 20s infinite linear;
+}
+
+@keyframes selfRotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Welcome-textArea {
+    display: block;
+    width: 100%;
+    position: absolute;
+}
+
+.Welcome-centerText {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    font-size: 2.5em;
+    color: white;
+    font-family: cursive;
+    text-align: center;
+    line-height: 100vh;
+    word-wrap: break-word;
+}
+
+.Welcome-logoArea {
+    position: absolute;
+    top: calc(100vh - 60px);
+    right: 30px;
+    display: block;
+    width: 172px;
+    margin: 0px auto;
+}
+
+.Welcome-faIcon {
+    color: white;
+    font-size: 34px;
+    padding: 4px;
+    margin: 4px;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    border: 1px solid white;
+    border-radius: 35px;
+    cursor: pointer
+}
+
+@media screen and (max-width: 800px) {
+
+.Welcome-logoArea {
+    right: calc(50% - 86px);
+}
+
+.Welcome-SunAndMoon {
+    position: absolute;
+    left: calc(50% - 400px);
+    width: 800px;
+}
+
+
+}
+
+@media screen and (max-width: 650px) {
+
+.Welcome-centerText {
+    font-size: 1.8em;
+}
+
+}

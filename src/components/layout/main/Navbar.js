@@ -8,6 +8,8 @@ import Image from 'react-icons/lib/fa/image'
 import Book from 'react-icons/lib/fa/book'
 import StickyNote from 'react-icons/lib/fa/sticky-note'
 
+import Home from 'react-icons/lib/fa/home'
+
 if (process.env.BROWSER) {
     require('./Navbar.css')
 }
@@ -50,12 +52,15 @@ class Navbar extends React.Component {
 
 		return (
 			<div>
+                <Link className='MainNavbar-homeButton' to="/">
+                    <Home/>
+                </Link>
                 <nav className={navbarClass}>
-                    <Link className="MainNavbar-navbarItem" to="/">About me</Link>
+                    <Link className="MainNavbar-navbarItem" to="/aboutMe">About me</Link>
                     <Link className="MainNavbar-navbarItem" to="/diaries">Diaries</Link>
                     <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
                     <Link className="MainNavbar-navbarItem" to="/underConstruct">Tutorials</Link>
-                    <Link className="MainNavbar-navbarItemCollapse" to="/">
+                    <Link className="MainNavbar-navbarItemCollapse" to="/aboutMe">
                          <User />
                     </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/diaries">

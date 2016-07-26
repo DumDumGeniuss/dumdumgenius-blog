@@ -15,7 +15,7 @@
     height: 50px;
     border-radius: 50px;
     border: 1px solid white;
-    z-index: 2;
+    z-index: 3;
 }
 
 .Welcome-homeButton:hover {
@@ -126,15 +126,16 @@
 }
 
 .Welcome-centerText {
-    position: absolute;
     display: inline-block;
-    width: 100%;
-    font-size: 2.5em;
+    position: absolute;
+    padding: 10px 0px 0px 0px;
+    color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
     color: white;
+    font-size: 2.5em;
     font-family: cursive;
-    text-align: center;
-    line-height: 100vh;
-    word-wrap: break-word;
     z-index: 3;
 }
 
@@ -145,6 +146,7 @@
     display: block;
     width: 172px;
     margin: 0px auto;
+    z-index: 3;
 }
 
 .Welcome-faIcon {
@@ -171,7 +173,7 @@
 }
 
 .Welcome-star {
-    position: relative;
+    position: absolute;
     color: white;
     font-size: 30px;
 }
@@ -206,6 +208,47 @@
     animation: blink 1.8s infinite linear;
 }
 
+.Welcome-day {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    animation: day 20s infinite linear;
+}
+
+.Welcome-cloud {
+    position: absolute;
+    color: white;
+    font-size: 100px;
+}
+
+.Welcome-cloud-1 {
+    top: 50%;
+    animation: float 8s infinite linear;
+}
+
+.Welcome-cloud-2 {
+    top: 25%;
+    animation: float 12s infinite linear;
+}
+
+.Welcome-cloud-3 {
+    top: 20%;
+    animation: float 16s infinite linear;
+}
+
+.Welcome-cloud-4 {
+    top: 70%;
+    animation: float 10s infinite linear;
+}
+
+.Welcome-cloud-5 {
+    top: 60%;
+    animation: float 24s infinite linear;
+}
+
 @keyframes blink {
     0% {
         opacity: 0;
@@ -215,6 +258,15 @@
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes float {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
     }
 }
 
@@ -236,6 +288,26 @@
     }
 }
 
+@keyframes day {
+    0% {
+        opacity: 0;
+    }
+    6.25% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    56.25% {
+        opacity: 1;
+    }
+    93.75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 @media screen and (max-width: 800px) {
 
@@ -255,7 +327,9 @@
 @media screen and (max-width: 650px) {
 
 .Welcome-centerText {
-    font-size: 1.8em;
+    display: block;
+    text-align: center;
+    font-size: 1.0em;
 }
 
 }

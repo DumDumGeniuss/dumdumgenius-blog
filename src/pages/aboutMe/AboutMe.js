@@ -43,7 +43,7 @@ class AboutMe extends React.Component {
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Messi Yang ( DumDumGenius )</h1>
                            <SeparateLine width="50%"/>
 			            <div className="AboutMe-photoBox">
-			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media"}></img>
+			                <img className="AboutMe-photo" src={"https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/iland_1.jpg?alt=media"}></img>
 			            </div>
 			            <h1 className="AboutMe-contentText AboutMe-centerAlign">Taichung First Senior High School ( 2006 - 2009 )</h1>
                            <SeparateLine width="50%"/>

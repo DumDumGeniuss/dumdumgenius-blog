@@ -44,6 +44,13 @@ class Welcome extends React.Component {
                     	<Star className="Welcome-star Welcome-star-4"/>
                     	<Star className="Welcome-star Welcome-star-5"/>
                     </div>
+                    <div className="Welcome-day">
+                    	<Cloud className="Welcome-cloud Welcome-cloud-1"/>
+                    	<Cloud className="Welcome-cloud Welcome-cloud-2"/>
+                    	<Cloud className="Welcome-cloud Welcome-cloud-3"/>
+                    	<Cloud className="Welcome-cloud Welcome-cloud-4"/>
+                    	<Cloud className="Welcome-cloud Welcome-cloud-5"/>
+                    </div>
                 </div>
             </div>
         )

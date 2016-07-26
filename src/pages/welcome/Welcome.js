@@ -11,6 +11,7 @@ import SunO from 'react-icons/lib/fa/sun-o'
 import Globe from 'react-icons/lib/fa/globe'
 import Cloud from 'react-icons/lib/fa/cloud'
 import Home from 'react-icons/lib/fa/home'
+import Star from 'react-icons/lib/fa/star'
 
 if (process.env.BROWSER) {
     require('./Welcome.css')
@@ -24,23 +25,24 @@ class Welcome extends React.Component {
                     <Link className='Welcome-homeButton' to="/aboutMe">
                         <Home/>
                     </Link>
-                    <div className="Welcome-textArea">
-                        <span className="Welcome-centerText">DumDumGenius' Blog</span>
-                        <div className="Welcome-logoArea">
-                            <Facebook className="Welcome-faIcon"/>
-                            <Github className="Welcome-faIcon"/>
-                            <Twitter className="Welcome-faIcon"/>
-                            <Google className="Welcome-faIcon"/>
-                        </div>
+                    <span className="Welcome-centerText">DumDumGenius' Blog</span>
+                    <div className="Welcome-logoArea">
+                        <Facebook className="Welcome-faIcon"/>
+                        <Github className="Welcome-faIcon"/>
+                        <Twitter className="Welcome-faIcon"/>
+                        <Google className="Welcome-faIcon"/>
                     </div>
                     <Globe className="Welcome-Earth"/>
                     <div className="Welcome-SunAndMoon">
                         <MoonO className="Welcome-MoonO"/>
                         <SunO className="Welcome-SunO"/>
                     </div>
-                    <div className="Welcome-dayView">
-                    </div>
-                    <div className="Welcome-nightView">
+                    <div className="Welcome-night">
+                    	<Star className="Welcome-star Welcome-star-1"/>
+                    	<Star className="Welcome-star Welcome-star-2"/>
+                    	<Star className="Welcome-star Welcome-star-3"/>
+                    	<Star className="Welcome-star Welcome-star-4"/>
+                    	<Star className="Welcome-star Welcome-star-5"/>
                     </div>
                 </div>
             </div>

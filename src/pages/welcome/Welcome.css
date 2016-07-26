@@ -35,13 +35,19 @@
     0% {
         background-color: #1a38ce;
     }
-    25% {
+    6.25% {
+        background-color: black;
+    }
+    43.75% {
         background-color: black;
     }
     50% {
         background-color: #1a38ce;
     }
-    75% {
+    56.25% {
+        background-color: #0296ff;
+    }
+    93.25% {
         background-color: #0296ff;
     }
     100% {
@@ -68,6 +74,7 @@
     height: 70px;
     width: 100%;
     animation: SunMoonRotate 20s infinite linear;
+    z-index: 2;
 }
 
 @keyframes SunMoonRotate {
@@ -128,6 +135,7 @@
     text-align: center;
     line-height: 100vh;
     word-wrap: break-word;
+    z-index: 3;
 }
 
 .Welcome-logoArea {
@@ -151,6 +159,83 @@
     border-radius: 35px;
     cursor: pointer
 }
+
+.Welcome-night {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    animation: night 20s infinite linear;
+}
+
+.Welcome-star {
+    position: relative;
+    color: white;
+    font-size: 30px;
+}
+
+.Welcome-star-1 {
+    left: 50%;
+    top: 35%;
+    animation: blink 1s infinite linear;
+}
+
+.Welcome-star-2 {
+    top: 25%;
+    left: 80%;
+    animation: blink 1.4s infinite linear;
+}
+
+.Welcome-star-3 {
+    top: 20%;
+    left: 10%;
+    animation: blink 1.3s infinite linear;
+}
+
+.Welcome-star-4 {
+    top: 70%;
+    left: 20%;
+    animation: blink 1.2s infinite linear;
+}
+
+.Welcome-star-5 {
+    top: 60%;
+    left: 75%;
+    animation: blink 1.8s infinite linear;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes night {
+    0% {
+        opacity: 0;
+    }
+    6.25% {
+        opacity: 1;
+    }
+    43.75% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 @media screen and (max-width: 800px) {
 

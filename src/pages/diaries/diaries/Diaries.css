@@ -146,7 +146,7 @@
 @media screen and (max-width: 800px) {
 
 .Diaries-categoriesNav {
-    width: 100%;
+    width: 80%;
 }
 
 .Diaries-flighterJet, .Diaries-coffee, .Diaries-movie, .Diaries-bicycle, .Diaries-book, .Diaries-cogs, .Diaries-language {

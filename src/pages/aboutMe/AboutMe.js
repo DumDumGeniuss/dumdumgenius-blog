@@ -1,13 +1,6 @@
 import React from 'react'
 import SeparateLine from '../../components/line/SeparateLine'
 
-import Facebook from 'react-icons/lib/fa/facebook'
-import Github from 'react-icons/lib/fa/github'
-import Twitter from 'react-icons/lib/fa/twitter'
-import Google from 'react-icons/lib/fa/google'
-
-import MoonO from 'react-icons/lib/fa/moon-o'
-import SunO from 'react-icons/lib/fa/sun-o'
 
 let scrollTop = 0
 

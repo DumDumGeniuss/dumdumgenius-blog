@@ -47,10 +47,14 @@
 }
 
 .AboutMe-contentText {
-    display: block;
+    display: inline-block;
     padding: 10px 0px 0px 0px;
     color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
     font-size: 1em;
+    z-index: 3;
 }
 
 .AboutMe-logoBox {

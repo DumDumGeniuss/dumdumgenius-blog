@@ -11,7 +11,8 @@
     right: 10px;
     top: 10px;
     color: white;
-    font-size: 50px;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     border: 1px solid white;
     z-index: 2;
@@ -20,6 +21,14 @@
 .Welcome-homeButton:hover {
     cursor: pointer;
     color: yellow;
+}
+
+.Welcome-homeButton > svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
 }
 
 @keyframes dayAndNight {

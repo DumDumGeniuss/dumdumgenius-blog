@@ -136,12 +136,7 @@ class Diaries extends React.Component {
                 break
         }
 
-
-        if(this.state.isLogin) {
-            loginButton = <Plus className="Diaries-addArticleButton"></Plus>
-        } else {
-        	loginButton = null
-        }
+        loginButton = this.state.isLogin?<Plus className="Diaries-addArticleButton"></Plus>:null
 
         return (
             <div className="Diaries-mainArea">

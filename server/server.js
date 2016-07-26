@@ -153,7 +153,7 @@ function renderFullPage(html, initialState, ogTagParams) {
                 <meta property="og:type" content="${ogTagParams.type}" />
                 <meta property="og:title" content="${ogTagParams.title}" />
                 <meta property="og:description" content="${ogTagParams.description}" />
-                <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/selfPhoto2.jpg?alt=media" />
+                <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/myblog-1decf.appspot.com/o/coverImages/fbCoverPhoto.jpg.jpg?alt=media" />
                 <meta property="og:image:width" content="200" />
                 <meta property="og:image:height" content="250" />
   	  	  	 	<title>${ogTagParams.title}</title>

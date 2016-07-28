@@ -263,7 +263,7 @@
 
 @keyframes float {
     0% {
-        left: 0%;
+        left: calc(0% - 100px);
     }
     100% {
         left: 100%;

@@ -17,15 +17,6 @@
 	animation: starWarScroll 40s linear;
 }
 
-@keyframes starWarScroll {
-	0% {
-		margin-top: 85%;
-	}
-	100% {
-		margin-top: -250%;
-	}
-}
-
 .Profile-h1 {
 	color: yellow;
 	text-align: center;
@@ -51,18 +42,26 @@
 
 .Profile-starWarScroll {
 	margin-top: -400%; 
-	animation: starWarScroll 40s linear;
+	animation: starWarScrollMidium 40s linear;
+}
+
 }
 
 @keyframes starWarScroll {
 	0% {
-		margin-top: 100%;
+		margin-top: 85%;
+	}
+	100% {
+		margin-top: -250%;
+	}
+}
+
+@keyframes starWarScrollMidium {
+	0% {
+		margin-top: 85%;
 	}
 	100% {
 		margin-top: -400%;
 	}
 }
-
-}
-
 

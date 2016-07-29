@@ -5,10 +5,20 @@ if (process.env.BROWSER) {
 }
 
 class Profile extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+        }
+    }
+    componentDidMount() {
+        this.starWarViewHeight = document.getElementById('star-war-view').getBoundingClientRect().height;
+    }
+    componentWillUnmount() {
+    }
 	render() {
 		return (
 			<div className="Profile-mainArea">
-                <div className="Profile-starWarView">
+                <div id="star-war-view" className="Profile-starWarView">
                     <div className="Profile-starWarScroll">
                         <h1 className="Profile-h1">Hello</h1>
                         <span className="Profile-span">Welcome to my blog,</span>

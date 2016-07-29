@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 
 /* About me */
 import AboutMe from '../pages/aboutMe/AboutMe'
+import Profile from '../pages/profile/Profile'
 
 /* Welcome */
 import Welcome from '../pages/welcome/Welcome'
@@ -12,7 +13,6 @@ import Diaries from '../pages/diaries/diaries/Diaries'
 import CreaetDiaries from '../pages/diaries/create/Create'
 import Diary from '../pages/diaries/diary/Diary'
 
-import UnderConstruct from '../pages/underConstruct/UnderConstruct'
 import Facebook from '../pages/facebook/Facebook'
 import Demo from '../pages/demo/Demo'
 
@@ -26,32 +26,28 @@ import MasterpiecesLayout from '../components/layout/masterpieces/Layout'
 import DiariesLayout from '../components/layout/diaries/Layout'
 
 export default (
-	<Route path="/">
+	<Route path="/" component={Layout}>
 	    <IndexRoute component={Welcome}>
 	    </IndexRoute>
-		<Route path="/" component={Layout}>
-	    	<Route path="aboutMe" component={AboutMe}>
-	    	</Route>
-	    	<Route path="masterpieces" component={MasterpiecesLayout}>
-	    	    <IndexRoute component={Paintings}>
-	    	    </IndexRoute>
-	    	    <Route path="youtubes" component={Youtubes}>
-	    	    </Route>
-	    	</Route>
-	    	<Route path="diaries" component={DiariesLayout}>
-	    	    <IndexRoute component={Diaries}>
-	    	    </IndexRoute>
-	    	    <Route path="create" component={CreaetDiaries}>
-	    	    </Route>
-	    	    <Route path=":id" component={Diary}>
-	    	    </Route>
-	    	</Route>
-	    	<Route path="underConstruct" component={UnderConstruct}>
-	    	</Route>
-			<Route path="demo" component={Demo}>
-			</Route>
-			<Route path="facebook" component={Facebook}>
-			</Route>
+	    <Route path="profile" component={Profile}>
+	    </Route>
+	    <Route path="masterpieces" component={MasterpiecesLayout}>
+	        <IndexRoute component={Paintings}>
+	        </IndexRoute>
+	        <Route path="youtubes" component={Youtubes}>
+	        </Route>
+	    </Route>
+	    <Route path="diaries" component={DiariesLayout}>
+	        <IndexRoute component={Diaries}>
+	        </IndexRoute>
+	        <Route path="create" component={CreaetDiaries}>
+	        </Route>
+	        <Route path=":id" component={Diary}>
+	        </Route>
+	    </Route>
+		<Route path="demo" component={Demo}>
+		</Route>
+		<Route path="facebook" component={Facebook}>
 		</Route>
 	</Route>
 )

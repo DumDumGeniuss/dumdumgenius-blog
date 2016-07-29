@@ -1,0 +1,68 @@
+.Profile-mainArea {
+	background-color: black;
+	padding-top: 50px; 
+	perspective: 100px;
+}
+
+.Profile-starWarView {
+	transform: rotateX(30deg) scale3d(1, 1, 1);
+	height: 100vh;
+	width: 60%;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.Profile-starWarScroll {
+	margin-top: -250%; 
+	animation: starWarScroll 40s linear;
+}
+
+@keyframes starWarScroll {
+	0% {
+		margin-top: 85%;
+	}
+	100% {
+		margin-top: -250%;
+	}
+}
+
+.Profile-h1 {
+	color: yellow;
+	text-align: center;
+}
+
+.Profile-h3 {
+	color: yellow;
+	text-align: center;
+}
+
+.Profile-li {
+	color: yellow;
+	text-align: center;
+}
+
+.Profile-span {
+	display: block;
+	color: yellow;
+	text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+
+.Profile-starWarScroll {
+	margin-top: -400%; 
+	animation: starWarScroll 40s linear;
+}
+
+@keyframes starWarScroll {
+	0% {
+		margin-top: 100%;
+	}
+	100% {
+		margin-top: -400%;
+	}
+}
+
+}
+
+

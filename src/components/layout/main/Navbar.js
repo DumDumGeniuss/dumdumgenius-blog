@@ -29,7 +29,7 @@ class Navbar extends React.Component {
         window.addEventListener('scroll', this.handleScroll)
     }
     componentWillUnmount() {
-        window.addEventListener('scroll', this.handleScroll)
+        window.removeEventListener('scroll', this.handleScroll)
     }
     handleScroll(event) {
         this.setState({
@@ -52,15 +52,16 @@ class Navbar extends React.Component {
 
 		return (
 			<div>
-                <Link className='MainNavbar-homeButton' to="/">
-                    <Home/>
-                </Link>
                 <nav className={navbarClass}>
-                    <Link className="MainNavbar-navbarItem" to="/aboutMe">About me</Link>
+                    <Link className="MainNavbar-navbarItem" to="/">Home</Link>
+                    <Link className="MainNavbar-navbarItem" to="/profile">Profile</Link>
                     <Link className="MainNavbar-navbarItem" to="/diaries">Diaries</Link>
                     <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
-                    <Link className="MainNavbar-navbarItem" to="/underConstruct">Tutorials</Link>
-                    <Link className="MainNavbar-navbarItemCollapse" to="/aboutMe">
+                    
+                    <Link className="MainNavbar-navbarItemCollapse" to="/">
+                        <Home />
+                    </Link>
+                    <Link className="MainNavbar-navbarItemCollapse" to="/profile">
                          <User />
                     </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/diaries">
@@ -68,9 +69,6 @@ class Navbar extends React.Component {
                     </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/masterpieces">
                         <Image  />
-                    </Link>
-                    <Link className="MainNavbar-navbarItemCollapse" to="/underConstruct">
-                        <StickyNote />
                     </Link>
                 </nav>
 			</div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router'
 
 import Facebook from 'react-icons/lib/fa/facebook'
 import Github from 'react-icons/lib/fa/github'
@@ -22,9 +21,6 @@ class Welcome extends React.Component {
 		return (
 			<div className="Welcome-mainArea">
                 <div className='Welcome-universeBackgroundArea'>
-                    <Link className='Welcome-homeButton' to="/aboutMe">
-                        <Home/>
-                    </Link>
                     <span className="Welcome-centerText">DumDumGenius' Blog</span>
                     <div className="Welcome-logoArea">
                         <Facebook className="Welcome-faIcon"/>

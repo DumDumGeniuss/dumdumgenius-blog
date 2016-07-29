@@ -11,14 +11,14 @@ class Profile extends React.Component {
         }
     }
     componentDidMount() {
-        this.starWarViewHeight = document.getElementById('star-war-view').getBoundingClientRect().height;
     }
     componentWillUnmount() {
     }
 	render() {
+        const self = this
 		return (
 			<div className="Profile-mainArea">
-                <div id="star-war-view" className="Profile-starWarView">
+                <div className="Profile-starWarView">
                     <div className="Profile-starWarScroll">
                         <h1 className="Profile-h1">Hello</h1>
                         <span className="Profile-span">Welcome to my blog,</span>

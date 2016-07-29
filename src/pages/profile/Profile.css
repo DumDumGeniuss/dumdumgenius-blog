@@ -5,15 +5,15 @@
 }
 
 .Profile-starWarView {
-	transform: rotateX(30deg) scale3d(1, 1, 1);
-	height: 100vh;
+	transform: rotateX(30deg);
+	height: calc(100vh - 50px);
 	width: 60%;
 	margin: 0px auto;
 	overflow: hidden;
 }
 
 .Profile-starWarScroll {
-	margin-top: -250%; 
+	margin-top: -250%;
 	animation: starWarScroll 40s linear;
 }
 
@@ -41,7 +41,7 @@
 @media screen and (max-width: 800px) {
 
 .Profile-starWarScroll {
-	margin-top: -400%; 
+	margin-top: -500%; 
 	animation: starWarScrollMidium 40s linear;
 }
 
@@ -49,7 +49,7 @@
 
 @keyframes starWarScroll {
 	0% {
-		margin-top: 85%;
+		margin-top: 60%;
 	}
 	100% {
 		margin-top: -250%;
@@ -58,10 +58,10 @@
 
 @keyframes starWarScrollMidium {
 	0% {
-		margin-top: 85%;
+		margin-top: 150%;
 	}
 	100% {
-		margin-top: -400%;
+		margin-top: -500%;
 	}
 }
 

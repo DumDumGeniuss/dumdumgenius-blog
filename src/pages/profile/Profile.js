@@ -13,7 +13,7 @@ class Profile extends React.Component {
         this.state = {
             starWarScrollMarginTop: 0,
             starWarViewRotate: 0,
-            onMovie: true
+            movieStatus: true
         }
         this.killScroll = this.killScroll.bind(this)
         this.startScroll = this.startScroll.bind(this)
@@ -26,10 +26,7 @@ class Profile extends React.Component {
         self.starWarScrollHeight = document.getElementById('star-war-scroll').getBoundingClientRect().height
         self.starWarViewHeight = document.getElementById('star-war-view').getBoundingClientRect().height
 
-        self.setState({
-            starWarScrollMarginTop: self.starWarViewHeight*0.70,
-            starWarViewRotate: 30
-        })
+        self.initialStarWarsScroll()
         
         self.startScroll()
     }
@@ -37,6 +34,13 @@ class Profile extends React.Component {
         const self = this
         self.killScroll()
         // self.autoPalyStarWarsAudio()
+    }
+    initialStarWarsScroll() {
+        const self = this
+        self.setState({
+            starWarScrollMarginTop: self.starWarViewHeight*0.70,
+            starWarViewRotate: 30
+        })
     }
     startStarWarsAudio() {
         const self = this
@@ -51,10 +55,11 @@ class Profile extends React.Component {
         self.scrollInterval = setInterval(function() {
             self.setState({
                 starWarScrollMarginTop: self.state.starWarScrollMarginTop - 1,
-                onMovie: true
+                movieStatus: true
             })
-            if(self.state.starWarScrollMarginTop < -self.starWarScrollHeight ) {
+            if(self.state.starWarScrollMarginTop < -self.starWarScrollHeight-50 ) {
                 self.killScroll()
+                self.initialStarWarsScroll()
             }
         }, 30)
         self.startStarWarsAudio()
@@ -63,7 +68,7 @@ class Profile extends React.Component {
         const self = this
         window.clearInterval(this.scrollInterval)
         self.setState({
-            onMovie:false
+            movieStatus: false
         })
         self.pausePauseWarsAudio()
     }
@@ -74,10 +79,10 @@ class Profile extends React.Component {
                 <audio id="star-wars-audio" className="Profile-starWarsAudio" autoPlay loop>
                   <source src="starwars.mp3" type="audio/mpeg"/>
                 </audio>
-                <div className="Profile-functionIcon Profile-pauseIcon" style={ {display: self.state.onMovie?'initial':'none'} } onClick={self.killScroll}>
+                <div className="Profile-functionIcon Profile-pauseIcon" style={ {display: self.state.movieStatus?'initial':'none'} } onClick={self.killScroll}>
                     <Pause />
                 </div>
-                <div className="Profile-functionIcon Profile-playIcon" style={ {display: !self.state.onMovie?'initial':'none'} } onClick={self.startScroll}>
+                <div className="Profile-functionIcon Profile-playIcon" style={ {display: !self.state.movieStatus?'initial':'none'} } onClick={self.startScroll}>
                     <Play />
                 </div>
                 <div id="star-war-view" style={ {transform: 'rotateX(' + self.state.starWarViewRotate + 'deg)'} } className="Profile-starWarView">

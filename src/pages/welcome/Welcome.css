@@ -214,27 +214,27 @@
 
 .Welcome-cloud-1 {
     top: 50%;
-    animation: float 8s infinite linear;
+    animation: float 7s infinite linear;
 }
 
 .Welcome-cloud-2 {
     top: 25%;
-    animation: float 12s infinite linear;
+    animation: float 11s infinite linear;
 }
 
 .Welcome-cloud-3 {
     top: 20%;
-    animation: float 16s infinite linear;
+    animation: float 13s infinite linear;
 }
 
 .Welcome-cloud-4 {
     top: 70%;
-    animation: float 10s infinite linear;
+    animation: float 17s infinite linear;
 }
 
 .Welcome-cloud-5 {
     top: 60%;
-    animation: float 24s infinite linear;
+    animation: float 19s infinite linear;
 }
 
 @keyframes blink {

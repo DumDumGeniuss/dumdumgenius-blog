@@ -8,18 +8,43 @@ class Profile extends React.Component {
     constructor() {
         super()
         this.state = {
+            starWarScrollMarginTop: 0,
+            starWarViewRotate: 0
+
         }
     }
     componentDidMount() {
+        const self = this;
+        self.starWarScrollHeight = document.getElementById('star-war-scroll').getBoundingClientRect().height
+        self.starWarViewHeight = document.getElementById('star-war-view').getBoundingClientRect().height
+
+        self.setState({
+            starWarScrollMarginTop: self.starWarViewHeight*0.70,
+            starWarViewRotate: 30
+        })
+        console.log(self.starWarScrollHeight);
+
+        self.scrollInterval = setInterval(function() {
+            self.setState({
+                starWarScrollMarginTop: self.state.starWarScrollMarginTop - 1
+            })
+            if(self.state.starWarScrollMarginTop < -self.starWarScrollHeight ) {
+                self.stopScroll()
+            }
+        }, 30)
     }
     componentWillUnmount() {
+        window.clearInterval(this.scrollInterval)
+    }
+    stopScroll() {
+        window.clearInterval(this.scrollInterval)
     }
 	render() {
         const self = this
 		return (
 			<div className="Profile-mainArea">
-                <div className="Profile-starWarView">
-                    <div className="Profile-starWarScroll">
+                <div id="star-war-view" style={ {transform: 'rotateX(' + self.state.starWarViewRotate + 'deg)'} } className="Profile-starWarView">
+                    <div id="star-war-scroll" className="Profile-starWarScroll" style={{marginTop: self.state.starWarScrollMarginTop + 'px'}}>
                         <h1 className="Profile-h1">Hello</h1>
                         <span className="Profile-span">Welcome to my blog,</span>
                         <span className="Profile-span">Glad to see you, Without any further</span>

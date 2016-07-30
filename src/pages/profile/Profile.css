@@ -5,8 +5,7 @@
 }
 
 .Profile-starWarsAudio {
-	width: 150px;
-	background-color: yellow;
+	display: none;
 }
 
 .Profile-functionIcon {

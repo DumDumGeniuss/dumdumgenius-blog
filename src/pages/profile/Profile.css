@@ -4,6 +4,39 @@
 	perspective: 100px;
 }
 
+.Profile-functionIcon {
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	border: 1px solid yellow;
+}
+
+.Profile-functionIcon > svg {
+	display: inline-block;
+	color: yellow;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 30px;
+	height: 30px;
+}
+
+.Profile-functionIcon > svg:hover {
+	cursor: pointer;
+}
+
+.Profile-pauseIcon {
+	top: 70px;
+	right: 20px;
+}
+
+.Profile-playIcon {
+	top: 70px;
+	right: 20px;
+}
+
 .Profile-starWarView {
 	/*transform: rotateX(60deg)*/;
 	height: 100vh;
@@ -18,23 +51,23 @@
 }
 
 .Profile-h1 {
-	color: yellow;
+	color: #ba9e17;
 	text-align: center;
 }
 
 .Profile-h3 {
-	color: yellow;
+	color: #ba9e17;
 	text-align: center;
 }
 
 .Profile-li {
-	color: yellow;
+	color: #ba9e17;
 	text-align: center;
 }
 
 .Profile-span {
 	display: block;
-	color: yellow;
+	color: #ba9e17;
 	text-align: center;
 }
 

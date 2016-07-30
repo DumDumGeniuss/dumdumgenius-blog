@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Pause from 'react-icons/lib/fa/pause'
+import Play from 'react-icons/lib/fa/play'
+
 if (process.env.BROWSER) {
     require('./Profile.css')
 }
@@ -9,12 +12,14 @@ class Profile extends React.Component {
         super()
         this.state = {
             starWarScrollMarginTop: 0,
-            starWarViewRotate: 0
-
+            starWarViewRotate: 0,
+            onMovie: true
         }
+        this.killScroll = this.killScroll.bind(this)
+        this.startScroll = this.startScroll.bind(this)
     }
     componentDidMount() {
-        const self = this;
+        const self = this
         self.starWarScrollHeight = document.getElementById('star-war-scroll').getBoundingClientRect().height
         self.starWarViewHeight = document.getElementById('star-war-view').getBoundingClientRect().height
 
@@ -22,27 +27,45 @@ class Profile extends React.Component {
             starWarScrollMarginTop: self.starWarViewHeight*0.70,
             starWarViewRotate: 30
         })
-        console.log(self.starWarScrollHeight);
-
+        
+        self.startScroll()
+    }
+    componentWillUnmount() {
+        const self = this
+        self.killScroll()
+    }
+    startScroll() {
+        const self = this
         self.scrollInterval = setInterval(function() {
             self.setState({
-                starWarScrollMarginTop: self.state.starWarScrollMarginTop - 1
+                starWarScrollMarginTop: self.state.starWarScrollMarginTop - 1,
+                onMovie: true
             })
             if(self.state.starWarScrollMarginTop < -self.starWarScrollHeight ) {
                 self.stopScroll()
             }
         }, 30)
     }
-    componentWillUnmount() {
+    killScroll() {
+        const self = this
         window.clearInterval(this.scrollInterval)
-    }
-    stopScroll() {
-        window.clearInterval(this.scrollInterval)
+        self.setState({
+            onMovie:false
+        })
     }
 	render() {
         const self = this
 		return (
 			<div className="Profile-mainArea">
+                <audio controls autoplay>
+                  <source src="starwars.mp3" type="audio/mpeg"/>
+                </audio>
+                <div className="Profile-functionIcon Profile-pauseIcon" style={ {display: self.state.onMovie?'initial':'none'} } onClick={self.killScroll}>
+                    <Pause />
+                </div>
+                <div className="Profile-functionIcon Profile-playIcon" style={ {display: !self.state.onMovie?'initial':'none'} } onClick={self.startScroll}>
+                    <Play />
+                </div>
                 <div id="star-war-view" style={ {transform: 'rotateX(' + self.state.starWarViewRotate + 'deg)'} } className="Profile-starWarView">
                     <div id="star-war-scroll" className="Profile-starWarScroll" style={{marginTop: self.state.starWarScrollMarginTop + 'px'}}>
                         <h1 className="Profile-h1">Hello</h1>

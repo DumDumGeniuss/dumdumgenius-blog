@@ -54,7 +54,7 @@ class Profile extends React.Component {
                 onMovie: true
             })
             if(self.state.starWarScrollMarginTop < -self.starWarScrollHeight ) {
-                self.stopScroll()
+                self.killScroll()
             }
         }, 30)
         self.startStarWarsAudio()

@@ -76,8 +76,9 @@ class Profile extends React.Component {
         const self = this
 		return (
 			<div className="Profile-mainArea">
+                <img className="Profile-backgroundImg" src="assets/images/universe.jpg"/>
                 <audio id="star-wars-audio" className="Profile-starWarsAudio" autoPlay loop>
-                  <source src="starwars.mp3" type="audio/mpeg"/>
+                  <source src="assets/audios/starwars.mp3" type="audio/mpeg"/>
                 </audio>
                 <div className="Profile-functionIcon Profile-pauseIcon" style={ {display: self.state.movieStatus?'initial':'none'} } onClick={self.killScroll}>
                     <Pause />

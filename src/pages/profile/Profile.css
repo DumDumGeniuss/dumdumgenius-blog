@@ -4,6 +4,7 @@
 	padding-top: 50px; 
 	perspective: 100px;
 	overflow: hidden;
+	background-color: black;
 }
 
 .Profile-backgroundImg {
@@ -85,30 +86,11 @@
 	text-align: center;
 }
 
-/*@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
 
-.Profile-starWarScroll {
-	margin-top: -500%; 
-	animation: starWarScrollMidium 40s linear;
+.Profile-backgroundImg {
+	left: -50%;
+	width: 200%;
 }
 
 }
-
-@keyframes starWarScroll {
-	0% {
-		margin-top: 60%;
-	}
-	100% {
-		margin-top: -250%;
-	}
-}
-
-@keyframes starWarScrollMidium {
-	0% {
-		margin-top: 150%;
-	}
-	100% {
-		margin-top: -500%;
-	}
-}*/
-

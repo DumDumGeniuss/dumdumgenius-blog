@@ -4,8 +4,9 @@ import Express from 'express'
 import React from 'react'
 import _ from 'lodash'
 import { match, RouterContext } from 'react-router'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 import ReactDomServer from 'react-dom/server'
 
 import blogStore from '../src/store/blogStore'
@@ -115,7 +116,7 @@ function toArray(map) {
 
 function handleRender(req, res, initialState, ogTagParams) {
 
-  	const store = createStore(rootReducer, initialState),
+  	const store = createStore(rootReducer, initialState, applyMiddleware(thunk)),
   	    location = createLocation(req.originalUrl)
 
   	match({ routes, location }, function(error, redirectLocation, renderProps) {

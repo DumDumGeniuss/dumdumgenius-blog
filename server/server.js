@@ -11,7 +11,6 @@ import ReactDomServer from 'react-dom/server'
 import blogStore from '../src/store/blogStore'
 import createLocation from 'history/lib/createLocation'
 import rootReducer from '../src/reducers'
-import AboutMe from '../src/pages/aboutMe/AboutMe'
 import routes from '../src/route/routes.jsx'
 import firebase from '../src/services/firebase'
 

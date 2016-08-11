@@ -8,7 +8,7 @@ const story = window.isDevMode?hashHistory:browserHistory
 export default class AllRoutes extends React.Component {
 	constructor(props) {
         super(props)
-  //       match({ routes, location: '/' }, function(error, redirectLocation, renderProps) {
+  		//match({ routes, location: '/' }, function(error, redirectLocation, renderProps) {
 		// 	console.log('hey',routes)
 		// })
     }

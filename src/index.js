@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 
-import AllRoutes from './route/AllRoutes'
+import AllRoutes from './route/AllRoutes.jsx'
 
 import firebase from './services/firebase'
 import blogStore from './store/blogStore'

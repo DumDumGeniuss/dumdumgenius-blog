@@ -1,27 +1,26 @@
 import React     from 'react';
 import { Route, IndexRoute } from 'react-router'
 
-/* About me */
-import AboutMe from '../pages/aboutMe/AboutMe'
-import Profile from '../pages/profile/Profile'
+/* Profile */
+import Profile from '../containers/profile/Profile.jsx'
 
 /* Welcome */
-import Welcome from '../pages/welcome/Welcome'
+import Welcome from '../containers/welcome/Welcome.jsx'
 
 /* Diaries */
-import Diaries from '../pages/diaries/diaries/Diaries'
-import CreaetDiaries from '../pages/diaries/create/Create'
-import Diary from '../pages/diaries/diary/Diary'
+import Diaries from '../containers/diaries/diaries/Diaries'
+import CreaetDiaries from '../containers/diaries/create/Create'
+import Diary from '../containers/diaries/diary/Diary'
 
-import Facebook from '../pages/facebook/Facebook'
-import Demo from '../pages/demo/Demo'
+import Facebook from '../containers/facebook/Facebook'
+import Demo from '../containers/demo/Demo'
 
 /* MasterPieces */
-import Paintings from '../pages/masterpieces/paintings/Paintings'
-import Youtubes from '../pages/masterpieces/youtubes/Youtubes'
+import Paintings from '../containers/masterpieces/paintings/Paintings'
+import Youtubes from '../containers/masterpieces/youtubes/Youtubes'
 
 /* Layout */
-import Layout from '../components/layout/main/Layout'
+import Layout from '../components/layout/main/Layout.jsx'
 import MasterpiecesLayout from '../components/layout/masterpieces/Layout'
 import DiariesLayout from '../components/layout/diaries/Layout'
 

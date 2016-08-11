@@ -23,8 +23,11 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style!css!postcss-loader'
+            },
+            {
+                test: /\.json$/, 
+                loader: 'json-loader' 
             }
-
         ],
     },
     plugins: debug ? [

@@ -1,6 +1,7 @@
 import { articleActionTypes } from '../constants/ActionTypes'
 import request from 'superagent'
 import config from '../constants/config' 
+import 'whatwg-fetch'
 
 export function queryArticlesOptimistic(articles) {
 	return {

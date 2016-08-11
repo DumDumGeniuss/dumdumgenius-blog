@@ -1,7 +1,11 @@
 import { articleActionTypes } from '../constants/ActionTypes'
 import request from 'superagent'
 import config from '../constants/config' 
-import 'whatwg-fetch'
+import es6Promise from 'es6-promise'
+import 'isomorphic-fetch'
+
+es6Promise.polyfill()
+
 
 export function queryArticlesOptimistic(articles) {
 	return {

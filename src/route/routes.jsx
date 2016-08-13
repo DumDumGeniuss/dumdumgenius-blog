@@ -9,7 +9,9 @@ import Welcome from '../containers/welcome/Welcome.jsx'
 
 /* Articles */
 import Tutorials from '../containers/tutorials/Tutorials.jsx'
+import Tutorial from '../containers/tutorials/Tutorial.jsx'
 import TutorialsByCateg from '../containers/tutorials/TutorialsByCateg.jsx'
+import CreateTutorial from '../containers/tutorials/createTutorial/CreateTutorial.jsx'
 
 /* Diaries */
 import Diaries from '../containers/diaries/diaries/Diaries'
@@ -52,7 +54,9 @@ export default (
 	    <Route path="tutorials">
 	        <IndexRoute component={Tutorials}>
 	        </IndexRoute>
-	        <Route path=":category/:id" component={Tutorials}>
+	        <Route path="new" component={CreateTutorial}>
+	        </Route>
+	        <Route path=":category/:id" component={Tutorial}>
 	        </Route>
 	        <Route path=":category" component={TutorialsByCateg}>
 	        </Route>

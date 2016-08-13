@@ -41,7 +41,7 @@ export function getArticleOptimistic(article) {
 
 export function getArticle(id) {
 	return function(dispatch) {
-		fetch(config.apiUrl + '/articles' + id, {
+		fetch(config.apiUrl + '/articles/' + id, {
 			method: 'get'
 		}).then(res => {
 			return res.json()
@@ -60,7 +60,7 @@ export function addArticleOptimistic() {
 }
 
 export function addArticle(article) {
-	return function(dispatch) {
+	// return function(dispatch) {
 		let params = {
 			method: 'POST',
 			headers: {
@@ -69,14 +69,15 @@ export function addArticle(article) {
 			},
 			body: JSON.stringify( article )
 		};
-		console.log(params);
+
 		fetch(config.apiUrl + '/articles', params)
 		.then(res => {
-			dispatch(addArticleOptimistic());
+			console.log(res)
+			// dispatch(addArticleOptimistic());
 		}).catch(err => {
 			console.log(err)
 		})
-	}
+	// }
 }
 
 export function queryArticleCategoriesOptimistic(categories) {

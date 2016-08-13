@@ -55,7 +55,7 @@ class Navbar extends React.Component {
                 <nav className={navbarClass}>
                     <Link className="MainNavbar-navbarItem" to="/">Home</Link>
                     <Link className="MainNavbar-navbarItem" to="/profile">Profile</Link>
-                    <Link className="MainNavbar-navbarItem" to="/diaries">Diaries</Link>
+                    <Link className="MainNavbar-navbarItem" to="/tutorials">Tutorials</Link>
                     <Link className="MainNavbar-navbarItem" to="/masterpieces">Masterpieces</Link>
                     
                     <Link className="MainNavbar-navbarItemCollapse" to="/">
@@ -64,7 +64,7 @@ class Navbar extends React.Component {
                     <Link className="MainNavbar-navbarItemCollapse" to="/profile">
                          <User />
                     </Link>
-                    <Link className="MainNavbar-navbarItemCollapse" to="/diaries">
+                    <Link className="MainNavbar-navbarItemCollapse" to="/tutorials">
                         <Book />
                     </Link>
                     <Link className="MainNavbar-navbarItemCollapse" to="/masterpieces">

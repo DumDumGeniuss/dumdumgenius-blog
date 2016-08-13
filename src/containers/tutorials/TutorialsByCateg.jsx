@@ -23,12 +23,12 @@ class ArticlesByCateg extends React.Component {
 	}
     componentDidUpdate() {
     }
-    createMenuObjects(articles) {
+    createMenuObjects(articles, category) {
         var menus = []
         for(var i = 0; i < articles.length; i++) {
             menus.push({
                 name: articles[i].title+'sss',
-                link: '/articles/category/' + articles[i]._id
+                link: '/tutorials/' + category + '/' + articles[i]._id
             })
         }
         return menus
@@ -40,7 +40,7 @@ class ArticlesByCateg extends React.Component {
         //Redux
         let { state } = self.props
         let articles = state.articles
-        let menus = self.createMenuObjects(articles.articles || [])
+        let menus = self.createMenuObjects(articles.articles || [], params.category)
 
         let component
 

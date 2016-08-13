@@ -1,22 +1,9 @@
 .Welcome-universeBackgroundArea {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 100px);
     animation: dayAndNight 20s infinite linear;
     overflow: hidden;
-}
-
-.Welcome-homeButton:hover {
-    cursor: pointer;
-    color: yellow;
-}
-
-.Welcome-homeButton > svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
 }
 
 @keyframes dayAndNight {
@@ -45,7 +32,7 @@
 
 .Welcome-Earth {
     position: absolute;
-    top: calc(100vh - 150px);
+    top: calc(100vh - 250px);
     left: calc(50% - 200px);
     height: 400px;
     width: 400px;
@@ -58,7 +45,7 @@
 
 .Welcome-SunAndMoon {
     position: absolute;
-    top: calc(100vh - 35px);
+    top: calc(100vh - 135px);
     height: 70px;
     width: 100%;
     animation: SunMoonRotate 20s infinite linear;
@@ -79,7 +66,7 @@
 
 .Welcome-MoonO {
     position: absolute;
-    right:10px;
+    right: 10px;
     width: 70px;
     height: 70px;
     color: yellow;
@@ -129,8 +116,8 @@
 
 .Welcome-logoArea {
     position: absolute;
-    top: calc(100vh - 60px);
-    right: 30px;
+    top: calc(100vh - 160px);
+    right: calc(50% - 86px);
     display: block;
     width: 172px;
     margin: 0px auto;
@@ -298,10 +285,6 @@
 }
 
 @media screen and (max-width: 800px) {
-
-.Welcome-logoArea {
-    right: calc(50% - 86px);
-}
 
 .Welcome-SunAndMoon {
     position: absolute;

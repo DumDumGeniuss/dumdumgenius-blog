@@ -2,7 +2,8 @@ import { articleActionTypes } from '../constants/ActionTypes'
 
 let initState = {
 	articles: [],
-	article: null
+	article: {},
+	categories: []
 }
 
 export default function counter(state = initState, action) {
@@ -11,6 +12,8 @@ export default function counter(state = initState, action) {
 			return Object.assign({}, state, {articles: action.articles})
 		case articleActionTypes.GET_ARTICLE:
 			return Object.assign({}, state, {articles: action.article})
+		case articleActionTypes.QUERY_ARTICLE_CATEGORIES:
+			return Object.assign({}, state, {categories: action.categories})
 		default:
 			return state
 	}

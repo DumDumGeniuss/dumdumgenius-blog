@@ -9,6 +9,9 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import ReactDomServer from 'react-dom/server'
 
+import rp from 'request-promise'
+import url from 'url'
+
 import blogStore from '../src/store/blogStore'
 import createLocation from 'history/lib/createLocation'
 import rootReducer from '../src/reducers'
@@ -20,8 +23,57 @@ import config from '../server/config/production'
 
 const app = Express()
 const port = config.port
-console.log(__dirname + '/public')
 app.use(Express.static(__dirname + '/public'))
+
+app.use('/tutorials/:category', function(req, res) {
+    let params = req.params;
+    let completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
+    let queryString = url.format({
+        query: params
+    })
+
+    rp.get({
+        url: config.apiUrl + '/articles' + queryString,
+        json: true
+    })
+    .then(function(result) {
+        let initialState = {
+            articles: {
+                articles: result.data
+            }
+        }
+        let ogTagParams = {
+            url: completeUrl,
+            type: 'Tutorials',
+            title: params.category,
+            description: "It's my tutorials about " + params.category + ", enjoy it!"
+        }
+        handleRender(req, res, initialState, ogTagParams)
+    })
+})
+
+app.use('/tutorials', function(req, res) {
+    const params = req.params;
+    const completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
+
+    rp.get({
+        uri: config.apiUrl + '/articles/info/categories'
+    })
+    .then(function(result) {
+        let initialState = {
+            articles: {
+                categories: result.data
+            }
+        }
+        let ogTagParams = {
+            url: completeUrl,
+            type: 'tutorials',
+            title: "Tutorials",
+            description: "Hey, I wrote some tutorials here, pick on topic and enjoy it!"
+        }
+        handleRender(req, res, initialState, ogTagParams)
+    })
+})
 
 app.use('/diaries/:id', function(req, res) {
     const params = req.params,

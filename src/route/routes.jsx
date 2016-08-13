@@ -7,6 +7,10 @@ import Profile from '../containers/profile/Profile.jsx'
 /* Welcome */
 import Welcome from '../containers/welcome/Welcome.jsx'
 
+/* Articles */
+import Tutorials from '../containers/tutorials/Tutorials.jsx'
+import TutorialsByCateg from '../containers/tutorials/TutorialsByCateg.jsx'
+
 /* Diaries */
 import Diaries from '../containers/diaries/diaries/Diaries'
 import CreaetDiaries from '../containers/diaries/create/Create'
@@ -14,6 +18,7 @@ import Diary from '../containers/diaries/diary/Diary'
 
 import Facebook from '../containers/facebook/Facebook'
 import Demo from '../containers/demo/Demo'
+import Demo2 from '../containers/demo/Demo2'
 
 /* MasterPieces */
 import Paintings from '../containers/masterpieces/paintings/Paintings'
@@ -44,7 +49,17 @@ export default (
 	        <Route path=":id" component={Diary}>
 	        </Route>
 	    </Route>
+	    <Route path="tutorials">
+	        <IndexRoute component={Tutorials}>
+	        </IndexRoute>
+	        <Route path=":category/:id" component={Tutorials}>
+	        </Route>
+	        <Route path=":category" component={TutorialsByCateg}>
+	        </Route>
+	    </Route>
 		<Route path="demo" component={Demo}>
+		</Route>
+		<Route path="demo2" component={Demo}>
 		</Route>
 		<Route path="facebook" component={Facebook}>
 		</Route>

@@ -1,7 +1,6 @@
 .Profile-mainArea {
 	/*background-color: black;*/
 	position: relative;
-	padding-top: 50px; 
 	perspective: 100px;
 	overflow: hidden;
 	background-color: black;
@@ -43,18 +42,18 @@
 }
 
 .Profile-pauseIcon {
-	top: 70px;
+	top: 20px;
 	right: 20px;
 }
 
 .Profile-playIcon {
-	top: 70px;
+	top: 20px;
 	right: 20px;
 }
 
 .Profile-starWarView {
 	/*transform: rotateX(60deg)*/;
-	height: 100vh;
+	height: calc(100vh - 100px);
 	width: 60%;
 	margin: 0px auto;
 	overflow: hidden;

@@ -24,6 +24,12 @@ class Tutorial extends React.Component {
             category: params.category
         })
 	}
+    componentWillReceiveProps(nextProps) {
+        const { location, params, actions } = this.props
+        if(location !== nextProps.location) {
+            actions.getArticle(nextProps.params.id)
+        }
+    }
 	componentDidMount() {
 	}
     componentDidUpdate() {
@@ -32,7 +38,7 @@ class Tutorial extends React.Component {
         let self = this
 
         //Redux
-        let { state } = self.props
+        let { state, location } = self.props
         let articles = state.articles
         let article = articles.article
 

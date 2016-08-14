@@ -12,6 +12,7 @@ import Tutorials from '../containers/tutorials/Tutorials.jsx'
 import Tutorial from '../containers/tutorials/Tutorial.jsx'
 import TutorialsByCateg from '../containers/tutorials/TutorialsByCateg.jsx'
 import CreateTutorial from '../containers/tutorials/createTutorial/CreateTutorial.jsx'
+import UpdateTutorial from '../containers/tutorials/updateTutorial/UpdateTutorial.jsx'
 
 /* Diaries */
 import Diaries from '../containers/diaries/diaries/Diaries'
@@ -55,6 +56,8 @@ export default (
 	        <IndexRoute component={Tutorials}>
 	        </IndexRoute>
 	        <Route path="new" component={CreateTutorial}>
+	        </Route>
+	        <Route path=":id/update" component={UpdateTutorial}>
 	        </Route>
 	        <Route path=":category/:id" component={Tutorial}>
 	        </Route>

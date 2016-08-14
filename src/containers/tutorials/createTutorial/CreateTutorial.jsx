@@ -62,15 +62,15 @@ class CreateTutorial extends React.Component {
                     <span className="CreateTutorial-title"><b>Create New Tutorial!</b></span>
     		        <div>
     		            <label className="CreateTutorial-inputLabel">category</label>
-    		            <input className="Create-input" onChange={this.handleCategoryChange.bind(this)}></input>
+    		            <input className="CreateTutorial-input" onChange={this.handleCategoryChange.bind(this)}></input>
     		        </div>
     		        <div>
     		            <label className="CreateTutorial-inputLabel">title</label>
-    		            <input className="Create-input" onChange={this.handleTitleChange.bind(this)}></input>
+    		            <input className="CreateTutorial-input" onChange={this.handleTitleChange.bind(this)}></input>
     		        </div>
                     <div>
                         <label className="CreateTutorial-inputLabel">Sequence</label>
-                        <input className="Create-input" onChange={this.handleSequenceChange.bind(this)}></input>
+                        <input className="CreateTutorial-input" onChange={this.handleSequenceChange.bind(this)}></input>
                     </div>
     		        <div>
     		            <label className="CreateTutorial-inputLabel">content</label>

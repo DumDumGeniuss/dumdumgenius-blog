@@ -53,11 +53,11 @@ export function getArticle(id) {
 	}
 }
 
-export function addArticleOptimistic() {
-	return {
-		type: articleActionTypes.ADD_ARTICLE
-	}
-}
+// export function addArticleOptimistic() {
+// 	return {
+// 		type: articleActionTypes.ADD_ARTICLE
+// 	}
+// }
 
 export function addArticle(article) {
 	// return function(dispatch) {
@@ -99,5 +99,34 @@ export function queryArticleCategories() {
 			console.log(err)
 		})
 	}
+}
+
+// export function updateArticleOptimistic() {
+// 	return {
+// 		type: articleActionTypes.UPDATE_ARTICLE
+// 	}
+// }
+
+export function updateArticle(article, id) {
+	// console.log(article)
+	// return function(dispatch) {
+	// console.log(article)
+		let params = {
+			method: 'PUT',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify( article )
+		};
+
+		fetch(config.apiUrl + '/articles/' + id, params)
+		.then(res => {
+			console.log(res)
+			// dispatch(updateArticleOptimistic());
+		}).catch(err => {
+			console.log(err)
+		})
+	// }
 }
 

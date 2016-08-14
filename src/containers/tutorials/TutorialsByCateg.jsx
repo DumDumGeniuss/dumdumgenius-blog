@@ -27,7 +27,7 @@ class ArticlesByCateg extends React.Component {
         var menus = []
         for(var i = 0; i < articles.length; i++) {
             menus.push({
-                name: articles[i].title+'sss',
+                name: articles[i].title,
                 link: '/tutorials/' + category + '/' + articles[i]._id
             })
         }

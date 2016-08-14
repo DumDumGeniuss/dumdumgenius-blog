@@ -16,6 +16,8 @@ export default function counter(state = initState, action) {
 			return Object.assign({}, state, {categories: action.categories})
 		case articleActionTypes.ADD_ARTICLE:
 			return Object.assign({}, state, {})
+		case articleActionTypes.UPDATE_ARTICLE:
+			return Object.assign({}, state, {})
 		default:
 			return state
 	}

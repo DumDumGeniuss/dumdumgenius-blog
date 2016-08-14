@@ -51,6 +51,9 @@ class RollingMenu extends React.Component {
     }
     rollMenu(direc, number) {
         const self = this
+        if(number == 0) {
+            return;
+        }
         if(self.state.menuDegree === self.state.targetDegree) {
             let period = 360/number * (Math.PI/180)
             let movingRange = direc===1?period:-period
@@ -88,8 +91,8 @@ class RollingMenu extends React.Component {
     render() {
         let self = this
 
-        let menus = this.props.menus
-        let title = this.props.title
+        let menus = self.props.menus
+        let title = self.props.title
         
         //states
         let state = self.state
@@ -127,8 +130,11 @@ class RollingMenu extends React.Component {
                 </div>
                 <span className="RollingMenu-titleText">{title}</span>
                 <span className="RollingMenu-subTitleText">{subTitle}</span>
-                <span className="RollingMenu-squenceButton" style= { {bottom: '10px', left: '20px'} } onClick={ self.rollMenu.bind(self, 0, menus.length) }>Next</span>
+                <Link to={this.props.backPath?this.props.backPath:'/'}>
+                    <span className="RollingMenu-squenceButton" style= { {bottom: '110px', left: '20px', display: self.props.backPath?'inline-block':'none'} }>Back</span>
+                </Link>
                 <span className="RollingMenu-squenceButton" style= { {bottom: '60px', left: '20px'} } onClick={ self.rollMenu.bind(self, 1, menus.length) }>Prev</span>
+                <span className="RollingMenu-squenceButton" style= { {bottom: '10px', left: '20px'} } onClick={ self.rollMenu.bind(self, 0, menus.length) }>Next</span>
         	</div>
         )
     }

@@ -62,3 +62,14 @@
 	cursor: pointer;
 	color: yellow;
 }
+
+@media screen and (max-width: 800px) {
+.RollingMenu-titleText {
+	font-size: 1.2em;
+}
+
+.RollingMenu-subTitleText {
+	font-size: 1.2em;
+	top: 45px;
+}
+}

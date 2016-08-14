@@ -46,7 +46,7 @@ class ArticlesByCateg extends React.Component {
 
 		return (
 			<div>
-				<RollingMenu menus={menus} title={params.category}></RollingMenu>
+				<RollingMenu menus={menus} title={params.category} backPath={"/tutorials"}></RollingMenu>
 			</div>
 		)
 	}

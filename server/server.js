@@ -25,6 +25,30 @@ const app = Express()
 const port = config.port
 app.use(Express.static(__dirname + '/public'))
 
+app.use('/tutorials/:id/update', function(req, res) {
+    let params = req.params;
+    let completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
+
+    rp.get({
+        url: config.apiUrl + '/articles/' + params.id,
+        json: true
+    })
+    .then(function(result) {
+        let initialState = {
+            articles: {
+                article: result.data
+            }
+        }
+        let ogTagParams = {
+            url: completeUrl,
+            type: 'Tutorials',
+            title: result.data.title,
+            description: result.data.content
+        }
+        handleRender(req, res, initialState, ogTagParams)
+    })
+})
+
 app.use('/tutorials/:category/:id', function(req, res) {
     let params = req.params;
     let completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl

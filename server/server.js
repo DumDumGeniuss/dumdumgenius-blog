@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import ReactDomServer from 'react-dom/server'
 
+import Promise from 'promise'
 import rp from 'request-promise'
 import url from 'url'
 
@@ -52,22 +53,35 @@ app.use('/tutorials/:id/update', function(req, res) {
 app.use('/tutorials/:category/:id', function(req, res) {
     let params = req.params;
     let completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
-
-    rp.get({
-        url: config.apiUrl + '/articles/' + params.id,
-        json: true
+    let queryString = url.format({
+        query: {
+            category: params.category
+        }
     })
-    .then(function(result) {
+
+    Promise.all([
+        rp.get({
+            url: config.apiUrl + '/articles/' + params.id,
+            json: true
+        }),    
+        rp.get({
+            url: config.apiUrl + '/articles' + queryString,
+            json: true
+        })
+    ])
+    .then(function(results) {
+        console.log(results)
         let initialState = {
             articles: {
-                article: result.data
+                article: results[0].data,
+                articles: results[1].data
             }
         }
         let ogTagParams = {
             url: completeUrl,
             type: 'Tutorials',
-            title: result.data.title,
-            description: result.data.content
+            title: results[0].data.title,
+            description: results[0].data.content
         }
         handleRender(req, res, initialState, ogTagParams)
     })

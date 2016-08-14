@@ -9,7 +9,7 @@ import Welcome from '../containers/welcome/Welcome.jsx'
 
 /* Articles */
 import Tutorials from '../containers/tutorials/Tutorials.jsx'
-import Tutorial from '../containers/tutorials/Tutorial.jsx'
+import Tutorial from '../containers/tutorials/tutorial/Tutorial.jsx'
 import TutorialsByCateg from '../containers/tutorials/TutorialsByCateg.jsx'
 import CreateTutorial from '../containers/tutorials/createTutorial/CreateTutorial.jsx'
 import UpdateTutorial from '../containers/tutorials/updateTutorial/UpdateTutorial.jsx'

@@ -1,0 +1,41 @@
+.Tutorial-mainArea {
+	position: relative;
+	background-color: #e9ebee;
+}
+
+.Tutorial-nav {
+	position: absolute;
+	display: inline-block;
+	width: 20%;	
+}
+
+.Tutorial-article {
+	display: inline-block;
+	width: 60%;
+	margin-left: 20%;
+	background-color: white;
+}
+
+.Tutorial-ad {
+	position: absolute;
+	display: inline-block;
+	width: 20%;	
+	left: 80%;
+}
+
+@media screen and (max-width: 800px) {
+.Tutorial-nav {
+	display: inline-block;
+	width: 100%;	
+}
+
+.Tutorial-article {
+	display: inline-block;
+	width: 100%;	
+}
+
+.Tutorial-ad {
+	display: inline-block;
+	width: 100%;	
+}
+}

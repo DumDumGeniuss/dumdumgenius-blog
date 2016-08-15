@@ -25,6 +25,17 @@ class UpdateTutorial extends React.Component {
         const { actions, location, params } = this.props
         actions.getArticle(params.id)
     }
+    componentWillReceiveProps(nextProps) {
+        const { state } = this.props
+        let articles = state.articles
+        let article = articles.article
+        this.setState({
+            title: article.title,
+            category: article.category,
+            content: article.content,
+            sequence: parseInt(article.sequence, 10)
+        })
+    }
     updateArticle() {
         let { actions, params } = this.props
         const self = this
@@ -58,34 +69,12 @@ class UpdateTutorial extends React.Component {
             sequence: event.target.value
         })
     }
-    setupInputValues() {
-        let self = this
-        const { state } = this.props
-        let article = state.articles.article
-
-        if(!self.state.title) {
-            console.log(article)
-            return {
-                title: article.title,
-                category: article.category,
-                content: article.content,
-                sequence: parseInt(article.sequence, 10)
-            }
-        }
-        return {
-            title: self.state.title,
-            category: self.state.category,
-            content: self.state.content,
-            sequence: parseInt(self.state.sequence, 10)
-        }
-    }
     render() {
         let self = this
         const { state } = this.props
         let articles = state.articles
         let article = articles.article
-
-        self.inputValues = self.setupInputValues.bind(self)()
+        console.log(self.state)
 
 
     	return (
@@ -94,19 +83,19 @@ class UpdateTutorial extends React.Component {
                     <span className="UpdateTutorial-title"><b>Update Tutorial!</b></span>
     		        <div>
     		            <label className="UpdateTutorial-inputLabel">Category</label>
-    		            <input className="UpdateTutorial-input" value={self.inputValues.category} onChange={this.handleCategoryChange.bind(this)}></input>
+    		            <input className="UpdateTutorial-input" value={self.state.category} onChange={this.handleCategoryChange.bind(this)}></input>
     		        </div>
     		        <div>
     		            <label className="UpdateTutorial-inputLabel">Title</label>
-    		            <input className="UpdateTutorial-input" value={self.inputValues.title} onChange={this.handleTitleChange.bind(this)}></input>
+    		            <input className="UpdateTutorial-input" value={self.state.title} onChange={this.handleTitleChange.bind(this)}></input>
     		        </div>
                     <div>
                         <label className="UpdateTutorial-inputLabel">Sequence</label>
-                        <input className="UpdateTutorial-input" value={self.inputValues.sequence} onChange={this.handleSequenceChange.bind(this)}></input>
+                        <input className="UpdateTutorial-input" value={self.state.sequence} onChange={this.handleSequenceChange.bind(this)}></input>
                     </div>
     		        <div>
     		            <label className="UpdateTutorial-inputLabel">Content</label>
-                        <textarea className="UpdateTutorial-textInput" value={self.inputValues.content} onChange={this.handleContentChange.bind(this)}></textarea>
+                        <textarea className="UpdateTutorial-textInput" value={self.state.content} onChange={this.handleContentChange.bind(this)}></textarea>
                     </div>
                     <div>
                         <button className="UpdateTutorial-submitButton" onClick={this.updateArticle.bind(this)}>submit</button>

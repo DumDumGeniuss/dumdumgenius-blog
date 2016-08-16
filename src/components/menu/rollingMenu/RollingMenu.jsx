@@ -125,15 +125,11 @@ class RollingMenu extends React.Component {
                                                 top: item.top+'px',
                                                 transform: 'translateX(-50%) rotateY(-90deg) rotateX(' + item.degree*360/(Math.PI*2) +'deg)'
                                         } }>
-                                        {item.name}
+                                        <Star style={ {color: currentMenuIndex===index?'yellow':'white'} }/>
+                                        <div className="RollingMenu-itemText">
+                                            {item.name}
+                                        </div>
                                     </div>
-                                    <Star className="RollingMenu-star"
-                                        style={ {
-                                                left: item.left+'px',
-                                                top: item.top+'px',
-                                                transform: 'translateX(-100px) rotateY(-90deg) rotateX(' + item.degree*360/(Math.PI*2) +'deg)',
-                                                color: currentMenuIndex===index?'yellow':'white'
-                                        } } />
                                 </Link>
                             )
                         })}

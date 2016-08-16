@@ -27,24 +27,22 @@
 	margin: 0;
 	display: inline-block;
 	position: absolute;
-	padding: 10px;
-	backface-visibility: hidden;
-	text-align: center;
 	cursor: pointer;
-	color: white;
-	font-size: 1.5em;
-	border-radius: 10px;
-	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 	backface-visibility: hidden;
 }
 
-.RollingMenu-star {
-	margin: 0;
+.RollingMenu-itemText {
 	display: inline-block;
-	position: absolute;
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 	text-align: center;
+	padding: 10px;
+	color: white;
 	font-size: 1.5em;
-	backface-visibility: hidden;
+	border-radius: 10px;
+}
+
+.RollingMenu-star {
+	display: inline-block;
 }
 
 .RollingMenu-circle {

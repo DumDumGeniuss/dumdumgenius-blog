@@ -63,7 +63,7 @@ class RollingMenu extends React.Component {
 
             self.setState({
                 targetDegree: target,
-                currentMenuIndex: newCurrentMenuIndex < 0?newCurrentMenuIndex+number:newCurrentMenuIndex
+                currentMenuIndex: newCurrentMenuIndex < 0?newCurrentMenuIndex+number:newCurrentMenuIndex%number
             })
 
             self.rollingMenu = setInterval(function() {
@@ -102,7 +102,7 @@ class RollingMenu extends React.Component {
         let currentMenuIndex = state.currentMenuIndex
 
         let menuItems = self.calcItemsLocation(menus, menuDegree, menuRadius)
-        let subTitle = menuItems[currentMenuIndex%menuItems.length]?menuItems[currentMenuIndex%menuItems.length].name:''
+        let subTitle = menuItems[currentMenuIndex]?menuItems[currentMenuIndex].name:''
         console.log(currentMenuIndex)
         return (
         	<div className="RollingMenu-mainArea">

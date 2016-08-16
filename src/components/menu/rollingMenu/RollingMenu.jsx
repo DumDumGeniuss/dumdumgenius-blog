@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
+import Star from 'react-icons/lib/fa/star'
 
 if (process.env.BROWSER) {
     require('./RollingMenu.css')
@@ -102,31 +103,41 @@ class RollingMenu extends React.Component {
 
         let menuItems = self.calcItemsLocation(menus, menuDegree, menuRadius)
         let subTitle = menuItems[currentMenuIndex%menuItems.length]?menuItems[currentMenuIndex%menuItems.length].name:''
-
+        console.log(currentMenuIndex)
         return (
         	<div className="RollingMenu-mainArea">
                 <div className="RollingMenu-menu" 
                     style={ {
                         width: menuRadius*2+'px',
                         height: menuRadius*2+'px',
-                        borderRadius: menuRadius*2+'px',
-                        transform: 'translate(-50%, -50%)'
+                        perspective: (500 + (menuRadius-200) )+'px'
                     } }>
-                    {menuItems.map(function(item) {
-                        let link = item.link
-                        return (
-                            <Link key={item.name} to={link}>
-                                <div className="RollingMenu-item"
-                                    style={ {
-                                            left: item.left+'px',
-                                            top: item.top+'px',
-                                            transform: 'translate(-50%, -50%)'
-                                    } }>
-                                    {item.name}
-                                </div>
-                            </Link>
-                        )
-                    })}
+                    <div className="RollingMenu-menu3d">
+                        <div className="RollingMenu-circle">
+                        </div>
+                        {menuItems.map(function(item, index) {
+                            let link = item.link
+                            return (
+                                <Link key={item.name} to={link}>
+                                    <div className="RollingMenu-item"
+                                        style={ {
+                                                left: item.left+'px',
+                                                top: item.top+'px',
+                                                transform: 'translateX(-50%) rotateY(-90deg) rotateX(' + item.degree*360/(Math.PI*2) +'deg)'
+                                        } }>
+                                        {item.name}
+                                    </div>
+                                    <Star className="RollingMenu-star"
+                                        style={ {
+                                                left: item.left+'px',
+                                                top: item.top+'px',
+                                                transform: 'translateX(-100px) rotateY(-90deg) rotateX(' + item.degree*360/(Math.PI*2) +'deg)',
+                                                color: currentMenuIndex===index?'yellow':'white'
+                                        } } />
+                                </Link>
+                            )
+                        })}
+                    </div>
                 </div>
                 <span className="RollingMenu-titleText">{title}</span>
                 <span className="RollingMenu-subTitleText">{subTitle}</span>

@@ -15,10 +15,11 @@ class Article extends React.Component {
     render() {
         const self = this
         let { article } = self.props
+        article = article?article:{}
 
     	return (
     		<div className='Article-mainArea'>
-                <h1 className="Article-title">{article?article.title:''}</h1>
+                <h1 className="Article-title">{article.title}</h1>
                 <Markdown>
                     {article.content}
                 </Markdown>

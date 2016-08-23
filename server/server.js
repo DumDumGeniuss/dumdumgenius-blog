@@ -44,7 +44,7 @@ app.use('/tutorials/:id/update', function(req, res) {
             url: completeUrl,
             type: 'Tutorials',
             title: result.data.title,
-            description: result.data.content
+            description: result.data.content.substring(0,200)
         }
         handleRender(req, res, initialState, ogTagParams)
     })

@@ -81,7 +81,7 @@ app.use('/tutorials/:category/:id', function(req, res) {
             url: completeUrl,
             type: 'Tutorials',
             title: results[0].data.title,
-            description: results[0].data.content
+            description: results[0].data.content.substring(0,200)
         }
         handleRender(req, res, initialState, ogTagParams)
     })

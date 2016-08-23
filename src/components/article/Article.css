@@ -10,3 +10,9 @@
 .Article-mainArea img {
 	max-width: 100%;
 }
+
+.Article-mainArea pre {
+    background-color: #dddddd;
+    border: 1px solid black;
+    overflow-x: auto; 
+}

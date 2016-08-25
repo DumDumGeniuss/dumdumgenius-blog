@@ -23,10 +23,18 @@ class Welcome extends React.Component {
                 <div className='Welcome-universeBackgroundArea'>
                     <span className="Welcome-centerText">DumDumGenius' Blog</span>
                     <div className="Welcome-logoArea">
-                        <Facebook className="Welcome-faIcon"/>
-                        <Github className="Welcome-faIcon"/>
-                        <Twitter className="Welcome-faIcon"/>
-                        <Google className="Welcome-faIcon"/>
+                        <a href="https://www.facebook.com/dumdumgeniusblog/">
+                            <Facebook className="Welcome-faIcon"/>
+                        </a>
+                        <a href="https://github.com/DumDumGeniuss">
+                            <Github className="Welcome-faIcon"/>
+                        </a>
+                        <a href="https://www.facebook.com/dumdumgeniusblog/">
+                            <Twitter className="Welcome-faIcon"/>
+                        </a>
+                        <a href="https://www.facebook.com/dumdumgeniusblog/">
+                            <Google className="Welcome-faIcon"/>
+                        </a>
                     </div>
                     <Globe className="Welcome-Earth"/>
                     <div className="Welcome-SunAndMoon">

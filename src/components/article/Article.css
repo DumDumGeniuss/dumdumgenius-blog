@@ -12,7 +12,24 @@
 }
 
 .Article-mainArea pre {
-    background-color: #dddddd;
-    border: 1px solid black;
-    overflow-x: auto; 
+	margin: 1em 0;
+	font-size: 12px;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 5px;
+	line-height: 1.5em;
+	color: #444;
+	overflow: auto;
+	border-radius: 3px; 
+}
+
+.Article-mainArea blockquote p {
+	font-size: 1.1rem;
+	color: #999;
+}
+
+.Article-mainArea blockquote {
+	border-left: 10px solid #F0F2F4;
+	margin: 1.7rem 0;
+	padding-left: .85rem;
 }

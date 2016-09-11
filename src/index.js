@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 
 import AllRoutes from './route/AllRoutes.jsx'
 
-import firebase from './services/firebase'
 import blogStore from './store/blogStore'
 
 const initialState = window.__INITIAL_STATE__

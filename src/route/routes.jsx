@@ -14,16 +14,12 @@ import TutorialsByCateg from '../containers/tutorials/TutorialsByCateg.jsx'
 import CreateTutorial from '../containers/tutorials/createTutorial/CreateTutorial.jsx'
 import UpdateTutorial from '../containers/tutorials/updateTutorial/UpdateTutorial.jsx'
 
-/* Diaries */
-import Diaries from '../containers/diaries/diaries/Diaries'
-import CreaetDiaries from '../containers/diaries/create/Create'
-import Diary from '../containers/diaries/diary/Diary'
+
 
 import Demo from '../containers/demo/Demo'
 import Demo2 from '../containers/demo/Demo2'
 
 /* MasterPieces */
-import Youtubes from '../containers/masterpieces/youtubes/Youtubes'
 import CreateDrawing from '../containers/masterpieces/drawings/createDrawing/CreateDrawing.jsx'
 import Drawings from '../containers/masterpieces/drawings/drawings/Drawings.jsx'
 import DrawingsSlide from '../containers/masterpieces/drawings/drawingsSlide/DrawingsSlide.jsx'
@@ -31,7 +27,6 @@ import DrawingsSlide from '../containers/masterpieces/drawings/drawingsSlide/Dra
 /* Layout */
 import Layout from '../components/layout/main/Layout.jsx'
 import MasterpiecesLayout from '../components/layout/masterpieces/Layout'
-import DiariesLayout from '../components/layout/diaries/Layout'
 
 export default (
 	<Route path="/" component={Layout}>
@@ -47,16 +42,6 @@ export default (
 	        	</Route>
 	        	<Route path="slideShow" component={DrawingsSlide}>
 	        	</Route>
-	        </Route>
-	        <Route path="youtubes" component={Youtubes}>
-	        </Route>
-	    </Route>
-	    <Route path="diaries" component={DiariesLayout}>
-	        <IndexRoute component={Diaries}>
-	        </IndexRoute>
-	        <Route path="create" component={CreaetDiaries}>
-	        </Route>
-	        <Route path=":id" component={Diary}>
 	        </Route>
 	    </Route>
 	    <Route path="tutorials">

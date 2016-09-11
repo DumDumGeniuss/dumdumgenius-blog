@@ -81,7 +81,7 @@ class RollingMenu extends React.Component {
                     })
                     self.killScroll()
                 }
-            }, 15)
+            }, 2*number)
         }
     }
     killScroll() {

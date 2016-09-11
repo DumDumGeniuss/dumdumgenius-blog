@@ -17,7 +17,6 @@ import blogStore from '../src/store/blogStore'
 import createLocation from 'history/lib/createLocation'
 import rootReducer from '../src/reducers'
 import routes from '../src/route/routes.jsx'
-import firebase from '../src/services/firebase'
 
 import config from '../server/config/production'
 
@@ -135,74 +134,6 @@ app.use('/tutorials', function(req, res) {
         }
         handleRender(req, res, initialState, ogTagParams)
     })
-})
-
-app.use('/diaries/:id', function(req, res) {
-    const params = req.params,
-        completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
-
-    firebase.database().ref('diaries/' + params.id).once('value')
-        .then(function(result) {
-            const diary = result.val(),
-                initialState = {
-                    diaries: {
-                        diary: diary,
-                        diaryUrl: completeUrl
-                    }
-                },
-                ogTagParams = {
-                    url: completeUrl,
-                    type: 'diary',
-                    title: diary.title,
-                    description: diary.content.substring(0,200)
-                }
-            handleRender(req, res, initialState, ogTagParams)
-        })
-})
-
-app.use('/diaries', function(req, res) {
-    const completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
-
-    firebase.database().ref('diaries').once('value')
-        .then(function(result) {
-            const diary = result.val(),
-                initialState = {
-                    diaries: {
-                        diaries: toArray(result.val())
-                    }
-                },
-                ogTagParams = {
-                    url: completeUrl,
-                    type: 'diaries',
-                    title: "dumdumgenius' diaries board",
-                    description: "Here are various diaries about my life, like movies, journals and of course"
-                      + " my technical shares, hope you will enjoy it, thank you for your visit."
-                }
-            handleRender(req, res, initialState, ogTagParams)
-        })
-})
-
-app.use('/masterpieces', function(req, res) {
-    const query = req.query,
-        params = req.params,
-        completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
-    firebase.database().ref('paintings').once('value')
-        .then(function(result) {
-            const paintings = result.val(),
-                initialState = {
-                    paintings: {
-                        paintings: paintings
-                    }
-                },
-                ogTagParams = {
-                    url: completeUrl,
-                    type: 'paintings',
-                    title: "dumdumgenius' paintings",
-                    description: "I like paintings, althought I'm not not so well on it."
-                        + " But, you cant fall in love with something by no reason, right ?"
-                }
-            handleRender(req, res, initialState, ogTagParams)
-        })
 })
 
 app.use('*', function(req, res) {

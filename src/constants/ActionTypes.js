@@ -4,20 +4,6 @@ export const drawingsActionTypes = {
 	DELETE_DRAWING: "DELETE_DRAWING"
 }
 
-export const youtubeActionTypes = {
-	ADD_YOUTUBE: "ADD_YOUTUBE",
-	INIT_YOUTUBES: "INIT_YOUTUBES"
-}
-
-export const diaryActionTypes = {
-	GET_DIARIES_INFO: "GET_DIARIES_INFO",
-	ADD_DIARY: "ADD_DIARY",
-	GET_DIARIES_BY_CATEGORY: "GET_DIARIES_BY_CATEGORY",
-	GET_DIARY: "GET_DIARY",
-	GET_DIARIES: "GET_DIARIES",
-	SET_DIARY_URL: "SET_DIARY_URL"
-}
-
 export const articleActionTypes = {
 	QUERY_ARTICLES: 'GET_ARTICLES',
 	GET_ARTICLE: 'GET_ARTICLE',

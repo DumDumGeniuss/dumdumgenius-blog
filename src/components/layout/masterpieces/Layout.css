@@ -1,61 +1,6 @@
-.MasterLayout-maindArea {
+.MasterLayout-mainArea {
     display: block;
-    padding: 30px 0px;
     width: 100%;
     background-color: white;
-    padding-top: 70px;
 }
 
-.MasterLayout-contentArea {
-    width: 90%;
-    margin: 0px auto;
-}
-
-.MasterLayout-navbar {
-    display: block;
-    margin: 0px auto;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-
-.MasterLayout-pageArea {
-    padding: 0px 0px 10px 0px;
-    margin: 0px auto;
-    background-color: white;
-    border: 3px solid #436eff;
-}
-
-.MasterLayout-masterpieceIcon {
-    display: inline-block;
-    color: white;
-    font-size: 30px;
-    margin-left: 50%;
-    transform: translate(-50%, 0%);
-}
-
-.MasterLayout-onBackground {
-    background-color: #436eff;
-}
-
-.MasterLayout-offBackground {
-    background-color: #77aaff;
-}
-
-.MasterLayout-masterpieceIconText {
-    display: block;
-    padding: 0px 0px 0px 0px;
-    color: black;
-    font-size: 1em;
-    text-align: center;
-}
-
-.MasterLayout-masterpieceShowBox {
-    display: inline-block;
-    width: 90px;
-    padding: 5px;
-    margin: 0px 0px 0px 0px;
-    cursor: pointer;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 5px;
-}

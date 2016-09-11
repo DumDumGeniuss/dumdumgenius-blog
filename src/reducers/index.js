@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import paintings from './paintings'
+import drawings from './drawings'
 import youtubes from './youtubes'
 import diaries from './diaries'
 import articles from './articles'
 
 const rootReducer = combineReducers({
-	paintings,
+	drawings,
 	youtubes,
 	diaries,
 	articles

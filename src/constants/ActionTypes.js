@@ -1,6 +1,7 @@
-export const paintingActionTypes = {
-	ADD_PAINTING: "ADD_PAINTING",
-	INIT_PAINTINGS: "INIT_PAINTINGS"
+export const drawingsActionTypes = {
+	ADD_DRAWING: "ADD_DRAWING",
+	QUERY_DRAWINGS: "QUERY_DRAWINGS",
+	DELETE_DRAWING: "DELETE_DRAWING"
 }
 
 export const youtubeActionTypes = {

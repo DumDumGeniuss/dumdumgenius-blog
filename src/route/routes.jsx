@@ -19,13 +19,14 @@ import Diaries from '../containers/diaries/diaries/Diaries'
 import CreaetDiaries from '../containers/diaries/create/Create'
 import Diary from '../containers/diaries/diary/Diary'
 
-import Facebook from '../containers/facebook/Facebook'
 import Demo from '../containers/demo/Demo'
 import Demo2 from '../containers/demo/Demo2'
 
 /* MasterPieces */
-import Paintings from '../containers/masterpieces/paintings/Paintings'
 import Youtubes from '../containers/masterpieces/youtubes/Youtubes'
+import CreateDrawing from '../containers/masterpieces/drawings/createDrawing/CreateDrawing.jsx'
+import Drawings from '../containers/masterpieces/drawings/drawings/Drawings.jsx'
+import DrawingsSlide from '../containers/masterpieces/drawings/drawingsSlide/DrawingsSlide.jsx'
 
 /* Layout */
 import Layout from '../components/layout/main/Layout.jsx'
@@ -39,8 +40,14 @@ export default (
 	    <Route path="profile" component={Profile}>
 	    </Route>
 	    <Route path="masterpieces" component={MasterpiecesLayout}>
-	        <IndexRoute component={Paintings}>
-	        </IndexRoute>
+	        <Route path="drawings">
+	        	<IndexRoute component={Drawings}>
+	        	</IndexRoute>
+	        	<Route path="create" component={CreateDrawing}>
+	        	</Route>
+	        	<Route path="slideShow" component={DrawingsSlide}>
+	        	</Route>
+	        </Route>
 	        <Route path="youtubes" component={Youtubes}>
 	        </Route>
 	    </Route>
@@ -67,8 +74,6 @@ export default (
 		<Route path="demo" component={Demo}>
 		</Route>
 		<Route path="demo2" component={Demo}>
-		</Route>
-		<Route path="facebook" component={Facebook}>
 		</Route>
 	</Route>
 )

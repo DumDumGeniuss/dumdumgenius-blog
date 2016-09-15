@@ -21,6 +21,9 @@ class Layout extends React.Component {
     render() {
     	return (
     	    <div className="MasterLayout-mainArea">
+                <div className="MasterLayout-subMenuItem">
+                    <PaintBrush />
+                </div>
                 {this.props.children}
     	    </div>
     	)

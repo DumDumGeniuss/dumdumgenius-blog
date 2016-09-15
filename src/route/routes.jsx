@@ -26,7 +26,7 @@ import DrawingsSlide from '../containers/masterpieces/drawings/drawingsSlide/Dra
 
 /* Layout */
 import Layout from '../components/layout/main/Layout.jsx'
-import MasterpiecesLayout from '../components/layout/masterpieces/Layout'
+import MasterpiecesLayout from '../components/layout/masterpieces/Layout.jsx'
 
 export default (
 	<Route path="/" component={Layout}>

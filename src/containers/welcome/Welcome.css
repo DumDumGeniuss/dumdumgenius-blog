@@ -137,6 +137,11 @@
     cursor: pointer
 }
 
+.Welcome-faIcon:hover {
+    color: yellow;
+    border-color: yellow;
+}
+
 .Welcome-night {
     position: absolute;
     left: 0px;

@@ -5,6 +5,7 @@
 	overflow: hidden;
 	width: 225px;
 	height: 180px;
+	margin-bottom: -3px;
 }
 
 .SimplePhotoBox-deleteIcon {

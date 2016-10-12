@@ -10,7 +10,7 @@
     "build:client": "NODE_ENV=production webpack",
     "build:server": "webpack --config webpack.server.config.js",
     "eslint-server": "eslint server",
-    "eslint-client": "eslint src"
+    "eslint-client": "eslint client"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",

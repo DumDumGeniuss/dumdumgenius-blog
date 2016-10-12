@@ -103,7 +103,6 @@ class RollingMenu extends React.Component {
 
         let menuItems = self.calcItemsLocation(menus, menuDegree, menuRadius)
         let subTitle = menuItems[currentMenuIndex]?menuItems[currentMenuIndex].name:''
-        console.log(currentMenuIndex)
         return (
         	<div className="RollingMenu-mainArea">
                 <div className="RollingMenu-menu" 

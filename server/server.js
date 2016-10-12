@@ -13,10 +13,10 @@ import Promise from 'promise'
 import rp from 'request-promise'
 import url from 'url'
 
-import blogStore from '../src/store/blogStore'
+import blogStore from '../common/store/blogStore'
 import createLocation from 'history/lib/createLocation'
-import rootReducer from '../src/reducers'
-import routes from '../src/route/routes.jsx'
+import rootReducer from '../common/reducers'
+import routes from '../common/route/routes.jsx'
 
 import config from '../server/config/production'
 
@@ -118,7 +118,8 @@ app.use('/tutorials', function(req, res) {
     const completeUrl = req.protocol + '://' + req.get('host') + req.originalUrl
 
     rp.get({
-        uri: config.apiUrl + '/articles/info/categories'
+        uri: config.apiUrl + '/articles/info/categories',
+        json: true
     })
     .then(function(result) {
         let initialState = {
@@ -181,7 +182,6 @@ function handleRender(req, res, initialState, ogTagParams) {
 
 	
   		const initialState = store.getState()
-
 	
   		res.send(renderFullPage(html, initialState, ogTagParams))
 	})

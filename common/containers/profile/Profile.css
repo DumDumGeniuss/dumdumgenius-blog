@@ -64,6 +64,12 @@
 /*	animation: starWarScroll 40s linear;*/
 }
 
+.Profile-contentPicture {
+	width: 40%;
+	margin-left: 50%;
+	transform: translate(-50%);
+}
+
 .Profile-h1 {
 	color: #ba9e17;
 	text-align: center;

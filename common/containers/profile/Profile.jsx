@@ -88,35 +88,38 @@ class Profile extends React.Component {
                 </div>
                 <div id="star-war-view" style={ {transform: 'rotateX(' + self.state.starWarViewRotate + 'deg)'} } className="Profile-starWarView">
                     <div id="star-war-scroll" className="Profile-starWarScroll" style={{marginTop: self.state.starWarScrollMarginTop + 'px'}}>
-                        <h1 className="Profile-h1">Hello</h1>
+                        <h1 className="Profile-h1"><u>Hello</u></h1>
                         <span className="Profile-span">Welcome to my blog,</span>
                         <span className="Profile-span">Glad to see you, Without any further</span>
                         <span className="Profile-span">Let's introduce myself.</span>
 
-                        <h1 className="Profile-h1">Profile</h1>
+                        <h1 className="Profile-h1"><u>Profile</u></h1>
                         <span className="Profile-span">DumDumGenius</span>
                         <span className="Profile-span">A.K.A</span>
                         <span className="Profile-span">Messi Yang</span>
                         <span className="Profile-span">Born in Taiwan, 1991</span>
                         <span className="Profile-span">Full-Stack web develop</span> 
 
-                        <h1 className="Profile-h1">Education</h1>
+                        <h1 className="Profile-h1"><u>Motto</u></h1>
+                        <img className="Profile-contentPicture" src="assets/images/motto.jpg"/>
+
+                        <h1 className="Profile-h1"><u>Education</u></h1>
                         <span className="Profile-span">Taichung First Senior High School</span>
                         <span className="Profile-span">National Chiao Tung University</span>
 
-                        <h1 className="Profile-h1">Language</h1>
+                        <h1 className="Profile-h1"><u>Language</u></h1>
                         <span className="Profile-span">1. Chiese</span>
                         <span className="Profile-span">2. Japanese</span>
                         <span className="Profile-span">3. English</span>
 
-                        <h3 className="Profile-h3">Frontend Web Technique</h3>
+                        <h3 className="Profile-h3"><u>Frontend Web Technique</u></h3>
                         <span className="Profile-span">1. ReactJS plus Redux</span>
                         <span className="Profile-span">2. AngularJS</span>
                         <span className="Profile-span">3. Automation with Gulp, Webpack</span>
                         <span className="Profile-span">4. Design Awesome view with CSS3</span>
                         <span className="Profile-span">5. 3rd-party Library, like FB, Google </span>
 
-                        <h3 className="Profile-h3">Backend Web Technique</h3>
+                        <h3 className="Profile-h3"><u>Backend Web Technique</u></h3>
                         <span className="Profile-span">1. Java & SpringMVC</span>
                         <span className="Profile-span">2. Ruby on Rails</span>
                         <span className="Profile-span">3. Node & Express</span>
@@ -127,7 +130,7 @@ class Profile extends React.Component {
                         <span className="Profile-span">8. Postgresql, MySql Database Design</span>
                         <span className="Profile-span">9. Build Amazone EC2 & Nginx Server</span>
 
-                        <h3 className="Profile-h3">Contact Me</h3>
+                        <h3 className="Profile-h3"><u>Contact Me</u></h3>
                         <span className="Profile-span">dumdumgenius@gmail.com</span>
                         <span className="Profile-span">https://www.facebook.com/dumdumgenius</span>
                         <span className="Profile-span">https://github.com/DumDumGeniuss</span>

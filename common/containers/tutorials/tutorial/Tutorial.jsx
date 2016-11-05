@@ -27,10 +27,9 @@ class Tutorial extends React.Component {
     componentWillReceiveProps(nextProps) {
         const self = this
         const { location, params, actions } = self.props
-        if(params.category !== nextProps.params.category) {
+        if(params.id !== nextProps.params.id) {
             self.props.history.push('/tutorials/' + params.category + '/' + nextProps.params.id);
-            // console.log(params)
-            // actions.getArticle(nextProps.params.id)
+            actions.getArticle(nextProps.params.id)
         }
     }
 	componentDidMount() {

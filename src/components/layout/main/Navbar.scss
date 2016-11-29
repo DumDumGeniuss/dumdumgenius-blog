@@ -1,0 +1,66 @@
+.navbar {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: black;
+    width: 100%;
+    z-index: 3;
+}
+
+.navbarFixed {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    overflow: auto;
+    text-align: center;
+    line-height: 50px;
+    /*background-color: rgba(50, 50, 50, 0.22);*/
+    background-color: black;
+    width: 100%;
+    z-index: 3;
+}
+
+.navbarItem {
+    color: white;
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    font-size: 1.2em;
+    width: 200px;
+    cursor: pointer;
+}
+
+.navbarItem:hover {
+    color: #F1FF5A;
+    border-bottom: 3px solid yellow;
+}
+
+.navbarItemCollapse {
+    color: white;
+    display: none;
+    width: 80px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.navbarItemCollapse:hover {
+    color: #F1FF5A;
+    border-bottom: 3px solid yellow;
+}
+
+@media screen and (max-width: 800px) {
+
+.navbarItem {
+    display: none;
+}
+
+.navbarItemCollapse {
+    display: inline-block;
+}
+
+}

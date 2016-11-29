@@ -1,0 +1,124 @@
+.mainArea {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	z-index: 4;
+}
+
+.blackCanvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 1;
+}
+
+.photosArea {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/*background-color: rgba(0, 0, 0, 0.7);*/
+	z-index: 2;
+	overflow: hidden;
+}
+
+.photo {
+	position: absolute;
+	display: inline-block;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.buttonArea {
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	transform: translate(0%, -50%);
+	width: 130px;
+	height: 260px;
+	z-index: 3;
+}
+
+.buttonArea:hover {
+	background-color: #DEDEDE;
+	opacity: 0.5;
+}
+
+.leftButtonArea {
+	left: 0px;
+	border-top-right-radius: 130px;
+	border-bottom-right-radius: 130px;
+}
+
+.rightButtonArea {
+	right: 0px;
+	border-top-left-radius: 130px;
+	border-bottom-left-radius: 130px;
+}
+
+.angle {
+	position: absolute;
+	color: #BCBCBC;
+	top: 50%;
+	font-size: 60px;
+	transform: translate(0%, -50%);
+	z-index: 3;
+}
+
+.angle:hover {
+}
+
+.angleLeft {
+	left: 10px;
+}
+
+.angleRight {
+	right: 10px;
+}
+
+@media screen and (max-width: 900px) {
+.buttonArea {
+	width: 70px;
+	height: 140px;
+}
+
+.leftButtonArea {
+	border-top-right-radius: 70px;
+	border-bottom-right-radius: 70px;
+}
+
+.rightButtonArea {
+	border-top-left-radius: 70px;
+	border-bottom-left-radius: 70px;
+}
+}
+
+/* Portrait height is larger than the width*/
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+    .photosArea {
+    	width: 100vw;
+    	height: 100vw;
+    }
+    .photo {
+    	width: 100%;
+    	height: none;
+    }
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+    .photosArea {
+    	width: 100vh;
+    	height: 100vh;
+    }
+    .photo {
+    	width: 100%;
+    	height: none;
+    }
+}

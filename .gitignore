@@ -2,9 +2,8 @@
 node_modules
 npm-debug.log
 dist
-main.min.js
-server.main.js
 .env
-server/config/production.js
-common/constants/config.js
-public/styles.css
+src/config/production.js
+src/constants/config.js
+public/dist
+webpack-assets.json

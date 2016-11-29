@@ -1,0 +1,38 @@
+.mainArea {
+	display: inline-block;
+	position: relative;
+	/*border: 1px solid black;*/
+	overflow: hidden;
+	width: 225px;
+	height: 180px;
+	margin-bottom: -3px;
+}
+
+.deleteIcon {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	cursor: pointer;
+	z-index: 2;
+	color: red;
+}
+
+.photo {
+	position: absolute;
+	width: 125%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.photoLink {
+	cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+.mainArea {
+	width: 50vw;
+	height: 40vw;
+}
+}

@@ -1,0 +1,34 @@
+.mainArea {
+    min-height: 100vh;
+    background-color: #DEDEDE;
+}
+
+.displayPhotos {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.photosArea {
+    width: 900px;
+    display: inline-block;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: white;
+    min-height: 100%;
+}
+
+.addPhoto {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: 2;
+}
+
+@media screen and (max-width: 900px) {
+.photosArea {
+    width: 100vw;
+}
+}

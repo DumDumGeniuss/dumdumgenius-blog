@@ -1,0 +1,45 @@
+.mainArea {
+	position: relative;
+	background-color: #e9ebee;
+}
+
+.nav {
+	position: absolute;
+	display: inline-block;
+	width: 20%;
+}
+
+.article {
+	display: inline-block;
+	width: 60%;
+	min-height: 100vh;
+	margin-left: 20%;
+	background-color: white;
+}
+
+.ad {
+	position: absolute;
+	display: inline-block;
+	width: 20%;
+	left: 80%;
+}
+
+@media screen and (max-width: 800px) {
+.nav {
+	position: initial;
+	display: inline-block;
+	width: 100%;
+}
+
+.article {
+	display: inline-block;
+	width: 100%;
+	margin-left: 0%;
+}
+
+.ad {
+	position: initial;
+	display: inline-block;
+	width: 100%;
+}
+}
